@@ -17,10 +17,10 @@ I should rotate GPG keys on a biannual basis.
      git ls-files | grep .gpg$ | xargs -I '{}' gpg --output '{}'.txt --decrypt  '{}'
      cd $HOME
    #+end_src
-4. Delete existing GNUPGHOME:
+4. Move existing GNUPGHOME:
    #+begin_src
      gpghome=$(readlink $HOME/.gnupg)
-     rm -rf $gpghome
+     mv $gpghome $HOME/oldgpghome
      mkdir -p $gpghome
      chmod 700 $gpghome
    #+end_src
@@ -75,42 +75,49 @@ I should rotate GPG keys on a biannual basis.
     #+begin_src sh
       tar --auto-compress --create --file gpg.tar.xz $(readlink $HOME/.gnupg)
     #+end_src
-12. Back up both tarballs:
+12. Restore old gpg home:
+    #+begin_src sh
+      mv $HOME/.gnupg $HOME/newgpghome
+      mv $HOME/oldgpghome $HOME/.gnupg
+    #+end_src
+13. Back up both tarballs:
     #+begin_src sh
       scp gpg.tar.xz gpg-with-master-key.tar.xz tl.yc:~/
     #+end_src
-13. Update gpg key id file of the password store:
+14. Update gpg key id file of the password store:
      #+begin_src
        echo "742FB9A3903E8AE7D88CF89EE4B9611E05059668" > $HOME/.password-store/.gpg-id
      #+end_src
-14. Encrypt passwords with new key and delete plain text files:
+15. Encrypt passwords with new key and delete plain text files:
     #+begin_src sh
       cd $HOME/.password-store
       git ls-files | grep .gpg$ | xargs -I '{}' gpg --default-recipient-self --compress-algo=none --yes --no-encrypt-to --output '{}' --encrypt '{}'.txt
       git ls-files | grep .gpg$ | xargs -I '{}' rm '{}'.txt
       cd $HOME
     #+end_src
-15. Commit changes and push:
+16. Commit changes and push:
     #+begin_src sh
       pass git commit -asm'rotate gpg key'
+      pass git push
     #+end_src
-16. Show new SSH public key:
+17. Show new SSH public key:
     #+begin_src sh
       [yc@qinghe:~]$ gpg --export-ssh-key yuchen@apvc.uk
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8
     #+end_src
-17. Replace place holder in config with new key:
+18. Replace place holder in config with new key:
    #+begin_src sh
      cd $HOME/nixos-config
      git ls-files | xargs sed -i 's|gpg_rotate_holder|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8|g'
    #+end_src
-18. Commit changes and push:
+19. Commit changes and push:
     #+begin_src sh
       git commit -asm'rotate ssh key'
+      git push
     #+end_src
-19. Update key on Github and other web services.
-20. Upload key to [[https://keys.openpgp.org/][key server]].
-21. To restore GNUPGHOME, use:
+20. Update key on Github and other web services.
+21. Upload key to [[https://keys.openpgp.org/][key server]].
+22. To restore GNUPGHOME, use:
     #+begin_src sh
       tar --auto-compress --extract --file gpg.tar.xz --directory /oldroot/$HOME/
     #+end_src
