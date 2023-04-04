@@ -117,7 +117,13 @@ I should rotate GPG keys on a biannual basis.
     #+end_src
 20. Update key on Github and other web services.
 21. Upload key to [[https://keys.openpgp.org/][key server]].
-22. To restore GNUPGHOME, use:
+22. Deploy key on server with =Ns=.
+23. Restore new home:
+    #+begin_src sh
+      rm -rf $HOME/.gnupg
+      mv $HOME/newgpghome $HOME/.gnupg
+    #+end_src
+24. To restore GNUPGHOME, use:
     #+begin_src sh
       tar --auto-compress --extract --file gpg.tar.xz --directory /oldroot/$HOME/
     #+end_src
