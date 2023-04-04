@@ -94,3 +94,7 @@ I should rotate GPG keys on a biannual basis.
       pass git commit -asm'rotate ssh key'
     #+end_src
 19. Update key on Github and other web services.
+20. To restore GNUPGHOME, use:
+    #+begin_src sh
+      tar --auto-compress --extract --file gpg.tar.xz --directory /oldroot/$HOME/
+    #+end_src
