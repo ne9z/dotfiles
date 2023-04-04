@@ -1,0 +1,39 @@
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.zfs-root.per-user.yc.modules.emacs;
+  inherit (lib) mkDefault mkOption types mkIf;
+  # buildEmacs is a function that takes a set of emacs packages as input
+  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages;
+in {
+  options.zfs-root.per-user.yc.modules.emacs = {
+    enable = mkOption {
+      type = types.bool;
+      default = config.zfs-root.per-user.yc.enable;
+    };
+    extraPackages = mkOption {
+      description = "normal software packages that emacs depends to run";
+      type = types.listOf types.package;
+      default = builtins.attrValues {
+        inherit (pkgs)
+        # spell checkers
+          enchant nuspell
+          # used with dired mode to open files
+          xdg-utils;
+        inherit (pkgs.hunspellDicts) en_US de_DE;
+      };
+    };
+  };
+  config = mkIf (cfg.enable) {
+    services.emacs = {
+      enable = mkDefault false;
+      package = buildEmacs (epkgs:
+        builtins.attrValues {
+          inherit (epkgs.melpaPackages) nix-mode cdlatex notmuch;
+          inherit (epkgs.elpaPackages) use-package auctex pyim pyim-basedict;
+        });
+      defaultEditor = true;
+      install = true;
+    };
+    environment.systemPackages = cfg.extraPackages;
+  };
+}
