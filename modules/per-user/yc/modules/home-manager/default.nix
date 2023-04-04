@@ -555,7 +555,7 @@ in {
         enable = true;
         package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
         settings = {
-          PASSWORD_STORE_GENERATED_LENGTH = "16";
+          PASSWORD_STORE_GENERATED_LENGTH = "32";
           PASSWORD_STORE_CHARACTER_SET = "[:alnum:].,";
           PASSWORD_STORE_DIR = "$HOME/.password-store";
         };
