@@ -8,7 +8,7 @@ I should rotate GPG keys on a biannual basis.
 2. Replace all occurences of this key with a place holder:
    #+begin_src sh
      cd $HOME/nixos-config
-     git ls-files | xargs sed -i 's|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ.*"|gpg_rotate_holder"|g'
+     git ls-files | xargs sed -i 's|gpg_rotate_holder"|g'
    #+end_src
 3. In password store =$HOME/.password-store=, decrypt all passwords to
    plain text 
@@ -19,13 +19,27 @@ I should rotate GPG keys on a biannual basis.
    #+end_src
 4. Delete existing GNUPGHOME:
    #+begin_src
-     rm -rf $(readlink $HOME/.gnupg)
+     gpghome=$(readlink $HOME/.gnupg)
+     rm -rf $gpghome
+     mkdir -p $gpghome
+     chmod 700 $gpghome
    #+end_src
-5. Generate a new GPG key with =gpg --gen-key=.  Defaults are good
-   enough.  Choose a strong password.
+5. Generate a new GPG key with =gpg --yes --quick-gen-key yuchen@apvc.uk=.
+   Defaults are good enough.  Choose a strong password.  Note the key
+   id:
+   #+begin_src sh
+     pub   ed25519 2023-04-04 [SC] [expires: 2025-04-03]
+      515D2E0F4954C74592BF79A2CD37847C256DDAF3  <- KEYID
+     uid                      yuchen@apvc.uk
+     sub   cv25519 2023-04-04 [E]
+   #+end_src
+   Store that keyid in a variable:
+   #+begin_src sh
+     KEYID=515D2E0F4954C74592BF79A2CD37847C256DDAF3
+   #+end_src
 6. Add two subkeys.  One for SSH (Authenticate), another one for
-   signing (Sign).  Run =gpg --expert --edit-key yuchen@apvc.uk=, then
-   enter =addkey= at the prompt.  Follow on screen instructions.
+   signing (Sign).  Run =gpg --quick-add-key $KEYID - auth= and
+   =gpg --quick-add-key $KEYID - sign=.
 7. Identify master key and SSH key. List all secret keys with
    =with-keygrip= option:
    #+begin_src sh
@@ -46,11 +60,11 @@ I should rotate GPG keys on a biannual basis.
 8. Add SSH key keygrip to =$HOME/.gnupg/sshcontrol=
    #+begin_src
      # keygrip of SSH subkey
-     E5FDC0E7EF673F37F06626426D2E4F941DB8EB29
+     echo "E5FDC0E7EF673F37F06626426D2E4F941DB8EB29" >> $HOME/.gnupg/sshcontrol
    #+end_src
 9. Make a tarball of GNUPGHOME:
    #+begin_src sh
-   tar --auto-compress --create --file gpg-with-master-key.tar.xz $HOME/.gnupg
+   tar --auto-compress --create --file gpg-with-master-key.tar.xz $(readlink $HOME/.gnupg)
    #+end_src
 10. Delete the private key file and revocation certificates:
     #+begin_src sh
@@ -59,7 +73,7 @@ I should rotate GPG keys on a biannual basis.
     #+end_src
 11. Create another tarball for backup:
     #+begin_src sh
-      tar --auto-compress --create --file gpg.tar.xz $HOME/.gnupg
+      tar --auto-compress --create --file gpg.tar.xz $(readlink $HOME/.gnupg)
     #+end_src
 12. Back up both tarballs:
     #+begin_src sh
@@ -74,6 +88,7 @@ I should rotate GPG keys on a biannual basis.
       cd $HOME/.password-store
       git ls-files | grep .gpg$ | xargs -I '{}' gpg --default-recipient-self --compress-algo=none --yes --no-encrypt-to --output '{}' --encrypt '{}'.txt
       git ls-files | grep .gpg$ | xargs -I '{}' rm '{}'.txt
+      cd $HOME
     #+end_src
 15. Commit changes and push:
     #+begin_src sh
@@ -91,7 +106,7 @@ I should rotate GPG keys on a biannual basis.
    #+end_src
 18. Commit changes and push:
     #+begin_src sh
-      pass git commit -asm'rotate ssh key'
+      git commit -asm'rotate ssh key'
     #+end_src
 19. Update key on Github and other web services.
 20. Upload key to [[https://keys.openpgp.org/][key server]].
