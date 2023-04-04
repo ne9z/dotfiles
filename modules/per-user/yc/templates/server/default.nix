@@ -184,7 +184,7 @@ in {
       users = {
         root = {
           initialHashedPassword =
-            "$6$UwiWDVTi2tq7DEVi$yTbo5I3wt1aZwPVjAWTfTOY5oKed7wxxXrnPuYwrOBJA8gCXQopJJ2cFy06k5ynvF.DUXc1u0In8hsjoMmc640";
+            "$y$j9T$odRyg2xqJbySHei1UBsw3.$AxuY704CGICLQqKPm3wiV/b7LVOVSMKnV4iqK1KvAk2";
           authorizedKeys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8"
           ];
