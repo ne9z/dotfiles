@@ -1,0 +1,95 @@
+I should rotate GPG keys on a biannual basis.
+
+1. Check current SSH key:
+   #+begin_src sh
+   [yc@qinghe:~]$ gpg --export-ssh-key yuchen@apvc.uk
+   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8
+   #+end_src
+2. Replace all occurences of this key with a place holder:
+   #+begin_src sh
+     cd $HOME/nixos-config
+     git ls-files | xargs sed -i 's|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ.*"|gpg_rotate_holder"|g'
+   #+end_src
+3. In password store =$HOME/.password-store=, decrypt all passwords to
+   plain text 
+   #+begin_src sh
+     cd $HOME/.password-store
+     git ls-files | grep .gpg$ | xargs -I '{}' gpg --output '{}'.txt --decrypt  '{}'
+     cd $HOME
+   #+end_src
+4. Delete existing GNUPGHOME:
+   #+begin_src
+     rm -rf $(readlink $HOME/.gnupg)
+   #+end_src
+5. Generate a new GPG key with =gpg --gen-key=.  Defaults are good
+   enough.  Choose a strong password.
+6. Add two subkeys.  One for SSH (Authenticate), another one for
+   signing (Sign).  Run =gpg --expert --edit-key yuchen@apvc.uk=, then
+   enter =addkey= at the prompt.  Follow on screen instructions.
+7. Identify master key and SSH key. List all secret keys with
+   =with-keygrip= option:
+   #+begin_src sh
+    [yc@qinghe:~]$ gpg --list-secret-keys --with-keygrip 
+    /home/yc/.gnupg/pubring.kbx
+    ---------------------------
+    sec   ed25519 2023-04-04 [SC] [expires: 2025-04-03]
+          742FB9A3903E8AE7D88CF89EE4B9611E05059668            <-- keyid used for password store
+          Keygrip = C26CFDE329D09917F0BE251D03B278A1CBED6380  <-- master key
+    uid           [ultimate] Yuchen Guo <yuchen@apvc.uk>
+    ssb   cv25519 2023-04-04 [E] [expires: 2025-04-03]
+          Keygrip = 5138474888B87FEDA227BFE8D91F8E3BEFFCA272
+    ssb   ed25519 2023-04-04 [A] [expires: 2024-04-03]        <-- [A] stands for Authenticate
+          Keygrip = E5FDC0E7EF673F37F06626426D2E4F941DB8EB29  <-- SSH key
+    ssb   ed25519 2023-04-04 [S] [expires: 2025-04-03]
+          Keygrip = 845CA9CF952E49333D2D9B0DF64E852EF9C5C6D5
+   #+end_src
+8. Add SSH key keygrip to =$HOME/.gnupg/sshcontrol=
+   #+begin_src
+     # keygrip of SSH subkey
+     E5FDC0E7EF673F37F06626426D2E4F941DB8EB29
+   #+end_src
+9. Make a tarball of GNUPGHOME:
+   #+begin_src sh
+   tar --auto-compress --create --file gpg-with-master-key.tar.xz $HOME/.gnupg
+   #+end_src
+10. Delete the private key file and revocation certificates:
+    #+begin_src sh
+      rm -rf $HOME/.gnupg/private-keys-v1.d/C26CFDE329D09917F0BE251D03B278A1CBED6380.key
+      rm -rf $HOME/.gnupg/openpgp-revocs.d
+    #+end_src
+11. Create another tarball for backup:
+    #+begin_src sh
+      tar --auto-compress --create --file gpg.tar.xz $HOME/.gnupg
+    #+end_src
+12. Back up both tarballs:
+    #+begin_src sh
+      scp gpg.tar.xz gpg-with-master-key.tar.xz tl.yc:~/
+    #+end_src
+13. Update gpg key id file of the password store:
+     #+begin_src
+       echo "742FB9A3903E8AE7D88CF89EE4B9611E05059668" > $HOME/.password-store/.gpg-id
+     #+end_src
+14. Encrypt passwords with new key and delete plain text files:
+    #+begin_src sh
+      cd $HOME/.password-store
+      git ls-files | grep .gpg$ | xargs -I '{}' gpg --default-recipient-self --compress-algo=none --yes --no-encrypt-to --output '{}' --encrypt '{}'.txt
+      git ls-files | grep .gpg$ | xargs -I '{}' rm '{}'.txt
+    #+end_src
+15. Commit changes and push:
+    #+begin_src sh
+      pass git commit -asm'rotate gpg key'
+    #+end_src
+16. Show new SSH public key:
+    #+begin_src sh
+      [yc@qinghe:~]$ gpg --export-ssh-key yuchen@apvc.uk
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8
+    #+end_src
+17. Replace place holder in config with new key:
+   #+begin_src sh
+     cd $HOME/nixos-config
+     git ls-files | xargs sed -i 's|gpg_rotate_holder|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8|g'
+   #+end_src
+18. Commit changes and push:
+    #+begin_src sh
+      pass git commit -asm'rotate ssh key'
+    #+end_src
