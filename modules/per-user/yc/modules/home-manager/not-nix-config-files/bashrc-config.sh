@@ -190,7 +190,7 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     set +e
 fi
 
-bootstrap="
+mbootstrapdir="
 /oldroot${HOME}
 /oldroot${HOME}/Downloads:${HOME}/Downloads
 /oldroot${HOME}/Documents:${HOME}/Documents
@@ -207,6 +207,7 @@ mauthorizedKey () {
 mbootstrap () {
     local choice
     echo "you need to run this in a SUBSHELL. type YES if you know"
+    echo "gpg.tar.xz must be already in /home/yc"
     read choice
     if [ "$choice" != "YES" ]; then
 	return 1
@@ -214,7 +215,7 @@ mbootstrap () {
 
     set -ex
     local source=""
-    for mount in $bootstrap; do
+    for mount in $mbootstrapdir; do
 	source="${mount%:*} ${source}"
     done
     doas /usr/bin/env source="${source}" user=$(whoami) bash <<-'EOF'
@@ -227,22 +228,13 @@ for i in $source; do
 set -ex
 done
 EOF
-    if test -f $HOME/.ssh/yc && ! test -f /oldroot/$HOME/.ssh/yc; then
-	cp $HOME/.ssh/yc /oldroot/$HOME/.ssh/yc
-	chmod u=rw,go= /oldroot/$HOME/.ssh/yc
-	chmod u=rw,go= $HOME/.ssh/yc
-    elif ! test -f $HOME/.ssh/yc && ! test -f /oldroot/$HOME/.ssh/yc; then
-	echo "ERROR: private ssh key yc not found!!!"
-	return 1
-    fi
+    echo "restore gnupg"
+    tar -axC /oldroot${HOME} -f ${HOME}/gpg.tar.xz
+    ln -s /oldroot${HOME}/.gnupg ${HOME}/.gnupg
     echo "clone password repo"
     git clone tl.yc:~/githost/pass /oldroot${HOME}/.password-store
     echo "clone sysconf repo"
     git clone tl.yc:~/githost/systemConfiguration /oldroot${HOME}/nixos-config
-    echo "restore gnupg"
-    scp tl.yc:~/gpg.tar.xz  /oldroot${HOME}
-    tar -axC /oldroot${HOME} -f /oldroot/${HOME}/gpg.tar.xz
-    rm $HOME/.ssh/yc
     for mount in $msymlinks; do
 	mcreate_symblink $mount
     done
