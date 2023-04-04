@@ -34,6 +34,7 @@ in {
             # connect to /dev/ttyUSB0
             "dialout"
           ];
+          authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8" ];
           packages = builtins.attrValues {
             inherit (pkgs)
               ffmpeg mg nixfmt qrencode minicom zathura jmtpfs

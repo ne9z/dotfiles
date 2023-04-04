@@ -199,11 +199,6 @@ mbootstrapdir="
 /oldroot${HOME}/.ssh/
 "
 
-mauthorizedKey () {
-    mkdir -p $HOME/.ssh
-    echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8" >> $HOME/.ssh/authorized_keys
-}
-
 mbootstrap () {
     local choice
     echo "you need to run this in a SUBSHELL. type YES if you know"
