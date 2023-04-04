@@ -108,19 +108,20 @@ I should rotate GPG keys on a biannual basis.
       cd $HOME
     #+end_src
 18. Deploy key on server with =Ns=.
-19. Restore new home:
+19. Deploy key on other managed laptops.
+20. Restore new home:
     #+begin_src sh
-      rm -rf $HOME/.gnupg
+      mv $HOME/.gnupg $HOME/oldgpghome
       mv $HOME/newgpghome $HOME/.gnupg
     #+end_src
-20. Export new public and ssh key:
+21. Export new public and ssh key:
     #+begin_src sh
       gpg --export --armor --output pubkey.asc
       gpg --export-ssh-key yuchen@apvc.uk
     #+end_src
-21. Upload key to [[https://keys.openpgp.org/][key server]].
-22. Update pubkey and ssh key on Github and other web services.
-23. Appendix: To restore GNUPGHOME, use:
+22. Upload key to [[https://keys.openpgp.org/][key server]].
+23. Update pubkey and ssh key on Github and other web services.
+24. Appendix: To restore GNUPGHOME, use:
     #+begin_src sh
       tar --auto-compress --extract --file gpg.tar.xz --directory /oldroot/$HOME/
     #+end_src
