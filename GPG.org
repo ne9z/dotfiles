@@ -93,3 +93,4 @@ I should rotate GPG keys on a biannual basis.
     #+begin_src sh
       pass git commit -asm'rotate ssh key'
     #+end_src
+19. Update key on Github and other web services.
