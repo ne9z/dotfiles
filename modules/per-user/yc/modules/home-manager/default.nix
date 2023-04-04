@@ -435,7 +435,6 @@ in {
           "github.com" = {
             # github.com:ne9z
             user = "git";
-            identityFile = dotSshPath + "yc";
           };
           "gitlab.com" = {
             # gitlab.com:john8931
