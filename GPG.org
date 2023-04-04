@@ -1,30 +1,25 @@
 I should rotate GPG keys on a biannual basis.
 
-1. Check current SSH key:
-   #+begin_src sh
-   [yc@qinghe:~]$ gpg --export-ssh-key yuchen@apvc.uk
-   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8
-   #+end_src
-2. Replace all occurences of this key with a place holder:
+1. Replace all occurences of this key with a place holder:
    #+begin_src sh
      cd $HOME/nixos-config
-     git ls-files | xargs sed -i 's|gpg_rotate_holder"|g'
+     git ls-files | xargs sed -i "s|$(gpg --export-ssh-key yuchen@apvc.uk)|gpg_rotate_holder|g"
    #+end_src
-3. In password store =$HOME/.password-store=, decrypt all passwords to
+2. In password store =$HOME/.password-store=, decrypt all passwords to
    plain text 
    #+begin_src sh
      cd $HOME/.password-store
      git ls-files | grep .gpg$ | xargs -I '{}' gpg --output '{}'.txt --decrypt  '{}'
      cd $HOME
    #+end_src
-4. Move existing GNUPGHOME:
+3. Move existing GNUPGHOME:
    #+begin_src
      gpghome=$(readlink $HOME/.gnupg)
      mv $gpghome $HOME/oldgpghome
      mkdir -p $gpghome
      chmod 700 $gpghome
    #+end_src
-5. Generate a new GPG key with =gpg --yes --quick-gen-key yuchen@apvc.uk=.
+4. Generate a new GPG key with =gpg --yes --quick-gen-key yuchen@apvc.uk=.
    Defaults are good enough.  Choose a strong password.  Note the key
    id:
    #+begin_src sh
@@ -37,13 +32,13 @@ I should rotate GPG keys on a biannual basis.
    #+begin_src sh
      KEYID=515D2E0F4954C74592BF79A2CD37847C256DDAF3
    #+end_src
-6. Add two subkeys.  One for SSH (Authenticate), another one for
+5. Add two subkeys.  One for SSH (Authenticate), another one for
    signing (Sign).  Run =gpg --quick-add-key $KEYID - auth= and
    =gpg --quick-add-key $KEYID - sign=.
-7. Identify master key and SSH key. List all secret keys with
+6. Identify master key and SSH key. List all secret keys with
    =with-keygrip= option:
    #+begin_src sh
-    [yc@qinghe:~]$ gpg --list-secret-keys --with-keygrip 
+    [yc@qinghe:~]$ gpg --list-secret-keys --with-keygrip
     /home/yc/.gnupg/pubring.kbx
     ---------------------------
     sec   ed25519 2023-04-04 [SC] [expires: 2025-04-03]
@@ -57,73 +52,68 @@ I should rotate GPG keys on a biannual basis.
     ssb   ed25519 2023-04-04 [S] [expires: 2025-04-03]
           Keygrip = 845CA9CF952E49333D2D9B0DF64E852EF9C5C6D5
    #+end_src
-8. Add SSH key keygrip to =$HOME/.gnupg/sshcontrol=
+7. Add SSH key keygrip to =$HOME/.gnupg/sshcontrol=
    #+begin_src
      # keygrip of SSH subkey
      echo "E5FDC0E7EF673F37F06626426D2E4F941DB8EB29" >> $HOME/.gnupg/sshcontrol
    #+end_src
-9. Make a tarball of GNUPGHOME:
+8. Make a tarball of GNUPGHOME:
    #+begin_src sh
    tar --auto-compress --create --file gpg-with-master-key.tar.xz $(readlink $HOME/.gnupg)
    #+end_src
-10. Delete the private key file and revocation certificates:
-    #+begin_src sh
-      rm -rf $HOME/.gnupg/private-keys-v1.d/C26CFDE329D09917F0BE251D03B278A1CBED6380.key
-      rm -rf $HOME/.gnupg/openpgp-revocs.d
-    #+end_src
-11. Create another tarball for backup:
+9. Delete the private key file and revocation certificates:
+   #+begin_src sh
+     rm $HOME/.gnupg/private-keys-v1.d/C26CFDE329D09917F0BE251D03B278A1CBED6380.key
+     rm -rf $HOME/.gnupg/openpgp-revocs.d
+   #+end_src
+10. Create another tarball for backup:
     #+begin_src sh
       tar --auto-compress --create --file gpg.tar.xz $(readlink $HOME/.gnupg)
     #+end_src
-12. Restore old gpg home:
-    #+begin_src sh
-      mv $HOME/.gnupg $HOME/newgpghome
-      mv $HOME/oldgpghome $HOME/.gnupg
-    #+end_src
-13. Back up both tarballs:
-    #+begin_src sh
-      scp gpg.tar.xz gpg-with-master-key.tar.xz tl.yc:~/
-    #+end_src
-14. Update gpg key id file of the password store:
+11. Update gpg key id file of the password store:
      #+begin_src
        echo "742FB9A3903E8AE7D88CF89EE4B9611E05059668" > $HOME/.password-store/.gpg-id
      #+end_src
-15. Encrypt passwords with new key and delete plain text files:
+12. Encrypt passwords with new key and delete plain text files:
     #+begin_src sh
       cd $HOME/.password-store
       git ls-files | grep .gpg$ | xargs -I '{}' gpg --default-recipient-self --compress-algo=none --yes --no-encrypt-to --output '{}' --encrypt '{}'.txt
       git ls-files | grep .gpg$ | xargs -I '{}' rm '{}'.txt
       cd $HOME
     #+end_src
+13. Replace place holder in config with new key:
+   #+begin_src sh
+     cd $HOME/nixos-config
+     git ls-files | xargs sed -i "s|gpg_rotate_holder|$(gpg --export-ssh-key yuchen@apvc.uk)|g"
+   #+end_src
+14. Restore old gpg home:
+    #+begin_src sh
+      mv $HOME/.gnupg $HOME/newgpghome
+      mv $HOME/oldgpghome $HOME/.gnupg
+    #+end_src
+15. Back up both tarballs:
+    #+begin_src sh
+      scp gpg.tar.xz gpg-with-master-key.tar.xz tl.yc:~/
+    #+end_src
 16. Commit changes and push:
     #+begin_src sh
       pass git commit -asm'rotate gpg key'
       pass git push
     #+end_src
-17. Show new SSH public key:
-    #+begin_src sh
-      [yc@qinghe:~]$ gpg --export-ssh-key yuchen@apvc.uk
-      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8
-    #+end_src
-18. Replace place holder in config with new key:
-   #+begin_src sh
-     cd $HOME/nixos-config
-     git ls-files | xargs sed -i 's|gpg_rotate_holder|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPP0GqblNA1rwWKsKNnTZPNmh5cU4IEGGBdiVDF0w7gJ openpgp:0xCBE44FB8|g'
-   #+end_src
-19. Commit changes and push:
+17. Commit changes and push:
     #+begin_src sh
       git commit -asm'rotate ssh key'
       git push
     #+end_src
-20. Update key on Github and other web services.
-21. Upload key to [[https://keys.openpgp.org/][key server]].
-22. Deploy key on server with =Ns=.
-23. Restore new home:
+18. Update key on Github and other web services.
+19. Upload key to [[https://keys.openpgp.org/][key server]].
+20. Deploy key on server with =Ns=.
+21. Restore new home:
     #+begin_src sh
       rm -rf $HOME/.gnupg
       mv $HOME/newgpghome $HOME/.gnupg
     #+end_src
-24. To restore GNUPGHOME, use:
+22. To restore GNUPGHOME, use:
     #+begin_src sh
       tar --auto-compress --extract --file gpg.tar.xz --directory /oldroot/$HOME/
     #+end_src
