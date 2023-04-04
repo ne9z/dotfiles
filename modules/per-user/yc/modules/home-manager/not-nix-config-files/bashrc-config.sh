@@ -238,7 +238,7 @@ EOF
     echo "clone password repo"
     git clone tl.yc:~/githost/pass /oldroot${HOME}/.password-store
     echo "clone sysconf repo"
-    git clone tl.yc:~/githost/dotfiles-flake /oldroot${HOME}/nixos-config
+    git clone tl.yc:~/githost/systemConfiguration /oldroot${HOME}/nixos-config
     echo "restore gnupg"
     scp tl.yc:~/gpg.tar.xz  /oldroot${HOME}
     tar -axC /oldroot${HOME} -f /oldroot/${HOME}/gpg.tar.xz

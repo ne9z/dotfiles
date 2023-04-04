@@ -263,7 +263,7 @@ in {
         fi
         nixos-rebuild boot \
          --option substituters https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store \
-         --flake git+file:///home/yc/githost/dotfiles-flake
+         --flake git+file:///home/yc/githost/systemConfiguration
       }
       Ns () {
         if test -z "$TMUX"; then
@@ -272,7 +272,7 @@ in {
         fi
         nixos-rebuild switch \
          --option substituters https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store \
-         --flake git+file:///home/yc/githost/dotfiles-flake
+         --flake git+file:///home/yc/githost/systemConfiguration
       }
       tm () {
          tmux attach-session
