@@ -238,7 +238,7 @@ EOF
 }
 
 conedu () {
-    nmcli con add \
+    nmcli connection add \
 	  type wifi \
 	  connection.id eduroam \
 	  wifi.mode infrastructure \
@@ -249,5 +249,5 @@ conedu () {
 	  802-1x.identity yguo@tu-berlin.de \
 	  802-1x.password $(cat $HOME/.config/tubpass) \
 	  802-1x.phase2-auth mschapv2
-    nmcli con up eduroam
+    nmcli connection up eduroam
 }
