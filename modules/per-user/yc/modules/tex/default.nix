@@ -23,6 +23,8 @@ in {
           collection-langgerman
           # pdf manipulation tool
           pdfjam pdfpages
+          # code listings
+          listings
           # pictures and tikz
           collection-pictures;
       })
