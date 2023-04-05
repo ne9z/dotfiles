@@ -35,6 +35,7 @@ in {
                   no-remote-fonts: * true
                   no-csp-reports: * true
                   no-scripting: * true
+                '';
               };
             };
           };

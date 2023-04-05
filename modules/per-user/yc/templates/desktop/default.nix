@@ -34,11 +34,12 @@ in {
             # connect to /dev/ttyUSB0
             "dialout"
           ];
-          authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEeuanloGpRSuYbfJV3eGnfgyX1djaGC7UjUSgJeraKM openpgp:0x5862BCF8" ];
+          authorizedKeys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEeuanloGpRSuYbfJV3eGnfgyX1djaGC7UjUSgJeraKM openpgp:0x5862BCF8"
+          ];
           packages = builtins.attrValues {
             inherit (pkgs)
-              ffmpeg mg nixfmt qrencode minicom zathura jmtpfs
-              gpxsee
+              ffmpeg mg nixfmt qrencode minicom zathura jmtpfs gpxsee
               # pdf processor in Go
               pdfcpu
               # pdf manipulation suite in C++
