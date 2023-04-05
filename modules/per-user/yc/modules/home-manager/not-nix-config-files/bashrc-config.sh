@@ -236,3 +236,18 @@ EOF
     echo "EXIT_SUCCESS"
     set +ex
 }
+
+conedu () {
+    nmcli con add \
+	  type wifi \
+	  connection.id eduroam \
+	  wifi.mode infrastructure \
+	  wifi.ssid eduroam \
+	  wifi-sec.auth-alg open \
+	  wifi-sec.key-mgmt wpa-eap \
+	  802-1x.eap peap \
+	  802-1x.identity yguo@tu-berlin.de \
+	  802-1x.password $(cat $HOME/.config/tubpass) \
+	  802-1x.phase2-auth mschapv2
+    nmcli con up eduroam
+}
