@@ -15,6 +15,8 @@ in {
           scheme-basic dvipng latexmk wrapfig amsmath ulem hyperref capt-of
           # times like font
           newtx xkeyval xstring fontaxes
+          # MLModern, thicker Computer Modern
+          mlmodern
           # maths
           collection-mathscience
           # languages
