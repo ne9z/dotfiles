@@ -35,9 +35,6 @@ in {
                   no-remote-fonts: * true
                   no-csp-reports: * true
                   no-scripting: * true
-                  no-scripting: isis.tu-berlin.de false
-                  no-scripting: moseskonto.tu-berlin.de false
-                  no-scripting: meet.jit.si false'';
               };
             };
           };
