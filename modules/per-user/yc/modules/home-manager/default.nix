@@ -61,7 +61,7 @@ in {
       programs = {
         git = {
           enable = true;
-          userEmail = "jasper@apvc.uk";
+          userEmail = "yuchen@apvc.uk";
           userName = "Maurice Zhou";
         };
         mbsync.enable = true;
@@ -72,7 +72,7 @@ in {
         maildirBasePath = "Maildir"; # relative to user home
         accounts = {
           "apvc.uk" = {
-            aliases = [ "gyc@apvc.uk" ];
+            aliases = [ ];
             address = "yuchen@apvc.uk";
             passwordCommand = "pass show email/email-gycAtapvc.uk | head -n1";
             primary = true;
@@ -98,7 +98,7 @@ in {
             };
             notmuch.enable = true;
             gpg = {
-              key = "gyc@apvc.uk";
+              key = "yuchen@apvc.uk";
               encryptByDefault = false;
               signByDefault = true;
             };
