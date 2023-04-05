@@ -91,9 +91,12 @@ I should rotate GPG keys on a biannual basis.
       mv $HOME/.gnupg $HOME/newgpghome
       mv $HOME/oldgpghome $HOME/.gnupg
     #+end_src
-15. Back up both tarballs:
+15. Back up both tarballs to server and to SD card:
     #+begin_src sh
       scp gpg.tar.xz gpg-with-master-key.tar.xz tl.yc:~/
+      doas mount /dev/mmcblk0p1 /mnt
+      cp gpg.tar.xz gpg-with-master-key.tar.xz /mnt
+      doas umount /mnt
     #+end_src
 16. Commit changes and push:
     #+begin_src sh
