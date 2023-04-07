@@ -14,6 +14,7 @@
  '(elpy-rpc-virtualenv-path 'system)
  '(inhibit-startup-screen t)
  '(interprogram-cut-function 'wl-copy)
+ '(indent-tabs-mode nil)
  '(interprogram-paste-function 'wl-paste)
  '(mail-envelope-from 'header)
  '(mail-host-address "lan")
