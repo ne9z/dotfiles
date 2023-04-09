@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-export EDITOR="$EDITOR --create-frame -nw"
+export EDITOR="${EDITOR} --create-frame -nw"
 
 e () {
-    if ! test -S $XDG_RUNTIME_DIR/emacs/server; then
-	if test -n $WAYLAND_DISPLAY; then
+    if ! test -S "${XDG_RUNTIME_DIR}"/emacs/server; then
+	if test -n "${WAYLAND_DISPLAY}"; then
 	    systemctl start --user emacs
 	fi
     fi
-    $EDITOR "${@}"
+    "${EDITOR}" "${@}"
 }
 
 tm () {
@@ -18,16 +18,16 @@ y () {
     mpv "${@}"
 }
 
-nix-reformat () {
-    git ls-files | grep nix$ | while read i; do nixfmt $i; done
+nmt () {
+    git ls-files | grep nix$ | while read -r i; do nixfmt "${i}"; done
 }
 
 Ns () {
-    doas nixos-rebuild switch --flake "git+file://$HOME/nixos-config"
+    doas nixos-rebuild switch --flake "git+file://${HOME}/nixos-config"
 }
 
 Nb () {
-    doas nixos-rebuild boot --flake "git+file://$HOME/nixos-config"
+    doas nixos-rebuild boot --flake "git+file://${HOME}/nixos-config"
 }
 
 doa ()
@@ -49,28 +49,28 @@ wfr () {
     local choice
     local fps
     local filename
-    filename=$HOME/Downloads/$(date +%Y%m%d_%H%M%S).mp4
+    filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
     fps="1"
     printf "frame rate? default 1fps\n"
     printf "enter n to use normal frame rate\n"
     printf "enter 60 to force 60fps\n"
-    read choice
-    if test "$choice" = "n"; then
+    read -r choice
+    if test "${choice}" = "n"; then
 	fps=""
     fi
-    if test "$choice" = "60"; then
+    if test "${choice}" = "60"; then
 	fps="60"
     fi
-    if test -n $fps; then 	fps="-framerate $fps"; fi
+    if test -n "${fps}"; then 	fps="-framerate ${fps}"; fi
     doas /usr/bin/env sh <<EOF
         umask ugo=rw && \
-	 $(which ffmpeg) -device /dev/dri/card0 \
-	 $fps \
+	 $(command -v ffmpeg) -device /dev/dri/card0 \
+	 "${fps}" \
 	 -f kmsgrab \
 	 -i - \
 	 -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12' \
 	 -c:v h264_vaapi \
-	 -qp 24 $filename
+	 -qp 24 "${filename}"
 EOF
 	# see this link for more ffmpeg video encoding options
 	# https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
@@ -81,19 +81,19 @@ gm () {
     printf "gammastep:         g\n"
     printf "laptop screen:     s\n"
     local choice
-    read choice
-    case $choice in
+    read -r choice
+    case "${choice}" in
 	b)
 	    printf "set minimum: m\n"
 	    printf "set percent: p PERCENT\n"
 	    local percent
-	    read choice percent
-	    case $choice in
+	    read -r choice percent
+	    case "${choice}" in
 		m)
 		    brightnessctl set 3%
 		    ;;
 		p)
-		    brightnessctl set ${percent}%
+		    brightnessctl set "${percent}"%
 		    ;;
 	    esac
 	    ;;
@@ -102,8 +102,8 @@ gm () {
 	    printf "monitor dim night: mn\n"
 	    printf "laptop  dim night: ld\n"
 	    printf "reset:             r\n"
-	    read choice
-	    case $choice in
+	    read -r choice
+	    case "${choice}" in
 		md)
 		    (gammastep -O 5000 -b 0.75 &)
 		    ;;
@@ -123,8 +123,8 @@ gm () {
 	s)
 	    printf "disable: d\n"
 	    printf "enable:  e\n"
-	    read choice
-	    case $choice in
+	    read -r choice
+	    case "${choice}" in
 		d)
 		    swaymsg  output eDP-1 disable
 		    swaymsg  output LVDS-1 disable
@@ -139,19 +139,19 @@ gm () {
 }
 
 tubb () {
-    if ! test -f $HOME/.config/tubpass; then
-	pass show de/uni/tub | head -n1 > $HOME/.config/tubpass
+    if ! test -f "${HOME}"/.config/tubpass; then
+	pass show de/uni/tub | head -n1 > "${HOME}"/.config/tubpass
     fi
-    wl-copy < $HOME/.config/tubpass
+    wl-copy < "${HOME}"/.config/tubpass
 }
 
 nmail () {
     notmuch tag +flagged tag:flagged +passed tag:passed
-    notmuch tag -unread tag:passed
+    notmuch tag -unread -r tag:passed
     mbsync -a
     notmuch new
-    if ! test -f $HOME/.config/tubpass; then
-	pass show de/uni/tub | head -n1 > $HOME/.config/tubpass
+    if ! test -f "${HOME}"/.config/tubpass; then
+	pass show de/uni/tub | head -n1 > "${HOME}"/.config/tubpass
     fi
 }
 
@@ -183,8 +183,8 @@ ${HOME}/.config/w3m:${HOME}/.w3m"
 ### script on login
 if [ "$(tty)" = "/dev/tty1" ]; then
     set -e
-    for mount in $msymlinks; do
-	mcreate_symblink $mount
+    for mount in ${msymlinks}; do
+	mcreate_symblink "${mount}"
     done
     set +e
 fi
@@ -202,19 +202,19 @@ mbootstrap () {
     local choice
     echo "you need to run this in a SUBSHELL. type YES if you know"
     echo "gpg.tar.xz must be already in /home/yc"
-    read choice
-    if [ "$choice" != "YES" ]; then
+    read -r choice
+    if [ "${choice}" != "YES" ]; then
 	return 1
     fi
 
     set -ex
     local source=""
-    for mount in $mbootstrapdir; do
+    for mount in ${mbootstrapdir}; do
 	source="${mount%:*} ${source}"
     done
-    doas /usr/bin/env source="${source}" user=$(whoami) bash <<-'EOF'
+    doas /usr/bin/env source="${source}" user="$(whoami)" bash <<-'EOF'
 set -ex
-for i in $source; do
+for i in ${source}; do
     if ! test -d "${i}"; then
      mkdir -p "${i}"
    fi
@@ -223,16 +223,16 @@ set -ex
 done
 EOF
     echo "restore gnupg"
-    tar -axC /oldroot${HOME} -f ${HOME}/gpg.tar.xz
-    ln -s /oldroot${HOME}/.gnupg ${HOME}/.gnupg
+    tar -axC /oldroot"${HOME}" -f "${HOME}"/gpg.tar.xz
+    ln -s /oldroot"${HOME}"/.gnupg "${HOME}"/.gnupg
     echo "clone password repo"
-    git clone tl.yc:~/githost/pass /oldroot${HOME}/.password-store
+    git clone tl.yc:~/githost/pass /oldroot"${HOME}"/.password-store
     echo "clone sysconf repo"
-    git clone tl.yc:~/githost/systemConfiguration /oldroot${HOME}/nixos-config
-    for mount in $msymlinks; do
-	mcreate_symblink $mount
+    git clone tl.yc:~/githost/systemConfiguration /oldroot"${HOME}"/nixos-config
+    for mount in ${msymlinks}; do
+	mcreate_symblink "${mount}"
     done
-    mkdir -p $HOME/Maildir/apvc.uk
+    mkdir -p "${HOME}"/Maildir/apvc.uk
     echo "EXIT_SUCCESS"
     set +ex
 }
@@ -247,7 +247,7 @@ conedu () {
 	  wifi-sec.key-mgmt wpa-eap \
 	  802-1x.eap peap \
 	  802-1x.identity yguo@tu-berlin.de \
-	  802-1x.password $(cat $HOME/.config/tubpass) \
+	  802-1x.password "$(cat "${HOME}"/.config/tubpass)" \
 	  802-1x.phase2-auth mschapv2
     nmcli connection up eduroam
 }
