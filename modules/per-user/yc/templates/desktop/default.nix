@@ -26,6 +26,15 @@ in {
 
       per-user.yc.enable = true;
     };
+    users.mutableUsers = false;
+    home-manager.users.yc = {
+      home = {
+        username = "yc";
+        homeDirectory = mkDefault "/home/yc";
+        stateVersion = mkDefault "22.11";
+      };
+      programs.home-manager.enable = true;
+    };
     users.users = {
       yc = {
         # "!" means login disabled

@@ -209,6 +209,12 @@ in {
       };
     };
     home-manager.users.yc = {
+      home = {
+        username = "yc";
+        homeDirectory = mkDefault "/home/yc";
+        stateVersion = mkDefault "22.11";
+      };
+      programs.home-manager.enable = true;
       xdg.configFile = {
         "pyrosimple/config.toml" = { source = ./pyrosimple-config.toml; };
       };

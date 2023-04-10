@@ -8,5 +8,5 @@ in {
     type = types.bool;
     default = false;
   };
-  config = {};
+  config = { };
 }
