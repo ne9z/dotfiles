@@ -7,7 +7,8 @@ e () {
 	    systemctl start --user emacs
 	fi
     fi
-    "${EDITOR}" "${@}"
+    # do not quote this variable
+    ${EDITOR} "${@}"
 }
 
 tm () {
