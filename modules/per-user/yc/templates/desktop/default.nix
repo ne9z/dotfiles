@@ -26,7 +26,7 @@ in {
 
       per-user.yc.enable = true;
     };
-    users = {
+    users.users = {
       yc = {
         # "!" means login disabled
         initialHashedPassword =
