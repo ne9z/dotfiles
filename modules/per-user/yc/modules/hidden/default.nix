@@ -22,7 +22,11 @@ in {
             enable = true;
             dns.enable = true;
           };
-          settings.Sandbox = true;
+          settings = {
+            Sandbox = true;
+            SafeSocks = 1;
+            NoExec = 1;
+          };
           torsocks = {
             enable = true;
             server = "127.0.0.1:9050";
@@ -42,9 +46,26 @@ in {
             socksProxy.port = 4447;
             socksProxy.enable = true;
           };
-          outTunnels = { };
           floodfill = true;
           inTunnels = { };
+          outTunnels = {
+            # connect to mail services by postman
+            # available at http://hq.postman.i2p
+            smtp-postman = {
+              enable = true;
+              address = "::1";
+              destinationPort = 7659;
+              destination = "smtp.postman.i2p";
+              port = 7659;
+            };
+            pop-postman = {
+              enable = true;
+              address = "::1";
+              destinationPort = 7660;
+              destination = "pop.postman.i2p";
+              port = 7660;
+            };
+          };
         };
 
         yggdrasil = {

@@ -240,6 +240,34 @@ in {
       [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
     services.yggdrasil.persistentKeys = true;
     boot.initrd.secrets = { "/oldroot/etc/zfs-key-rpool-data-file" = null; };
+    services.tor = {
+      relay = {
+        enable = false;
+        onionServices = {
+          ssh = {
+            authorizedClients = [ ];
+            map = [{
+              port = 22;
+              target = {
+                addr = "[::1]";
+                port = 22;
+              };
+            }];
+          };
+        };
+      };
+      settings = {
+        ClientUseIPv6 = true;
+        ClientPreferIPv6ORPort = true;
+        ClientUseIPv4 = true;
+        UseBridges = 1;
+        Bridge = [
+          # see https://bridges.torproject.org/bridges/?transport=0&ipv6=yes
+          # no javascript needed on that page
+          "[2a03:4000:65:b0a:541c:a0ff:fec1:6737]:9010 B896373B1049FC39797A690B6A86503DB768150F"
+        ];
+      };
+    };
     services.i2pd.inTunnels = {
       ssh-server = {
         enable = true;
