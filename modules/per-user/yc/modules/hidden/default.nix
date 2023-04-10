@@ -16,6 +16,18 @@ in {
   config = mkIf (cfg.enable) (mkMerge [
     {
       services = {
+        tor = {
+          enable = true;
+          client = {
+            enable = true;
+            dns.enable = true;
+          };
+          settings.Sandbox = true;
+          torsocks = {
+            enable = true;
+            server = "127.0.0.1:9050";
+          };
+        };
         i2pd = {
           enable = true;
           enableIPv4 = true;
