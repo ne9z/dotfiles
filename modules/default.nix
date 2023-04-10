@@ -1,3 +1,3 @@
 { config, lib, pkgs, ... }: {
-  imports = [ ./boot ./users ./fileSystems ./networking ./per-user ./programs ];
+  imports = [ ./boot ./fileSystems ./networking ./per-user ];
 }
