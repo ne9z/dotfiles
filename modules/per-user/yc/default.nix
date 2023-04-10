@@ -8,7 +8,5 @@ in {
     type = types.bool;
     default = false;
   };
-  config = mkIf config.zfs-root.per-user.yc.enable {
-    zfs-root.programs.sway.enable = true;
-  };
+  config = {};
 }
