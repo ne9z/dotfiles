@@ -265,6 +265,7 @@ in {
           # see https://bridges.torproject.org/bridges/?transport=0&ipv6=yes
           # no javascript needed on that page
           "[2a03:4000:65:b0a:541c:a0ff:fec1:6737]:9010 B896373B1049FC39797A690B6A86503DB768150F"
+          "[2001:41d0:800:60d::ff]:9001 59F622BDF6888CE480038F899CBCC2B7438B19A3"
         ];
       };
     };
