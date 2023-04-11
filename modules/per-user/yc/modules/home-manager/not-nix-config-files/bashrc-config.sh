@@ -117,7 +117,7 @@ gm () {
 		    ;;
                 *)
                     printf "no input given"
-                    exit 1
+                    return 1
                     ;;
 	    esac
 	    ;;
@@ -144,7 +144,7 @@ gm () {
 		    ;;
                 *)
                     printf "no input given"
-                    exit 1
+                    return 1
                     ;;
 	    esac
 	    ;;
@@ -163,13 +163,13 @@ gm () {
 		    ;;
                 *)
                     printf "no input given"
-                    exit 1
+                    return 1
                     ;;
 	    esac
 	    ;;
         *)
             printf "no input given"
-            exit 1
+            return 1
             ;;
     esac
 }
@@ -269,7 +269,7 @@ EOF
 	mcreate_symblink "${mount}"
     done
     mkdir -p "${HOME}"/Maildir/apvc.uk
-    echo "EXIT_SUCCESS"
+    echo "RETURN_SUCCESS"
     set +ex
 }
 
