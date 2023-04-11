@@ -19,7 +19,7 @@ keymap w PEEK_LINK
 keymap W PEEK
 keymap m ADD_BOOKMARK
 keymap t LIST
-keymap i GOTO https://lite.duckduckgo.com
+keymap i GOTO https://html.duckduckgo.com/html/
 keymap t EXTERN_LINK
 keymap T EXTERN
 keymap k MARK
