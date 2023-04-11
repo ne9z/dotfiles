@@ -94,7 +94,10 @@ in {
       "fs.file-max" = 65536;
     };
     systemd.services.rtorrent.serviceConfig.LimitNOFILE = 10240;
-    systemd.tmpfiles.rules = [ "d '/tmp/BitTorrent' 0755 rtorrent rtorrent -" ];
+    systemd.tmpfiles.rules = [
+      "d '/tmp/BitTorrent' 0755 rtorrent rtorrent -"
+      "d '/tmp/rtorrent_自动添加' 0770 rtorrent users -"
+    ];
     services.rtorrent = {
       enable = true;
       dataDir = "/tmp/BitTorrent";
@@ -120,11 +123,9 @@ in {
         trackers.use_udp.set = yes
         protocol.encryption.set = none
 
-        # create watch dir and set permission
+        # watch dir
+        # created and permission set by systemd tmpdir rules
         method.insert = cfg.watchDir1, private|const|string, "/tmp/rtorrent_自动添加"
-        execute.nothrow = mkdir, -p, (cfg.watchDir1)
-        execute.nothrow = "${pkgs.acl}/bin/setfacl", "-mg:users:rwx", (cfg.watchDir1)
-        execute.nothrow = chmod, 770, (cfg.watchDir1)
         # Watch directories (add more as you like, but use unique schedule names)
         schedule2 = watch_start, 10, 10, ((load.start, (cat, (cfg.watchDir1), "/*.torrent")))
 
