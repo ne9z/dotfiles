@@ -451,6 +451,11 @@ in {
             port = 65222;
             proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:4447 %h %p";
           };
+          "ditgedyyvwsxspdmgpnzuzhj7p63snkiok54cphmvwcgnrjgw2lqgcad.onion" = {
+            user = "yc";
+            port = 22;
+            proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:9050 %h %p";
+          };
         };
       };
       programs.foot = {
