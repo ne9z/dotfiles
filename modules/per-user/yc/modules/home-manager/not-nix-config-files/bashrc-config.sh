@@ -6,6 +6,11 @@
 # grep -z
 # xargs -0
 # find -print0
+# REASON:
+# POSIX allow any character other than slash / and null-character \0
+# to be included in a file name.  Therefore, when processing a list of
+# file names, the list of names is only guaranteed to
+# be distinguished from one another when null-character is used to separate them
 
 export EDITOR="${EDITOR} --create-frame -nw"
 
