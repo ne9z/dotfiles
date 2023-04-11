@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+
+# TIP: check with ShellCheck
+# Always use null-terminated variants of commands, such as
+# git ls-files -z
+# grep -z
+# xargs -0
+# find -print0
+
 export EDITOR="${EDITOR} --create-frame -nw"
 
 e () {
@@ -20,7 +28,7 @@ y () {
 }
 
 nmt () {
-    git ls-files | grep nix$ | while read -r i; do nixfmt "${i}"; done
+    git ls-files -z | grep -z '\.nix$' | xargs -0I'{}' nixfmt '{}'
 }
 
 Ns () {
