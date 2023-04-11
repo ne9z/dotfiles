@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2292,SC2312
 
 # TIP: check with ShellCheck
 # Always use null-terminated variants of commands, such as
 # git ls-files -z
 # grep -z
-# xargs -0
+# xargs --verbose -0
 # find -print0
 # REASON:
 # POSIX allow any character other than slash / and null-character \0
@@ -15,6 +16,7 @@
 export EDITOR="${EDITOR} --create-frame -nw"
 
 e () {
+    # shellcheck disable=SC2154
     if ! test -S "${XDG_RUNTIME_DIR}"/emacs/server; then
 	if test -n "${WAYLAND_DISPLAY}"; then
 	    systemctl start --user emacs
@@ -32,8 +34,12 @@ y () {
     mpv "${@}"
 }
 
+my_check_sh_script () {
+    git ls-files -z | grep -z '\.sh$' | xargs --verbose -0I'{}' shellcheck --severity=style --enable=all  --format=tty --color=always '{}'
+}
+
 nmt () {
-    git ls-files -z | grep -z '\.nix$' | xargs -0I'{}' nixfmt '{}'
+    git ls-files -z | grep -z '\.nix$' | xargs --verbose -0I'{}' nixfmt '{}'
 }
 
 Ns () {
@@ -86,8 +92,8 @@ wfr () {
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
-	# see this link for more ffmpeg video encoding options
-	# https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
+    # see this link for more ffmpeg video encoding options
+    # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
 }
 
 gm () {
@@ -109,6 +115,10 @@ gm () {
 		p)
 		    brightnessctl set "${percent}"%
 		    ;;
+                *)
+                    printf "no input given"
+                    exit 1
+                    ;;
 	    esac
 	    ;;
 	g)
@@ -132,6 +142,10 @@ gm () {
 		    (gammastep -x &)
 		    pkill gammastep
 		    ;;
+                *)
+                    printf "no input given"
+                    exit 1
+                    ;;
 	    esac
 	    ;;
 	s)
@@ -147,8 +161,16 @@ gm () {
 		    swaymsg  output eDP-1 enable
 		    swaymsg  output LVDS-1 enable
 		    ;;
+                *)
+                    printf "no input given"
+                    exit 1
+                    ;;
 	    esac
 	    ;;
+        *)
+            printf "no input given"
+            exit 1
+            ;;
     esac
 }
 
