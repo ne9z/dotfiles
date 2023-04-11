@@ -30,7 +30,8 @@ in {
       };
     };
     home-manager.users.yc = {
-      home.packages = builtins.attrValues { inherit (pkgs) mg shellcheck; };
+      home.packages =
+        builtins.attrValues { inherit (pkgs) mg shellcheck p7zip; };
 
       gtk = {
         enable = true;
