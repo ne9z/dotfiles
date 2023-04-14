@@ -535,7 +535,9 @@ in {
           "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
           "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
           "yc.sh" = { source = ./not-nix-config-files/bashrc-config.sh; };
-          "nomacs/Image Lounge.conf" = { source = ./not-nix-config-files/nomacs-config.conf; };
+          "nomacs/Image Lounge.conf" = {
+            source = ./not-nix-config-files/nomacs-config.conf;
+          };
           "w3m/bookmark.html" = {
             source = ./not-nix-config-files/w3m-bookmark.html;
           };

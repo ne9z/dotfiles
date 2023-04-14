@@ -4,6 +4,11 @@ let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
   buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages;
+  emacsPkg = buildEmacs (epkgs:
+    builtins.attrValues {
+      inherit (epkgs.melpaPackages) nix-mode cdlatex notmuch;
+      inherit (epkgs.elpaPackages) use-package auctex pyim pyim-basedict;
+    });
 in {
   options.zfs-root.per-user.yc.modules.emacs = {
     enable = mkOption {
@@ -20,20 +25,10 @@ in {
           # used with dired mode to open files
           xdg-utils;
         inherit (pkgs.hunspellDicts) en_US de_DE;
+        inherit emacsPkg;
       };
     };
   };
-  config = mkIf (cfg.enable) {
-    services.emacs = {
-      enable = mkDefault false;
-      package = buildEmacs (epkgs:
-        builtins.attrValues {
-          inherit (epkgs.melpaPackages) nix-mode cdlatex notmuch;
-          inherit (epkgs.elpaPackages) use-package auctex pyim pyim-basedict;
-        });
-      defaultEditor = true;
-      install = false;
-    };
-    environment.systemPackages = cfg.extraPackages;
-  };
+  config =
+    mkIf (cfg.enable) { environment.systemPackages = cfg.extraPackages; };
 }
