@@ -323,7 +323,6 @@ in {
               "network.proxy.socks" = "localhost";
               "network.proxy.socks_port" = 9050;
               "network.proxy.socks_remote_dns" = true;
-              "network.proxy.type" = 1;
               # https://raw.githubusercontent.com/pyllyukko/user.js/master/user.js
               "toolkit.zoomManager.zoomValues" = "1,1.7,2,2.3";
               "browser.urlbar.quicksuggest.enabled" = false;
