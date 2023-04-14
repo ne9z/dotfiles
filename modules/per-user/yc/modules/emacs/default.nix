@@ -35,7 +35,7 @@ in {
         systemPackages = cfg.extraPackages;
         interactiveShellInit = ''
           export EDITOR="emacsclient --alternate-editor= --create-frame -nw"
-          e () { \${EDITOR} "\${@}"; }
+          e () { $\{EDITOR} "$\{@}"; }
         '';
       };
     };
