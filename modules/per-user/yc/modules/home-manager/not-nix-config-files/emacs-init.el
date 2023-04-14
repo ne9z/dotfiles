@@ -4,18 +4,18 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-mode-hook
-   '(preview-mode-setup auto-fill-mode TeX-source-correlate-mode))
+   '(preview-mode-setup auto-fill-mode TeX-source-correlate-mode) t)
  '(TeX-auto-save t)
  '(TeX-source-correlate-mode t)
  '(TeX-source-correlate-start-server t)
  '(TeX-view-program-selection '((output-pdf "Zathura")))
- '(custom-enabled-themes nil)
+ '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(elpy-rpc-virtualenv-path 'system)
- '(inhibit-startup-screen t)
- '(interprogram-cut-function 'wl-copy)
  '(indent-tabs-mode nil)
- '(interprogram-paste-function 'wl-paste)
+ '(inhibit-startup-screen t)
+ '(interprogram-cut-function 'wl-copy t)
+ '(interprogram-paste-function 'wl-paste t)
  '(mail-envelope-from 'header)
  '(mail-host-address "lan")
  '(mail-specify-envelope-from t)
