@@ -111,6 +111,8 @@ in {
           swaylock swayidle foot gammastep brightnessctl fuzzel grim w3m
           gsettings-desktop-schemas pavucontrol waybar wl-clipboard;
       };
+      # must be enabled, or else many programs will crash
+      wrapperFeatures.gtk = true;
     };
     xdg.portal = {
       enable = true;
