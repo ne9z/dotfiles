@@ -13,13 +13,6 @@
 # file names, the list of names is only guaranteed to
 # be distinguished from one another when null-character is used to separate them
 
-export EDITOR="${EDITOR} --alternate-editor= --create-frame -nw"
-
-e () {
-    # do not quote this variable
-    ${EDITOR} "${@}"
-}
-
 tm () {
     tmux attach-session
 }
