@@ -32,7 +32,7 @@ in {
           inherit (epkgs.elpaPackages) use-package auctex pyim pyim-basedict;
         });
       defaultEditor = true;
-      install = true;
+      install = false;
     };
     environment.systemPackages = cfg.extraPackages;
   };
