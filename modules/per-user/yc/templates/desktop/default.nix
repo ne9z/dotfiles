@@ -60,6 +60,8 @@ in {
             ffmpeg mg nixfmt qrencode minicom zathura jmtpfs gpxsee
             # pdf processor in Go
             pdfcpu
+            # image editor
+            nomacs
             # pdf manipulation suite in C++
             # https://qpdf.readthedocs.io/en/stable/
             qpdf;
