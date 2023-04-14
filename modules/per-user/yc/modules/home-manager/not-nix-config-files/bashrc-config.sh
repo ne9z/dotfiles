@@ -16,12 +16,6 @@
 export EDITOR="${EDITOR} --create-frame -nw"
 
 e () {
-    # shellcheck disable=SC2154
-    if ! test -S "${XDG_RUNTIME_DIR}"/emacs/server; then
-	if test -n "${WAYLAND_DISPLAY}"; then
-	    systemctl start --user emacs
-	fi
-    fi
     # do not quote this variable
     ${EDITOR} "${@}"
 }
