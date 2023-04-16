@@ -466,8 +466,7 @@ in {
         server.enable = true;
         settings = {
           main = {
-            term = "xterm-256color";
-            font = "monospace:size=15";
+            font = "monospace:size=13";
             dpi-aware = "yes";
           };
 

@@ -79,8 +79,6 @@
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "M-n") #'org-next-link)
   (define-key org-mode-map (kbd "M-p") #'org-previous-link)
-  (define-key org-cdlatex-mode-map (kbd "^") nil)
-  (define-key org-cdlatex-mode-map (kbd "_") nil)
   (add-to-list 'ispell-skip-region-alist '("#\\+begin_src". "#\\+end_src")))
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
@@ -97,12 +95,6 @@
 
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "C-o") 'dired-open-file)))
-
-(use-package cdlatex
-  :config
-  (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
-  (add-hook 'latex-mode-hook #'turn-on-cdlatex)
-  (add-hook 'org-mode-hook #'turn-on-org-cdlatex))
 
 (use-package pyim-basedict
   :init
@@ -128,7 +120,8 @@
 		(notmuch-search-next-thread))))
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(add-hook 'latex-mode-hook 'turn-on-reftex)
+(add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
+
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
