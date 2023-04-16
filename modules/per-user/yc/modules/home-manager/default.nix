@@ -466,6 +466,7 @@ in {
         server.enable = true;
         settings = {
           main = {
+            term = "foot-direct";
             font = "monospace:size=13";
             dpi-aware = "yes";
           };
