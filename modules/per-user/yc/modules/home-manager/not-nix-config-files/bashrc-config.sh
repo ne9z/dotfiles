@@ -247,7 +247,12 @@ done
 EOF
     echo "restore gnupg"
     tar -axC /oldroot"${HOME}" -f "${HOME}"/gpg.tar.xz
+    mv /oldroot/home/yc/oldroot/home/yc/.gnupg/ /oldroot/home/yc/
     ln -s /oldroot"${HOME}"/.gnupg "${HOME}"/.gnupg
+    # restart gpg ssh agent
+    systemctl stop --user gpg-agent-ssh.socket
+    systemctl stop --user gpg-agent.service
+    systemctl start --user gpg-agent-ssh.socket
     echo "clone password repo"
     git clone tl.yc:~/githost/pass /oldroot"${HOME}"/.password-store
     echo "clone sysconf repo"
