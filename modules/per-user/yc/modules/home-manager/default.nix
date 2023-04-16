@@ -398,7 +398,6 @@ in {
               "browser.urlbar.trimURLs" = false;
               "browser.fixup.alternate.enabled" = false;
               "browser.fixup.hide_user_pass" = true;
-              "network.proxy.socks_remote_dns" = true;
               "network.manage-offline-status" = false;
               "security.mixed_content.block_active_content" = true;
               "security.mixed_content.block_display_content" = true;
