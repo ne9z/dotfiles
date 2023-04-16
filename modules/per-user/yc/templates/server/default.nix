@@ -82,6 +82,8 @@ in {
         51413
         # nfsv4
         2049
+        # 让妈妈用ygg看电影
+        62912
       ];
       allowedUDPPorts = [
         # bt
