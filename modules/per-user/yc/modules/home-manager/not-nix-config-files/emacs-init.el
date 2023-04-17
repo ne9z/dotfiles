@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(electric-pair-mode t)
  '(LaTeX-mode-hook
    '(preview-mode-setup auto-fill-mode TeX-source-correlate-mode) t)
  '(TeX-auto-save t)
@@ -71,40 +72,48 @@
  '(shr-use-colors nil)
  '(tool-bar-mode nil))
 
+;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
 (define-key key-translation-map [?\C-?] [?\C-h])
 (define-key key-translation-map [?\M-h] [?\M-\d])
 (define-key key-translation-map [?\M-\d] [?\M-h])
 
-(global-set-key (kbd "C-c l") #'org-store-link)
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "M-n") #'org-next-link)
-  (define-key org-mode-map (kbd "M-p") #'org-previous-link)
-  (add-to-list 'ispell-skip-region-alist '("#\\+begin_src". "#\\+end_src")))
+;; swap backspace and C-h ends here
 
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'TeX-after-compilation-finished-functions
-           #'TeX-revert-document-buffer)
+;; auctex related settings
+(use-package tex
+  :ensure auctex
+  :config
+  (add-hook 'TeX-after-compilation-finished-functions
+            #'TeX-revert-document-buffer)
+  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
+
+;; auctex related settings ends here
+
+;; sign all outgoing emails by default
 (add-hook 'message-setup-hook 'mml-secure-message-sign)
 
+;; zh-cn input engine
+(use-package pyim
+  :ensure pyim-basedict
+  :init
+  (pyim-basedict-enable))
+
+;; zh-cn input engine ends here
+
+;; open files in dired mode
 (defun dired-open-file ()
   "In dired, open the file named on this line."
   (interactive)
   (let* ((file (dired-get-filename nil t)))
     (call-process "xdg-open" nil 0 nil file)))
-
 (eval-after-load "dired" '(progn
   (define-key dired-mode-map (kbd "C-o") 'dired-open-file)))
 
-(use-package pyim-basedict
-  :init
-  (pyim-basedict-enable))
+;; open files in dired mode ends here
 
-(use-package pyim)
-
+;; notmuch mail reader config
 (use-package notmuch
   :config
   (setq notmuch-always-prompt-for-sender nil)
@@ -122,18 +131,7 @@
 		(notmuch-search-tag (list "+flagged") beg end)
 		(notmuch-search-next-thread))))
 
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
-
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-(electric-pair-mode t)
+;; notmuch mail reader config ends here
 
 ;; wayland paste
 ;; credit: yorickvP on Github
@@ -153,3 +151,5 @@
   (if (and wl-copy-process (process-live-p wl-copy-process))
       nil ; should return nil if we're the current paste owner
     (shell-command-to-string "wl-paste -n | tr -d \r")))
+
+;; wayland paste ends here
