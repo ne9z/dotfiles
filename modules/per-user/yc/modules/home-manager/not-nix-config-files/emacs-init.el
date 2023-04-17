@@ -24,6 +24,8 @@
  '(message-send-mail-function 'message-send-mail-with-sendmail)
  '(message-sendmail-envelope-from 'header)
  '(mml-secure-openpgp-sign-with-sender t)
+ '(modus-themes-bold-constructs t)
+ '(modus-themes-italic-constructs t)
  '(notmuch-saved-searches
    '((:name "inbox" :query "tag:inbox not tag:flagged not tag:passed" :key "i")
      (:name "unread" :query "tag:unread" :key "u")
