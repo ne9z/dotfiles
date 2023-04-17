@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(LaTeX-electric-left-right-brace t)
  '(LaTeX-mode-hook
-   '(auto-fill-mode TeX-source-correlate-mode LaTeX-math-mode))
+   '(auto-fill-mode TeX-source-correlate-mode))
  '(TeX-auto-save t)
  '(TeX-electric-math '("\\(" . "\\)"))
  '(TeX-source-correlate-mode t)
@@ -89,7 +89,7 @@
   :config
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1))))
 
 ;; auctex related settings ends here
