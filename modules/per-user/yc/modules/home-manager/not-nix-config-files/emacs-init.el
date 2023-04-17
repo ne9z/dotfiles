@@ -3,15 +3,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(electric-pair-mode t)
+ '(LaTeX-electric-left-right-brace t)
  '(LaTeX-mode-hook
-   '(preview-mode-setup auto-fill-mode TeX-source-correlate-mode) t)
+   '(auto-fill-mode TeX-source-correlate-mode LaTeX-math-mode))
  '(TeX-auto-save t)
+ '(TeX-electric-math '("\\(" . "\\)"))
  '(TeX-source-correlate-mode t)
  '(TeX-source-correlate-start-server t)
  '(TeX-view-program-selection '((output-pdf "Zathura")))
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
+ '(electric-pair-mode t)
  '(elpy-rpc-virtualenv-path 'system)
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
@@ -26,8 +28,8 @@
  '(message-send-mail-function 'message-send-mail-with-sendmail)
  '(message-sendmail-envelope-from 'header)
  '(mml-secure-openpgp-sign-with-sender t)
- '(modus-themes-inhibit-reload nil)
  '(modus-themes-bold-constructs t)
+ '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
  '(notmuch-saved-searches
    '((:name "inbox" :query "tag:inbox not tag:flagged not tag:passed" :key "i")
@@ -88,7 +90,7 @@
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
+  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1))))
 
 ;; auctex related settings ends here
 
@@ -154,3 +156,9 @@
     (shell-command-to-string "wl-paste -n | tr -d \r")))
 
 ;; wayland paste ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
