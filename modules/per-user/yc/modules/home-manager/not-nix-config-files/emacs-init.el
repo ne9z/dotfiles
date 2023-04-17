@@ -24,6 +24,7 @@
  '(message-send-mail-function 'message-send-mail-with-sendmail)
  '(message-sendmail-envelope-from 'header)
  '(mml-secure-openpgp-sign-with-sender t)
+ '(modus-themes-inhibit-reload nil)
  '(modus-themes-bold-constructs t)
  '(modus-themes-italic-constructs t)
  '(notmuch-saved-searches
