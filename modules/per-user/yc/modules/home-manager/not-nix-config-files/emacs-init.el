@@ -13,6 +13,7 @@
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(elpy-rpc-virtualenv-path 'system)
+ '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(interprogram-cut-function 'wl-copy t)
