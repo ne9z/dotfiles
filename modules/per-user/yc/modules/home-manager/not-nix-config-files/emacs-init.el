@@ -93,7 +93,8 @@
             #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1))))
+  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1)))
+  (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
 
 ;; auctex related settings ends here
 
