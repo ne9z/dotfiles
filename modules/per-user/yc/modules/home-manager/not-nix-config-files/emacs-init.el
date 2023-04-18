@@ -4,10 +4,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-electric-left-right-brace t)
- '(LaTeX-mode-hook
-   '(auto-fill-mode TeX-source-correlate-mode))
+ '(LaTeX-mode-hook '(auto-fill-mode TeX-source-correlate-mode))
  '(TeX-auto-save t)
  '(TeX-electric-math '("\\(" . "\\)"))
+ '(TeX-electric-sub-and-superscript t)
  '(TeX-source-correlate-mode t)
  '(TeX-source-correlate-start-server t)
  '(TeX-view-program-selection '((output-pdf "Zathura")))
@@ -65,6 +65,7 @@
      ("" "mathptmx" nil)
      ("AUTO" "babel" nil)
      ("margin=2cm" "geometry" nil)))
+ '(prettify-symbols-unprettify-at-point 'right-edge)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(reftex-plug-into-AUCTeX t)
@@ -163,3 +164,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'LaTeX-narrow-to-environment 'disabled nil)
