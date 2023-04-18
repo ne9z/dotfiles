@@ -92,7 +92,8 @@
             #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1))))
+  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1)))
+  (put 'LaTeX-narrow-to-environment 'disabled nil))
 
 ;; auctex related settings ends here
 
@@ -164,4 +165,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(put 'LaTeX-narrow-to-environment 'disabled nil)
