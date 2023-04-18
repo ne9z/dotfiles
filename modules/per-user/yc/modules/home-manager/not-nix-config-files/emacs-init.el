@@ -1,3 +1,4 @@
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -92,8 +93,7 @@
             #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1)))
-  (put 'LaTeX-narrow-to-environment 'disabled nil))
+  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1))))
 
 ;; auctex related settings ends here
 
