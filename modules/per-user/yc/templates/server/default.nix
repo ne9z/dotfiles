@@ -209,6 +209,7 @@ in {
       per-user.yc.modules = {
         hiddenServices.enable = true;
         emacs.enable = true;
+        tmux.enable = true;
       };
     };
     home-manager.users.yc = {
@@ -224,11 +225,9 @@ in {
     };
     programs = {
       tmux = {
-        enable = true;
-        keyMode = "emacs";
-        newSession = true;
         extraConfig = ''
-          unbind C-b
+          unbind f7
+          set -u prefix
           set -g prefix C-\\
           bind C-\\ send-prefix
         '';
