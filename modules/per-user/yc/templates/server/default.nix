@@ -223,16 +223,6 @@ in {
         "pyrosimple/config.toml" = { source = ./pyrosimple-config.toml; };
       };
     };
-    programs = {
-      tmux = {
-        extraConfig = ''
-          unbind f7
-          set -u prefix
-          set -g prefix C-\\
-          bind C-\\ send-prefix
-        '';
-      };
-    };
     services.openssh = {
       ports = [ 22 65222 ];
       allowSFTP = true;
