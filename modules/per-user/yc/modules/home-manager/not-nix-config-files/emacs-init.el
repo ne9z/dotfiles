@@ -73,6 +73,14 @@
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
 
+;;; disable electric pairs in minibuffer
+(defun my-electric-pair-inhibit (char)
+  (if (not (minibufferp))
+      (electric-pair-default-inhibit char)
+    (minibufferp)))
+
+(setq electric-pair-inhibit-predicate #'my-electric-pair-inhibit)
+
 ;; auctex related settings ends here
 
 ;; sign all outgoing emails by default
