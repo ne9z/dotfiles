@@ -21,6 +21,8 @@ in {
           collection-mathscience
           # languages
           collection-langgerman
+          # mathtools for coloneq
+          mathtools
           # pdf manipulation tool
           pdfjam pdfpages
           # code listings
