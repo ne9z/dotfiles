@@ -1,4 +1,3 @@
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,31 +40,6 @@
      (:name "drafts" :query "tag:draft" :key "d")
      (:name "all mail" :query "*" :key "a")))
  '(org-export-with-smart-quotes t)
- '(org-highlight-latex-and-related '(latex))
- '(org-latex-classes
-   '(("article" "\\documentclass[a4paper,12pt]{article}"
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-      ("\\paragraph{%s}" . "\\paragraph*{%s}")
-      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-     ("report" "\\documentclass[11pt]{report}"
-      ("\\part{%s}" . "\\part*{%s}")
-      ("\\chapter{%s}" . "\\chapter*{%s}")
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-     ("book" "\\documentclass[11pt]{book}"
-      ("\\part{%s}" . "\\part*{%s}")
-      ("\\chapter{%s}" . "\\chapter*{%s}")
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
- '(org-latex-packages-alist
-   '("\\linespread{1.1}"
-     ("" "mathptmx" nil)
-     ("AUTO" "babel" nil)
-     ("margin=2cm" "geometry" nil)))
  '(prettify-symbols-unprettify-at-point 'right-edge)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
@@ -89,12 +63,15 @@
 (use-package tex
   :ensure auctex
   :config
+  (eval-after-load "LaTeX"
+    '(progn
+       (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)
+       (put 'LaTeX-narrow-to-environment 'disabled nil)
+       (electric-pair-local-mode -1))))
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook (lambda () (electric-pair-local-mode -1)))
-  (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
+  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
 
 ;; auctex related settings ends here
 
