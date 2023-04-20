@@ -51,6 +51,9 @@
  '(shr-use-colors nil)
  '(tool-bar-mode nil))
 
+;; turn on auto fill in all modes
+(setq-default auto-fill-function 'do-auto-fill)
+
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
 (define-key key-translation-map [?\C-?] [?\C-h])
