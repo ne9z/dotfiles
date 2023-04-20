@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-electric-left-right-brace t)
- '(LaTeX-mode-hook '(auto-fill-mode TeX-source-correlate-mode))
+ '(LaTeX-mode-hook '())
  '(TeX-auto-save t)
  '(TeX-electric-math '("\\(" . "\\)"))
  '(TeX-electric-sub-and-superscript t)
@@ -70,6 +70,8 @@
        (electric-pair-local-mode -1))))
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
+  (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+  (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
 
