@@ -13,6 +13,7 @@
 
   # Enable NetworkManager for wireless networking,
   # You can configure networking with "nmtui" command.
+  networking.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = lib.mkDefault false;
 
   # Enable GNOME

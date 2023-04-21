@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.zfs-root.boot;
@@ -130,7 +130,7 @@ in {
             zfsSupport = true;
             extraInstallCommands = (toString (map (diskName: ''
               set -x
-              cp -r ${config.boot.loader.efi.efiSysMountPoint}/EFI /boot/efis/${diskName}${cfg.partitionScheme.efiBoot}
+              ${pkgs.coreutils-full}/bin/cp -r ${config.boot.loader.efi.efiSysMountPoint}/EFI /boot/efis/${diskName}${cfg.partitionScheme.efiBoot}
               set +x
             '') (tail cfg.bootDevices)));
           };
