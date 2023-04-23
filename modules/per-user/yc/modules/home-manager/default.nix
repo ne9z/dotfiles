@@ -503,7 +503,6 @@ in {
           defaultApplications = {
             "application/pdf" = "org.pwmt.zathura.desktop";
             "image/jpeg" = "org.nomacs.ImageLounge.desktop";
-            "image/jpeg" = "org.nomacs.ImageLounge.desktop";
           };
         };
         configFile = {
