@@ -62,6 +62,8 @@ in {
             pdfcpu
             # image editor
             nomacs
+            # CoMa programs
+            python3 julia
             # pdf manipulation suite in C++
             # https://qpdf.readthedocs.io/en/stable/
             qpdf;
