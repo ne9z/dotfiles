@@ -70,13 +70,21 @@
     '(progn
        (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)
        (put 'LaTeX-narrow-to-environment 'disabled nil)
-       (electric-pair-local-mode -1))))
+       (electric-pair-local-mode -1)
+       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb))))
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
   (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
+
+;;; latex mathbb
+(defun my-LaTeX-math-bb (char dollar)
+  "Insert a {\\mathbb CHAR}."
+  (interactive "*c\nP")
+  (insert "\\mathbb{" (char-to-string char) "}"))
+;;; end of latex mathbb
 
 ;;; disable electric pairs in minibuffer
 (defun my-electric-pair-inhibit (char)
