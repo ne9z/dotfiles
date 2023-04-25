@@ -40,7 +40,7 @@
      (:name "drafts" :query "tag:draft" :key "d")
      (:name "all mail" :query "*" :key "a")))
  '(org-export-with-smart-quotes t)
- '(prettify-symbols-unprettify-at-point 'right-edge)
+ '(prettify-symbols-unprettify-at-point nil)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(reftex-plug-into-AUCTeX t)
