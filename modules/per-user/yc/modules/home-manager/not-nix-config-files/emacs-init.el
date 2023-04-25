@@ -68,6 +68,7 @@
   :config
   (eval-after-load "LaTeX"
     '(progn
+       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
        (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)
        (put 'LaTeX-narrow-to-environment 'disabled nil)
        (electric-pair-local-mode -1)
