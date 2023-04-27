@@ -160,6 +160,10 @@
     (shell-command-to-string "wl-paste -n | tr -d \r")))
 
 ;; wayland paste ends here
+
+;; julia
+(use-package julia-mode)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
