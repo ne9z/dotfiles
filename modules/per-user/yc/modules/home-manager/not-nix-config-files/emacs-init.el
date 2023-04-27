@@ -70,10 +70,10 @@
     '(progn
        (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
        (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
-       (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)
+       (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
        (put 'LaTeX-narrow-to-environment 'disabled nil)
        (electric-pair-local-mode -1)
-       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb))))
+       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)))
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
