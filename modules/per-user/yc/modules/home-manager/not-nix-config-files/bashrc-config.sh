@@ -47,8 +47,10 @@ watchtex () {
 	echo "watch a tex file and auto-compile pdf when modified"
 	echo "no file specified"
 	return 1
+    elif [ "${1}" == "unsafe" ]; then
+	latexmk -cd -interaction=nonstopmode -shell-escape -pdf -pvc "${2}"
     else
-	latexmk -cd -interaction=nonstopmode -pdf -pvc "${1}"
+        latexmk -cd -interaction=nonstopmode -pdf -pvc "${1}"
     fi
 }
 
