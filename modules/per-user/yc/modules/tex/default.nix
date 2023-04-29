@@ -26,10 +26,13 @@ in {
           # pdf manipulation tool
           pdfjam pdfpages
           # code listings
-          listings
+          minted
           # pictures and tikz
           collection-pictures;
       })
+      # used for code listings with minted package
+      python3
+      python3Packages.pygments
     ];
   };
 }
