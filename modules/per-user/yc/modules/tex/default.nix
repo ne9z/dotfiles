@@ -26,7 +26,7 @@ in {
           # pdf manipulation tool
           pdfjam pdfpages
           # code listings
-          minted
+          minted fvextra
           # pictures and tikz
           collection-pictures;
       });
