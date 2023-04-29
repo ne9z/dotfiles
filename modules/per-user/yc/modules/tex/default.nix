@@ -8,7 +8,7 @@ in {
     type = types.bool;
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = builtins.attrValue {
+    environment.systemPackages = builtins.attrValues {
       mytex = (pkgs.texlive.combine {
         inherit (pkgs.texlive)
         # necessary for org-mode
