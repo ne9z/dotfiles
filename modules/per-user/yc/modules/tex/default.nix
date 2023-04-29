@@ -27,7 +27,7 @@ in {
           pdfjam pdfpages
           # code listings
           minted fvextra keyval kvoptions fancyvrb upquote float
-          ifthen ifplatform pdftexcmds etoolbox xcolor
+          ifplatform pdftexcmds etoolbox xcolor
           lineno framed catchfile
           # pictures and tikz
           collection-pictures;
