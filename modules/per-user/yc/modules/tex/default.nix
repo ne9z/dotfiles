@@ -26,7 +26,7 @@ in {
           # pdf manipulation tool
           pdfjam pdfpages
           # code listings
-          minted fvextra keyval kvoptions fancyvrb upquote float
+          minted fvextra xifthen kvoptions fancyvrb upquote float
           ifplatform pdftexcmds etoolbox xcolor
           lineno framed catchfile
           # pictures and tikz
