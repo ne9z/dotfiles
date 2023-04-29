@@ -8,8 +8,8 @@ in {
     type = types.bool;
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      (pkgs.texlive.combine {
+    environment.systemPackages = builtins.attrValue {
+      mytex = (pkgs.texlive.combine {
         inherit (pkgs.texlive)
         # necessary for org-mode
           scheme-basic dvipng latexmk wrapfig amsmath ulem hyperref capt-of
@@ -29,10 +29,10 @@ in {
           minted
           # pictures and tikz
           collection-pictures;
-      })
+      });
       # used for code listings with minted package
-      python3
-      python3Packages.pygments
-    ];
+      inherit (pkgs) python3;
+      inherit (pkgs.python3Packages) pygments;
+    };
   };
 }
