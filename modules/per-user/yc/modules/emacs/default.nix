@@ -6,7 +6,7 @@ let
   buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages;
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
-      inherit (epkgs.melpaPackages) nix-mode notmuch julia-mode;
+      inherit (epkgs.melpaPackages) nix-mode notmuch julia-mode haskell-mode;
       inherit (epkgs.elpaPackages) use-package auctex pyim pyim-basedict;
     });
 in {
