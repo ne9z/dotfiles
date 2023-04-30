@@ -23,11 +23,8 @@ in {
                   popupPanelSections = 31;
                 };
                 dynamicFilteringString = ''
-                  * * * block
-                  * * image block
                   * * inline-script block
                   * * 1p-script block
-                  * * 3p block
                   * * 3p-script block
                   * * 3p-frame block'';
                 hostnameSwitchesString = ''
