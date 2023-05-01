@@ -66,6 +66,8 @@ in {
             python3 julia
             # haskell
             ghc haskell-language-server stack
+            # guile
+            guile_3_0
             # pdf manipulation suite in C++
             # https://qpdf.readthedocs.io/en/stable/
             qpdf;
