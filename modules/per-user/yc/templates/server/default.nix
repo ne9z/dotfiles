@@ -82,8 +82,6 @@ in {
         51413
         # nfsv4
         2049
-        # 让妈妈用ygg看电影
-        62912
       ];
       allowedUDPPorts = [
         # bt
@@ -97,7 +95,6 @@ in {
     };
     systemd.services.rtorrent.serviceConfig.LimitNOFILE = 10240;
     systemd.tmpfiles.rules = [
-      "d '/tmp/BitTorrent' 0755 rtorrent rtorrent -"
       "d '/tmp/rtorrent_自动添加' 0770 rtorrent users -"
     ];
     services.rtorrent = {
@@ -105,14 +102,8 @@ in {
       dataDir = "/tmp/BitTorrent";
       downloadDir = "/tmp/BitTorrent/已下载";
       openFirewall = false;
-      # https://rtorrent-docs.readthedocs.io/en/latest/cmd-ref.html
-      # fix directory permission and remove execute.nothrow after 23.05
-      # https://github.com/NixOS/nixpkgs/pull/212153
+      dataPermissions = "0755";
       configText = ''
-        # set rpc socket permission
-        # enabled lighttpd access
-        schedule = scgi_permission,0,0,"execute.nothrow=\"${pkgs.acl}/bin/setfacl\",\"-mu:lighttpd:rwx,u:yc:rwx\",(cfg.rpcsock)"
-
         # rtorrent program settings
         encoding.add = UTF-8
         pieces.hash.on_completion.set = 0
@@ -167,17 +158,6 @@ in {
         network.xmlrpc.size_limit.set = 5M
       '';
     };
-    services.lighttpd = {
-      enable = true;
-      enableModules = [ "mod_fastcgi" ];
-      document-root = "/home/www";
-      extraConfig = ''
-        server.bind = "localhost"
-        fastcgi.server =  ( ".php" =>
-            (("bin-path" => "${pkgs.php}/bin/php-cgi",
-               "socket" => "/tmp/lighttpd-php-fastcgi-rutorrent.socket")))
-      '';
-    };
     users.users = {
       root = {
         initialHashedPassword =
@@ -219,9 +199,6 @@ in {
         stateVersion = mkDefault "22.11";
       };
       programs.home-manager.enable = true;
-      xdg.configFile = {
-        "pyrosimple/config.toml" = { source = ./pyrosimple-config.toml; };
-      };
     };
     services.openssh = {
       ports = [ 22 65222 ];
@@ -273,7 +250,7 @@ in {
       };
     };
     environment.systemPackages =
-      builtins.attrValues { inherit (pkgs) smartmontools darkhttpd; };
+      builtins.attrValues { inherit (pkgs) smartmontools darkhttpd pyrosimple; };
     environment.loginShellInit = ''
       Nu () {
         source /etc/os-release
