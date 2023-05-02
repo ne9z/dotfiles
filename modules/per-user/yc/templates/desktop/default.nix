@@ -65,7 +65,7 @@ in {
             # CoMa programs
             python3 julia
             # haskell
-            ghc haskell-language-server stack
+            ghc haskell-language-server cabal-install
             # guile
             guile_3_0
             # pdf manipulation suite in C++
