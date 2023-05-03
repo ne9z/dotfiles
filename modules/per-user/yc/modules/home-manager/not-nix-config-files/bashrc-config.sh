@@ -211,6 +211,7 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     for mount in ${msymlinks}; do
 	mcreate_symblink "${mount}"
     done
+    touch ${HOME}/.w3m/history
     set +e
 fi
 
