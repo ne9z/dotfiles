@@ -94,9 +94,7 @@ in {
       "fs.file-max" = 65536;
     };
     systemd.services.rtorrent.serviceConfig.LimitNOFILE = 10240;
-    systemd.tmpfiles.rules = [
-      "d '/tmp/rtorrent_自动添加' 0770 rtorrent users -"
-    ];
+    systemd.tmpfiles.rules = [ "d '/tmp/rtorrent_自动添加' 0770 rtorrent users -" ];
     services.rtorrent = {
       enable = true;
       dataDir = "/tmp/BitTorrent";
@@ -249,8 +247,9 @@ in {
         accessList = [ ]; # to lazy to only allow zfs-root laptops
       };
     };
-    environment.systemPackages =
-      builtins.attrValues { inherit (pkgs) smartmontools darkhttpd pyrosimple; };
+    environment.systemPackages = builtins.attrValues {
+      inherit (pkgs) smartmontools darkhttpd pyrosimple;
+    };
     environment.loginShellInit = ''
       Nu () {
         source /etc/os-release

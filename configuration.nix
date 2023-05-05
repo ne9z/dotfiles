@@ -11,6 +11,8 @@
 
   system.stateVersion = "22.11";
 
+  nixpkgs.config.zathura.useMupdf = true;
+
   # Enable NetworkManager for wireless networking,
   # You can configure networking with "nmtui" command.
   networking.useDHCP = lib.mkDefault true;

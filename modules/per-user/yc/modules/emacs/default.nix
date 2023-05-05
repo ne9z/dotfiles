@@ -29,14 +29,13 @@ in {
       };
     };
   };
-  config =
-    mkIf (cfg.enable) {
-      environment = {
-        systemPackages = cfg.extraPackages;
-        interactiveShellInit = ''
-          export EDITOR="emacsclient --alternate-editor= --create-frame -nw"
-          e () { $EDITOR "$@"; }
-        '';
-      };
+  config = mkIf (cfg.enable) {
+    environment = {
+      systemPackages = cfg.extraPackages;
+      interactiveShellInit = ''
+        export EDITOR="emacsclient --alternate-editor= --create-frame -nw"
+        e () { $EDITOR "$@"; }
+      '';
     };
+  };
 }
