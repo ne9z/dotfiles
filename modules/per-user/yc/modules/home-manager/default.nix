@@ -312,6 +312,7 @@ in {
           zoom-step = 9;
           scroll-step = 80;
           scroll-hstep = 80;
+          sandbox = "strict";
         };
       };
       programs.firefox = {
