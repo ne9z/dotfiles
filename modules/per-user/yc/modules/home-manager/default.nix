@@ -424,7 +424,7 @@ in {
               "extensions.webextensions.restrictedDomains" = "";
               "network.IDN_show_punycode" = true;
               "browser.urlbar.autoFill" = false;
-
+              "browser.tabs.inTitlebar" = 0;
             };
           };
         };
