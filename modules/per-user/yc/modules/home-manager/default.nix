@@ -467,7 +467,7 @@ in {
         settings = {
           main = {
             term = "foot-direct";
-            font = "monospace:size=14";
+            font = "monospace:size=18";
             dpi-aware = "no";
           };
 
