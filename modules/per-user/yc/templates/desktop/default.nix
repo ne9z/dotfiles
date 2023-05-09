@@ -126,8 +126,8 @@ in {
     };
     fonts.fontconfig.defaultFonts = {
       monospace = [ "DejaVu Sans Mono" ];
-      sansSerif = [ "Libertinus Sans" ];
-      serif = [ "Libertinus Serif Display" ];
+      sansSerif = [ "DejaVu Sans" ];
+      serif = [ "DejaVu Serif" ];
     };
     fonts.fonts = builtins.attrValues {
       inherit (pkgs) noto-fonts noto-fonts-cjk-sans dejavu_fonts
