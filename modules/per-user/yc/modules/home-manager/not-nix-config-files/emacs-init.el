@@ -8,6 +8,7 @@
  '(TeX-auto-save t)
  '(TeX-electric-math '("\\(" . "\\)"))
  '(TeX-electric-sub-and-superscript t)
+ '(TeX-engine 'luatex)
  '(TeX-source-correlate-mode t)
  '(TeX-source-correlate-start-server t)
  '(TeX-view-program-selection '((output-pdf "Zathura")))

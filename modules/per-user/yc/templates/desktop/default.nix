@@ -130,7 +130,7 @@ in {
       serif = [ "Noto Sans Display" ];
     };
     fonts.fonts = builtins.attrValues {
-      inherit (pkgs) noto-fonts noto-fonts-cjk-sans source-code-pro;
+      inherit (pkgs) noto-fonts noto-fonts-cjk-sans source-code-pro stix-two;
     };
     environment.sessionVariables = {
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";

@@ -14,6 +14,7 @@ in {
         # necessary for org-mode
           scheme-basic dvipng latexmk wrapfig amsmath ulem hyperref capt-of
           # times like font
+          stix2-otf
           newtx xkeyval xstring fontaxes
           # MLModern, thicker Computer Modern
           mlmodern
@@ -28,6 +29,8 @@ in {
           # code listings
           minted fvextra xifthen kvoptions fancyvrb upquote float ifplatform
           pdftexcmds etoolbox xcolor lineno framed catchfile
+          # fontspec for lualatex and others
+          fontspec realscripts unicode-math lualatex-math
           # pictures and tikz
           collection-pictures;
       });
