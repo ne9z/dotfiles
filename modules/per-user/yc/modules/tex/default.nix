@@ -14,16 +14,11 @@ in {
         # necessary for org-mode
           scheme-basic dvipng latexmk wrapfig amsmath ulem hyperref capt-of
           # times like font
-          stix2-otf
-          newtx xkeyval xstring fontaxes
-          # MLModern, thicker Computer Modern
-          mlmodern
+          stix2-otf libertinus-fonts
           # maths
           collection-mathscience
           # languages
           collection-langgerman
-          # mathtools for coloneq
-          mathtools
           # pdf manipulation tool
           pdfjam pdfpages
           # code listings

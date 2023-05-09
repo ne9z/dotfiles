@@ -35,7 +35,7 @@ in {
 
       gtk = {
         enable = true;
-        font = { name = "Noto Sans Display 14"; };
+        font = { name = "sans-serif 16"; };
         theme = {
           name = "Adwaita-dark";
           package = pkgs.gnome.gnome-themes-extra;
@@ -48,8 +48,8 @@ in {
       dconf.settings = {
         "org/gnome/desktop/interface" = {
           enable-animations = false;
-          document-font-name = "Noto Sans Display 12";
-          monospace-font-name = "Source Code Pro 10";
+          document-font-name = "sans-serif 16";
+          monospace-font-name = "monospace 14";
           gtk-key-theme = "Emacs";
           cursor-size = 48;
         };
@@ -307,7 +307,7 @@ in {
           scroll-full-overlap = "0.1";
           statusbar-home-tilde = true;
           synctex = true;
-          font = "Monospace bold 16";
+          font = "sans-serif bold 16";
           guioptions = "";
           zoom-step = 9;
           scroll-step = 80;
@@ -530,7 +530,7 @@ in {
           "fuzzel/fuzzel.ini" = {
             text = ''
               [main]
-              font=Noto Sans:size=18:weight=bold'';
+              font=sans-serif:size=18:weight=bold'';
           };
           "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
           "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
@@ -684,7 +684,7 @@ in {
         '';
         config = {
           fonts = {
-            names = [ "monospace" ];
+            names = [ "sans-serif" ];
             style = "bold";
             size = 13.0;
           };
