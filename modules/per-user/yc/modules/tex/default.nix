@@ -23,7 +23,7 @@ in {
           pdfjam pdfpages
           # code listings
           minted fvextra xifthen kvoptions fancyvrb upquote float ifplatform
-          pdftexcmds etoolbox xcolor lineno framed catchfile
+          pdftexcmds etoolbox xcolor lineno framed catchfile shellesc
           # fontspec for lualatex and others
           fontspec realscripts unicode-math lualatex-math
           # pictures and tikz
