@@ -19,9 +19,7 @@ in {
           # pdf manipulation tool
           pdfjam pdfpages
           # stix font
-          stix2-type1
-          # fontspec for lualatex and others
-          fontspec lualatex-math mathtools
+          fontspec realscripts unicode-math lualatex-math stix2-otf
           # pictures and tikz
           collection-pictures;
       });
