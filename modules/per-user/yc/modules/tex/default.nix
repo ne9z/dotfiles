@@ -21,7 +21,7 @@ in {
           # stix font
           stix2-type1
           # fontspec for lualatex and others
-          fontspec lualatex-math
+          fontspec lualatex-math mathtools
           # pictures and tikz
           collection-pictures;
       });
