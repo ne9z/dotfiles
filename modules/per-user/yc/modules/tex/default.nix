@@ -14,6 +14,7 @@ in {
         # necessary for org-mode
           scheme-basic dvipng latexmk wrapfig amsmath ulem hyperref capt-of
           # times like font
+          newtx xkeyval xstring fontaxes mathtools
           stix2-otf libertinus-fonts
           # maths
           collection-mathscience
