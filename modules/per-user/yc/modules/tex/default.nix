@@ -23,6 +23,8 @@ in {
           # xits OpenType font, which is a real times new roman clone
           # not maintained anymore
           xits
+          # fonts based on bitstream charter
+          xcharter xcharter-math
           # pictures and tikz
           collection-pictures;
       });
