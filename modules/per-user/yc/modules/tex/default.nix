@@ -15,7 +15,8 @@ in {
           scheme-basic dvipng latexmk wrapfig amsmath ulem hyperref capt-of
           # times like font
           newtx xkeyval xstring fontaxes mathtools
-          stix2-otf libertinus-fonts
+          stix2-otf libertinus-fonts stickstootext
+          libertinus
           # maths
           collection-mathscience
           # languages
