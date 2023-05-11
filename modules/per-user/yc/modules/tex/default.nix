@@ -20,6 +20,9 @@ in {
           pdfjam pdfpages
           # stix font
           fontspec realscripts unicode-math lualatex-math stix2-otf
+          # xits OpenType font, which is a real times new roman clone
+          # not maintained anymore
+          xits
           # pictures and tikz
           collection-pictures;
       });
