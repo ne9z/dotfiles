@@ -11,23 +11,17 @@ in {
     environment.systemPackages = builtins.attrValues {
       mytex = (pkgs.texlive.combine {
         inherit (pkgs.texlive)
-        # necessary for org-mode
-          scheme-basic dvipng latexmk wrapfig amsmath ulem hyperref capt-of
-          # times like font
-          newtx xkeyval xstring fontaxes mathtools ly1
-          stix2-otf libertinus-fonts stickstoo
-          libertinus xcharter scholax
+          scheme-basic latexmk amsmath hyperref
           # maths
           collection-mathscience
           # languages
           collection-langgerman
           # pdf manipulation tool
           pdfjam pdfpages
-          # code listings
-          minted fvextra xifthen kvoptions fancyvrb upquote float ifplatform
-          pdftexcmds etoolbox xcolor lineno framed catchfile tools
+          # stix font
+          stix2-type1
           # fontspec for lualatex and others
-          fontspec realscripts unicode-math lualatex-math
+          fontspec lualatex-math
           # pictures and tikz
           collection-pictures;
       });
