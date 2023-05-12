@@ -25,6 +25,8 @@ in {
           xits
           # fonts based on bitstream charter
           xcharter xcharter-math
+          # AMS-Euler, but OpenType
+          euler-math
           # pictures and tikz
           collection-pictures;
       });
