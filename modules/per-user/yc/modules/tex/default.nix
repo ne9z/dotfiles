@@ -25,8 +25,9 @@ in {
           xits
           # fonts based on bitstream charter
           xcharter xcharter-math
-          # AMS-Euler, but OpenType
-          euler-math
+          # AMS-Euler and Concrete as in Concrete Mathematics, but
+          # OpenType
+          euler-math concmath-otf
           # pictures and tikz
           collection-pictures;
       });
