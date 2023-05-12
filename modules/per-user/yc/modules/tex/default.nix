@@ -27,7 +27,7 @@ in {
           xcharter xcharter-math
           # AMS-Euler and Concrete as in Concrete Mathematics, but
           # OpenType
-          euler-math concmath-otf
+          euler-math cm-unicode
           # pictures and tikz
           collection-pictures;
       });
