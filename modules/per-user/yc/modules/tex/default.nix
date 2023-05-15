@@ -11,7 +11,7 @@ in {
     environment.systemPackages = builtins.attrValues {
       mytex = (pkgs.texlive.combine {
         inherit (pkgs.texlive)
-          scheme-basic latexmk amsmath hyperref listings xcolor
+          scheme-basic latexmk amsmath hyperref listings
           # maths
           collection-mathscience
           # languages
