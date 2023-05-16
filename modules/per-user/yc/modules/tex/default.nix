@@ -20,6 +20,8 @@ in {
           pdfjam pdfpages
           # stix font
           fontspec realscripts unicode-math lualatex-math stix2-otf
+          # pseudocode
+          algpseudocodex
           # pictures and tikz
           collection-pictures;
       });
