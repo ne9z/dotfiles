@@ -21,7 +21,7 @@ in {
           # stix font
           fontspec realscripts unicode-math lualatex-math stix2-otf
           # pseudocode
-          algpseudocodex kvoptions etoolbox fifo-stack varwidth tabto
+          algpseudocodex kvoptions etoolbox fifo-stack varwidth
           totcount tikz algorithmicx
           # pictures and tikz
           collection-pictures;
