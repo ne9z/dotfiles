@@ -22,7 +22,7 @@ in {
           fontspec realscripts unicode-math lualatex-math stix2-otf
           # pseudocode
           algpseudocodex kvoptions etoolbox fifo-stack varwidth
-          totcount tikz algorithmicx
+          totcount algorithmicx
           # pictures and tikz
           collection-pictures;
       });
