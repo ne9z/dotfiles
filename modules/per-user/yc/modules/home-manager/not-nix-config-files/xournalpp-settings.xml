@@ -65,6 +65,7 @@
   <property name="snapGridTolerance" value="0.50000000"/>
   <property name="snapGridSize" value="14.17000000"/>
   <property name="touchDrawing" value="false"/>
+  <property name="gtkTouchInertialScrolling" value="true"/>
   <property name="pressureGuessing" value="false"/>
   <property name="selectionBorderColor" value="4294901760"/>
   <property name="backgroundColor" value="4292664021"/>
@@ -120,19 +121,21 @@
       <attribute name="tool" type="string" value="pen"/>
     </data>
     <data name="eraser">
-      <attribute name="tool" type="string" value="selectRect"/>
+      <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="middle">
       <attribute name="tool" type="string" value="hand"/>
     </data>
     <data name="right">
-      <attribute name="tool" type="string" value="selectRect"/>
+      <attribute name="eraserMode" type="string" value="deleteStroke"/>
+      <attribute name="size" type="string" value="medium"/>
+      <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="stylus">
-      <attribute name="tool" type="string" value="selectRect"/>
+      <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="stylus2">
-      <attribute name="tool" type="string" value="hand"/>
+      <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="touch">
       <attribute name="device" type="string" value=""/>
