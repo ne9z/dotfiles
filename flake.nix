@@ -3,7 +3,7 @@
     # see
     #   https://hydra.nixos.org/job/nixos/unstable-small/nixos.iso_minimal.x86_64-linux/latest-finished#tabs-buildinputs
     # for latest build.
-    nixpkgs.url = "github:nixos/nixpkgs/unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
