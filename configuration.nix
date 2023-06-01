@@ -74,8 +74,8 @@
 
   security = {
     allowSimultaneousMultithreading = false;
+    lockKernelModules = false;
     apparmor.enable = true;
-    virtualisation.flushL1DataCache = "always";
   };
 
 }
