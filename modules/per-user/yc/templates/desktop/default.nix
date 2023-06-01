@@ -130,8 +130,8 @@ in {
       serif = [ "DejaVu Sans" ];
     };
     fonts.fonts = builtins.attrValues {
-      inherit (pkgs) noto-fonts noto-fonts-cjk-sans dejavu_fonts
-        stix-two libertinus;
+      inherit (pkgs)
+        noto-fonts noto-fonts-cjk-sans dejavu_fonts stix-two libertinus;
     };
     environment.sessionVariables = {
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
