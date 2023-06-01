@@ -74,7 +74,6 @@
 
   security = {
     allowSimultaneousMultithreading = false;
-    allowUserNamespaces = false;
     apparmor.enable = true;
     virtualisation.flushL1DataCache = "always";
   };
