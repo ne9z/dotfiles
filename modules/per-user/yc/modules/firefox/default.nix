@@ -12,7 +12,7 @@ in {
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-esr;
+      package = pkgs.firefox;
       policies = {
         "3rdparty" = {
           Extensions = {
