@@ -77,5 +77,5 @@
     lockKernelModules = false;
     apparmor.enable = true;
   };
-
+  environment.memoryAllocator.provider = "libc";
 }
