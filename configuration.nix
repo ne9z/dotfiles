@@ -46,7 +46,7 @@
 
   imports = [
     "${inputs.nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
-    # "${inputs.nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
+    "${inputs.nixpkgs}/nixos/modules/profiles/hardened.nix"
   ];
 
   services.openssh = {
@@ -71,4 +71,12 @@
       parted # other programs
     ;
   };
+
+  security = {
+    allowSimultaneousMultithreading = false;
+    allowUserNamespaces = false;
+    apparmor.enable = true;
+    virtualisation.flushL1DataCache = "always";
+  };
+
 }
