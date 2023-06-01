@@ -17,6 +17,8 @@ tm () {
     tmux attach-session
 }
 
+nix-shell () { nix shell $(for i in ${@}; do printf 'nixpkgs/%s#%s ' $(nixos-version --revision) $i; done;); }
+
 y () {
     mpv "${@}"
 }
