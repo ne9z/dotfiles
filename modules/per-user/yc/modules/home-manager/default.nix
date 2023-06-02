@@ -699,8 +699,7 @@ in {
             };
           };
           output = {
-            DP-1 = { mode = "2560x1440@60Hz"; };
-            DP-2 = { mode = "2560x1440@60Hz"; };
+            DP-4 = { scale = "2"; };
           };
           input = {
             "type:keyboard" =
