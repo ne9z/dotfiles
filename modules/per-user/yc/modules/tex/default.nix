@@ -22,6 +22,8 @@ in {
           fontspec realscripts unicode-math lualatex-math stix2-otf
           # times new roman
           newtx xkeyval xstring fontaxes mathtools
+          # header and footer
+          fancyhdr
           # pseudocode
           algpseudocodex kvoptions etoolbox fifo-stack varwidth totcount
           algorithmicx tabto-ltx
