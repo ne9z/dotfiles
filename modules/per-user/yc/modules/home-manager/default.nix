@@ -112,7 +112,7 @@ in {
           hwdec = "vaapi";
           player-operation-mode = "cplayer";
           audio-pitch-correction = "no";
-          vo = "dmabuf-wayland";
+          vo = "gpu-next";
           profile = "gpu-hq";
           ao = "pipewire";
         };
