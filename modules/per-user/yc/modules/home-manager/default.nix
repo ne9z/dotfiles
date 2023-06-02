@@ -698,6 +698,10 @@ in {
               xcursor_theme = "Adwaita 48";
             };
           };
+          output = {
+            DP-1 = { mode = "2560x1440@60Hz"; };
+            DP-2 = { mode = "2560x1440@60Hz"; };
+          };
           input = {
             "type:keyboard" =
               (if (config.zfs-root.per-user.yc.modules.keyboard.enable) then {
