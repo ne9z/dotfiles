@@ -17,7 +17,7 @@
   <property name="mainWndWidth" value="1920"/>
   <property name="mainWndHeight" value="1059"/>
   <property name="maximized" value="false"/>
-  <property name="showToolbar" value="false"/>
+  <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
   <property name="sidebarWidth" value="50"/>
   <property name="sidebarOnRight" value="false"/>
@@ -127,9 +127,7 @@
       <attribute name="tool" type="string" value="hand"/>
     </data>
     <data name="right">
-      <attribute name="eraserMode" type="string" value="deleteStroke"/>
-      <attribute name="size" type="string" value="medium"/>
-      <attribute name="tool" type="string" value="eraser"/>
+      <attribute name="tool" type="string" value="selectRect"/>
     </data>
     <data name="stylus">
       <attribute name="tool" type="string" value="none"/>
