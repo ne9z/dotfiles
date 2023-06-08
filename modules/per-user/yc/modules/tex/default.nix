@@ -17,7 +17,7 @@ in {
           # languages
           collection-langgerman
           # pdf manipulation tool
-          pdfjam pdfpages
+          pdfjam pdfpages eso-pic atbegshi pdflscape
           # stix font
           fontspec realscripts unicode-math lualatex-math stix2-otf
           # times new roman
