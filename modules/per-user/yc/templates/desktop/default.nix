@@ -64,10 +64,6 @@ in {
             nomacs
             # CoMa programs
             python3 julia
-            # haskell
-            ghc haskell-language-server cabal-install
-            # guile
-            guile_3_0
             # pdf manipulation suite in C++
             # https://qpdf.readthedocs.io/en/stable/
             qpdf;
