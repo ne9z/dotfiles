@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.zfs-root.per-user.yc.modules.home-manager;
-  inherit (lib) mkDefault mkOption types mkIf;
+  inherit (lib) mkDefault mkOption types mkIf recursiveUpdate;
 in {
   options.zfs-root.per-user.yc.modules.home-manager = {
     enable = mkOption {
@@ -109,13 +109,17 @@ in {
       };
       programs.mpv = {
         enable = true;
-        config = {
+        config = recursiveUpdate {
           hwdec = "vaapi";
           player-operation-mode = "cplayer";
           audio-pitch-correction = "no";
           vo = "dmabuf-wayland";
           ao = "pipewire";
-        };
+        } (if (config.zfs-root.networking.hostName == "qinghe") then {
+          hwdec = "no";
+          vo = "gpu-next";
+        } else
+          { });
       };
       programs.yt-dlp = {
         enable = true;
@@ -697,9 +701,7 @@ in {
               xcursor_theme = "Adwaita 48";
             };
           };
-          output = {
-            DP-4 = { scale = "2"; };
-          };
+          output = { DP-4 = { scale = "2"; }; };
           input = {
             "type:keyboard" =
               (if (config.zfs-root.per-user.yc.modules.keyboard.enable) then {
