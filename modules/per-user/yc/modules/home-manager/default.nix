@@ -65,10 +65,7 @@ in {
           userEmail = "yguo@posteo.net";
           userName = "Yuchen Guo";
         };
-        mbsync = {
-          enable = true;
-          flatten = ".";
-        };
+        mbsync.enable = true;
         msmtp.enable = true;
         notmuch.enable = true;
       };
@@ -95,6 +92,7 @@ in {
               create = "both";
               remove = "both";
               expunge = "both";
+              flatten = ".";
             };
             msmtp = {
               enable = true;
