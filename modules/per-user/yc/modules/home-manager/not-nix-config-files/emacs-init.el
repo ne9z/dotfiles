@@ -125,7 +125,7 @@
 (use-package notmuch
   :config
   (setq notmuch-always-prompt-for-sender nil)
-  (setq notmuch-fcc-dirs "apvc.uk/Sent/")
+  (setq notmuch-fcc-dirs "posteo/Sent/")
   (define-key notmuch-search-mode-map "d"
 	      (lambda (&optional beg end)
 		"mark message as passed"

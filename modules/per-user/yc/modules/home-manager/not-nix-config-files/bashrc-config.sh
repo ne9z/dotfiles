@@ -262,7 +262,7 @@ EOF
     for mount in ${msymlinks}; do
 	mcreate_symblink "${mount}"
     done
-    mkdir -p "${HOME}"/Maildir/apvc.uk
+    mkdir -p "${HOME}"/Maildir/posteo
     echo "RETURN_SUCCESS"
     set +ex
 }

@@ -62,8 +62,8 @@ in {
       programs = {
         git = {
           enable = true;
-          userEmail = "yuchen@apvc.uk";
-          userName = "Maurice Zhou";
+          userEmail = "yguo@posteo.net";
+          userName = "Yuchen Guo";
         };
         mbsync.enable = true;
         msmtp.enable = true;
@@ -72,19 +72,19 @@ in {
       accounts.email = {
         maildirBasePath = "Maildir"; # relative to user home
         accounts = {
-          "apvc.uk" = {
+          "posteo" = {
             aliases = [ ];
-            address = "yuchen@apvc.uk";
-            passwordCommand = "pass show email/email-gycAtapvc.uk | head -n1";
+            address = "yguo@posteo.net";
+            passwordCommand = "pass show email/posteo | head -n1";
             primary = true;
-            userName = "gyc@apvc.uk";
+            userName = "yguo@posteo.net";
             realName = "Yuchen Guo";
             imap = {
-              host = "mail.gandi.net";
+              host = "posteo.de";
               port = 993;
             };
             smtp = {
-              host = "mail.gandi.net";
+              host = "posteo.de";
               port = 465;
             };
             mbsync = {
@@ -99,7 +99,7 @@ in {
             };
             notmuch.enable = true;
             gpg = {
-              key = "yuchen@apvc.uk";
+              key = "yguo@posteo.net";
               encryptByDefault = false;
               signByDefault = true;
             };
