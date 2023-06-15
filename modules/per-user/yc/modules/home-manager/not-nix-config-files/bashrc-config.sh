@@ -77,10 +77,11 @@ wfr () {
 	 "${fps}" \
 	 -f kmsgrab \
 	 -i - \
-	 -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12' \
+         -vf 'hwmap=derive_device=vaapi,scale_vaapi=w=1920:h=1080:format=nv12' \
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
+    # -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12' \
     # see this link for more ffmpeg video encoding options
     # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
 }
