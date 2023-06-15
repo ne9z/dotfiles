@@ -74,7 +74,7 @@ wfr () {
     doas /usr/bin/env sh <<EOF
         umask ugo=rw && \
 	 $(command -v ffmpeg) -device /dev/dri/card0 \
-	 "${fps}" \
+	 ${fps} \
 	 -f kmsgrab \
 	 -i - \
          -vf 'hwmap=derive_device=vaapi,scale_vaapi=w=1920:h=1080:format=nv12' \
