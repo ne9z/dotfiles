@@ -467,8 +467,7 @@ in {
         settings = {
           main = {
             term = "foot-direct";
-            font = "monospace:size=18";
-            #dpi-aware = "no";
+            font = "monospace:size=10";
           };
 
           url = { launch = "wl-copy \${url}"; };
