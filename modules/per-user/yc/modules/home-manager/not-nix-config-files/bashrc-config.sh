@@ -165,7 +165,7 @@ gm () {
 
 tubb () {
     if ! test -f "${HOME}"/.config/tubpass; then
-	pass show de/uni/tub | head -n1 > "${HOME}"/.config/tubpass
+	pass show de/tub | head -n1 > "${HOME}"/.config/tubpass
     fi
     wl-copy < "${HOME}"/.config/tubpass
 }
@@ -176,7 +176,7 @@ nmail () {
     mbsync -a
     notmuch new
     if ! test -f "${HOME}"/.config/tubpass; then
-	pass show de/uni/tub | head -n1 > "${HOME}"/.config/tubpass
+	pass show de/tub | head -n1 > "${HOME}"/.config/tubpass
     fi
 }
 
@@ -202,7 +202,6 @@ msymlinks="
 /oldroot${HOME}/.gnupg:${HOME}/.gnupg
 /oldroot${HOME}/.ssh/authorized_keys:${HOME}/.ssh/authorized_keys
 /oldroot${HOME}/.ssh/known_hosts:${HOME}/.ssh/known_hosts
-/oldroot${HOME}/.ssh/tub_latex_repo_key:${HOME}/.ssh/tub_latex_repo_key
 /oldroot${HOME}/.password-store:${HOME}/.password-store
 ${HOME}/.config/w3m:${HOME}/.w3m"
 ### script on login
