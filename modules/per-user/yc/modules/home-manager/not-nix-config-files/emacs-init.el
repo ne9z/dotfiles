@@ -28,7 +28,6 @@
  '(message-kill-buffer-on-exit t)
  '(message-send-mail-function 'message-send-mail-with-sendmail)
  '(message-sendmail-envelope-from 'header)
- '(mml-secure-openpgp-sign-with-sender t)
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
@@ -40,6 +39,7 @@
      (:name "sent" :query "tag:sent" :key "t")
      (:name "drafts" :query "tag:draft" :key "d")
      (:name "all mail" :query "*" :key "a")))
+ '(notmuch-crypto-process-mime nil)
  '(org-export-with-smart-quotes t)
  '(prettify-symbols-unprettify-at-point nil)
  '(read-buffer-completion-ignore-case t)
@@ -98,9 +98,6 @@
 (setq electric-pair-inhibit-predicate #'my-electric-pair-inhibit)
 
 ;; auctex related settings ends here
-
-;; sign all outgoing emails by default
-(add-hook 'message-setup-hook 'mml-secure-message-sign)
 
 ;; zh-cn input engine
 (use-package pyim
