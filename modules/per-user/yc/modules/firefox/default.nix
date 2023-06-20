@@ -17,7 +17,7 @@ in {
             name = "ublock"; # Has to be unique!
             url =
               "https://github.com/gorhill/uBlock/releases/download/1.50.1b3/uBlock0_1.50.1b3.firefox.signed.xpi";
-            hash = "sha256-RqhMhd9Ma+EZBTiK0rZq61oBDtYVSEESyMFxCtE7w24=";
+            hash = "sha256-fKYNmWIMq/peKNFBE6FCW62ifmIExmthS9fn2BPNbUs=";
           })
         ];
         extraPolicies = {
