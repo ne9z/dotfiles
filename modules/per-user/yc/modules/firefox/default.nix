@@ -14,9 +14,9 @@ in {
       (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
         nixExtensions = [
           (pkgs.fetchFirefoxAddon {
-            name = "nojs"; # Has to be unique!
+            name = "ublock"; # Has to be unique!
             url =
-              "https://addons.mozilla.org/firefox/downloads/file/4111078/noscript-11.4.22.xpi";
+              "https://github.com/gorhill/uBlock/releases/download/1.50.1b3/uBlock0_1.50.1b3.firefox.signed.xpi";
             hash = "sha256-RqhMhd9Ma+EZBTiK0rZq61oBDtYVSEESyMFxCtE7w24=";
           })
         ];
