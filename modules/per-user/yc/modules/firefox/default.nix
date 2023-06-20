@@ -17,14 +17,16 @@ in {
             name = "ublock"; # Has to be unique!
             url =
               "https://github.com/gorhill/uBlock/releases/download/1.50.1b3/uBlock0_1.50.1b3.firefox.signed.xpi";
-            hash = "sha256-fKYNmWIMq/peKNFBE6FCW62ifmIExmthS9fn2BPNbUs=";
+            hash =
+              "sha256-fKYNmWIMq/peKNFBE6FCW62ifmIExmthS9fn2BPNbUs=";
+            fixedExtid = "uBlock0@raymondhill.net";
           })
         ];
         extraPolicies = {
           "3rdparty" = {
             Extensions = {
               # name must be the same as above
-              "nixos@ublock" = {
+              "uBlock0@raymondhill.net" = {
                 adminSettings = {
                   userSettings = {
                     advancedUserEnabled = true;
