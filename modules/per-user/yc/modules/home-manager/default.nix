@@ -557,6 +557,7 @@ in {
            bindsym --no-warn Mod4+x workspace back_and_forth
            bindsym --no-warn Mod4+y scratchpad show
            bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
+           bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
            bindsym --no-warn Mod4+o exec ${pkgs.foot}/bin/foot ${pkgs.tmux}/bin/tmux attach-session
           }
 
