@@ -23,7 +23,8 @@ in {
         extraPolicies = {
           "3rdparty" = {
             Extensions = {
-              "uBlock0@raymondhill.net" = {
+              # name must be the same as above
+              "nixos@ublock" = {
                 adminSettings = {
                   userSettings = {
                     advancedUserEnabled = true;
