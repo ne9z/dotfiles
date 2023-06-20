@@ -646,7 +646,7 @@ in {
         # not home-manager
         package = null;
         xwayland = false;
-        systemdIntegration = true;
+        systemd.enable = true;
         extraConfig = ''
           mode "default" {
            bindsym --no-warn Mod4+Backspace focus mode_toggle
