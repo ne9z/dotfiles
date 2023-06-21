@@ -11,6 +11,7 @@ in {
     };
   };
   config = mkIf cfg.enable {
+    services.i2pd.enable = false;
     zfs-root = {
       boot = {
         devNodes = "/dev/disk/by-id/";

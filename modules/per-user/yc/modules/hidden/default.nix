@@ -17,7 +17,7 @@ in {
     {
       services = {
         tor = {
-          enable = true;
+          enable = mkDefault true;
           client = {
             enable = true;
             dns.enable = true;
@@ -33,7 +33,7 @@ in {
           };
         };
         i2pd = {
-          enable = true;
+          enable = mkDefault true;
           enableIPv4 = true;
           enableIPv6 = true;
           bandwidth = 4096;
