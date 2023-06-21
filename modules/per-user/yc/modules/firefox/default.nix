@@ -156,7 +156,7 @@ in {
           lockPref("geo.wifi.logging.enabled", false);
           lockPref("geo.wifi.uri", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
           lockPref("gfx.font_rendering.opentype_svg.enabled", false);
-          lockPref("intl.accept_languages", "en-US = en");
+          lockPref("intl.accept_languages", "en");
           lockPref("intl.locale.matchOS", false);
           lockPref("javascript.options.asmjs", false);
           lockPref("javascript.options.wasm", false);
