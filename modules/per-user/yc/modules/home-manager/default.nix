@@ -469,15 +469,17 @@ in {
             pulseaudio = {
               format = "VOL {volume}%";
               format-muted = "MUTED";
-              on-click = "amixer set Master toggle";
+              on-click = "${pkgs.alsa-utils}/bin/amixer set Master toggle";
             };
             backlight = {
               device = "intel_backlight";
               format = "BRI {percent}%";
-              on-click-right = "brightnessctl set 100%";
-              on-click = "brightnessctl set 1%";
-              on-scroll-down = "brightnessctl set 1%-";
-              on-scroll-up = "brightnessctl set +1%";
+              on-click-right =
+                "${pkgs.brightnessctl}/bin/brightnessctl set 100%";
+              on-click = "${pkgs.brightnessctl}/bin/brightnessctl set 1%";
+              on-scroll-down =
+                "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
+              on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
             };
             "wlr/taskbar" = {
               active-first = true;
