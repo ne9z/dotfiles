@@ -625,7 +625,7 @@ in {
           workspaceLayout = "tabbed";
           focus = {
             followMouse = "always";
-            wrapping = "no";
+            wrapping = "workspace";
           };
           gaps = {
             smartBorders = "no_gaps";
