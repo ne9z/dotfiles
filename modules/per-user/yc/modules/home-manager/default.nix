@@ -541,7 +541,7 @@ in {
            bindsym --no-warn Mod4+Control+Shift+Space move left
            bindsym --no-warn Mod4+Control+Space move right
            bindsym --no-warn Mod4+Control+b move left
-           bindsym --no-warn Mod4+Control+e focus parent; focus right
+           bindsym --no-warn Mod4+Control+e focus parent
            bindsym --no-warn Mod4+Control+f move right
            bindsym --no-warn Mod4+Control+n move down
            bindsym --no-warn Mod4+Control+p move up
@@ -549,7 +549,7 @@ in {
            bindsym --no-warn Mod4+Shift+Space focus left
            bindsym --no-warn Mod4+Space focus right
            bindsym --no-warn Mod4+b focus left
-           bindsym --no-warn Mod4+e focus parent
+           bindsym --no-warn Mod4+e focus parent; focus right
            bindsym --no-warn Mod4+f focus right
            bindsym --no-warn Mod4+f11 fullscreen
            bindsym --no-warn Mod4+k kill
@@ -562,6 +562,7 @@ in {
            bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
            bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
            bindsym --no-warn Mod4+o exec ${pkgs.foot}/bin/foot ${pkgs.tmux}/bin/tmux attach-session
+           bindsym --no-warn Mod4+t layout tabbed
           }
 
           mode "resize" {
