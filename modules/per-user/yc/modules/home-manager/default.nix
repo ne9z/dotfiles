@@ -462,7 +462,7 @@ in {
             ipc = true;
             layer = "bottom";
             modules-center = [ ];
-            modules-left = [ "sway/workspaces" "sway/mode" "wlr/taskbar" ];
+            modules-left = [ "sway/workspaces" "sway/mode" ];
             modules-right =
               [ "idle_inhibitor" "pulseaudio" "backlight" "battery" "clock" ];
             position = "bottom";
@@ -485,6 +485,7 @@ in {
               active-first = true;
               format = "{name}";
               on-click = "activate";
+              all-outputs = false;
             };
             battery = { format = "BAT {capacity}%"; };
             clock = { format-alt = "{:%a, %d. %b  %H:%M}"; };
@@ -624,7 +625,7 @@ in {
           workspaceLayout = "tabbed";
           focus = {
             followMouse = "always";
-            wrapping = "force";
+            wrapping = "no";
           };
           gaps = {
             smartBorders = "no_gaps";
