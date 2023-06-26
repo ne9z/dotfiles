@@ -549,7 +549,7 @@ in {
            bindsym --no-warn Mod4+Shift+Space focus left
            bindsym --no-warn Mod4+Space focus right
            bindsym --no-warn Mod4+b focus left
-           bindsym --no-warn Mod4+e focus parent; focus right
+           bindsym --no-warn Mod4+e focus parent; focus right; focus child
            bindsym --no-warn Mod4+f focus right
            bindsym --no-warn Mod4+f11 fullscreen
            bindsym --no-warn Mod4+k kill
