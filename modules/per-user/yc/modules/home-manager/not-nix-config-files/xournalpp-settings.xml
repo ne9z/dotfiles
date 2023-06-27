@@ -43,7 +43,7 @@
   <property name="cursorHighlightBorderColor" value="2147483903"/>
   <property name="cursorHighlightRadius" value="30.00000000"/>
   <property name="cursorHighlightBorderWidth" value="0.00000000"/>
-  <property name="darkTheme" value="true"/>
+  <property name="darkTheme" value="false"/>
   <property name="useStockIcons" value="true"/>
   <property name="disableScrollbarFadeout" value="true"/>
   <!--Hides scroolbars in the main window, allowed values: "none", "horizontal", "vertical", "both"-->

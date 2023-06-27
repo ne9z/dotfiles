@@ -37,7 +37,7 @@ in {
         enable = true;
         font = { name = "sans-serif 16"; };
         theme = {
-          name = "Adwaita-dark";
+          name = "Adwaita";
           package = pkgs.gnome.gnome-themes-extra;
         };
         iconTheme = {
@@ -430,7 +430,7 @@ in {
         platformTheme = "gnome";
         style = {
           package = pkgs.adwaita-qt;
-          name = "adwaita-dark";
+          name = "adwaita";
         };
       };
       programs.password-store = {
