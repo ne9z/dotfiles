@@ -78,4 +78,12 @@
     apparmor.enable = true;
   };
   environment.memoryAllocator.provider = "libc";
+
+  nix = {
+    optimise = { automatic = true; };
+    gc = {
+      automatic = true;
+      options = "--delete-old";
+    };
+  };
 }
