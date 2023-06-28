@@ -16,7 +16,7 @@ in {
           (pkgs.fetchFirefoxAddon {
             name = "ublock"; # Has to be unique!
             url =
-              "https://github.com/gorhill/uBlock/releases/download/1.50.1b3/uBlock0_1.50.1b3.firefox.signed.xpi";
+              "https://addons.mozilla.org/firefox/downloads/file/4121906/ublock_origin-1.50.0.xpi";
             hash = "sha256-fKYNmWIMq/peKNFBE6FCW62ifmIExmthS9fn2BPNbUs=";
             fixedExtid = "uBlock0@raymondhill.net";
           })
