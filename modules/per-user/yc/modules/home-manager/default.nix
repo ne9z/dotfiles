@@ -583,16 +583,25 @@ in {
               background = "#ebebeb";
               border = "#ebebeb";
               text = "#000000";
+              childBorder = "#285577";
+              indicator = "#2e9ef4";
+
             };
             unfocused = {
               background = "#fafafa";
               border = "#fafafa";
               text = "#000000";
+              childBorder = "#5f676a";
+              indicator = "#484e50";
+
             };
             focusedInactive = {
               background = "#fafafa";
               border = "#fafafa";
               text = "#000000";
+              childBorder = "#222222";
+              indicator = "#292d2e";
+
             };
           };
           fonts = {
