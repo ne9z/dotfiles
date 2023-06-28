@@ -127,6 +127,10 @@ in {
       };
       programs.zathura = {
         enable = true;
+        options = {
+          default-bg = "#FFFFFF";
+          default-fg = "#000000";
+        };
         mappings = {
           "[normal] <C-b>" = "scroll left";
           "[normal] <C-n>" = "scroll down";
