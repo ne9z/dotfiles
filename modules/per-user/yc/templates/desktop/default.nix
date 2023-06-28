@@ -32,7 +32,7 @@ in {
       home = {
         username = "yc";
         homeDirectory = mkDefault "/home/yc";
-        stateVersion = mkDefault "22.11";
+        stateVersion = config.system.stateVersion;
       };
       programs.home-manager.enable = true;
     };
