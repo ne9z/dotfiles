@@ -577,6 +577,24 @@ in {
           titlebar_border_thickness 0
         '';
         config = {
+          colors = {
+            background = "#ffffff";
+            focused = {
+              background = "#ebebeb";
+              border = "#ebebeb";
+              text = "#000000";
+            };
+            unfocused = {
+              background = "#fafafa";
+              border = "#fafafa";
+              text = "#000000";
+            };
+            focusedInactive = {
+              background = "#fafafa";
+              border = "#fafafa";
+              text = "#000000";
+            };
+          };
           fonts = {
             names = [ "sans-serif" ];
             style = "bold";

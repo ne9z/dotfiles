@@ -80,9 +80,7 @@ in {
           "rpool/nixos/empty" = "/";
           "rpool/nixos/root" = "/oldroot";
         };
-        bindmounts = {
-          "/oldroot/nix" = "/nix";
-        };
+        bindmounts = { "/oldroot/nix" = "/nix"; };
       };
       boot.initrd.postDeviceCommands = ''
         if ! grep -q zfs_no_rollback /proc/cmdline; then
