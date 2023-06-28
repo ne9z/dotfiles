@@ -116,9 +116,14 @@ gm () {
 	    printf "monitor dim night: mn\n"
 	    printf "laptop  dim night: ld\n"
             printf "invert color:      i\n"
-	    printf "reset:             r\n"
+            printf "invert monitor color: mi\n"
+	    printf "reset gammastep:   rg\n"
+	    printf "reset invert:      ri\n"
 	    read -r choice
 	    case "${choice}" in
+                mi)
+                    (wl-gammactl -c -1 -b 1.8 -g 1&)
+                    ;;
                 i)
                     (wl-gammactl -c -1 -b 2 -g 1 &)
                     ;;
@@ -131,10 +136,12 @@ gm () {
 		ld)
 		    (gammastep -O 3000 &)
 		    ;;
-		r)
+		rg)
 		    pkill gammastep
 		    (gammastep -x &)
 		    pkill gammastep
+		    ;;
+		ri)
                     pkill wl-gammactl
 		    ;;
                 *)
