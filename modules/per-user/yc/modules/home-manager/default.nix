@@ -580,8 +580,8 @@ in {
           colors = {
             background = "#ffffff";
             focused = {
-              background = "#ebebeb";
-              border = "#ebebeb";
+              background = "#8fffff";
+              border = "#8fffff";
               text = "#000000";
               childBorder = "#285577";
               indicator = "#2e9ef4";
@@ -593,7 +593,6 @@ in {
               text = "#000000";
               childBorder = "#5f676a";
               indicator = "#484e50";
-
             };
             focusedInactive = {
               background = "#fafafa";
@@ -601,7 +600,6 @@ in {
               text = "#000000";
               childBorder = "#222222";
               indicator = "#292d2e";
-
             };
           };
           fonts = {
