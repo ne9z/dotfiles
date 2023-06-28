@@ -60,6 +60,7 @@
 
   programs.git.enable = true;
 
+  services.logrotate.checkConfig = false;
   security = {
     doas.enable = lib.mkDefault true;
     sudo.enable = lib.mkDefault false;
