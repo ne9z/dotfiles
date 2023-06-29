@@ -68,6 +68,7 @@ in {
     {
       zfs-root.fileSystems.datasets = {
         "rpool/nixos/home" = mkDefault "/home";
+        "rpool/nixos/var/lib" = mkDefault "/var/lib";
         "bpool/nixos/root" = "/boot";
       };
     }
