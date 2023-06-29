@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.zfs-root.per-user.yc.templates.desktop;
-  inherit (lib) mkDefault mkOption types mkIf;
+  inherit (lib) mkDefault mkOption types mkIf recursiveUpdate;
 in {
   options.zfs-root.per-user.yc.templates.desktop = {
     enable = mkOption {
@@ -131,10 +131,13 @@ in {
       inherit (pkgs)
         noto-fonts noto-fonts-cjk-sans dejavu_fonts stix-two libertinus;
     };
-    environment.sessionVariables = {
+    environment.sessionVariables = recursiveUpdate {
       VAAPI_DISABLE_INTERLACE = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_FORCE_DPI = "physical";
-    };
+    } (if (config.zfs-root.networking.hostName == "qinghe") then {
+      LIBVA_DRIVER_NAME = "radeonsi";
+    } else
+      { });
   };
 }
