@@ -55,33 +55,31 @@ watchtex () {
 }
 
 wfr () {
-    local choice
-    local fps
     local filename
     filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
-    fps="1"
-    printf "frame rate? default 1fps\n"
-    printf "enter n to use normal frame rate\n"
-    printf "enter 60 to force 60fps\n"
-    read -r choice
-    if test "${choice}" = "n"; then
-	fps=""
-    fi
-    if test "${choice}" = "60"; then
-	fps="60"
-    fi
-    if test -n "${fps}"; then 	fps="-framerate ${fps}"; fi
+    if [ "$(hostname)" != "qinghe" ]; then
     doas /usr/bin/env sh <<EOF
-        umask ugo=rw && \
+        umask ugo=rw &&
 	 $(command -v ffmpeg) -device /dev/dri/card0 \
-	 ${fps} \
+         -framerate 60 \
 	 -f kmsgrab \
 	 -i - \
-         -vf 'hwmap=derive_device=vaapi,scale_vaapi=w=1920:h=1080:format=nv12' \
+         -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12' \
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
-    # -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12' \
+    else
+    doas /usr/bin/env sh <<EOF
+        umask ugo=rw &&
+	 $(command -v ffmpeg) \
+         -framerate 60 \
+	 -f kmsgrab \
+	 -i - \
+	 -c:v h264 \
+	 -qp 24 "${filename}"
+EOF
+    fi
+    # 
     # see this link for more ffmpeg video encoding options
     # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
 }

@@ -132,6 +132,7 @@ in {
         noto-fonts noto-fonts-cjk-sans dejavu_fonts stix-two libertinus;
     };
     environment.sessionVariables = {
+      VAAPI_DISABLE_INTERLACE = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_FORCE_DPI = "physical";
     };

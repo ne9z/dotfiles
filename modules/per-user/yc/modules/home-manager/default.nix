@@ -109,17 +109,13 @@ in {
       };
       programs.mpv = {
         enable = true;
-        config = recursiveUpdate {
+        config = {
           hwdec = "vaapi";
           player-operation-mode = "cplayer";
           audio-pitch-correction = "no";
-          vo = "dmabuf-wayland";
-          ao = "pipewire";
-        } (if (config.zfs-root.networking.hostName == "qinghe") then {
-          hwdec = "no";
           vo = "gpu-next";
-        } else
-          { });
+          ao = "pipewire";
+        };
       };
       programs.yt-dlp = {
         enable = true;
