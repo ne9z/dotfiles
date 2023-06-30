@@ -113,7 +113,7 @@ in {
         inherit (pkgs)
           swaylock swayidle foot gammastep wl-gammactl brightnessctl fuzzel grim
           libva-utils w3m gsettings-desktop-schemas pavucontrol waybar
-          wl-clipboard;
+          wl-clipboard wf-recorder;
       };
       # must be enabled, or else many programs will crash
       wrapperFeatures.gtk = true;
