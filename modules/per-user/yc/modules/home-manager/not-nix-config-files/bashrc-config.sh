@@ -63,7 +63,7 @@ wfr-hw () {
          -framerate 60 \
 	 -f kmsgrab \
 	 -i - \
-         -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12'    \
+         -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12:w=1280:h=720'    \
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
