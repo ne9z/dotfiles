@@ -79,14 +79,14 @@ wfr-sw () {
         umask ugo=rw &&
 	 $(command -v ffmpeg) -device /dev/dri/card0 \
          -framerate 60 \
-	 -f kmsgrab \
-	 -i - \
          -preset ultrafast \
          -tune stillimage \
          -c:v libx264 \
          -b:v 2048k \
+	 -f kmsgrab \
          -x264-params opencl=true \
          -hwaccel auto \
+	 -i - \
 	 "${filename}"
 EOF
     # 
