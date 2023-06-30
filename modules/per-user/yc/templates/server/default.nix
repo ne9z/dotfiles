@@ -204,7 +204,7 @@ in {
       openFirewall = true;
     };
     nix.settings.substituters =
-      [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+      [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
     services.yggdrasil.persistentKeys = true;
     boot.initrd.secrets = { "/oldroot/etc/zfs-key-rpool-data-file" = null; };
     services.tor = {
@@ -253,7 +253,7 @@ in {
     environment.loginShellInit = ''
       Nu () {
         source /etc/os-release
-        nix-channel --add https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-"$VERSION_ID" nixos
+        nix-channel --add https://mirror.sjtu.edu.cn/nix-channels/nixos-"$VERSION_ID" nixos
         nix-channel --update
       }
       dsrv () {
@@ -265,7 +265,7 @@ in {
            return 1
         fi
         nixos-rebuild boot \
-         --option substituters https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store \
+         --option substituters https://mirror.sjtu.edu.cn/nix-channels/store \
          --flake git+file:///home/yc/githost/systemConfiguration
       }
       Ns () {
@@ -274,7 +274,7 @@ in {
            return 1
         fi
         nixos-rebuild switch \
-         --option substituters https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store \
+         --option substituters https://mirror.sjtu.edu.cn/nix-channels/store \
          --flake git+file:///home/yc/githost/systemConfiguration
       }
       tm () {
