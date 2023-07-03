@@ -159,7 +159,8 @@ in {
           "[index] q" = "toggle_index";
           "[fullscreen] +" = "zoom in";
           "[fullscreen] -" = "zoom out";
-          "[fullscreen] <A-Space>" = "navigate next";
+          "[fullscreen] <A-Space>" = "scroll full-up";
+          "[fullscreen] <C-Space>" = "navigate next";
           "[fullscreen] <A-s>" = "toggle_statusbar";
           "[fullscreen] <BackSpace>" = "scroll full-up";
           "[fullscreen] <A-BackSpace>" = "navigate previous";
@@ -193,7 +194,8 @@ in {
           "[fullscreen] s" = "adjust_window width";
           "[normal] +" = "zoom in";
           "[normal] -" = "zoom out";
-          "[normal] <A-Space>" = "navigate next";
+          "[normal] <A-Space>" = "scroll full-up";
+          "[normal] <C-Space>" = "navigate next";
           "[normal] <A-s>" = "toggle_statusbar";
           "[normal] <BackSpace>" = "scroll full-up";
           "[normal] <A-BackSpace>" = "navigate previous";
