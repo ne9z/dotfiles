@@ -18,32 +18,6 @@
   networking.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = lib.mkDefault false;
 
-  # Enable GNOME
-  # GNOME must be used with a normal user account.
-  # However, by default, only root user is configured.
-  # Create a normal user and set password in
-  # hosts/exampleHost/default.nix
-  #
-  # You need to enable all options in this attribute set.
-  services.xserver = {
-    enable = false;
-    desktopManager.gnome.enable = false;
-    displayManager.gdm.enable = false;
-  };
-
-  # Enable Sway window manager
-  # Sway must be used with a normal user account.
-  # However, by default, only root user is configured.
-  # Create a normal user and set password in
-  # hosts/exampleHost/default.nix
-  programs.sway.enable = lib.mkDefault false;
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
   imports = [
     "${inputs.nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
     "${inputs.nixpkgs}/nixos/modules/profiles/hardened.nix"
