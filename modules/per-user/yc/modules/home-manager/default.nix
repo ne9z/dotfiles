@@ -163,7 +163,7 @@ in {
           "[fullscreen] <C-Space>" = "navigate next";
           "[fullscreen] <A-s>" = "toggle_statusbar";
           "[fullscreen] <BackSpace>" = "scroll full-up";
-          "[fullscreen] <A-BackSpace>" = "navigate previous";
+          "[fullscreen] <C-BackSpace>" = "navigate previous";
           "[fullscreen] a" = "scroll full-left";
           "[fullscreen] b" = "scroll left";
           "[fullscreen] e" = "scroll full-right";
@@ -198,7 +198,7 @@ in {
           "[normal] <C-Space>" = "navigate next";
           "[normal] <A-s>" = "toggle_statusbar";
           "[normal] <BackSpace>" = "scroll full-up";
-          "[normal] <A-BackSpace>" = "navigate previous";
+          "[normal] <C-BackSpace>" = "navigate previous";
           "[normal] a" = "scroll full-left";
           "[normal] b" = "scroll left";
           "[normal] e" = "scroll full-right";
