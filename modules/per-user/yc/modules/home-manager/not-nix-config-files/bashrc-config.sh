@@ -75,6 +75,7 @@ EOF
 gm () {
     printf "laptop brightness: b\n"
     printf "gammastep:         g\n"
+    printf "inverse color:     i\n"
     printf "laptop screen:     s\n"
     local choice
     read -r choice
@@ -101,18 +102,9 @@ gm () {
 	    printf "monitor dim day:   md\n"
 	    printf "monitor dim night: mn\n"
 	    printf "laptop  dim night: ld\n"
-            printf "invert color:      i\n"
-            printf "invert monitor color: mi\n"
-	    printf "reset gammastep:   rg\n"
-	    printf "reset invert:      ri\n"
+	    printf "reset:   r\n"
 	    read -r choice
 	    case "${choice}" in
-                mi)
-                    (wl-gammactl -c -1 -b 1.8 -g 1&)
-                    ;;
-                i)
-                    (wl-gammactl -c -1 -b 2 -g 1 &)
-                    ;;
 		md)
 		    (gammastep -O 5000 -b 0.75 &)
 		    ;;
@@ -122,12 +114,30 @@ gm () {
 		ld)
 		    (gammastep -O 3000 &)
 		    ;;
-		rg)
+		r)
 		    pkill gammastep
 		    (gammastep -x &)
 		    pkill gammastep
 		    ;;
-		ri)
+                *)
+                    printf "no input given"
+                    return 1
+                    ;;
+	    esac
+	    ;;
+	i)
+            printf "invert color and dim: m\n"
+            printf "invert color:      i\n"
+	    printf "reset invert:      r\n"
+	    read -r choice
+	    case "${choice}" in
+                m)
+                    (wl-gammactl -c -1 -b 1.5 -g 1&)
+                    ;;
+                i)
+                    (wl-gammactl -c -1 -b 2 -g 1 &)
+                    ;;
+		r)
                     pkill wl-gammactl
 		    ;;
                 *)
