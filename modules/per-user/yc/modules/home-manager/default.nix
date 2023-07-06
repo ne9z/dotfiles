@@ -35,7 +35,7 @@ in {
 
       gtk = {
         enable = true;
-        font = { name = "sans-serif 16"; };
+        font = { name = "sans-serif"; };
         theme = {
           name = "Adwaita";
           package = pkgs.gnome.gnome-themes-extra;
@@ -48,8 +48,8 @@ in {
       dconf.settings = {
         "org/gnome/desktop/interface" = {
           enable-animations = false;
-          document-font-name = "sans-serif 16";
-          monospace-font-name = "monospace 14";
+          document-font-name = "sans-serif";
+          monospace-font-name = "monospace";
           gtk-key-theme = "Emacs";
           cursor-size = 48;
         };
@@ -236,7 +236,7 @@ in {
           scroll-full-overlap = "0.1";
           statusbar-home-tilde = true;
           synctex = true;
-          font = "sans-serif bold 16";
+          font = "sans-serif bold";
           guioptions = "";
           zoom-step = 9;
           scroll-step = 80;
@@ -281,7 +281,7 @@ in {
         settings = {
           main = {
             term = "foot-direct";
-            font = "monospace:size=12";
+            font = "monospace";
           };
 
           url = { launch = "wl-copy \${url}"; };
@@ -343,7 +343,7 @@ in {
           "fuzzel/fuzzel.ini" = {
             text = ''
               [main]
-              font=sans-serif:size=18:weight=bold'';
+              font=sans-serif:weight=bold'';
           };
           "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
           "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
@@ -447,7 +447,6 @@ in {
       };
       programs.swaylock.settings = {
         color = "808080";
-        font-size = 24;
         indicator-idle-visible = true;
         indicator-radius = 100;
         line-color = "ffffff";
@@ -530,7 +529,6 @@ in {
           fonts = {
             names = [ "sans-serif" ];
             style = "bold";
-            size = 13.0;
           };
           modes = {
             default = { };
