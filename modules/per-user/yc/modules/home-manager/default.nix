@@ -530,7 +530,7 @@ in {
           fonts = {
             names = [ "sans-serif" ];
             style = "bold";
-            size = 16;
+            size = 16.0;
           };
           modes = {
             default = { };
