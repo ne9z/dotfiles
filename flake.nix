@@ -9,18 +9,22 @@
 
   outputs = { self, nixpkgs, home-manager }:
     let
-      lib = nixpkgs.lib;
       mkHost = hostName: system:
         (({ zfs-root, pkgs, system, ... }:
-          lib.nixosSystem {
+          nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
+              # Module 0: zfs-root and my-config
               ./modules
+
+              # Module 1: host-specific config, if exist
               (if (builtins.pathExists
                 ./hosts/${hostName}/configuration.nix) then
-                import ./hosts/${hostName}/configuration.nix
+                (import ./hosts/${hostName}/configuration.nix { inherit pkgs; })
               else
                 { })
+
+              # Module 2: entry point
               (({ zfs-root, pkgs, lib, ... }: {
                 inherit zfs-root;
                 system.configurationRevision = if (self ? rev) then
@@ -32,12 +36,20 @@
                   "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
                   "${nixpkgs}/nixos/modules/profiles/hardened.nix"
                 ];
-              }) { inherit zfs-root pkgs lib; })
+              }) {
+                inherit zfs-root pkgs;
+                lib = nixpkgs.lib;
+              })
+
+              # Module 3: home-manager
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
               }
+
+              # Module 4: config shared by all hosts
+              (import ./configuration.nix { inherit pkgs; })
             ];
           }) (import ./hosts/${hostName} {
             system = system;
