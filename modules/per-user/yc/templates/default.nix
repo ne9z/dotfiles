@@ -1,1 +1,1 @@
-{ config, lib, pkgs, ... }: { imports = [ ./desktop ./server ]; }
+{ config, lib, pkgs, ... }: { imports = [ ./desktop ./server ./common ]; }

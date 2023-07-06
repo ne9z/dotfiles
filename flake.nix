@@ -5,7 +5,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }@inputs:
+  outputs = { self, nixpkgs, home-manager }:
     let
       lib = nixpkgs.lib;
       mkHost = { zfs-root, pkgs, system, ... }:
@@ -13,7 +13,20 @@
           inherit system;
           modules = [
             ./modules
-            (import ./configuration.nix { inherit zfs-root inputs pkgs lib; })
+            (({ zfs-root, pkgs, lib, ... }: {
+              inherit zfs-root;
+              system.configurationRevision = if (self ? rev) then
+                self.rev
+              else
+                throw "refuse to build: git tree is dirty";
+              system.stateVersion = "23.05";
+
+              imports = [
+                "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
+                "${nixpkgs}/nixos/modules/profiles/hardened.nix"
+              ];
+
+            }) { inherit zfs-root pkgs lib; })
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
