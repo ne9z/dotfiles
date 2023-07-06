@@ -54,9 +54,10 @@
   };
   environment.memoryAllocator.provider = "libc";
 
+  # disable gc which always deletes downloaded nixpkg cache
   nix = {
     gc = {
-      automatic = true;
+      automatic = false;
       options = "--delete-old";
     };
   };
