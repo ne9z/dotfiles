@@ -184,7 +184,7 @@ in {
           lockPref("security.mixed_content.block_active_content", true);
           lockPref("security.mixed_content.block_display_content", true);
           lockPref("security.xpconnect.plugin.unrestricted", false);
-          lockPref("toolkit.zoomManager.zoomValues", "1,1.7,2,2.3");
+          lockPref("toolkit.zoomManager.zoomValues", "0.5,0.8,1");
           lockPref("webgl.disable-extensions", true);
           lockPref("webgl.disable-fail-if-major-performance-caveat", true);
           lockPref("webgl.disabled", true);
