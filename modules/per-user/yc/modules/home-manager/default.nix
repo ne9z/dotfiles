@@ -52,6 +52,7 @@ in {
           monospace-font-name = "monospace";
           gtk-key-theme = "Emacs";
           cursor-size = 48;
+          scaling-factor = 2;
         };
       };
       programs.bash = {

@@ -135,6 +135,7 @@ in {
       VAAPI_DISABLE_INTERLACE = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_FORCE_DPI = "physical";
+      GDK_SCALE = "2";
     };
   };
 }
