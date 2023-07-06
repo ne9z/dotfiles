@@ -7,7 +7,7 @@ in {
     enable = mkOption {
       description = "Enable system config template by yc";
       type = types.bool;
-      default = false;
+      default = true;
     };
   };
   config = mkIf cfg.enable {
