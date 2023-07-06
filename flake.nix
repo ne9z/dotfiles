@@ -48,7 +48,10 @@
                 home-manager.useUserPackages = true;
               }
             ];
-          }) (import ./hosts/${hostName} {
+          })
+
+        # configuration input
+          (import ./hosts/${hostName} {
             system = system;
             pkgs = nixpkgs.legacyPackages.${system};
           }));
