@@ -237,7 +237,7 @@ in {
           scroll-full-overlap = "0.1";
           statusbar-home-tilde = true;
           synctex = true;
-          font = "sans-serif bold";
+          font = "sans-serif bold 16";
           guioptions = "";
           zoom-step = 9;
           scroll-step = 80;
@@ -282,7 +282,7 @@ in {
         settings = {
           main = {
             term = "foot-direct";
-            font = "monospace";
+            font = "monospace:size=12";
           };
 
           url = { launch = "wl-copy \${url}"; };
@@ -344,7 +344,7 @@ in {
           "fuzzel/fuzzel.ini" = {
             text = ''
               [main]
-              font=sans-serif:weight=bold'';
+              font=sans-serif:size=18:weight=bold'';
           };
           "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
           "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
@@ -530,6 +530,7 @@ in {
           fonts = {
             names = [ "sans-serif" ];
             style = "bold";
+            font-size = 16;
           };
           modes = {
             default = { };
