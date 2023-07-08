@@ -282,7 +282,7 @@ in {
         settings = {
           main = {
             term = "foot-direct";
-            font = "monospace:size=10";
+            font = "monospace:size=12";
           };
 
           url = { launch = "wl-copy \${url}"; };
