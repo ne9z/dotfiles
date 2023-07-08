@@ -1,1 +1,1 @@
-{ ... }: { programs.neovim.enable = true; }
+{ pkgs, ... }: { }

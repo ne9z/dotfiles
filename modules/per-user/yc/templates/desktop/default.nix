@@ -104,7 +104,6 @@ in {
     programs.sway = {
       extraSessionCommands = ''
         export MOZ_ENABLE_WAYLAND=1
-        export QT_QPA_PLATFORM=wayland-egl
         export XCURSOR_THEME=Adwaita
         export _JAVA_AWT_WM_NONREPARENTING=1
       '';
