@@ -6,4 +6,5 @@
     "amdgpu.si_support=1"
     "amdgpu.dc=1"
   ];
+  boot.blacklistedKernelModules = [ "radeon" ];
 }
