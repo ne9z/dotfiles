@@ -54,7 +54,7 @@ watchtex () {
     fi
 }
 
-wfr-hw () {
+wfrnativeres () {
     local filename
     filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
     doas /usr/bin/env sh <<EOF
@@ -63,7 +63,7 @@ wfr-hw () {
          -framerate 60 \
 	 -f kmsgrab \
 	 -i - \
-         -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12:w=1280:h=720'    \
+         -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12'    \
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
@@ -71,6 +71,25 @@ EOF
     # see this link for more ffmpeg video encoding options
     # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
 }
+
+wfr1080p () {
+    local filename
+    filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
+    doas /usr/bin/env sh <<EOF
+        umask ugo=rw &&
+	 $(command -v ffmpeg) -device /dev/dri/card0 \
+         -framerate 60 \
+	 -f kmsgrab \
+	 -i - \
+         -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12:w=1920:h=1080'    \
+	 -c:v h264_vaapi \
+	 -qp 24 "${filename}"
+EOF
+    # 
+    # see this link for more ffmpeg video encoding options
+    # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
+}
+
 
 gm () {
     printf "laptop brightness: b\n"
