@@ -16,6 +16,16 @@ in {
       pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
       enableSSHSupport = true;
     };
+
+    # disable the deprecated radeon driver and force enable newer amdgpu driver
+    boot.kernelParams = [
+      "radeon.cik_support=0"
+      "radeon.si_support=0"
+      "amdgpu.cik_support=1"
+      "amdgpu.si_support=1"
+      "amdgpu.dc=1"
+    ];
+    boot.blacklistedKernelModules = [ "radeon" ];
     services.tlp = {
       enable = true;
       settings = {
@@ -56,9 +66,7 @@ in {
       inherit (pkgs)
         mg # emacs-like editor
         parted # other programs
-        amdgpu_top
-        intel-gpu-tools
-        s-tui;
+        amdgpu_top intel-gpu-tools s-tui;
     };
 
     security = {
