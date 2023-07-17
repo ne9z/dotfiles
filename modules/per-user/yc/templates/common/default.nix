@@ -42,8 +42,7 @@ in {
       inherit (pkgs)
         mg # emacs-like editor
         parted # other programs
-        s-tui
-      ;
+        s-tui;
     };
 
     security = {
