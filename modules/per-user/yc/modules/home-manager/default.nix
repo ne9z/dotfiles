@@ -17,18 +17,6 @@ in {
       fsType = "tmpfs";
       options = [ "rw" "size=1G" "uid=yc" "gid=users" "mode=1700" ];
     };
-    programs.gnupg.agent = {
-      enable = true;
-      pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
-      enableSSHSupport = true;
-    };
-    services.tlp = {
-      enable = true;
-      settings = {
-        BAY_POWEROFF_ON_BAT = "1";
-        STOP_CHARGE_THRESH_BAT0 = "85";
-      };
-    };
     home-manager.users.yc = {
       home.packages =
         builtins.attrValues { inherit (pkgs) mg shellcheck _7zz; };

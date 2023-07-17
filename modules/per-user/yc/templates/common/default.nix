@@ -11,14 +11,28 @@ in {
     };
   };
   config = mkIf cfg.enable {
+    programs.gnupg.agent = {
+      enable = true;
+      pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
+      enableSSHSupport = true;
+    };
+    services.tlp = {
+      enable = true;
+      settings = {
+        BAY_POWEROFF_ON_BAT = "1";
+        STOP_CHARGE_THRESH_BAT0 = "85";
+        CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
+        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+
+      };
+    };
+
     nixpkgs.config.zathura.useMupdf = true;
 
     # Enable NetworkManager for wireless networking,
     # You can configure networking with "nmtui" command.
     networking.useDHCP = lib.mkDefault true;
     networking.networkmanager.enable = lib.mkDefault false;
-
-    powerManagement.cpuFreqGovernor = "schedutil";
 
     services.openssh = {
       enable = lib.mkDefault true;
