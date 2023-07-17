@@ -18,6 +18,8 @@ in {
     networking.useDHCP = lib.mkDefault true;
     networking.networkmanager.enable = lib.mkDefault false;
 
+    powerManagement.cpuFreqGovernor = "schedutil";
+
     services.openssh = {
       enable = lib.mkDefault true;
       settings = { PasswordAuthentication = lib.mkDefault false; };
