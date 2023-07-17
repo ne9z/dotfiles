@@ -56,6 +56,8 @@ in {
       inherit (pkgs)
         mg # emacs-like editor
         parted # other programs
+        amdgpu_top
+        intel-gpu-tools
         s-tui;
     };
 
