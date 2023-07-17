@@ -98,7 +98,7 @@
   <property name="restoreLineWidthEnabled" value="false"/>
   <property name="numIgnoredStylusEvents" value="0"/>
   <property name="inputSystemTPCButton" value="true"/>
-  <property name="inputSystemDrawOutsideWindow" value="false"/>
+  <property name="inputSystemDrawOutsideWindow" value="true"/>
   <property name="preferredLocale" value=""/>
   <property name="stabilizerAveragingMethod" value="0"/>
   <property name="stabilizerPreprocessor" value="0"/>
