@@ -6,7 +6,7 @@
   <property name="pressureMultiplier" value="2.00000000"/>
   <property name="zoomGesturesEnabled" value="false"/>
   <property name="selectedToolbar" value="Minimal Left Copy"/>
-  <property name="lastSavePath" value=""/>
+  <property name="lastSavePath" value="/home/yc/Documents"/>
   <property name="lastOpenPath" value=""/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20.00000000"/>
@@ -149,6 +149,14 @@
       <attribute name="deviceSource" type="int" value="1"/>
     </data>
     <data name="GAOMON Gaomon Tablet Pen (Eraser)">
+      <attribute name="deviceClass" type="int" value="5"/>
+      <attribute name="deviceSource" type="int" value="2"/>
+    </data>
+    <data name="HID 256c:006e Pen">
+      <attribute name="deviceClass" type="int" value="5"/>
+      <attribute name="deviceSource" type="int" value="1"/>
+    </data>
+    <data name="HID 256c:006e Pen (Eraser)">
       <attribute name="deviceClass" type="int" value="5"/>
       <attribute name="deviceSource" type="int" value="2"/>
     </data>
