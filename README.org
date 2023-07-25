@@ -5,8 +5,13 @@ The configuration used on my laptops and servers.  Reproducible.
 - tmux
 - No X server
 
-Math **is** hard.
+Math /is/ *hard*.
 
 [[https://user-images.githubusercontent.com/77314501/255912459-20bb5803-6235-451a-ad0e-b7ed2881ac50.png]]
 
 I use GAOMON M106K battery-free pen tablet.
+
+And of course, [[https://www.gnu.org/software/emacs/][GNU Emacs]], the editor of a lifetime.  Here, I'm doing
+my homework with Emacs.
+
+[[https://user-images.githubusercontent.com/77314501/255916345-1b014f27-322f-4394-8a1a-919525b6f155.png]]
