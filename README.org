@@ -4,3 +4,9 @@ The configuration used on my laptops and servers.  Reproducible.
 - Emacs
 - tmux
 - No X server
+
+Math **is** hard.
+
+[[https://user-images.githubusercontent.com/77314501/255912459-20bb5803-6235-451a-ad0e-b7ed2881ac50.png]]
+
+I use GAOMON M106K battery-free pen tablet.
