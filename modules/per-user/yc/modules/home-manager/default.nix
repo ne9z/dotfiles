@@ -548,6 +548,15 @@ in {
               left_handed = "enabled";
               pointer_accel = "1";
             };
+            "9580:110:PenTablet_Pen" = {
+              # the ratio is 2:3 on the graphic tablet
+              # on a 3840x2160 screen, map to upper-right
+              # multiply by 900
+              # parameters:
+              # offset from upper left
+              # map_to_region = "x_offset y_offset x_map_to y_map_to"
+              map_to_region = "1140 0 2700 1800";
+            };
           };
           modifier = "Mod4";
           menu = "${pkgs.fuzzel}/bin/fuzzel";
