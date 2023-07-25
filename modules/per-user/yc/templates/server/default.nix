@@ -248,7 +248,7 @@ in {
       };
     };
     environment.systemPackages = builtins.attrValues {
-      inherit (pkgs) smartmontools darkhttpd pyrosimple woeusb woeusb-ng;
+      inherit (pkgs) smartmontools darkhttpd pyrosimple woeusb _7zz;
     };
     environment.loginShellInit = ''
       Nu () {
