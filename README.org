@@ -7,9 +7,16 @@ The configuration used on my laptops and servers.  Reproducible.
 
 Math /is/ *hard*.
 
-[[https://user-images.githubusercontent.com/77314501/255912459-20bb5803-6235-451a-ad0e-b7ed2881ac50.png]]
+[[https://user-images.githubusercontent.com/77314501/256357583-7ee3e024-9631-4667-9583-aac231aad840.png]]
 
-I use GAOMON M106K battery-free pen tablet.
+I use a Huion W58 pen tablet, although I have a collection of pen
+tablets supported by the linux kernel:
+
+- Huion W58
+- Huion GC610
+- Gaomon M106K, both pro (battery-free pen with tilting support) and non-pro ( similar to W58) version
+- Wacom Intuos Medium CTH-690
+- Huion WH1409 (8192), pen battery died
 
 And of course, [[https://www.gnu.org/software/emacs/][GNU Emacs]], the editor of a lifetime.  Here, I'm doing
 my homework with Emacs.
