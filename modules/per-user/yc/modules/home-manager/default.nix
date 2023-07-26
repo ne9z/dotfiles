@@ -551,12 +551,11 @@ in {
             "9580:110:PenTablet_Pen" = {
               # the ratio is 16:9 on the graphic tablet
               # on a 3840x2160 screen, map to upper-right
-              # multiply by 200
+              # multiply by 170
               # parameters:
               # offset from upper left
               # map_to_region = "x_offset y_offset x_map_to y_map_to"
-              # 640+3200 = 3840
-              map_to_region = "640 0 3200 1800";
+              map_to_region = "1120 0 2720 1530";
             };
           };
           modifier = "Mod4";
