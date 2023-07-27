@@ -557,6 +557,9 @@ in {
               # map_to_region = "x_offset y_offset x_map_to y_map_to"
               map_to_region = "1120 0 2720 1530";
             };
+            "1386:830:Wacom_Intuos_PT_M_2_Pen" = {
+              map_to_region = "1120 0 2720 1530";
+            };
           };
           modifier = "Mod4";
           menu = "${pkgs.fuzzel}/bin/fuzzel";
