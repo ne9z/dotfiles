@@ -120,7 +120,7 @@ I should rotate GPG keys on a biannual basis.
 21. Export new public and ssh key:
     #+begin_src sh
       gpg --export --armor --output pubkey.asc
-      gpg --export-ssh-key yuchen@apvc.uk
+      gpg --export-ssh-key yuchen@posteo.net
     #+end_src
 22. Upload key to [[https://keys.openpgp.org/][key server]].
 23. Update pubkey and ssh key on Github and other web services.
