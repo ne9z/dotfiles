@@ -3,12 +3,13 @@ let
   cfg = config.zfs-root.per-user.yc.modules.emacs;
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
-  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages;
+  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages;
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages)
         nix-mode notmuch julia-mode haskell-mode magit;
-      inherit (epkgs.elpaPackages) use-package auctex pyim pyim-basedict;
+      inherit (epkgs.elpaPackages) auctex pyim pyim-basedict;
+      inherit (epkgs.treesit-grammars) with-all-grammars;
     });
 in {
   options.zfs-root.per-user.yc.modules.emacs = {

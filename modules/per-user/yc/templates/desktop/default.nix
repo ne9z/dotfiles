@@ -121,14 +121,28 @@ in {
       enable = true;
       wlr.enable = true;
     };
-    fonts.fontconfig.defaultFonts = {
-      monospace = [ "DejaVu Sans Mono" ];
-      sansSerif = [ "DejaVu Sans" ];
-      serif = [ "DejaVu Sans" ];
+    fonts.fontconfig = {
+      # disable bitmap unifont
+      localConf = ''
+        <selectfont>
+          <rejectfont>
+            <pattern>
+               <patelt name="family" >
+                  <string>Unifont</string>
+                </patelt>
+            </pattern>
+          </rejectfont>
+        </selectfont>
+      '';
+      defaultFonts = {
+        monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
+        sansSerif = [ "DejaVu Sans" "Source Han Sans SC" ];
+        serif = [ "DejaVu Serif" "Source Han Serif SC" ];
+      };
     };
     fonts.fonts = builtins.attrValues {
       inherit (pkgs)
-        noto-fonts noto-fonts-cjk-sans dejavu_fonts stix-two libertinus;
+        dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif;
     };
     environment.sessionVariables = {
       VAAPI_DISABLE_INTERLACE = "1";
