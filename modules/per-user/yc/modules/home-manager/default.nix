@@ -54,9 +54,10 @@ in {
           userEmail = "yguo@posteo.net";
           userName = "Yuchen Guo";
         };
-        mbsync.enable = true;
-        msmtp.enable = true;
-        notmuch.enable = true;
+        # use gnus instead
+        mbsync.enable = false;
+        msmtp.enable = false;
+        notmuch.enable = false;
       };
       accounts.email = {
         maildirBasePath = "Maildir"; # relative to user home

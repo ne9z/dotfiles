@@ -41,7 +41,7 @@
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
- '(smtpmail-smtp-server "posteo.de")
+ '(smtpmail-default-smtp-server "posteo.de")
  '(smtpmail-smtp-service 465)
  '(user-mail-address "yuchen@posteo.net")
  '(tool-bar-mode nil))

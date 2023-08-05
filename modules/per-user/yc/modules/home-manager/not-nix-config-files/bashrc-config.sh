@@ -198,16 +198,6 @@ tubb () {
     wl-copy < "${HOME}"/.config/tubpass
 }
 
-nmail () {
-    notmuch tag +flagged tag:flagged +passed tag:passed
-    notmuch tag -unread -r tag:passed
-    mbsync -a
-    notmuch new
-    if ! test -f "${HOME}"/.config/tubpass; then
-	pass show de/tub | head -n1 > "${HOME}"/.config/tubpass
-    fi
-}
-
 mcreate_symblink () {
     local source=${1%:*}
     local target=${1#*:}
