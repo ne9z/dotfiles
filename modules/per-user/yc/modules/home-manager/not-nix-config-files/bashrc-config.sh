@@ -231,7 +231,8 @@ msymlinks="
 /oldroot${HOME}/.ssh/authorized_keys:${HOME}/.ssh/authorized_keys
 /oldroot${HOME}/.ssh/known_hosts:${HOME}/.ssh/known_hosts
 /oldroot${HOME}/.password-store:${HOME}/.password-store
-${HOME}/.config/w3m:${HOME}/.w3m"
+${HOME}/.config/w3m:${HOME}/.w3m
+/oldroot${HOME}/.password-store/authinfo.gpg:${HOME}/.authinfo.gpg"
 ### script on login
 if [ "$(tty)" = "/dev/tty1" ]; then
     set -e
