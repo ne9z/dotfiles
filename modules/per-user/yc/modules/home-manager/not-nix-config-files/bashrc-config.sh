@@ -215,7 +215,7 @@ mcreate_symblink () {
 msymlinks="
 /oldroot${HOME}/Downloads:${HOME}/Downloads
 /oldroot${HOME}/Documents:${HOME}/Documents
-/oldroot${HOME}/Maildir:${HOME}/Maildir
+/oldroot${HOME}/gnus:${HOME}/Mail
 /oldroot${HOME}/nixos-config:${HOME}/nixos-config
 /oldroot${HOME}/.gnupg:${HOME}/.gnupg
 /oldroot${HOME}/.ssh/authorized_keys:${HOME}/.ssh/authorized_keys
@@ -237,7 +237,7 @@ mbootstrapdir="
 /oldroot${HOME}
 /oldroot${HOME}/Downloads:${HOME}/Downloads
 /oldroot${HOME}/Documents:${HOME}/Documents
-/oldroot${HOME}/Maildir:${HOME}/Maildir
+/oldroot${HOME}/gnus:${HOME}/Mail
 /oldroot${HOME}/.gnupg:${HOME}/.gnupg
 /oldroot${HOME}/.ssh/
 "
