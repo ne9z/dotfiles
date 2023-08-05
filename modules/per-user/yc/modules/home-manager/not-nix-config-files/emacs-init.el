@@ -44,7 +44,7 @@
  '(smtpmail-smtp-server "posteo.de")
  '(smtpmail-smtp-service 465)
  '(smtpmail-stream-type 'ssl)
- '(user-mail-address "yguo@posteo.net")
+ '(user-mail-address "yuchen@posteo.net")
  '(tool-bar-mode nil))
 
 ;; turn on auto fill in all modes
