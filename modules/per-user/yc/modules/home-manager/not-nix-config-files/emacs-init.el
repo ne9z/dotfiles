@@ -41,9 +41,10 @@
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
- '(smtpmail-default-smtp-server "posteo.de")
+ '(smtpmail-smtp-server "posteo.de")
  '(smtpmail-smtp-service 465)
- '(user-mail-address "yuchen@posteo.net")
+ '(smtpmail-stream-type 'ssl)
+ '(user-mail-address "yguo@posteo.net")
  '(tool-bar-mode nil))
 
 ;; turn on auto fill in all modes
