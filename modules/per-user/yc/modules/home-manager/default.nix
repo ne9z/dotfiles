@@ -272,6 +272,7 @@ in {
           main = {
             term = "foot-direct";
             font = "monospace:size=12";
+            dpi-aware = "yes";
           };
 
           url = { launch = "wl-copy \${url}"; };
