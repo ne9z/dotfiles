@@ -134,11 +134,5 @@
 
 ;; wayland paste ends here
 
-;; julia
-(use-package julia-mode)
-
-;; haskell
-(use-package haskell-mode)
-
 ;; magit
 (use-package magit)
