@@ -17,6 +17,7 @@
  '(electric-pair-mode t)
  '(elpy-rpc-virtualenv-path 'system)
  '(global-prettify-symbols-mode t)
+ '(gnus-select-method '(nnimap "posteo.de"))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(interprogram-cut-function 'wl-copy t)
@@ -26,30 +27,23 @@
  '(mail-specify-envelope-from t)
  '(menu-bar-mode nil)
  '(message-kill-buffer-on-exit t)
- '(message-send-mail-function 'message-send-mail-with-sendmail)
+ '(message-send-mail-function 'smtpmail-send-it)
  '(message-sendmail-envelope-from 'header)
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
- '(notmuch-saved-searches
-   '((:name "inbox" :query "tag:inbox not tag:flagged not tag:passed" :key "i")
-     (:name "unread" :query "tag:unread" :key "u")
-     (:name "passed" :query "tag:passed" :key "p")
-     (:name "flagged" :query "tag:flagged" :key "f")
-     (:name "sent" :query "tag:sent" :key "t")
-     (:name "drafts" :query "tag:draft" :key "d")
-     (:name "all mail" :query "*" :key "a")))
- '(notmuch-crypto-process-mime nil)
  '(org-export-with-smart-quotes t)
  '(prettify-symbols-unprettify-at-point nil)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(reftex-plug-into-AUCTeX t)
- '(send-mail-function 'sendmail-send-it)
- '(sendmail-program "msmtp")
+ '(send-mail-function 'smtpmail-send-it)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
+ '(smtpmail-smtp-server "posteo.de")
+ '(smtpmail-smtp-service 465)
+ '(user-mail-address "yuchen@posteo.net")
  '(tool-bar-mode nil))
 
 ;; turn on auto fill in all modes
@@ -117,26 +111,6 @@
   (define-key dired-mode-map (kbd "C-o") 'dired-open-file)))
 
 ;; open files in dired mode ends here
-
-;; notmuch mail reader config
-(use-package notmuch
-  :config
-  (setq notmuch-always-prompt-for-sender nil)
-  (setq notmuch-fcc-dirs "posteo/Sent/")
-  (define-key notmuch-search-mode-map "d"
-	      (lambda (&optional beg end)
-		"mark message as passed"
-		(interactive (notmuch-interactive-region))
-		(notmuch-search-tag (list "+passed") beg end)
-		(notmuch-search-next-thread)))
-  (define-key notmuch-search-mode-map "f"
-	      (lambda (&optional beg end)
-		"mark message as flagged"
-		(interactive (notmuch-interactive-region))
-		(notmuch-search-tag (list "+flagged") beg end)
-		(notmuch-search-next-thread))))
-
-;; notmuch mail reader config ends here
 
 ;; wayland paste
 ;; credit: yorickvP on Github
