@@ -69,13 +69,13 @@
        (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
        (put 'LaTeX-narrow-to-environment 'disabled nil)
        (electric-pair-local-mode -1)
-       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)))
-  (add-hook 'TeX-after-compilation-finished-functions
-            #'TeX-revert-document-buffer)
-  (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
-  (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
+       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)
+       (add-hook 'TeX-after-compilation-finished-functions
+                 #'TeX-revert-document-buffer)
+       (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+       (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+       (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+       (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))))
 
 ;;; latex mathbb
 (defun my-LaTeX-math-bb (char dollar)
@@ -109,7 +109,7 @@
   (let* ((file (dired-get-filename nil t)))
     (call-process "xdg-open" nil 0 nil file)))
 (eval-after-load "dired" '(progn
-  (define-key dired-mode-map (kbd "C-o") 'dired-open-file)))
+                            (define-key dired-mode-map (kbd "C-o") 'dired-open-file)))
 
 ;; open files in dired mode ends here
 
