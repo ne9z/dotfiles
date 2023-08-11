@@ -277,7 +277,6 @@ in {
           };
 
           url = { launch = "wl-copy \${url}"; };
-          mouse = { hide-when-typing = "yes"; };
           cursor = { color = "ffffff 000000"; };
           colors = {
             # https://codeberg.org/dnkl/foot/raw/branch/master/themes/modus-operandi
