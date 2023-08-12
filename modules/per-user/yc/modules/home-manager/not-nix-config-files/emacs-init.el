@@ -1,3 +1,4 @@
+(setq use-package-always-defer t)
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
  '(default-input-method "german-postfix")
@@ -20,7 +21,6 @@
  '(smtpmail-smtp-service 465)
  '(smtpmail-stream-type 'ssl)
  '(tool-bar-mode nil)
- '(use-package-always-defer t)
  '(user-mail-address "yuchen@posteo.net"))
 
 ;; swap backspace and C-h
@@ -61,15 +61,27 @@
 
 (use-package gnus
   :custom
+  (gnus-asynchronous t)
+  (gnus-check-new-newsgroups nil)
   (gnus-select-method '(nnimap "posteo.de"))
+  (gnus-generate-tree-function 'gnus-generate-horizontal-tree)
+  (gnus-interactive-exit 'quiet)
+  (gnus-message-replysign t)
+  (gnus-permanently-visible-groups "INBOX")
+  (gnus-read-active-file nil)
+  (gnus-read-newsrc-file nil)
+  (gnus-save-killed-list nil)
+  (gnus-save-newsrc-file nil)
+  (ssl-certificate-verification-policy 1)
   (gnus-secondary-select-methods
    '((nntp "news.gmane.io")
      (nntp "news.eternal-september.org"
+           (nntp-authinfo-user "m0p")
            (nntp-port-number 563)
            (nntp-open-connection-function nntp-open-ssl-stream)))))
 
-(use-package auctex
-  :bind :map LaTeX-math-mode-map ((kbd "` 8") . my-LaTeX-math-bb)
+(use-package tex
+  :map LaTeX-math-mode-map ((kbd "` 8") . my-LaTeX-math-bb)
   :config
   (defun my-LaTeX-math-bb (char dollar)
     "Insert a {\\mathbb CHAR}."
