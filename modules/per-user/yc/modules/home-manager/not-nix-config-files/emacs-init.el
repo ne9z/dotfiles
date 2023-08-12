@@ -64,6 +64,7 @@
   (smtpmail-smtp-server "posteo.de")
   (smtpmail-smtp-service 465)
   (smtpmail-stream-type 'ssl)
+  (gnus-check-new-newsgroups nil)
   (gnus-secondary-select-methods
    '((nntp "news.gmane.io")
      (nntp "news.eternal-september.org"
