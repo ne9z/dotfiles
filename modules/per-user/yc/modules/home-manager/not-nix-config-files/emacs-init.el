@@ -47,7 +47,6 @@
 ;; wayland paste ends here
 
 (use-package gnus
-  :commands gnus
   :custom
   (gnus-asynchronous t)
   (gnus-check-new-newsgroups nil)
@@ -73,7 +72,6 @@
            (nntp-open-connection-function nntp-open-ssl-stream)))))
 
 (use-package tex
-  :mode "\\.tex\\'"
   :config
   (defun my-LaTeX-math-bb (char dollar)
     "Insert a {\\mathbb CHAR}."
@@ -96,7 +94,6 @@
 
 ;; zh-cn input engine
 (use-package pyim
-  :mode "\\.txt\\'"
   :ensure pyim-basedict
   :init
   (pyim-basedict-enable))
