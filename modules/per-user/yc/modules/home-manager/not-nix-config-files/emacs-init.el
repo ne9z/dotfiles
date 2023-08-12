@@ -81,23 +81,29 @@
   (message-sendmail-envelope-from 'header)
   (gnus-check-new-newsgroups nil))
 
+(defun my-LaTeX-math-bb (char dollar)
+  "Insert a {\\mathbb CHAR}."
+  (interactive "*c\nP")
+  (insert "\\mathbb{" (char-to-string char) "}"))
+
 (use-package LaTeX
+  :hook ((LaTeX-mode . turn-on-reftex)
+         (LaTeX-mode . TeX-source-correlate-mode)
+         (LaTeX-mode . LaTeX-math-mode))
+  :bind (("C-<f8>" . my-LaTeX-math-bb))
   :config
-  (defun my-LaTeX-math-bb (char dollar)
-    "Insert a {\\mathbb CHAR}."
-    (interactive "*c\nP")
-    (insert "\\mathbb{" (char-to-string char) "}"))
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
-  (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)
-  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
   (TeX-electric-math '("\\(" . "\\)"))
+  (TeX-source-correlate-mode t)
+  (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
-  (TeX-engine 'luatex)
+  (reftex-plug-into-AUCTeX t)
   (TeX-view-program-selection '((output-pdf "Zathura"))))
 
 ;; zh-cn input engine
