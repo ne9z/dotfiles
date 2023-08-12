@@ -77,7 +77,7 @@
   (smtpmail-stream-type 'ssl)
   (gnus-check-new-newsgroups nil))
 
-(use-package tex
+(use-package latex
   :config
   (defun my-LaTeX-math-bb (char dollar)
     "Insert a {\\mathbb CHAR}."
@@ -86,10 +86,8 @@
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
-  (eval-after-load "LaTeX"
-    '(progn
-       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)
-       (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)))
+  (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)
+  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
