@@ -56,9 +56,6 @@
   (modus-themes-inhibit-reload nil)
   (modus-themes-italic-constructs t))
 
-(use-package ace-window
-  :defer nil)
-
 (use-package gnus
   :custom
   (gnus-asynchronous t)
@@ -90,8 +87,9 @@
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
   (eval-after-load "LaTeX"
-    (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)
-    (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
+    '(progn
+       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)
+       (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
