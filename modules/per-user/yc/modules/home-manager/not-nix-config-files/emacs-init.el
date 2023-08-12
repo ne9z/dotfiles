@@ -46,6 +46,17 @@
     (shell-command-to-string "wl-paste -n | tr -d \r")))
 ;; wayland paste ends here
 
+(use-package dired
+  :config
+  (defun dired-open-file ()
+  "In dired, open the file named on this line."
+  (interactive)
+  (let* ((file (dired-get-filename nil t)))
+    (call-process "xdg-open" nil 0 nil file)))
+  :bind
+  (:map dired-mode-map
+        ("C-o" . dired-open-file)))
+
 (use-package gnus
   :custom
   (gnus-asynchronous t)
