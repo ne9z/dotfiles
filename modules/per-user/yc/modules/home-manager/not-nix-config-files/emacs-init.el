@@ -75,9 +75,13 @@
   (smtpmail-smtp-server "posteo.de")
   (smtpmail-smtp-service 465)
   (smtpmail-stream-type 'ssl)
+  (mail-envelope-from 'header)
+  (mail-host-address "lan")
+  (mail-specify-envelope-from t)
+  (message-sendmail-envelope-from 'header)
   (gnus-check-new-newsgroups nil))
 
-(use-package latex
+(use-package LaTeX
   :config
   (defun my-LaTeX-math-bb (char dollar)
     "Insert a {\\mathbb CHAR}."
