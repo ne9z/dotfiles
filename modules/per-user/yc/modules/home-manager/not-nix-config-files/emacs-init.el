@@ -64,13 +64,7 @@
   (smtpmail-smtp-server "posteo.de")
   (smtpmail-smtp-service 465)
   (smtpmail-stream-type 'ssl)
-  (gnus-check-new-newsgroups nil)
-  (gnus-secondary-select-methods
-   '((nntp "news.gmane.io")
-     (nntp "news.eternal-september.org"
-           (nntp-authinfo-user "m0p")
-           (nntp-port-number 563)
-           (nntp-open-connection-function nntp-open-ssl-stream)))))
+  (gnus-check-new-newsgroups nil))
 
 (use-package tex
   :config
