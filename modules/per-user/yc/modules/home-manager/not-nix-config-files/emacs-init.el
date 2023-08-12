@@ -1,6 +1,6 @@
-(setq use-package-always-defer t)
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
+ '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
  '(global-prettify-symbols-mode t)
@@ -9,19 +9,17 @@
  '(interprogram-cut-function 'wl-copy t)
  '(interprogram-paste-function 'wl-paste t)
  '(menu-bar-mode nil)
- '(message-send-mail-function 'smtpmail-send-it)
- '(message-sendmail-envelope-from 'header)
+ '(modus-themes-bold-constructs t)
+ '(modus-themes-inhibit-reload nil)
+ '(modus-themes-italic-constructs t)
  '(prettify-symbols-unprettify-at-point nil)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
- '(send-mail-function 'smtpmail-send-it)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
- '(smtpmail-smtp-server "posteo.de")
- '(smtpmail-smtp-service 465)
- '(smtpmail-stream-type 'ssl)
  '(tool-bar-mode nil)
- '(user-mail-address "yuchen@posteo.net"))
+ '(user-mail-address "yguo@posteo.net")
+ '(use-package-always-defer t))
 
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
@@ -48,14 +46,6 @@
     (shell-command-to-string "wl-paste -n | tr -d \r")))
 ;; wayland paste ends here
 
-(use-package modus-themes
-  :defer nil
-  :custom
-  (custom-enabled-themes '(modus-operandi))
-  (modus-themes-bold-constructs t)
-  (modus-themes-inhibit-reload nil)
-  (modus-themes-italic-constructs t))
-
 (use-package gnus
   :custom
   (gnus-asynchronous t)
@@ -69,7 +59,11 @@
   (gnus-read-newsrc-file nil)
   (gnus-save-killed-list nil)
   (gnus-save-newsrc-file nil)
-  (ssl-certificate-verification-policy 1)
+  (message-send-mail-function 'smtpmail-send-it)
+  (send-mail-function 'smtpmail-send-it)
+  (smtpmail-smtp-server "posteo.de")
+  (smtpmail-smtp-service 465)
+  (smtpmail-stream-type 'ssl)
   (gnus-secondary-select-methods
    '((nntp "news.gmane.io")
      (nntp "news.eternal-september.org"
@@ -78,6 +72,7 @@
            (nntp-open-connection-function nntp-open-ssl-stream)))))
 
 (use-package tex
+  :mode "\\.tex\\'"
   :config
   (defun my-LaTeX-math-bb (char dollar)
     "Insert a {\\mathbb CHAR}."
@@ -100,6 +95,7 @@
 
 ;; zh-cn input engine
 (use-package pyim
+  :mode "\\.txt\\'"
   :ensure pyim-basedict
   :init
   (pyim-basedict-enable))
