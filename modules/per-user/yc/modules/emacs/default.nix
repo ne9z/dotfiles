@@ -7,7 +7,7 @@ let
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit;
-      inherit (epkgs.elpaPackages) auctex pyim pyim-basedict;
+      inherit (epkgs.elpaPackages) auctex pyim pyim-basedict ace-window;
       inherit (epkgs.treesit-grammars) with-all-grammars;
     });
 in {
