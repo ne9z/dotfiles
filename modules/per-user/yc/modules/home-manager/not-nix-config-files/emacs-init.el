@@ -63,13 +63,7 @@
   (send-mail-function 'smtpmail-send-it)
   (smtpmail-smtp-server "posteo.de")
   (smtpmail-smtp-service 465)
-  (smtpmail-stream-type 'ssl)
-  (gnus-secondary-select-methods
-   '((nntp "news.gmane.io")
-     (nntp "news.eternal-september.org"
-           (nntp-authinfo-user "m0p")
-           (nntp-port-number 563)
-           (nntp-open-connection-function nntp-open-ssl-stream)))))
+  (smtpmail-stream-type 'ssl))
 
 (use-package tex
   :config
