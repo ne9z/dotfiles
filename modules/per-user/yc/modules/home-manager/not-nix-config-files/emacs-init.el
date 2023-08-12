@@ -47,6 +47,7 @@
 ;; wayland paste ends here
 
 (use-package gnus
+  :commands gnus
   :custom
   (gnus-asynchronous t)
   (gnus-check-new-newsgroups nil)
