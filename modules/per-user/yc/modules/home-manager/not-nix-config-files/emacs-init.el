@@ -81,7 +81,6 @@
            (nntp-open-connection-function nntp-open-ssl-stream)))))
 
 (use-package tex
-  :map LaTeX-math-mode-map ((kbd "` 8") . my-LaTeX-math-bb)
   :config
   (defun my-LaTeX-math-bb (char dollar)
     "Insert a {\\mathbb CHAR}."
@@ -90,7 +89,9 @@
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
-  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
+  (eval-after-load "LaTeX"
+    (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb)
+    (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
