@@ -31,6 +31,12 @@ in {
     };
   };
   config = mkIf (cfg.enable) {
+    services.dictd = {
+      enable = true;
+      DBs = builtins.attrValues {
+        inherit (pkgs.dictDBs) wiktionary wordnet;
+      };
+    };
     environment = {
       systemPackages = cfg.extraPackages;
       interactiveShellInit = ''
