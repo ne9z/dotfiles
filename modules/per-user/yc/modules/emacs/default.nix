@@ -34,7 +34,7 @@ in {
     services.dictd = {
       enable = true;
       DBs = builtins.attrValues {
-        inherit (pkgs.dictDBs) wiktionary wordnet;
+        inherit (pkgs.dictdDBs) wiktionary wordnet;
       };
     };
     environment = {
