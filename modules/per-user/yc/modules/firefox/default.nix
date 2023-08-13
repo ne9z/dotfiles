@@ -17,7 +17,7 @@ in {
             name = "ublock"; # Has to be unique!
             url =
               "https://addons.mozilla.org/firefox/downloads/file/4141256/ublock_origin-1.51.0.xpi";
-            hash = "";
+            hash = "sha256-i3NGi8IzoR3SiVIZRmOBeD0ZEjhX3Qtv0WoBgg/KSDQ=";
             fixedExtid = "uBlock0@raymondhill.net";
           })
         ];
