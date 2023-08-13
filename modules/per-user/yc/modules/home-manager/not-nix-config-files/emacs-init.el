@@ -59,17 +59,9 @@
 
 (use-package gnus
   :custom
-  (gnus-asynchronous t)
-  (gnus-check-new-newsgroups nil)
   (gnus-select-method '(nnimap "posteo.de"))
   (gnus-generate-tree-function 'gnus-generate-horizontal-tree)
-  (gnus-interactive-exit 'quiet)
   (gnus-message-replysign t)
-  (gnus-permanently-visible-groups "INBOX")
-  (gnus-read-active-file nil)
-  (gnus-read-newsrc-file nil)
-  (gnus-save-killed-list nil)
-  (gnus-save-newsrc-file nil)
   (message-send-mail-function 'smtpmail-send-it)
   (send-mail-function 'smtpmail-send-it)
   (smtpmail-smtp-server "posteo.de")
@@ -78,8 +70,7 @@
   (mail-envelope-from 'header)
   (mail-host-address "lan")
   (mail-specify-envelope-from t)
-  (message-sendmail-envelope-from 'header)
-  (gnus-check-new-newsgroups nil))
+  (message-sendmail-envelope-from 'header))
 
 (defun my-LaTeX-math-bb (char dollar)
   "Insert a {\\mathbb CHAR}."
