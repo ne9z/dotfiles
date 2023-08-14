@@ -19,7 +19,7 @@ in {
     };
     home-manager.users.yc = {
       home.packages =
-        builtins.attrValues { inherit (pkgs) mg shellcheck _7zz; };
+        builtins.attrValues { inherit (pkgs) mg shellcheck _7zz scantailor-advanced; };
 
       gtk = {
         enable = true;
