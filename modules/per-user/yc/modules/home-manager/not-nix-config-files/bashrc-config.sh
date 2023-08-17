@@ -13,18 +13,10 @@
 # file names, the list of names is only guaranteed to
 # be distinguished from one another when null-character is used to separate them
 
-tm () {
-    tmux attach-session
-}
-
 nix-shell () { nix shell $(for i in ${@}; do printf 'nixpkgs/%s#%s ' $(nixos-version --revision) $i; done;); }
 
 y () {
     mpv "${@}"
-}
-
-my_check_sh_script () {
-    git ls-files -z | grep -z '\.sh$' | xargs --verbose -0I'{}' shellcheck --severity=style --enable=all  --format=tty --color=always '{}'
 }
 
 nmt () {
@@ -42,16 +34,6 @@ Nb () {
 doa ()
 {
     doas -s
-}
-
-watchtex () {
-    if test -z "${1}"; then
-	echo "watch a tex file and auto-compile pdf when modified"
-	echo "no file specified"
-	return 1
-    else
-        latexmk -cd -interaction=nonstopmode -pdflua -pvc "${1}"
-    fi
 }
 
 wfrnativeres () {
