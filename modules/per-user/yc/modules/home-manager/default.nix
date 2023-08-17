@@ -316,6 +316,7 @@ in {
           defaultApplications = {
             "application/pdf" = "org.pwmt.zathura.desktop";
             "image/jpeg" = "org.nomacs.ImageLounge.desktop";
+            "image/tiff" = "org.nomacs.ImageLounge.desktop";
           };
         };
         configFile = {
@@ -337,6 +338,9 @@ in {
           "nomacs/Image Lounge.conf" = {
             source = ./not-nix-config-files/nomacs-config.conf;
           };
+          "scantailor-advanced/scantailor-advanced.ini" = {
+            source = ./not-nix-config-files/scantailor-advanced.ini;
+          };
           "w3m/bookmark.html" = {
             source = ./not-nix-config-files/w3m-bookmark.html;
           };
@@ -345,21 +349,6 @@ in {
               [main]
               font=sans-serif:size=18:weight=bold'';
           };
-          # Personal word lists are simple plain text files with one
-          # word per line.  Lines starting with a hash sign ‘#’ are
-          # ignored.  See man 5 enchant
-          "enchant/de_DE.dic".text = ''
-            subsection
-            subsubsection
-            begin
-            end
-            proof
-            newpage
-            document
-          '';
-          "enchant/en_US.dic".text = ''
-            Emacs
-          '';
           "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
           "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
         };
