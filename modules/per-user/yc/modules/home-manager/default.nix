@@ -317,6 +317,7 @@ in {
             "application/pdf" = "org.pwmt.zathura.desktop";
             "image/jpeg" = "org.nomacs.ImageLounge.desktop";
             "image/tiff" = "org.nomacs.ImageLounge.desktop";
+            "application/vnd.comicbook+zip" = "org.pwmt.zathura.desktop";
           };
         };
         configFile = {
