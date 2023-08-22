@@ -17,6 +17,7 @@
  '(read-file-name-completion-ignore-case t)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
+ '(TeX-engine 'luatex)
  '(tool-bar-mode nil)
  '(user-mail-address "yguo@posteo.net")
  '(use-package-always-defer t))
