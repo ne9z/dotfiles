@@ -18,9 +18,9 @@ in {
           collection-langgerman
           # pdf manipulation tool
           pdfjam pdfpages eso-pic atbegshi pdflscape
-          # times new roman
-          newtx xkeyval xstring fontaxes mathtools
-          libertinus libertinus-type1 libertinus-otf
+          # unicode-math
+          fontspec realscripts unicode-math lualatex-math stix2-otf
+          libertinus-otf
           # header and footer
           fancyhdr
           # pictures and tikz
