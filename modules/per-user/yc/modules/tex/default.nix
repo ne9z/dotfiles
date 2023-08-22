@@ -20,7 +20,7 @@ in {
           pdfjam pdfpages eso-pic atbegshi pdflscape
           # unicode-math
           fontspec realscripts unicode-math lualatex-math stix2-otf
-          libertinus-otf
+          libertinus-otf libertinus
           # header and footer
           fancyhdr
           # pictures and tikz
