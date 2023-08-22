@@ -282,7 +282,6 @@ in {
             term = "foot-direct";
             font = "monospace:size=12";
             dpi-aware = "yes";
-            bell = "set-urgency";
           };
 
           url = { launch = "wl-copy \${url}"; };
