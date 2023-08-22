@@ -21,6 +21,8 @@ in {
           # unicode-math
           fontspec realscripts unicode-math lualatex-math stix2-otf
           libertinus-fonts libertinus libertinus-otf
+          # newcomputermodern
+          fontsetup newcomputermodern
           # header and footer
           fancyhdr
           # pictures and tikz
