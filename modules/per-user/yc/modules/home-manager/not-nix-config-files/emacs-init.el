@@ -17,7 +17,6 @@
  '(read-file-name-completion-ignore-case t)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
- '(TeX-engine 'luatex)
  '(tool-bar-mode nil)
  '(user-mail-address "yguo@posteo.net")
  '(use-package-always-defer t))
@@ -91,6 +90,7 @@
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
+  (TeX-engine 'luatex)
   (TeX-electric-math '("\\(" . "\\)"))
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)
