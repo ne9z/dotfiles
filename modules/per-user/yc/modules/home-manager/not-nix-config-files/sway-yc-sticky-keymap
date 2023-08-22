@@ -1231,7 +1231,7 @@ xkb_symbols "(unnamed)" {
     };
     key <AD02> {
         type= "ALPHABETIC",
-        symbols[Group1]= [               i,               I ]
+        symbols[Group1]= [               l,               L ]
     };
     key <AD03> {
         type= "ALPHABETIC",
@@ -1289,7 +1289,7 @@ xkb_symbols "(unnamed)" {
     key <AC06> {         [       semicolon,           colon ] };
     key <AC07> {
         type= "ALPHABETIC",
-        symbols[Group1]= [               g,               G ]
+        symbols[Group1]= [               s,               S ]
     };
     key <AC08> {
         type= "ALPHABETIC",
@@ -1297,7 +1297,7 @@ xkb_symbols "(unnamed)" {
     };
     key <AC09> {
         type= "ALPHABETIC",
-        symbols[Group1]= [               l,               L ]
+        symbols[Group1]= [               i,               I ]
     };
     key <AC10> {
         type= "ALPHABETIC",
@@ -1321,7 +1321,7 @@ xkb_symbols "(unnamed)" {
     };
     key <AB04> {
         type= "ALPHABETIC",
-        symbols[Group1]= [               s,               S ]
+        symbols[Group1]= [               g,               G ]
     };
     key <AB05> {         [           slash,        question ] };
     key <AB06> {         [          period,         greater ] };
