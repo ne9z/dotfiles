@@ -78,15 +78,20 @@
   (insert "\\mathbb{" (char-to-string char) "}"))
 
 (use-package LaTeX
-  :hook ((LaTeX-mode . turn-on-reftex)
-         (LaTeX-mode . TeX-source-correlate-mode)
-         (LaTeX-mode . LaTeX-math-mode))
+  :hook
+  ((LaTeX-mode . turn-on-reftex)
+   (LaTeX-mode . TeX-source-correlate-mode)
+   (LaTeX-mode . LaTeX-math-mode)
+   (TeX-after-compilation-finished-functions
+    . TeX-revert-document-buffer)
+   ;; has to do a reload with C-c C-n
+   (LaTeX-mode
+    . (lambda ()
+        (progn
+          (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
+          (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
+          (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))))))
   :bind (("C-<f8>" . my-LaTeX-math-bb))
-  :config
-  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-  (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
-  (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
-  (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
