@@ -11,11 +11,14 @@ in {
     environment.systemPackages = builtins.attrValues {
       mytex = (pkgs.texlive.combine {
         inherit (pkgs.texlive)
-          scheme-basic latexmk amsmath hyperref listings
+          collection-luatex
           # maths
           collection-mathscience
           # languages
+          collection-langenglish
           collection-langgerman
+          collection-langcjk # base of cjk
+          collection-langchinese
           # pdf manipulation tool
           pdfjam pdfpages eso-pic atbegshi pdflscape
           # unicode-math
