@@ -9,6 +9,7 @@ in {
   };
   config = mkIf cfg.enable {
     environment.systemPackages = builtins.attrValues {
+      inherit (pkgs) poppler perl;
       mytex = (pkgs.texlive.combine {
         inherit (pkgs.texlive)
           collection-luatex
@@ -28,6 +29,8 @@ in {
           fontsetup newcomputermodern
           # header and footer
           fancyhdr
+          # convert to html
+          lwarp xindy latexmk pdfcrop
           # pictures and tikz
           collection-pictures;
       });
