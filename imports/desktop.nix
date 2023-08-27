@@ -826,5 +826,6 @@ in {
       symbolsFile = ./symbols.txt;
     };
   };
+  users.users.yc.isNormalUser = true;
   environment.variables = { XKB_DEFAULT_LAYOUT = "yc"; };
 }
