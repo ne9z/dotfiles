@@ -214,6 +214,127 @@ let
       collection-pictures;
   });
 in {
+    users.mutableUsers = false;
+    home-manager.users.yc = {
+      home = {
+        username = "yc";
+        homeDirectory = mkDefault "/home/yc";
+        stateVersion = config.system.stateVersion;
+      };
+      programs.home-manager.enable = true;
+    };
+    users.users = {
+      yc = {
+        # "!" means login disabled
+        initialHashedPassword =
+          "$6$UxT9KYGGV6ik$BhH3Q.2F8x1llZQLUS1Gm4AxU7bmgZUP7pNX6Qt3qrdXUy7ZYByl5RVyKKMp/DuHZgk.RiiEXK8YVH.b2nuOO/";
+        description = "Yuchen Guo";
+        # a default group must be set
+        extraGroups = [
+          # use doas
+          "wheel"
+          # manage VMs
+          "libvirtd"
+        ];
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkDT9xZLh+lHc6Z60oLZlLjzOcP39B3D7ptV6xSzAhu openpgp:0x464B6BB1"
+        ];
+        packages = builtins.attrValues {
+          inherit (pkgs)
+            ffmpeg mg nixfmt qrencode zathura jmtpfs gpxsee
+            # pdf processor in Go
+            pdfcpu
+            # image editor
+            nomacs
+            # CoMa programs
+            python3
+            # pdf manipulation suite in C++
+            # https://qpdf.readthedocs.io/en/stable/
+            qpdf;
+        };
+        isNormalUser = true;
+        uid = 1000;
+      };
+    };
+    hardware = {
+      opengl = {
+        extraPackages =
+          builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
+        enable = true;
+      };
+      bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+      };
+      pulseaudio.enable = false;
+    };
+    services = {
+      blueman.enable = true;
+      logind = {
+        extraConfig = ''
+          HandlePowerKey=suspend
+        '';
+        lidSwitch = "suspend";
+        lidSwitchDocked = "ignore";
+        lidSwitchExternalPower = "suspend";
+      };
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
+      };
+    };
+    sound.enable = true;
+    programs.sway = {
+      extraSessionCommands = ''
+        export MOZ_ENABLE_WAYLAND=1
+        export XCURSOR_THEME=Adwaita
+        export _JAVA_AWT_WM_NONREPARENTING=1
+      '';
+      enable = true;
+      extraPackages = builtins.attrValues {
+        inherit (pkgs)
+          swaylock swayidle foot gammastep wl-gammactl brightnessctl fuzzel grim
+          libva-utils w3m gsettings-desktop-schemas pavucontrol waybar
+          wl-clipboard wf-recorder;
+      };
+      # must be enabled, or else many programs will crash
+      wrapperFeatures.gtk = true;
+    };
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+    };
+    fonts.fontconfig = {
+      # disable bitmap unifont
+      localConf = ''
+        <selectfont>
+          <rejectfont>
+            <pattern>
+               <patelt name="family" >
+                  <string>Unifont</string>
+                </patelt>
+            </pattern>
+          </rejectfont>
+        </selectfont>
+      '';
+      defaultFonts = {
+        monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
+        sansSerif = [ "DejaVu Sans" "Source Han Sans SC" ];
+        serif = [ "DejaVu Serif" "Source Han Serif SC" ];
+      };
+    };
+    fonts.fonts = builtins.attrValues {
+      inherit (pkgs)
+        dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif;
+    };
+    environment.sessionVariables = {
+      VAAPI_DISABLE_INTERLACE = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_WAYLAND_FORCE_DPI = "physical";
+      GDK_DPI_SCALE = "2";
+    };
+  };
   services.dictd = {
     enable = true;
     DBs = builtins.attrValues { inherit (pkgs.dictdDBs) wordnet; };
@@ -251,7 +372,6 @@ in {
   };
   home-manager.users.yc = {
     home = {
-      stateVersion = config.system.stateVersion;
       packages = builtins.attrValues {
         inherit (pkgs)
           mg shellcheck _7zz xournalpp
@@ -826,6 +946,5 @@ in {
       symbolsFile = ./symbols.txt;
     };
   };
-  users.users.yc.isNormalUser = true;
   environment.variables = { XKB_DEFAULT_LAYOUT = "yc"; };
 }
