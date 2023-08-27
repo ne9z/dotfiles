@@ -251,10 +251,10 @@ in {
   };
   home-manager.users.yc = {
     home = {
-      stateVersion = "23.05";
+      stateVersion = config.system.stateVersion;
       packages = builtins.attrValues {
         inherit (pkgs)
-          mg shellcheck _7zz
+          mg shellcheck _7zz xournalpp
           # book scanning
           poppler_utils libtiff scantailor-advanced;
       };
