@@ -10,5 +10,4 @@
       ];
     };
   };
-  yc.templates.server.enable = true;
 }

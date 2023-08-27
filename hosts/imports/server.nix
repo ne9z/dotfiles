@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   environment.etc = {
     "ssh/ssh_host_ed25519_key" = {
       source = "/oldroot/etc/ssh/ssh_host_ed25519_key";
@@ -167,24 +167,10 @@
     };
   };
   zfs-root = {
-    networking.networkmanager.enable = false;
     boot = {
       devNodes = "/dev/disk/by-id/";
       immutable = true;
     };
-    per-user.yc.modules = {
-      hiddenServices.enable = true;
-      emacs.enable = true;
-      tmux.enable = true;
-    };
-  };
-  home-manager.users.yc = {
-    home = {
-      username = "yc";
-      homeDirectory = mkDefault "/home/yc";
-      stateVersion = config.system.stateVersion;
-    };
-    programs.home-manager.enable = true;
   };
   services.openssh = {
     ports = [ 22 65222 ];
