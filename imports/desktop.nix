@@ -215,14 +215,6 @@ let
   });
 in {
   users.mutableUsers = false;
-  home-manager.users.yc = {
-    home = {
-      username = "yc";
-      homeDirectory = mkDefault "/home/yc";
-      stateVersion = config.system.stateVersion;
-    };
-    programs.home-manager.enable = true;
-  };
   users.users = {
     yc = {
       # "!" means login disabled
@@ -370,6 +362,12 @@ in {
     options = [ "rw" "size=1G" "uid=yc" "gid=users" "mode=1700" ];
   };
   home-manager.users.yc = {
+    home = {
+      username = "yc";
+      homeDirectory = mkDefault "/home/yc";
+      stateVersion = config.system.stateVersion;
+    };
+    programs.home-manager.enable = true;
     home = {
       packages = builtins.attrValues {
         inherit (pkgs)
