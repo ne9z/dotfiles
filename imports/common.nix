@@ -1,7 +1,10 @@
 { config, pkgs, ... }: {
   systemd.network.enable = true;
   networking.useDHCP = true;
-  networking.wireless.networks = { "TP-Link_48C2".psk = "77017543"; };
+  networking.wireless = {
+    enable = true;
+    networks = { "TP-Link_48C2".psk = "77017543"; };
+  };
 
   services = {
     tor = {
