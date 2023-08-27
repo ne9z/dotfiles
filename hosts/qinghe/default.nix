@@ -8,9 +8,4 @@
       ];
     };
   };
-  yc = {
-    templates.desktop.enable = true;
-    # custom keyboard layout
-    modules.keyboard.enable = true;
-  };
 }

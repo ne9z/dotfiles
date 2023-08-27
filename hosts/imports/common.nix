@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   services = {
     tor = {
       enable = mkDefault true;
@@ -330,5 +330,91 @@
     };
     upstreamDefaults = false;
   };
-}
+  programs.tmux = {
+    enable = true;
+    keyMode = "emacs";
+    newSession = true;
+    secureSocket = true;
+    terminal = "tmux-direct";
+    historyLimit = 4096;
+    baseIndex = 1;
+    extraConfig = ''
+      unbind C-b
+      unbind f7
 
+      set -u prefix
+      set -g prefix f7
+      bind -N "Send the prefix key through to the application" \
+        f7 send-prefix
+
+      bind-key -T prefix t new-session
+      # toggle status bar with f7+f8
+      set -g status off
+      bind-key -T prefix f8 set-option -g status
+
+      # disable cpu intensive auto-rename
+      setw -g automatic-rename off
+
+      # transparent status bar
+      set-option -g status-style bg=default
+    '';
+  };
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
+    enableSSHSupport = true;
+  };
+
+  # disable the deprecated radeon driver and force enable newer amdgpu driver
+  boot.kernelParams = [
+    "radeon.cik_support=0"
+    "radeon.si_support=0"
+    "amdgpu.cik_support=1"
+    "amdgpu.si_support=1"
+    "amdgpu.dc=1"
+  ];
+  boot.blacklistedKernelModules = [ "radeon" ];
+  services.tlp = {
+    enable = true;
+    settings = {
+      BAY_POWEROFF_ON_BAT = "1";
+      STOP_CHARGE_THRESH_BAT0 = "85";
+      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
+      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+
+    };
+  };
+
+  nixpkgs.config.zathura.useMupdf = true;
+
+  services.openssh = {
+    enable = lib.mkDefault true;
+    settings = { PasswordAuthentication = lib.mkDefault false; };
+  };
+
+  boot.zfs.forceImportRoot = lib.mkDefault false;
+
+  nix.settings.experimental-features = lib.mkDefault [ "nix-command" "flakes" ];
+
+  programs.git.enable = true;
+
+  services.logrotate.checkConfig = false;
+  security = {
+    doas.enable = lib.mkDefault true;
+    sudo.enable = lib.mkDefault false;
+  };
+  security = {
+    allowSimultaneousMultithreading = false;
+    lockKernelModules = false;
+    apparmor.enable = true;
+  };
+  environment.memoryAllocator.provider = "libc";
+
+  # disable gc which always deletes downloaded nixpkg cache
+  nix = {
+    gc = {
+      automatic = false;
+      options = "--delete-old";
+    };
+  };
+}

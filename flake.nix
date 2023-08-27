@@ -15,7 +15,7 @@
   outputs = { self, nixpkgs, home-manager }:
     let
       mkHost = hostName: system:
-        (({ zfs-root, yc, pkgs, system, ... }:
+        (({ zfs-root, pkgs, system, ... }:
           nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
@@ -30,8 +30,8 @@
                 { })
 
               # Module 2: entry point
-              (({ zfs-root, yc, pkgs, lib, ... }: {
-                inherit zfs-root yc;
+              (({ zfs-root, pkgs, lib, ... }: {
+                inherit zfs-root;
                 system.configurationRevision = if (self ? rev) then
                   self.rev
                 else
@@ -42,7 +42,7 @@
                   "${nixpkgs}/nixos/modules/profiles/hardened.nix"
                 ];
               }) {
-                inherit zfs-root yc pkgs;
+                inherit zfs-root pkgs;
                 lib = nixpkgs.lib;
               })
 
