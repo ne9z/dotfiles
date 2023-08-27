@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ ../imports/common.nix ../imports/desktop.nix ];
+  imports = [ ../../imports/common.nix ../../imports/desktop.nix ];
   networking = {
     hostName = "qinghe";
     hostId = "abcd1234";
