@@ -9,11 +9,6 @@
         "ata-WDC_WD20EZRX-00D8PB0_WD-WCC4M1455922"
       ];
     };
-    networking = {
-      hostName = "tieling";
-      hostId = "38bdc3d4";
-    };
-    per-user.yc.templates.server.enable = true;
-    networking.timeZone = "Asia/Shanghai";
   };
+  yc.templates.server.enable = true;
 }

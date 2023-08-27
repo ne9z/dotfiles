@@ -1,4 +1,8 @@
 { ... }: {
+  networking = {
+    hostName = "qinghe";
+    hostId = "abcd1234";
+  };
   home-manager.users.yc.wayland.windowManager.sway.config.input = {
     "9580:110:PenTablet_Pen" = {
       # the ratio is 16:9 on the graphic tablet

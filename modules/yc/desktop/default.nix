@@ -1,13 +1,14 @@
 { config, lib, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.modules.keyboard;
+  cfg = config.yc.modules.keyboard;
   inherit (lib) mkDefault mkOption types mkIf;
 in {
-  options.zfs-root.per-user.yc.modules.keyboard.enable = mkOption {
+  options.yc.modules.keyboard.enable = mkOption {
     default = false;
     type = types.bool;
   };
   config = mkIf cfg.enable {
+    imports = [ ];
     console.useXkbConfig = true;
     services.xserver = {
       layout = "yc";

@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.templates.server;
+  cfg = config.yc.templates.server;
   inherit (lib) mkDefault mkOption types mkIf;
 in {
-  options.zfs-root.per-user.yc.templates.server = {
+  options.yc.templates.server = {
     enable = mkOption {
       description = "Enable server config template by yc";
       type = types.bool;

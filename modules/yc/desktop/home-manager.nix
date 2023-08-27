@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.modules.home-manager;
+  cfg = config.yc.modules.home-manager;
   inherit (lib) mkDefault mkOption types mkIf recursiveUpdate;
 in {
-  options.zfs-root.per-user.yc.modules.home-manager = {
+  options.yc.modules.home-manager = {
     enable = mkOption {
       type = types.bool;
-      default = config.zfs-root.per-user.yc.enable;
+      default = config.yc.enable;
     };
   };
   config = mkIf cfg.enable {
@@ -18,17 +18,12 @@ in {
       options = [ "rw" "size=1G" "uid=yc" "gid=users" "mode=1700" ];
     };
     home-manager.users.yc = {
-      home.packages =
-        builtins.attrValues {
-          inherit (pkgs)
-            mg
-            shellcheck
-            _7zz
-            # book scanning
-            poppler_utils
-            libtiff
-            scantailor-advanced;
-        };
+      home.packages = builtins.attrValues {
+        inherit (pkgs)
+          mg shellcheck _7zz
+          # book scanning
+          poppler_utils libtiff scantailor-advanced;
+      };
 
       gtk = {
         enable = true;
@@ -547,11 +542,10 @@ in {
           };
           output = { DP-4 = { scale = "2"; }; };
           input = {
-            "type:keyboard" =
-              (if (config.zfs-root.per-user.yc.modules.keyboard.enable) then {
-                xkb_file = "$HOME/.config/sway/yc-sticky-keymap";
-              } else
-                { });
+            "type:keyboard" = (if (config.yc.modules.keyboard.enable) then {
+              xkb_file = "$HOME/.config/sway/yc-sticky-keymap";
+            } else
+              { });
             "type:touchpad" = {
               tap = "enabled";
               natural_scroll = "enabled";

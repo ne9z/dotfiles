@@ -1,1 +1,7 @@
-{ ... }: { services.tlp.settings."CPU_SCALING_MAX_FREQ_ON_BAT" = "1200000"; }
+{ ... }: {
+  networking = {
+    hostName = "shuiku";
+    hostId = "38b0962b";
+  };
+  boot.initrd.availableKernelModules = [ "i915" ];
+}

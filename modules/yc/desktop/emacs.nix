@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.modules.emacs;
+  cfg = config.yc.modules.emacs;
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
   buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages;
@@ -11,10 +11,10 @@ let
       inherit (epkgs.treesit-grammars) with-all-grammars;
     });
 in {
-  options.zfs-root.per-user.yc.modules.emacs = {
+  options.yc.modules.emacs = {
     enable = mkOption {
       type = types.bool;
-      default = config.zfs-root.per-user.yc.enable;
+      default = config.yc.enable;
     };
     extraPackages = mkOption {
       description = "normal software packages that emacs depends to run";
@@ -33,9 +33,7 @@ in {
   config = mkIf (cfg.enable) {
     services.dictd = {
       enable = true;
-      DBs = builtins.attrValues {
-        inherit (pkgs.dictdDBs) wordnet;
-      };
+      DBs = builtins.attrValues { inherit (pkgs.dictdDBs) wordnet; };
     };
     environment = {
       systemPackages = cfg.extraPackages;

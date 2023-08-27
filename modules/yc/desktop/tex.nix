@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.modules.tex;
+  cfg = config.yc.modules.tex;
   inherit (lib) mkDefault mkOption types mkIf;
 in {
-  options.zfs-root.per-user.yc.modules.tex.enable = mkOption {
-    default = config.zfs-root.per-user.yc.enable;
+  options.yc.modules.tex.enable = mkOption {
+    default = config.yc.enable;
     type = types.bool;
   };
   config = mkIf cfg.enable {
@@ -16,8 +16,7 @@ in {
           # maths
           collection-mathscience
           # languages
-          collection-langenglish
-          collection-langgerman
+          collection-langenglish collection-langgerman
           collection-langcjk # base of cjk
           collection-langchinese
           # pdf manipulation tool

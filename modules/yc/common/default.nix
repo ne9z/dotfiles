@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.templates.common;
+  cfg = config.yc.templates.common;
   inherit (lib) mkDefault mkOption types mkIf recursiveUpdate;
 in {
-  options.zfs-root.per-user.yc.templates.common = {
+  options.yc.templates.common = {
     enable = mkOption {
       description = "Enable system config template by yc";
       type = types.bool;
@@ -11,6 +11,7 @@ in {
     };
   };
   config = mkIf cfg.enable {
+    imports = [ ./hidden.nix ./tmux.nix ];
     programs.gnupg.agent = {
       enable = true;
       pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");

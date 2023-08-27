@@ -4,7 +4,8 @@
     # https://channels.nixos.org/nixos-unstable/git-revision
     # using this one
     # https://channels.nixos.org/nixos-unstable-small/git-revision
-    nixpkgs.url = "github:nixos/nixpkgs/98008a3c477a7ea470f89f0e3484b00211fffc30";
+    nixpkgs.url =
+      "github:nixos/nixpkgs/98008a3c477a7ea470f89f0e3484b00211fffc30";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,7 @@
   outputs = { self, nixpkgs, home-manager }:
     let
       mkHost = hostName: system:
-        (({ zfs-root, pkgs, system, ... }:
+        (({ zfs-root, yc, pkgs, system, ... }:
           nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
@@ -29,8 +30,8 @@
                 { })
 
               # Module 2: entry point
-              (({ zfs-root, pkgs, lib, ... }: {
-                inherit zfs-root;
+              (({ zfs-root, yc, pkgs, lib, ... }: {
+                inherit zfs-root yc;
                 system.configurationRevision = if (self ? rev) then
                   self.rev
                 else
@@ -41,7 +42,7 @@
                   "${nixpkgs}/nixos/modules/profiles/hardened.nix"
                 ];
               }) {
-                inherit zfs-root pkgs;
+                inherit zfs-root yc pkgs;
                 lib = nixpkgs.lib;
               })
 

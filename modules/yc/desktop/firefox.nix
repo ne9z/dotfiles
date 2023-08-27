@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.modules.firefox;
+  cfg = config.yc.modules.firefox;
   inherit (lib) mkOption types mkIf;
 in {
-  options.zfs-root.per-user.yc.modules.firefox = {
+  options.yc.modules.firefox = {
     enable = mkOption {
       type = types.bool;
-      default = config.zfs-root.per-user.yc.enable;
+      default = config.yc.enable;
     };
   };
   config = mkIf cfg.enable {

@@ -24,14 +24,6 @@ in {
       description = "Specify boot devices";
       type = types.nonEmptyListOf types.str;
     };
-    availableKernelModules = mkOption {
-      type = types.nonEmptyListOf types.str;
-      default = [ "uas" "nvme" "ahci" ];
-    };
-    kernelParams = mkOption {
-      type = types.listOf types.str;
-      default = [ ];
-    };
     immutable = mkOption {
       description = "Enable root on ZFS immutable root support";
       type = types.bool;
@@ -52,16 +44,6 @@ in {
       };
       description = "Describe on disk partitions";
       type = types.attrsOf types.str;
-    };
-    sshUnlock = {
-      enable = mkOption {
-        type = types.bool;
-        default = false;
-      };
-      authorizedKeys = mkOption {
-        type = types.listOf types.str;
-        default = [ ];
-      };
     };
   };
   config = mkIf (cfg.enable) (mkMerge [
@@ -100,8 +82,6 @@ in {
           (map (diskName: diskName + cfg.partitionScheme.swap) cfg.bootDevices);
       };
       boot = {
-        initrd.availableKernelModules = cfg.availableKernelModules;
-        kernelParams = cfg.kernelParams;
         supportedFilesystems = [ "zfs" ];
         zfs = {
           devNodes = cfg.devNodes;
@@ -130,27 +110,5 @@ in {
         };
       };
     }
-    (mkIf cfg.sshUnlock.enable {
-      boot.initrd = {
-        network = {
-          enable = true;
-          ssh = {
-            enable = true;
-            hostKeys = [
-              "/var/lib/ssh_unlock_zfs_ed25519_key"
-              "/var/lib/ssh_unlock_zfs_rsa_key"
-            ];
-            authorizedKeys = cfg.sshUnlock.authorizedKeys;
-          };
-          postCommands = ''
-            tee -a /root/.profile >/dev/null <<EOF
-            if zfs load-key rpool/nixos; then
-               pkill zfs
-            fi
-            exit
-            EOF'';
-        };
-      };
-    })
   ]);
 }

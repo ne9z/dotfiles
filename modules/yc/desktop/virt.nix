@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.zfs-root.per-user.yc.modules.virt;
+  cfg = config.yc.modules.virt;
   inherit (lib) mkDefault mkOption types mkIf;
 in {
-  options.zfs-root.per-user.yc.modules.virt.enable = mkOption {
+  options.yc.modules.virt.enable = mkOption {
     type = types.bool;
-    default = config.zfs-root.per-user.yc.enable;
+    default = config.yc.enable;
   };
   config = mkIf cfg.enable {
     virtualisation.libvirtd = {

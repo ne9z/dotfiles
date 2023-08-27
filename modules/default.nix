@@ -1,3 +1,1 @@
-{ config, lib, pkgs, ... }: {
-  imports = [ ./boot ./fileSystems ./networking ./per-user ];
-}
+{ config, lib, pkgs, ... }: { imports = [ ./boot ./fileSystems ./yc ]; }
