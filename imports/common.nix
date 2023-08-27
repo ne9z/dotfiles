@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+  systemd.network.enable = true;
+  networking.useDHCP = true;
   services = {
     tor = {
       enable = true;
