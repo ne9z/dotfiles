@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   services = {
     tor = {
-      enable = mkDefault true;
+      enable = true;
       client = {
         enable = true;
         dns.enable = true;
@@ -17,7 +17,7 @@
       };
     };
     i2pd = {
-      enable = mkDefault true;
+      enable = true;
       enableIPv4 = true;
       enableIPv6 = true;
       bandwidth = 4096;
@@ -388,20 +388,20 @@
   nixpkgs.config.zathura.useMupdf = true;
 
   services.openssh = {
-    enable = lib.mkDefault true;
-    settings = { PasswordAuthentication = lib.mkDefault false; };
+    enable = true;
+    settings = { PasswordAuthentication = false; };
   };
 
-  boot.zfs.forceImportRoot = lib.mkDefault false;
+  boot.zfs.forceImportRoot = false;
 
-  nix.settings.experimental-features = lib.mkDefault [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.git.enable = true;
 
   services.logrotate.checkConfig = false;
   security = {
-    doas.enable = lib.mkDefault true;
-    sudo.enable = lib.mkDefault false;
+    doas.enable = true;
+    sudo.enable = false;
   };
   security = {
     allowSimultaneousMultithreading = false;

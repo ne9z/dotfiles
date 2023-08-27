@@ -1,6 +1,5 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
-  cfg = config.yc.modules.emacs;
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
   buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages;
@@ -251,11 +250,14 @@ in {
     options = [ "rw" "size=1G" "uid=yc" "gid=users" "mode=1700" ];
   };
   home-manager.users.yc = {
-    home.packages = builtins.attrValues {
-      inherit (pkgs)
-        mg shellcheck _7zz
-        # book scanning
-        poppler_utils libtiff scantailor-advanced;
+    home = {
+      stateVersion = "23.05";
+      packages = builtins.attrValues {
+        inherit (pkgs)
+          mg shellcheck _7zz
+          # book scanning
+          poppler_utils libtiff scantailor-advanced;
+      };
     };
 
     gtk = {
@@ -769,10 +771,9 @@ in {
         };
         output = { DP-4 = { scale = "2"; }; };
         input = {
-          "type:keyboard" = (if (config.yc.modules.keyboard.enable) then {
+          "type:keyboard" = {
             xkb_file = "$HOME/.config/sway/yc-sticky-keymap";
-          } else
-            { });
+          };
           "type:touchpad" = {
             tap = "enabled";
             natural_scroll = "enabled";
