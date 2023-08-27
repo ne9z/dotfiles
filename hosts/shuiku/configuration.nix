@@ -4,5 +4,6 @@
     hostName = "shuiku";
     hostId = "38b0962b";
   };
+  time.timeZone = "Europe/Berlin";
   boot.initrd.availableKernelModules = [ "i915" ];
 }
