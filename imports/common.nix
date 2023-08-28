@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
   systemd.network.enable = true;
+  systemd.network.wait-online.enable = false;
   networking.useDHCP = true;
   networking.wireless = {
     enable = true;
