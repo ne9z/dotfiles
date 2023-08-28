@@ -199,7 +199,7 @@ let
       pdfjam pdfpages eso-pic atbegshi pdflscape
       # times new roman
       newtx xkeyval xstring fontaxes mathtools
-      libertinus-type1
+      libertinus libertinus-type1
       # header and footer
       fancyhdr
       # pictures and tikz
