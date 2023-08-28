@@ -218,6 +218,8 @@ in {
         "wheel"
         # manage VMs
         "libvirtd"
+        # net
+        "networkmanager"
       ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkDT9xZLh+lHc6Z60oLZlLjzOcP39B3D7ptV6xSzAhu openpgp:0x464B6BB1"

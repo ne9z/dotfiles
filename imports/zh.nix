@@ -34,7 +34,11 @@
         "$6$UxT9KYGGV6ik$BhH3Q.2F8x1llZQLUS1Gm4AxU7bmgZUP7pNX6Qt3qrdXUy7ZYByl5RVyKKMp/DuHZgk.RiiEXK8YVH.b2nuOO/";
       isNormalUser = true;
       group = "mima";
-      extraGroups = [ "wheel" ];
+      extraGroups = [
+        "wheel"
+        # net
+        "networkmanager"
+      ];
     };
   };
   fonts.fontconfig = {
