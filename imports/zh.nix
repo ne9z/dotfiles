@@ -1,26 +1,37 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
+  programs.firefox = {
+    enable = true;
+    languagePacks = [ "zh-CN" ];
+  };
+
   environment = {
-    systemPackages = builtins.attrValues {
-      inherit (pkgs) firefox-esr ungoogled-chromium mg;
-    };
+    systemPackages =
+      builtins.attrValues { inherit (pkgs) firefox-esr ungoogled-chromium mg; };
   };
   services.xserver.enable = true;
   services.xserver.displayManager = {
     autoLogin.user = "mima";
     lightdm.enable = true;
   };
+  security.chromiumSuidSandbox.enable = true;
   services.xserver.desktopManager.lxqt.enable = true;
+  hardware = {
+    opengl = {
+      extraPackages =
+        builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
+      enable = true;
+    };
+  };
   i18n.defaultLocale = "zh_CN.UTF-8";
   i18n.inputMethod.enabled = "ibus";
-  i18n.inputMethod.ibus.engines = builtins.attrValues {
-    inherit (pkgs.ibus-engines) libpinyin;
-  };
+  i18n.inputMethod.ibus.engines =
+    builtins.attrValues { inherit (pkgs.ibus-engines) libpinyin; };
   users.mutableUsers = false;
   users.users = {
     mima = {
       # "!" means login disabled
-      initialHashedPassword = "$6$UxT9KYGGV6ik$BhH3Q.2F8x1llZQLUS1Gm4AxU7bmgZUP7pNX6Qt3qrdXUy7ZYByl5RVyKKMp/DuHZgk.RiiEXK8YVH.b2nuOO/";
+      initialHashedPassword =
+        "$6$UxT9KYGGV6ik$BhH3Q.2F8x1llZQLUS1Gm4AxU7bmgZUP7pNX6Qt3qrdXUy7ZYByl5RVyKKMp/DuHZgk.RiiEXK8YVH.b2nuOO/";
       isNormalUser = true;
       group = "mima";
       extraGroups = [ "wheel" ];

@@ -198,8 +198,7 @@ let
       # pdf manipulation tool
       pdfjam pdfpages eso-pic atbegshi pdflscape
       # times new roman
-      newtx xkeyval xstring fontaxes mathtools
-      libertinus libertinus-type1
+      newtx xkeyval xstring fontaxes mathtools libertinus libertinus-type1
       # header and footer
       fancyhdr
       # pictures and tikz
