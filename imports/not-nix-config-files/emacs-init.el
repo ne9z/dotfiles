@@ -95,7 +95,7 @@
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
-  (TeX-engine 'luatex)
+  (TeX-engine 'default)
   (TeX-electric-math '("\\(" . "\\)"))
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)

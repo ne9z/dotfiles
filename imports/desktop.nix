@@ -192,24 +192,16 @@ let
   });
   mytex = (pkgs.texlive.combine {
     inherit (pkgs.texlive)
-      collection-luatex
-      # maths
-      collection-mathscience
+      scheme-basic
       # languages
       collection-langenglish collection-langgerman
-      collection-langcjk # base of cjk
-      collection-langchinese
       # pdf manipulation tool
       pdfjam pdfpages eso-pic atbegshi pdflscape
-      # unicode-math
-      fontspec realscripts unicode-math lualatex-math stix2-otf libertinus-fonts
-      libertinus libertinus-otf
-      # newcomputermodern
-      fontsetup newcomputermodern
+      # times new roman
+      newtx xkeyval xstring fontaxes mathtools
+      libertinus-type1
       # header and footer
       fancyhdr
-      # convert to html
-      lwarp xindy latexmk pdfcrop
       # pictures and tikz
       collection-pictures;
   });
