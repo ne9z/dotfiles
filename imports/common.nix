@@ -1,37 +1,31 @@
 { config, pkgs, lib, ... }:
 let
   inherit (lib) mkMerge mapAttrsToList;
-  wirelessNetworks = ;
-in
-{
-  environment.etc = (mkMerge (mapAttrsToList
-    (name: pwd: {
-      "NetworkManager/system-connections/${name}.nmconnection" = {
-        # networkmanager demands secure permission
-        mode = "0600";
-        text = ''
-            [connection]
-            id=${name}
-            type=wifi
+  wirelessNetworks = { "TP-Link_48C2" = "77017543"; };
+in {
+  environment.etc = (mkMerge (mapAttrsToList (name: pwd: {
+    "NetworkManager/system-connections/${name}.nmconnection" = {
+      # networkmanager demands secure permission
+      mode = "0600";
+      text = ''
+        [connection]
+        id=${name}
+        type=wifi
 
-            [wifi]
-            mode=infrastructure
-            ssid=${name}
+        [wifi]
+        mode=infrastructure
+        ssid=${name}
 
-            [wifi-security]
-            auth-alg=open
-            key-mgmt=wpa-psk
-            psk=${pwd}
-          '';
-      };
-    }) wirelessNetworks));
+        [wifi-security]
+        auth-alg=open
+        key-mgmt=wpa-psk
+        psk=${pwd}
+      '';
+    };
+  }) wirelessNetworks));
   systemd.network.wait-online.enable = false;
-  networking.useDHCP = true;
-  networking.wireless = {
-    enable = true;
-    networks = { "TP-Link_48C2".psk = "77017543"; };
-  };
-
+  networking.useDHCP = false;
+  networking.networkmanager.enable = true;
   services = {
     tor = {
       enable = true;
