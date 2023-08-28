@@ -308,7 +308,7 @@ in {
       serif = [ "DejaVu Serif" "Source Han Serif SC" ];
     };
   };
-  fonts.fonts = builtins.attrValues {
+  fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif;
   };
@@ -795,7 +795,7 @@ in {
       # not home-manager
       package = null;
       xwayland = false;
-      systemdIntegration = true;
+      systemd.enable = true;
       extraConfig = ''
         mode "default" {
          bindsym --no-warn Mod4+Backspace focus mode_toggle
