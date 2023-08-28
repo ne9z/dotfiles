@@ -45,7 +45,7 @@ let
         };
       };
       # captive portal enabled for connecting to free wifi
-      CaptivePortal = true;
+      CaptivePortal = false;
       DisableBuiltinPDFViewer = true;
       DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
