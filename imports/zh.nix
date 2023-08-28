@@ -1,5 +1,9 @@
 { ... }:
 {
+  services.xserver.displayManager = {
+    autoLogin.user = "yc";
+    lightdm.enable = true;
+  };
   services.xserver.desktopManager.lxqt.enable = true;
   i18n.defaultLocale = "zh_CN.UTF-8";
   i18n.inputMethod.enabled = "fcitx5";
