@@ -6,7 +6,7 @@
 
   environment = {
     systemPackages =
-      builtins.attrValues { inherit (pkgs) firefox-esr ungoogled-chromium mg; };
+      builtins.attrValues { inherit (pkgs) ungoogled-chromium mg; };
   };
   services.xserver.enable = true;
   services.xserver.displayManager = {
