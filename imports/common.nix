@@ -431,7 +431,7 @@ in {
     sudo.enable = false;
   };
   security = {
-    allowSimultaneousMultithreading = false;
+    allowSimultaneousMultithreading = true;
     lockKernelModules = false;
     apparmor.enable = true;
   };
