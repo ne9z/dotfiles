@@ -227,6 +227,7 @@ in {
       packages = builtins.attrValues {
         inherit (pkgs)
           ffmpeg mg nixfmt qrencode zathura jmtpfs gpxsee
+          mupdf
           # pdf processor in Go
           pdfcpu
           # image editor
