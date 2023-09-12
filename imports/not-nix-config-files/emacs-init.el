@@ -77,21 +77,13 @@
   (interactive "*c\nP")
   (insert "\\mathbb{" (char-to-string char) "}"))
 
-(use-package LaTeX
+(use-package tex
   :hook
   ((LaTeX-mode . turn-on-reftex)
    (LaTeX-mode . TeX-source-correlate-mode)
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
-    . TeX-revert-document-buffer)
-   ;; has to do a reload with C-c C-n
-   (LaTeX-mode
-    . (lambda ()
-        (progn
-          (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
-          (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
-          (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))))))
-  :bind (("C-<f8>" . my-LaTeX-math-bb))
+    . TeX-revert-document-buffer))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
@@ -101,7 +93,15 @@
   (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
   (reftex-plug-into-AUCTeX t)
-  (TeX-view-program-selection '((output-pdf "Zathura"))))
+  (TeX-view-program-selection '((output-pdf "Zathura")))
+  :config
+  (eval-after-load "LaTeX"
+    '(progn
+       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
+       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
+       (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
+       (put 'LaTeX-narrow-to-environment 'disabled nil)
+       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb))))
 
 ;; zh-cn input engine
 (use-package pyim
