@@ -10,7 +10,7 @@
     GDK_DPI_SCALE = "3";
   };
   home-manager.users.yc = {
-    programs.foot.settings.font = "monospace:size=16";
+    programs.foot.settings.main.font = "monospace:size=16";
     wayland.windowManager.sway.config.input = {
       "9580:110:PenTablet_Pen" = {
         # the ratio is 16:9 on the graphic tablet
