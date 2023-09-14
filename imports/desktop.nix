@@ -226,8 +226,7 @@ in {
       ];
       packages = builtins.attrValues {
         inherit (pkgs)
-          ffmpeg mg nixfmt qrencode zathura jmtpfs gpxsee
-          mupdf
+          ffmpeg mg nixfmt qrencode zathura jmtpfs gpxsee mupdf
           # pdf processor in Go
           pdfcpu
           # image editor
@@ -312,9 +311,8 @@ in {
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
-      dejavu_fonts stix-two source-han-sans source-han-mono
-      source-han-serif libertinus
-    ;
+      dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif
+      libertinus;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
@@ -621,7 +619,7 @@ in {
       settings = {
         main = {
           term = "foot-direct";
-          font = "monospace:size=12";
+          font = mkDefault "monospace:size=12";
           dpi-aware = "yes";
         };
 
