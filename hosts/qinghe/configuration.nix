@@ -5,6 +5,10 @@
     hostId = "abcd1234";
   };
   time.timeZone = "Europe/Berlin";
+  environment.sessionVariables = {
+    QT_WAYLAND_FORCE_DPI = "291";
+    GDK_DPI_SCALE = "3";
+  };
   home-manager.users.yc.wayland.windowManager.sway.config.input = {
     "9580:110:PenTablet_Pen" = {
       # the ratio is 16:9 on the graphic tablet

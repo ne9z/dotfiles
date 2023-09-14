@@ -319,8 +319,8 @@ in {
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_WAYLAND_FORCE_DPI = "physical";
-    GDK_DPI_SCALE = "2";
+    QT_WAYLAND_FORCE_DPI = mkDefault "physical";
+    GDK_DPI_SCALE = mkDefault "2";
   };
   services.dictd = {
     enable = true;
