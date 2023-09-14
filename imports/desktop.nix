@@ -868,7 +868,7 @@ in {
         fonts = {
           names = [ "sans-serif" ];
           style = "bold";
-          size = 16.0;
+          size = mkDefault 16.0;
         };
         modes = {
           default = { };
