@@ -312,7 +312,9 @@ in {
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
-      dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif;
+      dejavu_fonts stix-two source-han-sans source-han-mono
+      source-han-serif libertinus
+    ;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
