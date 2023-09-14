@@ -305,9 +305,9 @@ in {
       </selectfont>
     '';
     defaultFonts = {
-      monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
-      sansSerif = [ "DejaVu Sans" "Source Han Sans SC" ];
-      serif = [ "DejaVu Serif" "Source Han Serif SC" ];
+      monospace = [ "Libertinus Mono" "Source Han Mono SC" ];
+      sansSerif = [ "Libertinus Sans" "Source Han Sans SC" ];
+      serif = [ "Libertinus Serif" "Source Han Serif SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
