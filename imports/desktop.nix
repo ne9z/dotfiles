@@ -233,6 +233,7 @@ in {
           nomacs
           # CoMa programs
           python3
+          remmina
           # pdf manipulation suite in C++
           # https://qpdf.readthedocs.io/en/stable/
           qpdf;
