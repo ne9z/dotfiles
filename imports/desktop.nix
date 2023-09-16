@@ -201,7 +201,7 @@ let
       # pdfpages and dependencies
       pdfpages eso-pic atbegshi pdflscape
       # century schoolbook
-      schola-otf iftex xkeyval textcomp unicode-math
+      schola-otf iftex xkeyval unicode-math
       fontspec realscripts lualatex-math
       tex-gyre tex-gyre-math
       # pictures and tikz
