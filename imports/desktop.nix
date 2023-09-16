@@ -304,7 +304,7 @@ in {
       </selectfont>
     '';
     defaultFonts = {
-      monospace = [ "Libertinus Mono" "Source Han Mono SC" ];
+      monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
       sansSerif = [ "Libertinus Sans" "Source Han Sans SC" ];
       serif = [ "Libertinus Serif" "Source Han Serif SC" ];
     };
