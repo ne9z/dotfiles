@@ -305,8 +305,8 @@ in {
     '';
     defaultFonts = {
       monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
-      sansSerif = [ "Libertinus Sans" "Source Han Sans SC" ];
-      serif = [ "Libertinus Serif" "Source Han Serif SC" ];
+      sansSerif = [ "TeX Gyre Schola" "Source Han Sans SC" ];
+      serif = [ "TeX Gyre Schola" "Source Han Serif SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
