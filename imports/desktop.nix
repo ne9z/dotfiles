@@ -226,14 +226,13 @@ in {
       ];
       packages = builtins.attrValues {
         inherit (pkgs)
-          ffmpeg mg nixfmt qrencode zathura jmtpfs gpxsee mupdf
+          ffmpeg mg nixfmt qrencode zathura jmtpfs gpxsee
           # pdf processor in Go
           pdfcpu
           # image editor
           nomacs
           # CoMa programs
-          python3
-          remmina
+          python3 remmina
           # pdf manipulation suite in C++
           # https://qpdf.readthedocs.io/en/stable/
           qpdf;
