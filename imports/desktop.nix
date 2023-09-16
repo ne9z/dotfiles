@@ -204,6 +204,8 @@ let
       schola-otf iftex xkeyval unicode-math
       fontspec realscripts lualatex-math
       tex-gyre tex-gyre-math
+      # cjk
+      #luatexja chinese-jfm
       # pictures and tikz
       collection-pictures;
   });
