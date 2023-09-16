@@ -192,15 +192,13 @@ let
   });
   mytex = (pkgs.texlive.combine {
     inherit (pkgs.texlive)
-      scheme-basic
+      collection-luatex
       # languages
       collection-langenglish collection-langgerman
       # pdf manipulation tool
-      pdfjam pdfpages eso-pic atbegshi pdflscape
-      # times new roman
-      newtx xkeyval xstring fontaxes mathtools libertinus libertinus-type1
-      # header and footer
-      fancyhdr
+      pdfjam # depends on pdfpages, geometry
+      # pdfpages and dependencies
+      pdfpages eso-pic atbegshi pdflscape
       # pictures and tikz
       collection-pictures;
   });
@@ -291,18 +289,6 @@ in {
     wlr.enable = true;
   };
   fonts.fontconfig = {
-    # disable bitmap unifont
-    localConf = ''
-      <selectfont>
-        <rejectfont>
-          <pattern>
-             <patelt name="family" >
-                <string>Unifont</string>
-              </patelt>
-          </pattern>
-        </rejectfont>
-      </selectfont>
-    '';
     defaultFonts = {
       monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
       sansSerif = [ "TeX Gyre Schola" "Source Han Sans SC" ];
@@ -312,7 +298,7 @@ in {
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif
-      libertinus;
+      libertinus gyre-fonts;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
