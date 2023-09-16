@@ -192,7 +192,8 @@ let
   });
   mytex = (pkgs.texlive.combine {
     inherit (pkgs.texlive)
-      collection-luatex
+      collection-basic
+      collection-mathscience
       # languages
       collection-langenglish collection-langgerman
       # pdf manipulation tool
