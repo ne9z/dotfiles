@@ -289,7 +289,7 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
+      monospace = [ "CMU Typewriter Text" "Source Han Mono SC" ];
       sansSerif = [ "TeX Gyre Schola" "Source Han Sans SC" ];
       serif = [ "TeX Gyre Schola" "Source Han Serif SC" ];
     };
@@ -297,7 +297,7 @@ in {
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif
-      libertinus gyre-fonts;
+      libertinus gyre-fonts cm_unicode;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
