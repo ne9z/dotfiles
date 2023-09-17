@@ -296,7 +296,7 @@ in {
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
-      dejavu_fonts stix-two source-han-mono noto-fonts libertinus gyre-fonts
+      dejavu_fonts stix-two noto-fonts libertinus gyre-fonts
       babelstone-han
       # kaiti
       arphic-ukai
