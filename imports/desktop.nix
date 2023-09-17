@@ -289,18 +289,16 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "Source Han Mono SC" ];
-      sansSerif = [ "TeX Gyre Schola" "Noto Serif" ];
-      serif = [ "TeX Gyre Schola" "Noto Serif" ];
+      monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
+      serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts stix-two noto-fonts libertinus gyre-fonts
       # noto cjk
-      noto-fonts-cjk-serif noto-fonts-cjk-sans
-      # source han
-      source-han-sans source-han-mono source-han-serif;
+      noto-fonts-cjk-serif noto-fonts-cjk-sans;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
