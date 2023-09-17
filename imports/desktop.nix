@@ -206,6 +206,8 @@ let
       tex-gyre tex-gyre-math
       libertinus-otf libertinus-fonts
       stix2-otf
+      # beamer
+      beamer etoolbox hyperref pgf
       # cjk
       #luatexja chinese-jfm
       # pictures and tikz
@@ -460,6 +462,8 @@ in {
       options = {
         default-bg = "#FFFFFF";
         default-fg = "#000000";
+        index-bg = "#FFFFFF";
+        index-fg = "#000000";
       };
       mappings = {
         "[index] <A-\\<>" = "navigate_index top";
