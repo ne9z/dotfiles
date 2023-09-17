@@ -297,7 +297,11 @@ in {
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts stix-two source-han-mono noto-fonts libertinus gyre-fonts
-      babelstone-han;
+      babelstone-han
+      # kaiti
+      arphic-ukai
+      # wenquanyi
+      wqy_zenhei;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
