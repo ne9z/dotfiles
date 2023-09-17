@@ -14,16 +14,16 @@
   <property name="zoomStep" value="20"/>
   <property name="zoomStepScroll" value="2"/>
   <property name="displayDpi" value="72"/>
-  <property name="mainWndWidth" value="1920"/>
-  <property name="mainWndHeight" value="1059"/>
+  <property name="mainWndWidth" value="3840"/>
+  <property name="mainWndHeight" value="2108"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="false"/>
   <property name="showSidebar" value="false"/>
-  <property name="sidebarWidth" value="141"/>
+  <property name="sidebarWidth" value="50"/>
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
-  <property name="menubarVisible" value="true"/>
+  <property name="menubarVisible" value="false"/>
   <property name="filepathShownInTitlebar" value="false"/>
   <property name="numColumns" value="1"/>
   <property name="numRows" value="1"/>
@@ -126,7 +126,7 @@
   <property name="latexSettings.defaultText" value="x^2"/>
   <property name="latexSettings.globalTemplatePath" value="/nix/store/ds97rf23liawns9h33xc7zvglxcx0ykk-xournalpp-1.1.2/share/xournalpp/resources/default_template.tex"/>
   <property name="latexSettings.genCmd" value="pdflatex -halt-on-error -interaction=nonstopmode '{}'"/>
-  <property name="latexSettings.sourceViewThemeId" value=""/>
+  <property name="latexSettings.sourceViewThemeId" value="classic"/>
   <property name="latexSettings.editorFont" value="Monospace 12"/>
   <property name="latexSettings.useCustomEditorFont" value="false"/>
   <property name="latexSettings.editorWordWrap" value="true"/>
