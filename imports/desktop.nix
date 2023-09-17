@@ -343,11 +343,13 @@ in {
   home-manager.users.yc = {
     programs.firefox = {
       enable = true;
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
       profiles.default = {
         id = 0;
         name = "Default";
         isDefault = true;
+        extensions = builtins.attrValues {
+          inherit (pkgs.nur.repos.rycee.firefox-addons) ublock-origin;
+        };
       };
     };
     home = {
