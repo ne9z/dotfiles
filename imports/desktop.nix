@@ -289,9 +289,9 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "WenQuanYi Zen Hei Mono" ];
-      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "WenQuanYi Zen Hei" ];
-      serif = [ "TeX Gyre Schola" "Noto Serif" "WenQuanYi Zen Hei" ];
+      monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "Source Han Mono SC" ];
+      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "AR PL UKai CN" ];
+      serif = [ "TeX Gyre Schola" "Noto Serif" "AR PL UKai CN" ];
     };
   };
   fonts.packages = builtins.attrValues {
@@ -300,8 +300,8 @@ in {
       babelstone-han
       # kaiti
       arphic-ukai
-      # wenquanyi
-      wqy_zenhei;
+      # source han
+      source-han-sans source-han-mono source-han-serif;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
