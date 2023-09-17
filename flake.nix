@@ -10,15 +10,19 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, nur }:
     let
       mkHost = hostName: system:
         (({ zfs-root, pkgs, system, ... }:
           nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
+              # NUR module
+              nur.nixosModules.nur
+
               # Module 0: zfs-root and my-config
               ./modules
 

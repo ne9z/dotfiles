@@ -10,15 +10,7 @@ let
       inherit (epkgs.treesit-grammars) with-all-grammars;
     });
   firefoxPkg = (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
-    nixExtensions = [
-      (pkgs.fetchFirefoxAddon {
-        name = "ublock"; # Has to be unique!
-        url =
-          "https://addons.mozilla.org/firefox/downloads/file/4141256/ublock_origin-1.51.0.xpi";
-        hash = "sha256-i3NGi8IzoR3SiVIZRmOBeD0ZEjhX3Qtv0WoBgg/KSDQ=";
-        fixedExtid = "uBlock0@raymondhill.net";
-      })
-    ];
+    nixExtensions = [ ];
     extraPolicies = {
       "3rdparty" = {
         Extensions = {
@@ -192,8 +184,7 @@ let
   });
   mytex = (pkgs.texlive.combine {
     inherit (pkgs.texlive)
-      collection-basic
-      collection-mathscience
+      collection-basic collection-mathscience
       # languages
       collection-langenglish collection-langgerman
       # pdf manipulation tool
@@ -201,11 +192,8 @@ let
       # pdfpages and dependencies
       pdfpages eso-pic atbegshi pdflscape
       # century schoolbook
-      schola-otf iftex xkeyval unicode-math
-      fontspec realscripts lualatex-math
-      tex-gyre tex-gyre-math
-      libertinus-otf libertinus-fonts
-      stix2-otf
+      schola-otf iftex xkeyval unicode-math fontspec realscripts lualatex-math
+      tex-gyre tex-gyre-math libertinus-otf libertinus-fonts stix2-otf
       # beamer
       beamer etoolbox hyperref pgf
       # cjk
@@ -353,6 +341,15 @@ in {
     options = [ "rw" "size=1G" "uid=yc" "gid=users" "mode=1700" ];
   };
   home-manager.users.yc = {
+    programs.firefox = {
+      enable = true;
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
+      profiles.default = {
+        id = 0;
+        name = "Default";
+        isDefault = true;
+      };
+    };
     home = {
       username = "yc";
       homeDirectory = mkDefault "/home/yc";
