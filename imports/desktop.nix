@@ -290,16 +290,15 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "Source Han Mono SC" ];
-      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "AR PL UKai CN" ];
-      serif = [ "TeX Gyre Schola" "Noto Serif" "AR PL UKai CN" ];
+      sansSerif = [ "TeX Gyre Schola" "Noto Serif" ];
+      serif = [ "TeX Gyre Schola" "Noto Serif" ];
     };
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts stix-two noto-fonts libertinus gyre-fonts
-      babelstone-han
-      # kaiti
-      arphic-ukai
+      # noto cjk
+      noto-fonts-cjk-serif noto-fonts-cjk-sans
       # source han
       source-han-sans source-han-mono source-han-serif;
   };
