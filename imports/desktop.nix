@@ -289,9 +289,9 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "Source Han Mono SC" ];
-      sansSerif = [ "TeX Gyre Schola" "Noto Serif" ];
-      serif = [ "TeX Gyre Schola" "Noto Serif" ];
+      monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "WenQuanYi Zen Hei Mono" ];
+      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "WenQuanYi Zen Hei" ];
+      serif = [ "TeX Gyre Schola" "Noto Serif" "WenQuanYi Zen Hei" ];
     };
   };
   fonts.packages = builtins.attrValues {
