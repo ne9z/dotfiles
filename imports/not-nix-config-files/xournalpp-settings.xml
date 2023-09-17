@@ -23,7 +23,8 @@
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
-  <property name="menubarVisible" value="false"/>
+  <property name="menubarVisible" value="true"/>
+  <property name="filepathShownInTitlebar" value="false"/>
   <property name="numColumns" value="1"/>
   <property name="numRows" value="1"/>
   <property name="viewFixedRows" value="false"/>
@@ -55,6 +56,7 @@
   <property name="darkTheme" value="false"/>
   <property name="useStockIcons" value="true"/>
   <property name="disableScrollbarFadeout" value="true"/>
+  <property name="disableAudio" value="false"/>
   <!--Hides scroolbars in the main window, allowed values: "none", "horizontal", "vertical", "both"-->
   <property name="scrollbarHideType" value="both"/>
   <property name="autoloadMostRecent" value="false"/>
@@ -89,7 +91,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=false&#10;size=419.527559x595.275591&#10;backgroundType=ruled&#10;backgroundColor=#ffffffff&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=false&#10;size=595.275591x841.889764&#10;backgroundType=ruled&#10;backgroundColor=#ffffffff&#10;"/>
   <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
@@ -216,7 +218,9 @@
     <data name="drawCoordinateSystem">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
-    <data name="drawDoubleArrow"/>
+    <data name="drawDoubleArrow">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
     <data name="drawEllipse">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
@@ -255,13 +259,23 @@
     <data name="playObject">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
-    <data name="selectMultiLayerRect"/>
-    <data name="selectMultiLayerRegion"/>
+    <data name="selectMultiLayerRect">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectMultiLayerRegion">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
     <data name="selectObject">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
-    <data name="selectPdfTextLinear"/>
-    <data name="selectPdfTextRect"/>
+    <data name="selectPdfTextLinear">
+      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectPdfTextRect">
+      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
     <data name="selectRect">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
