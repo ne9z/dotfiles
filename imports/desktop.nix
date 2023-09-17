@@ -289,7 +289,7 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = [ "CMU Typewriter Text" "Source Han Mono SC" ];
+      monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "Source Han Mono SC" ];
       sansSerif = [ "TeX Gyre Schola" "Source Han Sans SC" ];
       serif = [ "TeX Gyre Schola" "Source Han Serif SC" ];
     };
