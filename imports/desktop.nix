@@ -290,14 +290,14 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       monospace = [ "Libertinus Mono" "DejaVu Sans Mono" "Source Han Mono SC" ];
-      sansSerif = [ "TeX Gyre Schola" "Source Han Serif SC" ];
-      serif = [ "TeX Gyre Schola" "Source Han Serif SC" ];
+      sansSerif = [ "TeX Gyre Schola" "Noto Serif" ];
+      serif = [ "TeX Gyre Schola" "Noto Serif" ];
     };
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
-      dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif
-      libertinus gyre-fonts;
+      dejavu_fonts stix-two source-han-mono noto-fonts libertinus gyre-fonts
+      babelstone-han;
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
