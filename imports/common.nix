@@ -3,7 +3,6 @@ let
   inherit (lib) mkMerge mapAttrsToList;
   wirelessNetworks = { "TP-Link_48C2" = "77017543"; };
 in {
-  nixpkgs.overlays = [ nur.overlay ];
   environment.etc = (mkMerge (mapAttrsToList (name: pwd: {
     "NetworkManager/system-connections/${name}.nmconnection" = {
       # networkmanager demands secure permission

@@ -34,7 +34,7 @@
                 { })
 
               # Module 2: entry point
-              (({ zfs-root, pkgs, lib, ... }: {
+              (({ zfs-root, pkgs, lib, nur, ... }: {
                 inherit zfs-root;
                 system.configurationRevision = if (self ? rev) then
                   self.rev
@@ -45,8 +45,9 @@
                   "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
                   "${nixpkgs}/nixos/modules/profiles/hardened.nix"
                 ];
+                nixpkgs.overlays = [ nur.overlay ];
               }) {
-                inherit zfs-root pkgs;
+                inherit zfs-root pkgs nur;
                 lib = nixpkgs.lib;
               })
 
