@@ -326,7 +326,7 @@ in {
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
-      inherit emacsPkg firefoxPkg mytex;
+      inherit emacsPkg mytex;
     };
     interactiveShellInit = ''
       export EDITOR="emacsclient --alternate-editor= --create-frame -nw"
@@ -343,6 +343,7 @@ in {
   home-manager.users.yc = {
     programs.firefox = {
       enable = true;
+      package = firefoxPkg;
       profiles.default = {
         id = 0;
         name = "Default";
