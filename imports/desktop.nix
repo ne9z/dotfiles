@@ -236,7 +236,9 @@ in {
           python3 remmina
           # pdf manipulation suite in C++
           # https://qpdf.readthedocs.io/en/stable/
-          qpdf;
+          qpdf
+          # preview-latex
+          ghostscript;
       };
       isNormalUser = true;
       uid = 1000;
