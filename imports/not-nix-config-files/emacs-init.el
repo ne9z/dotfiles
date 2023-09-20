@@ -6,8 +6,6 @@
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(interprogram-cut-function 'wl-copy t)
- '(interprogram-paste-function 'wl-paste t)
  '(menu-bar-mode nil)
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
@@ -27,24 +25,6 @@
 (define-key key-translation-map [?\M-h] [?\M-\d])
 (define-key key-translation-map [?\M-\d] [?\M-h])
 ;; swap backspace and C-h ends here
-
-;; wayland paste
-;; credit: yorickvP on Github
-(setq wl-copy-process nil)
-(defun wl-copy (text)
-  (setq wl-copy-process
-	(make-process
-	 :name "wl-copy"
-         :buffer nil
-         :command '("wl-copy" "-f" "-n")
-         :connection-type 'pipe))
-  (process-send-string wl-copy-process text)
-  (process-send-eof wl-copy-process))
-(defun wl-paste ()
-  (if (and wl-copy-process (process-live-p wl-copy-process))
-      nil ; should return nil if we're the current paste owner
-    (shell-command-to-string "wl-paste -n | tr -d \r")))
-;; wayland paste ends here
 
 (use-package dired
   :config
