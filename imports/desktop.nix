@@ -201,7 +201,7 @@ let
       # cjk
       #luatexja chinese-jfm
       # preview-latex
-      dvips
+      dvips luatex85
       # pictures and tikz
       collection-pictures;
   });
