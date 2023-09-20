@@ -200,6 +200,8 @@ let
       beamer etoolbox hyperref pgf
       # cjk
       #luatexja chinese-jfm
+      # preview-latex
+      dvips
       # pictures and tikz
       collection-pictures;
   });
