@@ -28,6 +28,8 @@
 (define-key key-translation-map [?\M-\d] [?\M-h])
 ;; swap backspace and C-h ends here
 
+(add-hook 'text-mode-hook 'variable-pitch-mode)
+
 (use-package dired
   :config
   (defun dired-open-file ()
