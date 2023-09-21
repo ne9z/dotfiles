@@ -19,7 +19,8 @@
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
  '(user-mail-address "yguo@posteo.net")
- '(use-package-always-defer t))
+ '(use-package-always-defer t)
+ '(variable-pitch-mode t))
 
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
