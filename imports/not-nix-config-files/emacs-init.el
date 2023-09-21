@@ -12,6 +12,7 @@
  '(modus-themes-italic-constructs t)
  '(pixel-scroll-precision-mode t)
  '(prettify-symbols-unprettify-at-point nil)
+ '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(shr-cookie-policy nil)
@@ -29,6 +30,7 @@
 ;; swap backspace and C-h ends here
 
 (add-hook 'text-mode-hook 'variable-pitch-mode)
+(add-hook 'info-mode-hook 'variable-pitch-mode)
 
 (use-package dired
   :config
@@ -82,6 +84,12 @@
   :config
   (eval-after-load "LaTeX"
     '(progn
+       (setq ispell-tex-skip-alists
+             (list (append
+                    (car ispell-tex-skip-alists)
+                    ;; https://emacs.stackexchange.com/a/19650
+                    '(("\\\\[[]" . "\\\\[]]")))
+                   (cadr ispell-tex-skip-alists)))
        (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
        (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
        (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
@@ -97,3 +105,6 @@
 
 ;; magit
 (use-package magit)
+
+(setq test ispell-tex-skip-alists)
+(car test)
