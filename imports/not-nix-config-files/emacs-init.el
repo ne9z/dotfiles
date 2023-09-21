@@ -30,10 +30,9 @@
 ;; swap backspace and C-h ends here
 
 (add-hook 'text-mode-hook 'variable-pitch-mode)
-(add-hook 'info-mode-hook 'variable-pitch-mode)
 
-
-;; ispell
+;; ispell, multilingual spellchecking
+;; https://www.monotux.tech/posts/2021/02/hunspell-multi-lang/
 (with-eval-after-load "ispell"
   (setenv "LANG" "en_US.UTF-8")
   (setq ispell-program-name "hunspell")
