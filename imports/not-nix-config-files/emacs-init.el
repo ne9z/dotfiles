@@ -116,6 +116,3 @@
 
 ;; magit
 (use-package magit)
-
-(setq test ispell-tex-skip-alists)
-(car test)
