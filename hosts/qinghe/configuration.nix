@@ -8,7 +8,6 @@
   home-manager.users.yc = {
     programs.foot.settings.main.font = "monospace:size=16";
     wayland.windowManager.sway.config = {
-      output."*".scale = "2";
       input = {
         "9580:110:PenTablet_Pen" = {
           # the ratio is 16:9 on the graphic tablet
