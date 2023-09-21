@@ -32,6 +32,18 @@
 (add-hook 'text-mode-hook 'variable-pitch-mode)
 (add-hook 'info-mode-hook 'variable-pitch-mode)
 
+
+;; ispell
+(with-eval-after-load "ispell"
+  (setenv "LANG" "en_US.UTF-8")
+  (setq ispell-program-name "hunspell")
+  (setq ispell-dictionary "de_DE,en_US")
+  (ispell-set-spellchecker-params)
+  (ispell-hunspell-add-multi-dic "de_DE,en_US")
+  (setq ispell-personal-dictionary "~/Documents/hunspell_personal")
+  (unless (file-exists-p ispell-personal-dictionary)
+    (write-region "" nil ispell-personal-dictionary nil 0)))
+
 (use-package dired
   :config
   (defun dired-open-file ()

@@ -329,7 +329,7 @@ in {
       inherit (pkgs) poppler perl;
       inherit (pkgs)
       # spell checkers
-        enchant nuspell
+        hunspell
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
