@@ -902,6 +902,11 @@ in {
             pointer_accel = "1";
           };
         };
+        output = {
+          "*" = {
+            background = "${pkgs.sway}/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
+          };
+        };
         modifier = "Mod4";
         menu = "${pkgs.fuzzel}/bin/fuzzel";
         startup = [{
