@@ -40,7 +40,7 @@
   (setq ispell-dictionary "de_DE,en_US")
   (ispell-set-spellchecker-params)
   (ispell-hunspell-add-multi-dic "de_DE,en_US")
-  (setq ispell-personal-dictionary "~/Documents/hunspell_personal")
+  (setq ispell-personal-dictionary "~/nixos-config/personal-dictionary.txt")
   (unless (file-exists-p ispell-personal-dictionary)
     (write-region "" nil ispell-personal-dictionary nil 0)))
 
