@@ -19,8 +19,7 @@
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
  '(user-mail-address "yguo@posteo.net")
- '(use-package-always-defer t)
- '(variable-pitch-mode t))
+ '(use-package-always-defer t))
 
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
@@ -66,7 +65,8 @@
    (LaTeX-mode . TeX-source-correlate-mode)
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
-    . TeX-revert-document-buffer))
+    . TeX-revert-document-buffer)
+   (LaTeX-mode . variable-pitch-mode))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
