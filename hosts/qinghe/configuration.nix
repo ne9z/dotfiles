@@ -5,14 +5,9 @@
     hostId = "abcd1234";
   };
   time.timeZone = "Europe/Berlin";
-  environment.sessionVariables = {
-    QT_WAYLAND_FORCE_DPI = "291";
-    GDK_DPI_SCALE = "3";
-  };
   home-manager.users.yc = {
-    programs.foot.settings.main.font = "monospace:size=16";
     wayland.windowManager.sway.config = {
-      fonts.size = 24.0;
+      output."*".scale = "2";
       input = {
         "9580:110:PenTablet_Pen" = {
           # the ratio is 16:9 on the graphic tablet

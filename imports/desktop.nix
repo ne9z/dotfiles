@@ -886,7 +886,6 @@ in {
             xcursor_theme = "Adwaita 48";
           };
         };
-        output = { DP-4 = { scale = "2"; }; };
         input = {
           "type:keyboard" = {
             xkb_file = "$HOME/.config/sway/yc-sticky-keymap";
