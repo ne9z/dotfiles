@@ -421,44 +421,6 @@ in {
       msmtp.enable = false;
       notmuch.enable = false;
     };
-    accounts.email = {
-      maildirBasePath = "Maildir"; # relative to user home
-      accounts = {
-        "posteo" = {
-          aliases = [ ];
-          address = "yguo@posteo.net";
-          passwordCommand = "pass show email/posteo | head -n1";
-          primary = true;
-          userName = "yguo@posteo.net";
-          realName = "Yuchen Guo";
-          imap = {
-            host = "posteo.de";
-            port = 993;
-          };
-          smtp = {
-            host = "posteo.de";
-            port = 465;
-          };
-          mbsync = {
-            enable = true;
-            create = "both";
-            remove = "both";
-            expunge = "both";
-            flatten = ".";
-          };
-          msmtp = {
-            enable = true;
-            extraConfig = { auth = "plain"; };
-          };
-          notmuch.enable = true;
-          gpg = {
-            key = "yguo@posteo.net";
-            encryptByDefault = false;
-            signByDefault = true;
-          };
-        };
-      };
-    };
     programs.mpv = {
       enable = true;
       config = {
