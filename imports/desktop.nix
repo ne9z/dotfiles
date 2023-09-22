@@ -38,6 +38,12 @@ let
       };
       # captive portal enabled for connecting to free wifi
       CaptivePortal = false;
+      Cookies = {
+        Behavior = "reject-tracker-and-partition-foreign";
+        BehaviorPrivateBrowsing =
+          "reject-tracker-and-partition-foreign";
+        ExpireAtSessionEnd = true;
+      };
       DisableBuiltinPDFViewer = true;
       DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
@@ -47,6 +53,7 @@ let
       DisplayMenuBar = "never";
       DNSOverHTTPS = { Enabled = false; };
       EncryptedMediaExtensions = { Enabled = false; };
+      ExtensionUpdate = false;
       FirefoxHome = {
         SponsoredTopSites = false;
         Pocket = false;
@@ -56,7 +63,7 @@ let
       Homepage = { StartPage = "none"; };
       NetworkPrediction = false;
       NewTabPage = false;
-      NoDefaultBookmarks = false;
+      NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
       OverrideFirstRunPage = "";
@@ -79,6 +86,8 @@ let
       };
     };
     extraPrefs = ''
+      lockPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+      pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
       pref("apz.allow_double_tap_zooming", false);
       pref("apz.allow_zooming", false);
       pref("apz.gtk.touchpad_pinch.enabled", false);
