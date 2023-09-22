@@ -1,10 +1,21 @@
 ;; -*- lexical-binding:t -*-
 
-;; fontset
-(add-hook 'after-make-frame-functions
-          (progn
-            (set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
-            (set-fontset-font "fontset-default" 'cjk-misc "Noto Sans CJK SC")))
+(defun my-configure-font (frame)
+  "Configure font given initial non-daemon FRAME.
+Intended for `after-make-frame-functions'."
+  ;; 简体中文与标点。
+  (set-fontset-font "fontset-default" 'han "Noto Sans Mono CJK SC")
+  (set-fontset-font "fontset-default" 'cjk-misc "Noto Sans Mono CJK SC")
+
+  ;; hi-res
+  (if (string= "qinghe" (system-name))
+      (set-face-attribute 'default nil :height 140))
+
+  ;; run this only once for the initial non-daemon FRAME
+  ;; remove it thereafter
+  (remove-hook 'after-make-frame-functions #'my-configure-font))
+
+(add-hook 'after-make-frame-functions #'my-configure-font)
 
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
@@ -55,10 +66,10 @@
 (use-package dired
   :config
   (defun dired-open-file ()
-  "In dired, open the file named on this line."
-  (interactive)
-  (let* ((file (dired-get-filename nil t)))
-    (call-process "xdg-open" nil 0 nil file)))
+    "In dired, open the file named on this line."
+    (interactive)
+    (let* ((file (dired-get-filename nil t)))
+      (call-process "xdg-open" nil 0 nil file)))
   :bind
   (:map dired-mode-map
         ("C-o" . dired-open-file)))
