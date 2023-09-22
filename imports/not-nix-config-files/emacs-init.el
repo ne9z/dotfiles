@@ -109,16 +109,22 @@ Intended for `after-make-frame-functions'."
   (reftex-plug-into-AUCTeX t)
   (TeX-view-program-selection '((output-pdf "Zathura")))
   (LaTeX-math-list
-   '(("o r" "mathbb{R}" nil ?ℝ)
-     (?= "coloneq" nil ?≔)
-     ("o c" "mathbb{C}" nil ?ℂ)))
+   '(("o r" "mathbb{R}" nil nil)
+     (?= "coloneq" nil nil)
+     ("o c" "mathbb{C}" nil nil)))
   (ispell-tex-skip-alists
    (list
     (append
      (car ispell-tex-skip-alists)
      ;; https://emacs.stackexchange.com/a/19650
      '(("\\\\[[]" . "\\\\[]]")))
-    (cadr ispell-tex-skip-alists))))
+    (cadr ispell-tex-skip-alists)))
+  :config
+  (eval-after-load "LaTeX"
+    '(progn
+       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
+       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
+       (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))))
 
 ;; zh-cn input engine
 (use-package pyim
