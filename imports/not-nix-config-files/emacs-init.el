@@ -53,15 +53,16 @@ Intended for `after-make-frame-functions'."
 
 ;; ispell, multilingual spellchecking
 ;; https://www.monotux.tech/posts/2021/02/hunspell-multi-lang/
-(with-eval-after-load "ispell"
+(use-package ispell
+  :custom
+  (ispell-program-name "hunspell")
+  (ispell-dictionary "de_DE,en_US")
+  (ispell-personal-dictionary
+   "~/nixos-config/personal-dictionary.txt")
+  :config
   (setenv "LANG" "en_US.UTF-8")
-  (setq ispell-program-name "hunspell")
-  (setq ispell-dictionary "de_DE,en_US")
   (ispell-set-spellchecker-params)
-  (ispell-hunspell-add-multi-dic "de_DE,en_US")
-  (setq ispell-personal-dictionary "~/nixos-config/personal-dictionary.txt")
-  (unless (file-exists-p ispell-personal-dictionary)
-    (write-region "" nil ispell-personal-dictionary nil 0)))
+  (ispell-hunspell-add-multi-dic "de_DE,en_US"))
 
 (use-package dired
   :config
@@ -111,17 +112,13 @@ Intended for `after-make-frame-functions'."
    '(("o r" "mathbb{R}" nil ?ℝ)
      (?= "coloneq" nil ?≔)
      ("o c" "mathbb{C}" nil ?ℂ)))
-  :config
-  (eval-after-load "LaTeX"
-    '(progn
-       (setq ispell-tex-skip-alists
-             (list (append
-                    (car ispell-tex-skip-alists)
-                    ;; https://emacs.stackexchange.com/a/19650
-                    '(("\\\\[[]" . "\\\\[]]")))
-                   (cadr ispell-tex-skip-alists)))
-       (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
-       (put 'LaTeX-narrow-to-environment 'disabled nil))))
+  (ispell-tex-skip-alists
+   (list
+    (append
+     (car ispell-tex-skip-alists)
+     ;; https://emacs.stackexchange.com/a/19650
+     '(("\\\\[[]" . "\\\\[]]")))
+    (cadr ispell-tex-skip-alists))))
 
 ;; zh-cn input engine
 (use-package pyim
