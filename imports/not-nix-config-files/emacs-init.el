@@ -1,6 +1,10 @@
+;; -*- lexical-binding:t -*-
+
 ;; fontset
-(set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
-(set-fontset-font "fontset-default" 'cjk-misc "Noto Sans CJK SC")
+(add-hook 'after-make-frame-functions
+          (progn
+            (set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
+            (set-fontset-font "fontset-default" 'cjk-misc "Noto Sans CJK SC"))
 
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
