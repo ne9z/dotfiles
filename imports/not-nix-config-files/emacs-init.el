@@ -89,11 +89,6 @@ Intended for `after-make-frame-functions'."
   (mail-specify-envelope-from t)
   (message-sendmail-envelope-from 'header))
 
-(defun my-LaTeX-math-bb (char dollar)
-  "Insert a {\\mathbb CHAR}."
-  (interactive "*c\nP")
-  (insert "\\mathbb{" (char-to-string char) "}"))
-
 (use-package tex
   :hook
   ((LaTeX-mode . turn-on-reftex)
@@ -112,6 +107,10 @@ Intended for `after-make-frame-functions'."
   (TeX-electric-sub-and-superscript t)
   (reftex-plug-into-AUCTeX t)
   (TeX-view-program-selection '((output-pdf "Zathura")))
+  (LaTeX-math-list
+   '(("o r" "mathbb{R}" nil ?ℝ)
+     (?= "coloneq" nil ?≔)
+     ("o c" "mathbb{C}" nil ?ℂ)))
   :config
   (eval-after-load "LaTeX"
     '(progn
@@ -121,11 +120,8 @@ Intended for `after-make-frame-functions'."
                     ;; https://emacs.stackexchange.com/a/19650
                     '(("\\\\[[]" . "\\\\[]]")))
                    (cadr ispell-tex-skip-alists)))
-       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
-       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
        (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:))
-       (put 'LaTeX-narrow-to-environment 'disabled nil)
-       (define-key LaTeX-math-mode-map (kbd "` 8") 'my-LaTeX-math-bb))))
+       (put 'LaTeX-narrow-to-environment 'disabled nil))))
 
 ;; zh-cn input engine
 (use-package pyim
