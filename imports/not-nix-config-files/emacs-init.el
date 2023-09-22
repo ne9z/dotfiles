@@ -9,7 +9,7 @@ Intended for `after-make-frame-functions'."
 
   ;; hi-res
   (if (string= "qinghe" (system-name))
-      (set-face-attribute 'default nil :height 140))
+      (set-face-attribute 'default nil :height 150))
 
   ;; run this only once for the initial non-daemon FRAME
   ;; remove it thereafter
