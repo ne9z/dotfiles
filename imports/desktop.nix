@@ -213,6 +213,8 @@ let
       dvips luatex85
       # bold computer modern
       newcomputermodern fontsetup
+      # koma-script for a4 paper
+      koma-script
       # pictures and tikz
       collection-pictures;
   });
