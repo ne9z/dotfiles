@@ -211,6 +211,8 @@ let
       #luatexja chinese-jfm
       # preview-latex
       dvips luatex85
+      # bold computer modern
+      newcomputermodern fontsetup
       # pictures and tikz
       collection-pictures;
   });
