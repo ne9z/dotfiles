@@ -214,7 +214,7 @@ let
       # bold computer modern
       newcomputermodern fontsetup
       # koma-script for a4 paper
-      koma-script
+      koma-script xpatch
       # pictures and tikz
       collection-pictures;
   });
