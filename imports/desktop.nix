@@ -40,8 +40,7 @@ let
       CaptivePortal = false;
       Cookies = {
         Behavior = "reject-tracker-and-partition-foreign";
-        BehaviorPrivateBrowsing =
-          "reject-tracker-and-partition-foreign";
+        BehaviorPrivateBrowsing = "reject-tracker-and-partition-foreign";
         ExpireAtSessionEnd = true;
       };
       DisableBuiltinPDFViewer = true;
@@ -309,17 +308,16 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace =
-        [ "Latin Modern Mono" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
-      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
-      serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
+      monospace = [ "CMU Typewriter Text" "Noto Sans Mono CJK SC" ];
+      sansSerif = [ "TeX Gyre Schola" "CMU Concrete" "Noto Sans CJK SC" ];
+      serif = [ "TeX Gyre Schola" "CMU Concrete" "Noto Sans CJK SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       stix-two noto-fonts gyre-fonts
       # computer modern
-      lmodern cm_unicode
+      cm_unicode
       # noto cjk
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
   };
