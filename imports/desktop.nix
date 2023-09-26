@@ -319,7 +319,7 @@ in {
     inherit (pkgs)
       stix-two noto-fonts gyre-fonts
       # computer modern
-      lmodern
+      lmodern cm_unicode
       # noto cjk
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
   };
