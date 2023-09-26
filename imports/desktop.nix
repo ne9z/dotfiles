@@ -308,9 +308,9 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = [ "Libertinus Mono" "Noto Sans Mono CJK SC" ];
-      sansSerif = [ "TeX Gyre Schola" "Libertinus Serif" "Noto Sans CJK SC" ];
-      serif = [ "TeX Gyre Schola" "Libertinus Serif" "Noto Sans CJK SC" ];
+      monospace = [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      sansSerif = [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      serif = [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
