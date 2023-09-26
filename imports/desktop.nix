@@ -308,14 +308,16 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      monospace = [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      emoji = [ "Noto Color Emoji" ];
+      monospace =
+        [ "Latin Modern Mono" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
       sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
       serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
-      dejavu_fonts stix-two noto-fonts libertinus gyre-fonts
+      stix-two noto-fonts gyre-fonts
       # computer modern
       lmodern
       # noto cjk
@@ -881,7 +883,8 @@ in {
         };
         output = {
           "*" = {
-            background = "${pkgs.sway}/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
+            background =
+              "${pkgs.sway}/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
           };
         };
         modifier = "Mod4";
