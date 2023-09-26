@@ -75,10 +75,7 @@ document_root
 personal_document_root
 cgi_bin
 index_file
-mime_types ~/.mime.types, /nix/store/vl2q9dpdgypyxzs32gxvpw9gd0ba4vv4-w3m-0.5.3+git20220429/etc/mime.types
-mailcap ~/.w3m/mailcap, /nix/store/vl2q9dpdgypyxzs32gxvpw9gd0ba4vv4-w3m-0.5.3+git20220429/etc/w3m/mailcap
-urimethodmap ~/.w3m/urimethodmap, /nix/store/vl2q9dpdgypyxzs32gxvpw9gd0ba4vv4-w3m-0.5.3+git20220429/etc/w3m/urimethodmap
-editor emacsclient --alternate-editor= --create-frame
+editor emacsclient --alternate-editor= --create-frame -nw
 mailto_options 1
 mailer
 extbrowser sh -c 'wl-copy -n "${0}"'
