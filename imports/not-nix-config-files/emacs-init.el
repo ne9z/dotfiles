@@ -15,6 +15,10 @@ Intended for `after-make-frame-functions'."
   ;; remove it thereafter
   (remove-hook 'after-make-frame-functions #'my-configure-font))
 
+(defun my-configure-latex-font ()
+  (set-face-attribute 'font-latex-sedate-face nil :family "Monospace")
+  (set-face-attribute 'font-latex-math-face nil :family "Monospace"))
+
 (add-hook 'after-make-frame-functions #'my-configure-font)
 
 (custom-set-variables
@@ -97,7 +101,8 @@ Intended for `after-make-frame-functions'."
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer)
-   (LaTeX-mode . variable-pitch-mode))
+   (LaTeX-mode . variable-pitch-mode)
+   (LaTeX-mode . my-configure-latex-font))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
@@ -120,13 +125,9 @@ Intended for `after-make-frame-functions'."
      '(("\\\\[[]" . "\\\\[]]")))
     (cadr ispell-tex-skip-alists)))
   :config
-  (eval-after-load "LaTeX"
-    '(progn
-       (set-face-attribute 'font-latex-sedate-face nil :family "Monospace")
-       (set-face-attribute 'font-latex-math-face nil :family "Monospace")
-       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
-       (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
-       (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))))
+  (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
+  (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
+  (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
 
 ;; zh-cn input engine
 (use-package pyim
