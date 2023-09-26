@@ -316,6 +316,8 @@ in {
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts stix-two noto-fonts libertinus gyre-fonts
+      # computer modern
+      lmodern
       # noto cjk
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
   };
