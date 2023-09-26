@@ -185,7 +185,7 @@ let
       pref("security.mixed_content.block_active_content", true);
       pref("security.mixed_content.block_display_content", true);
       pref("security.xpconnect.plugin.unrestricted", false);
-      pref("toolkit.zoomManager.zoomValues", "0.5,0.8,1");
+      pref("toolkit.zoomManager.zoomValues", "0.8,1,1.5,2");
       pref("webgl.disable-extensions", true);
       pref("webgl.disable-fail-if-major-performance-caveat", true);
       pref("webgl.disabled", true);
