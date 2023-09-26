@@ -309,8 +309,8 @@ in {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [ "CMU Typewriter Text" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
-      sansSerif = [ "TeX Gyre Schola" "CMU Concrete" "Noto Sans CJK SC" ];
-      serif = [ "TeX Gyre Schola" "CMU Concrete" "Noto Sans CJK SC" ];
+      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
+      serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
