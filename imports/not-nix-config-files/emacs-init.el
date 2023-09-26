@@ -122,6 +122,8 @@ Intended for `after-make-frame-functions'."
   :config
   (eval-after-load "LaTeX"
     '(progn
+       (set-face-attribute 'font-latex-sedate-face nil :family "Monospace")
+       (set-face-attribute 'font-latex-math-face nil :family "Monospace")
        (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
        (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
        (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))))
