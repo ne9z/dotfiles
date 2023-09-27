@@ -308,7 +308,7 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace = [ "CMU Typewriter Text" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
+      monospace = [ "Latin Modern Mono" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
       sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
       serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
     };
@@ -317,7 +317,7 @@ in {
     inherit (pkgs)
       stix-two noto-fonts gyre-fonts
       # computer modern
-      cm_unicode
+      lmodern
       # noto cjk
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
   };
