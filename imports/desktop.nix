@@ -15,7 +15,7 @@ let
         name = "ublock"; # Has to be unique!
         url =
           "https://codeberg.org/m0p/ublock-origin-mirror/raw/branch/main/ublock_origin-1.52.2.xpi";
-        hash = "sha256-i3NGi8IzoR3SiVIZRmOBeD0ZEjhX3Qtv0WoBgg/KSDQ=";
+        hash = "sha256-6O4/nVl6bULbnXP+h8HVId40B1X9i/3WnkFiPt/gltY=";
         fixedExtid = "uBlock0@raymondhill.net";
       })
     ];
