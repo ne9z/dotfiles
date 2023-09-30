@@ -167,7 +167,6 @@ let
       pref("gfx.font_rendering.opentype_svg.enabled", false);
       pref("intl.accept_languages", "en");
       pref("intl.locale.matchOS", false);
-      pref("javascript.enabled", false);
       pref("javascript.options.asmjs", false);
       pref("javascript.options.wasm", false);
       pref("javascript.use_us_english_locale", true);
