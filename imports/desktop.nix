@@ -245,7 +245,7 @@ in {
           # image editor
           nomacs
           # CoMa programs
-          python3 remmina
+          python3
           # pdf manipulation suite in C++
           # https://qpdf.readthedocs.io/en/stable/
           qpdf
@@ -308,7 +308,8 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace = [ "Latin Modern Mono" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
+      monospace =
+        [ "Latin Modern Mono" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
       sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
       serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
     };
