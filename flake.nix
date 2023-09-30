@@ -10,19 +10,15 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur }:
+  outputs = { self, nixpkgs, home-manager }:
     let
       mkHost = hostName: system:
         (({ zfs-root, pkgs, system, ... }:
           nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
-              # NUR module
-              nur.nixosModules.nur
-
               # Module 0: zfs-root and my-config
               ./modules
 
@@ -34,7 +30,7 @@
                 { })
 
               # Module 2: entry point
-              (({ zfs-root, pkgs, lib, nur, ... }: {
+              (({ zfs-root, pkgs, lib, ... }: {
                 inherit zfs-root;
                 system.configurationRevision = if (self ? rev) then
                   self.rev
@@ -45,9 +41,8 @@
                   "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
                   "${nixpkgs}/nixos/modules/profiles/hardened.nix"
                 ];
-                nixpkgs.overlays = [ nur.overlay ];
               }) {
-                inherit zfs-root pkgs nur;
+                inherit zfs-root pkgs;
                 lib = nixpkgs.lib;
               })
 

@@ -10,6 +10,16 @@ let
       inherit (epkgs.treesit-grammars) with-all-grammars;
     });
   firefoxPkg = (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
+    nixExtensions = [
+      (pkgs.fetchFirefoxAddon {
+        name = "ublock"; # Has to be unique!
+        url =
+          "https://codeberg.org/m0p/ublock-origin-mirror/raw/branch/main/ublock_origin-1.52.2.xpi";
+        hash = "sha256-i3NGi8IzoR3SiVIZRmOBeD0ZEjhX3Qtv0WoBgg/KSDQ=";
+        fixedExtid = "uBlock0@raymondhill.net";
+      })
+    ];
+
     extraPolicies = {
       "3rdparty" = {
         Extensions = {
@@ -371,9 +381,6 @@ in {
         id = 0;
         name = "Default";
         isDefault = true;
-        extensions = builtins.attrValues {
-          inherit (pkgs.nur.repos.rycee.firefox-addons) ublock-origin;
-        };
       };
     };
     home = {
