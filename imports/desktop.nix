@@ -437,7 +437,7 @@ in {
     programs.mpv = {
       enable = true;
       config = {
-        hwdec = "vaapi";
+        hwdec = mkDefault "vaapi";
         player-operation-mode = "cplayer";
         audio-pitch-correction = "no";
         vo = "gpu-next";

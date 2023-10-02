@@ -7,6 +7,7 @@
   time.timeZone = "Europe/Berlin";
   home-manager.users.yc = {
     programs.foot.settings.main.font = "monospace:size=16";
+    programs.mpv.config.hwdec = "no";
     wayland.windowManager.sway.config = {
       input = {
         "9580:110:PenTablet_Pen" = {
