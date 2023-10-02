@@ -21,6 +21,9 @@
         "1386:830:Wacom_Intuos_PT_M_2_Pen" = {
           map_to_region = "1120 0 2720 1530";
         };
+        "9580:109:GAOMON_Gaomon_Tablet_Pen" = {
+          map_to_region = "1280 0 2560 1440";
+        };
       };
     };
   };
