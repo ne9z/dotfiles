@@ -414,15 +414,10 @@ in {
         scaling-factor = 2;
       };
     };
-    programs.emacs = {
-      enable = true;
-      package = emacsPkg;
-      extraConfig = builtins.readFile ./not-nix-config-files/emacs-init.el;
-    };
     services.emacs = {
       enable = true;
       # with init file added
-      package = config.programs.emacs.finalPackage;
+      package = emacsPkg;
       client.enable = true;
       client.arguments = [ "--create-frame" ];
       defaultEditor = true;
@@ -669,6 +664,7 @@ in {
           source = ./not-nix-config-files/sway-yc-sticky-keymap;
         };
         "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
+        "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
         "yc.sh" = { source = ./not-nix-config-files/bashrc-config.sh; };
         "nomacs/Image Lounge.conf" = {
           source = ./not-nix-config-files/nomacs-config.conf;
