@@ -228,7 +228,7 @@ in {
     enable = true;
     settings = {
       General.DisplayServer = "wayland";
-      Wayland.CompositorCommand = "${pkgs.weston} --shell=${pkgs.weston}/lib/weston/fullscreen-shell.so"
+      Wayland.CompositorCommand = "${pkgs.weston} --shell=${pkgs.weston}/lib/weston/fullscreen-shell.so";
     };
   };
   users.mutableUsers = false;
