@@ -7,17 +7,9 @@ Intended for `after-make-frame-functions'."
   (set-fontset-font "fontset-default" 'han "Noto Sans Mono CJK SC")
   (set-fontset-font "fontset-default" 'cjk-misc "Noto Sans Mono CJK SC")
 
-  ;; hi-res
-  (if (string= "qinghe" (system-name))
-      (set-face-attribute 'default nil :height 150))
-
   ;; run this only once for the initial non-daemon FRAME
   ;; remove it thereafter
   (remove-hook 'after-make-frame-functions #'my-configure-font))
-
-(defun my-configure-latex-font ()
-  (set-face-attribute 'font-latex-sedate-face nil :family "Monospace")
-  (set-face-attribute 'font-latex-math-face nil :family "Monospace"))
 
 (add-hook 'after-make-frame-functions #'my-configure-font)
 
@@ -94,6 +86,11 @@ Intended for `after-make-frame-functions'."
   (mail-specify-envelope-from t)
   (message-sendmail-envelope-from 'header))
 
+
+(defun my-configure-latex-font ()
+  (set-face-attribute 'font-latex-sedate-face nil :family "Monospace")
+  (set-face-attribute 'font-latex-math-face nil :family "Monospace"))
+
 (use-package tex
   :hook
   ((LaTeX-mode . turn-on-reftex)
@@ -129,12 +126,12 @@ Intended for `after-make-frame-functions'."
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
 
+;; magit
+(use-package magit)
+
 ;; zh-cn input engine
 (use-package pyim
   :ensure pyim-basedict
   :init
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
-
-;; magit
-(use-package magit)
