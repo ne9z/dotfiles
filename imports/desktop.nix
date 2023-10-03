@@ -224,10 +224,6 @@ let
       collection-pictures;
   });
 in {
-  environment.etc."xdg/weston/weston.ini".text = ''
-    [keyboard]
-    keymap_layout=yc
-  '';
   services.xserver.enable = true; # for sddm
   services.xserver.displayManager.sddm = {
     enable = true;
@@ -368,7 +364,7 @@ in {
       inherit mytex;
     };
     interactiveShellInit = ''
-      e () { $EDITOR "$@"; }
+      e () { $EDITOR --create-frame "$@"; }
     '';
   };
   home-manager.users.yc = {
