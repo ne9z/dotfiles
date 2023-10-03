@@ -342,6 +342,7 @@ in {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_WAYLAND_FORCE_DPI = mkDefault "physical";
     GDK_DPI_SCALE = mkDefault "2";
+    W3M_DIR = "$HOME/.config/w3m";
   };
   services.dictd = {
     enable = true;
