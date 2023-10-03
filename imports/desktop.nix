@@ -3,11 +3,18 @@ let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
   buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages;
+  emacsConfig = epkgs: epkgs.trivialBuild {
+    pname = "default";
+    src = pkgs.writeText "default.el" ./not-nix-config-files/emacs-init.el;
+    version = "0.1.0";
+    packageRequires = packages;
+  };
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit;
       inherit (epkgs.elpaPackages) auctex pyim pyim-basedict;
       inherit (epkgs.treesit-grammars) with-all-grammars;
+      emacsConfig;
     });
   firefoxPkg = (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
     nixExtensions = [
@@ -357,7 +364,6 @@ in {
       inherit emacsPkg mytex;
     };
     interactiveShellInit = ''
-      export EDITOR="${emacsPkg}/bin/emacsclient --alternate-editor= --create-frame"
       e () { $EDITOR "$@"; }
     '';
   };
@@ -417,16 +423,12 @@ in {
     };
     services.emacs = {
       enable = true;
+      # with init file added
       package = emacsPkg;
       client.enable = true;
       client.arguments = [ "--create-frame" ];
       defaultEditor = true;
       startWithUserSession = true;
-    };
-    programs.emacs = {
-      enable = true;
-      package = emacsPkg;
-      extraConfig = builtins.readFile ./not-nix-config-files/emacs-init.el;
     };
     programs.bash = {
       enable = true;
@@ -669,7 +671,6 @@ in {
           source = ./not-nix-config-files/sway-yc-sticky-keymap;
         };
         "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
-        "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
         "yc.sh" = { source = ./not-nix-config-files/bashrc-config.sh; };
         "nomacs/Image Lounge.conf" = {
           source = ./not-nix-config-files/nomacs-config.conf;
@@ -824,7 +825,7 @@ in {
          bindsym --no-warn Mod4+y scratchpad show
          bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
          bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
-         bindsym --no-warn Mod4+o exec ${emacsPkg}/bin/emacsclient --alternate-editor= --create-frame
+         bindsym --no-warn Mod4+o exec ${emacsPkg}/bin/emacsclient --create-frame
          bindsym --no-warn Mod4+t layout tabbed
         }
 
