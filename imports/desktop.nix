@@ -224,6 +224,13 @@ let
       collection-pictures;
   });
 in {
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    settings = {
+      General.DisplayServer = "wayland";
+      Wayland.CompositorCommand = "${pkgs.weston} --shell=${pkgs.weston}/lib/weston/fullscreen-shell.so"
+    };
+  };
   users.mutableUsers = false;
   users.users = {
     yc = {
@@ -358,13 +365,6 @@ in {
     interactiveShellInit = ''
       e () { $EDITOR "$@"; }
     '';
-  };
-  # have a clean home
-  zfs-root.fileSystems.datasets = { "rpool/nixos/home" = "/oldroot/home"; };
-  fileSystems."/home/yc" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-    options = [ "rw" "size=1G" "uid=yc" "gid=users" "mode=1700" ];
   };
   home-manager.users.yc = {
     programs.firefox = {

@@ -180,40 +180,6 @@ tubb () {
     wl-copy < "${HOME}"/.config/tubpass
 }
 
-mcreate_symblink () {
-    local source=${1%:*}
-    local target=${1#*:}
-    if ! test -L "${target}"; then
-	if test -d "${target}"; then
-	    # rm dir created by home-manager
-	    rm -rf "${target}"
-	fi
-	if test -e "${source}"; then
-            ln -s "${source}" "${target}"
-	fi
-    fi
-}
-
-msymlinks="
-/oldroot${HOME}/Downloads:${HOME}/Downloads
-/oldroot${HOME}/Documents:${HOME}/Documents
-/oldroot${HOME}/gnus:${HOME}/Mail
-/oldroot${HOME}/nixos-config:${HOME}/nixos-config
-/oldroot${HOME}/.gnupg:${HOME}/.gnupg
-/oldroot${HOME}/.ssh/authorized_keys:${HOME}/.ssh/authorized_keys
-/oldroot${HOME}/.ssh/known_hosts:${HOME}/.ssh/known_hosts
-/oldroot${HOME}/.password-store:${HOME}/.password-store
-${HOME}/.config/w3m:${HOME}/.w3m
-/oldroot${HOME}/.password-store/authinfo.gpg:${HOME}/.authinfo.gpg"
-### script on login
-if [ "$(tty)" = "/dev/tty1" ]; then
-    set -e
-    for mount in ${msymlinks}; do
-	mcreate_symblink "${mount}"
-    done
-    touch ${HOME}/.w3m/history
-    set +e
-fi
 
 mbootstrapdir="
 /oldroot${HOME}
@@ -260,9 +226,6 @@ EOF
     git clone tl.yc:~/githost/pass /oldroot"${HOME}"/.password-store
     echo "clone sysconf repo"
     git clone tl.yc:~/githost/systemConfiguration /oldroot"${HOME}"/nixos-config
-    for mount in ${msymlinks}; do
-	mcreate_symblink "${mount}"
-    done
     mkdir -p "${HOME}"/Maildir/posteo
     echo "RETURN_SUCCESS"
     set +ex
