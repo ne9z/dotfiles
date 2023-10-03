@@ -75,7 +75,7 @@ document_root
 personal_document_root
 cgi_bin
 index_file
-editor emacsclient --alternate-editor= --create-frame -nw
+editor emacsclient --alternate-editor= --create-frame
 mailto_options 1
 mailer
 extbrowser sh -c 'wl-copy -n "${0}"'

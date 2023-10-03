@@ -26,7 +26,6 @@ in {
   systemd.network.wait-online.enable = false;
   networking.useDHCP = false;
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
   services = {
     tor = {
       enable = true;

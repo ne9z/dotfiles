@@ -1,5 +1,26 @@
 ;; -*- lexical-binding:t -*-
 
+(defun my-configure-font (frame)
+  "Configure font given initial non-daemon FRAME.
+Intended for `after-make-frame-functions'."
+  ;; 简体中文与标点。
+  (set-fontset-font "fontset-default" 'han "Noto Sans Mono CJK SC")
+  (set-fontset-font "fontset-default" 'cjk-misc "Noto Sans Mono CJK SC")
+
+  ;; hi-res
+  (if (string= "qinghe" (system-name))
+      (set-face-attribute 'default nil :height 150))
+
+  ;; run this only once for the initial non-daemon FRAME
+  ;; remove it thereafter
+  (remove-hook 'after-make-frame-functions #'my-configure-font))
+
+(defun my-configure-latex-font ()
+  (set-face-attribute 'font-latex-sedate-face nil :family "Monospace")
+  (set-face-attribute 'font-latex-math-face nil :family "Monospace"))
+
+(add-hook 'after-make-frame-functions #'my-configure-font)
+
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
  '(custom-enabled-themes '(modus-operandi))
@@ -8,12 +29,11 @@
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(interprogram-cut-function 'wl-copy t)
- '(interprogram-paste-function 'wl-paste t)
  '(menu-bar-mode nil)
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
+ '(pixel-scroll-precision-mode t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
@@ -32,24 +52,8 @@
 (define-key key-translation-map [?\M-\d] [?\M-h])
 ;; swap backspace and C-h ends here
 
-;; wayland paste
-;; credit: yorickvP on Github
-(setq wl-copy-process nil)
-(defun wl-copy (text)
-  (setq wl-copy-process
-        (make-process
-         :name "wl-copy"
-         :buffer nil
-         :command '("wl-copy" "-f" "-n")
-         :connection-type 'pipe))
-  (process-send-string wl-copy-process text)
-  (process-send-eof wl-copy-process))
-(defun wl-paste ()
-  (if (and wl-copy-process (process-live-p wl-copy-process))
-      nil ; should return nil if we're the current paste owner
-    (shell-command-to-string "wl-paste -n | tr -d \r")))
-;; wayland paste ends here
-
+(add-hook 'text-mode-hook 'variable-pitch-mode)
+(add-hook 'Info-mode-hook 'variable-pitch-mode)
 
 ;; ispell, multilingual spellchecking
 ;; https://www.monotux.tech/posts/2021/02/hunspell-multi-lang/
@@ -96,7 +100,9 @@
    (LaTeX-mode . TeX-source-correlate-mode)
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
-    . TeX-revert-document-buffer))
+    . TeX-revert-document-buffer)
+   (LaTeX-mode . variable-pitch-mode)
+   (LaTeX-mode . my-configure-latex-font))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
