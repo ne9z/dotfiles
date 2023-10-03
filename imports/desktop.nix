@@ -420,7 +420,8 @@ in {
       client.enable = true;
       client.arguments = [ "--create-frame" ];
       defaultEditor = true;
-      startWithUserSession = true;
+      # started by sway
+      startWithUserSession = false;
     };
     programs.bash = {
       enable = true;
@@ -831,6 +832,7 @@ in {
         }
         titlebar_padding 1
         titlebar_border_thickness 0
+        exec ${pkgs.systemd}/bin/systemctl --user start emacs.service
       '';
       config = {
         colors = {
