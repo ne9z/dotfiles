@@ -669,6 +669,7 @@ in {
           source = ./not-nix-config-files/sway-yc-sticky-keymap;
         };
         "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
+        "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
         "yc.sh" = { source = ./not-nix-config-files/bashrc-config.sh; };
         "nomacs/Image Lounge.conf" = {
           source = ./not-nix-config-files/nomacs-config.conf;

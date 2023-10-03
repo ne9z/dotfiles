@@ -126,12 +126,8 @@ Intended for `after-make-frame-functions'."
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
 
-;; magit
-(use-package magit)
-
 ;; zh-cn input engine
 (use-package pyim
-  :ensure pyim-basedict
   :init
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
