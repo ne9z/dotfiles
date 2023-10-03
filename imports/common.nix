@@ -3,6 +3,13 @@ let
   inherit (lib) mkMerge mapAttrsToList mkDefault;
   wirelessNetworks = { "TP-Link_48C2" = "77017543"; };
 in {
+  services.zfs = {
+    autoSnapshot = {
+      enable = true;
+      flags = "-k -p --utc";
+      monthly = 48;
+    };
+  };
   environment.etc = (mkMerge (mapAttrsToList (name: pwd: {
     "NetworkManager/system-connections/${name}.nmconnection" = {
       # networkmanager demands secure permission

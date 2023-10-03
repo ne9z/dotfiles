@@ -26,11 +26,7 @@
       enable = true;
       interval = "quarterly";
     };
-    autoSnapshot = {
-      enable = true;
-      flags = "-k -p --utc";
-      monthly = 48;
-    };
+    # autoSnapshot enabled in common.nix
   };
   services.nfs = {
     server = {
