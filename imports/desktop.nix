@@ -8,7 +8,6 @@ let
       pname = "default";
       src = pkgs.writeText "default.el" ./not-nix-config-files/emacs-init.el;
       version = "0.1.0";
-      packageRequires = packages;
     };
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
