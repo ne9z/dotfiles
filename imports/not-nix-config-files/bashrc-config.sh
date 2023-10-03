@@ -228,6 +228,7 @@ EOF
     git clone tl.yc:~/githost/systemConfiguration /oldroot"${HOME}"/nixos-config
     mkdir -p "${HOME}"/Maildir/posteo
     echo "RETURN_SUCCESS"
+    echo "zfs set com.sun:auto-snapshot=true rpool/nixos/home"
     set +ex
 }
 
