@@ -323,8 +323,7 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace =
-        [ "Latin Modern Mono" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      monospace = [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
       sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
       serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
     };
