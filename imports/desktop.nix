@@ -426,7 +426,7 @@ in {
     programs.emacs = {
       enable = true;
       package = emacsPkg;
-      extraConfig = builtins.readFile ./not-nix-config-files/emacs-init.el
+      extraConfig = builtins.readFile ./not-nix-config-files/emacs-init.el;
     };
     programs.bash = {
       enable = true;
