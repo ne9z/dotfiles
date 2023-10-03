@@ -210,15 +210,18 @@
       ];
     };
   };
-  services.i2pd.inTunnels = {
-    ssh-server = {
-      enable = true;
-      address = "::1";
-      destination = "::1";
-      #keys = "‹name›-keys.dat";
-      #key is generated if missing
-      port = 65222;
-      accessList = [ ]; # to lazy to only allow zfs-root laptops
+  services.i2pd = {
+    enable = true;
+    inTunnels = {
+      ssh-server = {
+        enable = true;
+        address = "::1";
+        destination = "::1";
+        #keys = "‹name›-keys.dat";
+        #key is generated if missing
+        port = 65222;
+        accessList = [ ]; # to lazy to only allow zfs-root laptops
+      };
     };
   };
   environment.systemPackages = builtins.attrValues {

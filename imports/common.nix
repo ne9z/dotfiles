@@ -44,7 +44,7 @@ in {
       };
     };
     i2pd = {
-      enable = true;
+      enable = mkDefault false;
       enableIPv4 = true;
       enableIPv6 = true;
       bandwidth = 4096;
