@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  inherit (lib) mkMerge mapAttrsToList;
+  inherit (lib) mkMerge mapAttrsToList mkDefault;
   wirelessNetworks = { "TP-Link_48C2" = "77017543"; };
 in {
   environment.etc = (mkMerge (mapAttrsToList (name: pwd: {
