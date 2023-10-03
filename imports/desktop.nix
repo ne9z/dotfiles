@@ -361,7 +361,7 @@ in {
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
-      inherit emacsPkg mytex;
+      inherit mytex;
     };
     interactiveShellInit = ''
       e () { $EDITOR "$@"; }
@@ -416,13 +416,11 @@ in {
     };
     services.emacs = {
       enable = true;
-      # with init file added
       package = emacsPkg;
       client.enable = true;
       client.arguments = [ "--create-frame" ];
       defaultEditor = true;
-      # started by sway
-      startWithUserSession = false;
+      startWithUserSession = "graphical";
     };
     programs.bash = {
       enable = true;
@@ -833,7 +831,6 @@ in {
         }
         titlebar_padding 1
         titlebar_border_thickness 0
-        exec ${pkgs.systemd}/bin/systemctl --user start emacs.service
       '';
       config = {
         colors = {
