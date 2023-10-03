@@ -3,19 +3,19 @@ let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
   buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages;
-  emacsConfig = epkgs: epkgs.trivialBuild {
-    pname = "default";
-    src = pkgs.writeText "default.el" ./not-nix-config-files/emacs-init.el;
-    version = "0.1.0";
-    packageRequires = packages;
-  };
+  emacsConfig = epkgs:
+    epkgs.trivialBuild {
+      pname = "default";
+      src = pkgs.writeText "default.el" ./not-nix-config-files/emacs-init.el;
+      version = "0.1.0";
+      packageRequires = packages;
+    };
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit;
       inherit (epkgs.elpaPackages) auctex pyim pyim-basedict;
       inherit (epkgs.treesit-grammars) with-all-grammars;
-      emacsConfig;
-    });
+    } ++ emacsConfig);
   firefoxPkg = (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
     nixExtensions = [
       (pkgs.fetchFirefoxAddon {
