@@ -224,6 +224,7 @@ let
       collection-pictures;
   });
 in {
+  services.xserver.enable = true; # for sddm
   services.xserver.displayManager.sddm = {
     enable = true;
     settings = {
