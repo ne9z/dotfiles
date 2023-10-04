@@ -147,10 +147,10 @@
       <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="middle">
-      <attribute name="tool" type="string" value="hand"/>
+      <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="right">
-      <attribute name="tool" type="string" value="selectRect"/>
+      <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="stylus">
       <attribute name="tool" type="string" value="hand"/>
