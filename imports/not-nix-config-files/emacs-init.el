@@ -1,21 +1,16 @@
 ;; -*- lexical-binding:t -*-
 
-(defun my-configure-font (frame)
-  "Configure font given initial non-daemon FRAME.
-Intended for `after-make-frame-functions'."
-  ;; 简体中文与标点。
-  (set-fontset-font "fontset-default" 'han "Noto Sans Mono CJK SC")
-  (set-fontset-font "fontset-default" 'cjk-misc "Noto Sans Mono CJK SC")
-  ;; run this only once for the initial non-daemon FRAME
-  ;; remove it thereafter
-  (remove-hook 'after-make-frame-functions #'my-configure-font))
-(add-hook 'after-make-frame-functions #'my-configure-font)
-
 (custom-set-variables
- '(auto-fill-function 'do-auto-fill)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auto-fill-function 'do-auto-fill t)
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
+ '(face-font-family-alternatives
+   '(("Latin Modern Mono" "DejaVu Sans Mono" "Noto Serif" "Noto Sans Mono CJK SC")))
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -32,8 +27,8 @@ Intended for `after-make-frame-functions'."
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
- '(user-mail-address "yguo@posteo.net")
- '(use-package-always-defer t))
+ '(use-package-always-defer t)
+ '(user-mail-address "yguo@posteo.net"))
 
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
@@ -119,3 +114,9 @@ Intended for `after-make-frame-functions'."
   :init
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
