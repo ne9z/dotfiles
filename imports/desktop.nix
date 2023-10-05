@@ -227,13 +227,7 @@ in {
   services.xserver.enable = true; # for sddm
   services.xserver.displayManager.sddm = {
     enable = true;
-    settings = {
-      # more sddm wayland support is underway
-      # see https://github.com/NixOS/nixpkgs/pull/242009
-      General.DisplayServer = "wayland";
-      Wayland.CompositorCommand =
-        "${pkgs.weston}/bin/weston --shell=${pkgs.weston}/lib/weston/fullscreen-shell.so";
-    };
+    wayland.enable = true;
   };
   users.mutableUsers = false;
   users.users = {
