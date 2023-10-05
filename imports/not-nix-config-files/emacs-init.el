@@ -31,9 +31,6 @@
 (define-key key-translation-map [?\M-\d] [?\M-h])
 ;; swap backspace and C-h ends here
 
-(add-hook 'text-mode-hook 'variable-pitch-mode)
-(add-hook 'Info-mode-hook 'variable-pitch-mode)
-
 ;; ispell, multilingual spellchecking
 ;; https://www.monotux.tech/posts/2021/02/hunspell-multi-lang/
 (use-package ispell
