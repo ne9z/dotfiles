@@ -1,9 +1,19 @@
 ;; -*- lexical-binding:t -*-
-(set-fontset-font t 'unicode (font-spec :name "Latin Modern Mono") nil)
-(set-fontset-font t 'unicode (font-spec :name "DejaVu Sans Mono") nil 'append)
-(set-fontset-font t 'unicode (font-spec :name "Noto Serif") nil 'append)
-(set-fontset-font t 'unicode (font-spec :name "Noto Sans") nil 'append)
-(set-fontset-font t 'unicode (font-spec :name "Noto Sans Mono CJK SC") nil 'append)
+(defun my-configure-font (frame)
+  "Configure font given initial non-daemon FRAME.
+Intended for `after-make-frame-functions'."
+  ;; 简体中文与标点。
+  (set-fontset-font t 'unicode (font-spec :name "Latin Modern Mono") nil)
+  (set-fontset-font t 'unicode (font-spec :name "DejaVu Sans Mono") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "Noto Serif") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "Noto Sans") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "Noto Sans Mono CJK SC") nil 'append)
+
+  ;; run this only once for the initial non-daemon FRAME
+  ;; remove it thereafter
+  (remove-hook 'after-make-frame-functions #'my-configure-font))
+
+(add-hook 'after-make-frame-functions #'my-configure-font)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -123,9 +133,3 @@
   :init
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
