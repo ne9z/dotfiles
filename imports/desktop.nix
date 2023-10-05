@@ -364,7 +364,7 @@ in {
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
-      inherit mytex;
+      inherit emacsPkg mytex;
     };
     interactiveShellInit = ''
       e () { $EDITOR --create-frame "$@"; }
