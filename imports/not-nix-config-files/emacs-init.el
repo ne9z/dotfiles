@@ -10,7 +10,7 @@
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
  '(face-font-family-alternatives
-   '(("Latin Modern Mono" "DejaVu Sans Mono" "Noto Serif" "Noto Sans Mono CJK SC")))
+   '(("Latin Modern Mono" "DejaVu Sans Mono" "Noto Serif" "Noto Sans" "Noto Sans Mono CJK SC")))
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
