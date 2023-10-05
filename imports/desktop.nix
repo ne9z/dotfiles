@@ -2,7 +2,7 @@
 let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
-  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages;
+  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages;
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit;
@@ -815,7 +815,7 @@ in {
          bindsym --no-warn Mod4+y scratchpad show
          bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
          bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
-         bindsym --no-warn Mod4+o exec ${pkgs.foot}/bin/foot ${pkgs.tmux}/bin/tmux attach-session
+         bindsym --no-warn Mod4+o exec ${emacsPkg}/bin/emacsclient --create-frame
          bindsym --no-warn Mod4+t layout tabbed
         }
 
