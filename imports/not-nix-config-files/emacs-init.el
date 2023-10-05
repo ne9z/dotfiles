@@ -7,6 +7,11 @@ Intended for `after-make-frame-functions'."
   (set-fontset-font t 'unicode (font-spec :name "DejaVu Sans Mono") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "Noto Sans Mono") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "Noto Sans Mono CJK SC") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "Noto Color Emoji") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "Noto Sans") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "Noto Serif") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "DejaVu Sans") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "DejaVu Serif") nil 'append)
 
   ;; run this only once for the initial non-daemon FRAME
   ;; remove it thereafter
