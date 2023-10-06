@@ -221,7 +221,7 @@ let
       # koma-script for a4 paper
       koma-script xpatch
       # pdf-archive
-      pdfx xmpincl inputenc xcolor luatex85 pdftexcmds stringenc
+      pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
       # pictures and tikz
       collection-pictures;
   });
