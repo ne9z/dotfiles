@@ -404,7 +404,7 @@ in {
       };
       cursorTheme = {
         name = "Adwaita";
-        size = 16;
+        size = 32;
       };
     };
     dconf.settings = {
@@ -868,7 +868,7 @@ in {
         seat = {
           "*" = {
             hide_cursor = "when-typing enable";
-            xcursor_theme = "Adwaita";
+            xcursor_theme = "Adwaita 32";
           };
         };
         input = {
