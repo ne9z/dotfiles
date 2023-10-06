@@ -220,6 +220,8 @@ let
       newcomputermodern fontsetup
       # koma-script for a4 paper
       koma-script xpatch
+      # emacs preview-latex
+      dvips
       # pdf-archive
       pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
       # pictures and tikz
