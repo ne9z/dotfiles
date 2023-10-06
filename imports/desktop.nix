@@ -606,7 +606,7 @@ in {
       settings = {
         main = {
           term = "foot-direct";
-          dpi-aware = "yes";
+          dpi-aware = "no";
         };
 
         url = { launch = "wl-copy \${url}"; };
