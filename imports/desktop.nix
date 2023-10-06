@@ -607,6 +607,7 @@ in {
         main = {
           term = "foot-direct";
           dpi-aware = "no";
+          font = mkDefault "monospace:size=14";
         };
 
         url = { launch = "wl-copy \${url}"; };
@@ -666,6 +667,12 @@ in {
         };
         "w3m/bookmark.html" = {
           source = ./not-nix-config-files/w3m-bookmark.html;
+        };
+        "fuzzel/fuzzel.ini" = {
+          text = ''
+            [main]
+            font=sans-serif:size=18:weight=bold
+            dpi-aware=no'';
         };
         "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
         "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
@@ -846,6 +853,10 @@ in {
             indicator = "#292d2e";
           };
         };
+        fonts = {
+          names = [ "sans-serif" ];
+          style = "bold";
+        };
         modes = {
           default = { };
           resize = { };
@@ -853,7 +864,7 @@ in {
         seat = {
           "*" = {
             hide_cursor = "when-typing enable";
-            xcursor_theme = "Adwaita 48";
+            xcursor_theme = "Adwaita";
           };
         };
         input = {
@@ -869,7 +880,7 @@ in {
           };
           "1149:8257:Kensington_Kensington_Slimblade_Trackball" = {
             left_handed = "enabled";
-            pointer_accel = "1";
+            pointer_accel = "0.5";
           };
         };
         output = {
