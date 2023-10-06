@@ -12,6 +12,9 @@ Intended for `after-make-frame-functions'."
   (set-fontset-font t 'unicode (font-spec :name "Noto Serif") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "DejaVu Sans") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "DejaVu Serif") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "Latin Modern Math") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "STIX Two Math") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :name "STIX Two Text") nil 'append)
 
   ;; run this only once for the initial non-daemon FRAME
   ;; remove it thereafter
@@ -29,7 +32,15 @@ Intended for `after-make-frame-functions'."
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
  '(face-font-family-alternatives
-   '(("Latin Modern Mono" "DejaVu Sans Mono" "Noto Serif" "Noto Sans" "Noto Sans Mono CJK SC")))
+   '(("Latin Modern Mono"
+      "DejaVu Sans Mono"
+      "DejaVu Sans"
+      "DejaVu Serif"
+      "Noto Serif"
+      "Noto Sans"
+      "Noto Sans Mono CJK SC"
+      "Latin Modern Math"
+      "STIX Two Math")))
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
