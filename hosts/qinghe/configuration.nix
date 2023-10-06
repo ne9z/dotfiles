@@ -6,9 +6,9 @@
   };
   time.timeZone = "Europe/Berlin";
   home-manager.users.yc = {
-    programs.foot.settings.main.font = "monospace:size=16";
     programs.mpv.config.hwdec = "no";
     wayland.windowManager.sway.config = {
+      output."*".scale = "4";
       input = {
         "9580:110:PenTablet_Pen" = {
           # the ratio is 16:9 on the graphic tablet

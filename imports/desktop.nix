@@ -336,9 +336,6 @@ in {
   };
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_WAYLAND_FORCE_DPI = mkDefault "physical";
-    GDK_DPI_SCALE = mkDefault "2";
     W3M_DIR = "$HOME/.config/w3m";
   };
   services.dictd = {
@@ -397,7 +394,6 @@ in {
 
     gtk = {
       enable = true;
-      font = { name = "sans-serif"; };
       theme = {
         name = "Adwaita";
         package = pkgs.gnome.gnome-themes-extra;
@@ -410,11 +406,7 @@ in {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         enable-animations = false;
-        document-font-name = "sans-serif";
-        monospace-font-name = "monospace";
         gtk-key-theme = "Emacs";
-        cursor-size = 48;
-        scaling-factor = 2;
       };
     };
     services.emacs = {
@@ -571,7 +563,6 @@ in {
         scroll-full-overlap = "0.1";
         statusbar-home-tilde = true;
         synctex = true;
-        font = "sans-serif bold 16";
         guioptions = "";
         zoom-step = 9;
         scroll-step = 80;
@@ -615,7 +606,6 @@ in {
       settings = {
         main = {
           term = "foot-direct";
-          font = mkDefault "monospace:size=12";
           dpi-aware = "yes";
         };
 
@@ -676,11 +666,6 @@ in {
         };
         "w3m/bookmark.html" = {
           source = ./not-nix-config-files/w3m-bookmark.html;
-        };
-        "fuzzel/fuzzel.ini" = {
-          text = ''
-            [main]
-            font=sans-serif:size=18:weight=bold'';
         };
         "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
         "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
@@ -861,11 +846,6 @@ in {
             indicator = "#292d2e";
           };
         };
-        fonts = {
-          names = [ "sans-serif" ];
-          style = "bold";
-          size = mkDefault 16.0;
-        };
         modes = {
           default = { };
           resize = { };
@@ -896,6 +876,7 @@ in {
           "*" = {
             background =
               "${pkgs.sway}/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
+            scale = mkDefault "2";
           };
         };
         modifier = "Mod4";
