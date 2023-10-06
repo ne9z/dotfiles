@@ -404,7 +404,7 @@ in {
       };
       cursorTheme = {
         name = "Adwaita";
-        size = 32;
+        size = 48;
       };
     };
     dconf.settings = {
@@ -611,7 +611,6 @@ in {
         main = {
           term = "foot-direct";
           dpi-aware = "no";
-          font = mkDefault "monospace:size=12";
         };
 
         url = { launch = "wl-copy \${url}"; };
@@ -868,7 +867,7 @@ in {
         seat = {
           "*" = {
             hide_cursor = "when-typing enable";
-            xcursor_theme = "Adwaita 32";
+            xcursor_theme = "Adwaita 48";
           };
         };
         input = {
