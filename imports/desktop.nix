@@ -402,6 +402,10 @@ in {
         package = pkgs.gnome.adwaita-icon-theme;
         name = "Adwaita";
       };
+      cursorTheme = {
+        name = "Adwaita";
+        size = 16;
+      };
     };
     dconf.settings = {
       "org/gnome/desktop/interface" = {
@@ -607,7 +611,7 @@ in {
         main = {
           term = "foot-direct";
           dpi-aware = "no";
-          font = mkDefault "monospace:size=14";
+          font = mkDefault "monospace:size=12";
         };
 
         url = { launch = "wl-copy \${url}"; };
