@@ -221,7 +221,7 @@ let
       # koma-script for a4 paper
       koma-script xpatch
       # emacs preview-latex
-      dvips pdf2dsc
+      dvips
       # pdf-archive
       pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
       # pictures and tikz
@@ -357,6 +357,8 @@ in {
       inherit (pkgs) virt-manager;
       inherit (pkgs) poppler perl;
       inherit (pkgs)
+        # for use with emacs preview-latex
+        ghostscript
       # spell checkers
         hunspell
         # used with dired mode to open files
