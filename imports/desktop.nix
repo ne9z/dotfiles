@@ -881,7 +881,7 @@ in {
             natural_scroll = "enabled";
             middle_emulation = "enabled";
             scroll_method = "edge";
-            pointer_accel = "0.3";
+            pointer_accel = "0.1";
           };
           "1149:8257:Kensington_Kensington_Slimblade_Trackball" = {
             left_handed = "enabled";
