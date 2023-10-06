@@ -567,6 +567,7 @@ in {
         scroll-full-overlap = "0.1";
         statusbar-home-tilde = true;
         synctex = true;
+        font = "sans-serif bold 10";
         guioptions = "";
         zoom-step = 9;
         scroll-step = 80;
