@@ -115,7 +115,7 @@ Intended for `after-make-frame-functions'."
   (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
   (reftex-plug-into-AUCTeX t)
-  (TeX-view-program-selection '((output-pdf "PDF Tools")))
+  (TeX-view-program-selection '((output-pdf "Zathura")))
   (LaTeX-math-list
    '(("o r" "mathbb{R}" nil nil)
      (?= "coloneq" nil nil)
