@@ -138,6 +138,4 @@ Intended for `after-make-frame-functions'."
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
 
-(use-package pdf-tools
-  :config
-  (pdf-tools-install :no-query))
+(pdf-tools-install :no-query)
