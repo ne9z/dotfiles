@@ -221,7 +221,7 @@ let
       # koma-script for a4 paper
       koma-script xpatch
       # emacs preview-latex
-      dvips
+      dvips pdf2dsc
       # pdf-archive
       pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
       # pictures and tikz
