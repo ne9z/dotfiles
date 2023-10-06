@@ -384,7 +384,7 @@ in {
       packages = builtins.attrValues {
         inherit (pkgs)
           mg shellcheck _7zz xournalpp
-          # book scanning
+          # book scanning and pdf-tools support for emacs
           poppler_utils libtiff scantailor-advanced;
       };
     };
