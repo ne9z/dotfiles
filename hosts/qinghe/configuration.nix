@@ -12,18 +12,23 @@
       input = {
         "9580:110:PenTablet_Pen" = {
           # the ratio is 16:9 on the graphic tablet
-          # on a 3840x2160 screen, map to upper-right
+          # on a 3840x2160 screen, scaled with 3 is
+          # 1280x720 on the whole screen
+          # map to upper-right
           # multiply by 170
           # parameters:
           # offset from upper left
           # map_to_region = "x_offset y_offset x_map_to y_map_to"
-          map_to_region = "1120 0 2720 1530";
+          # tablet:whole ratio = 9:16
+          map_to_region = "560 0 720 480";
         };
         "1386:830:Wacom_Intuos_PT_M_2_Pen" = {
-          map_to_region = "1120 0 2720 1530";
+          # tablet:whole ratio = 9:16
+          map_to_region = "560 0 720 480";
         };
         "9580:109:GAOMON_Gaomon_Tablet_Pen" = {
-          map_to_region = "1280 0 2560 1440";
+          # tablet:whole ratio = 12:16
+          map_to_region = "320 0 960 540";
         };
       };
     };
