@@ -222,7 +222,6 @@ let
       koma-script xpatch
       # pdf-archive
       pdfx xmpincl inputenc xcolor luatex85 pdftexcmds stringenc
-      ifluatex ifxetex
       # pictures and tikz
       collection-pictures;
   });
