@@ -115,7 +115,7 @@ Intended for `after-make-frame-functions'."
   (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
   (reftex-plug-into-AUCTeX t)
-  (TeX-view-program-selection '((output-pdf "Zathura")))
+  (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (LaTeX-math-list
    '(("o r" "mathbb{R}" nil nil)
      (?= "coloneq" nil nil)
@@ -137,3 +137,7 @@ Intended for `after-make-frame-functions'."
   :init
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
+
+(use-package pdf-tools
+  :config
+  (pdf-tools-install :no-query))
