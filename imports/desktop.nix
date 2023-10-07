@@ -228,6 +228,8 @@ let
       chktex lacheck
       # book index
       xindy
+      # deal with intervals
+      interval
       # pictures and tikz
       collection-pictures;
   });
