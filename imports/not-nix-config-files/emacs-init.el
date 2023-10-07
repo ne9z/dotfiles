@@ -113,6 +113,8 @@ Intended for `after-make-frame-functions'."
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
+  (TeX-debug-bad-boxes t)
+  (TeX-debug-warnings t)
   (TeX-engine 'luatex)
   (TeX-electric-math '("\\(" . "\\)"))
   (TeX-source-correlate-mode t)
