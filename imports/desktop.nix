@@ -322,16 +322,14 @@ in {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace =
-        [ "Latin Modern Mono" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
-      sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
-      serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
+        [ "NewComputerModernMono10" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      sansSerif = [ "TeX Gyre Schola" "STIX Two Text" "STIX Two Math" "Noto Sans CJK SC" ];
+      serif = [ "TeX Gyre Schola" "STIX Two Text" "STIX Two Math" "Noto Sans CJK SC" ];
     };
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
-      stix-two noto-fonts gyre-fonts dejavu_fonts
-      # latin modern
-      lmodern
+      noto-fonts dejavu_fonts
       # noto cjk
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
   } ++ [ mytex.fonts ];
