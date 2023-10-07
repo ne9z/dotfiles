@@ -321,7 +321,8 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace = [ "Latin Modern Mono" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      monospace =
+        [ "Latin Modern Mono" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
       sansSerif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
       serif = [ "TeX Gyre Schola" "Noto Serif" "Noto Sans CJK SC" ];
     };
@@ -333,7 +334,7 @@ in {
       lmodern
       # noto cjk
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
-  };
+  } ++ [ mytex.fonts ];
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
     W3M_DIR = "$HOME/.config/w3m";
@@ -354,9 +355,9 @@ in {
       inherit (pkgs) virt-manager;
       inherit (pkgs) poppler perl;
       inherit (pkgs)
-        # for use with emacs preview-latex
+      # for use with emacs preview-latex
         ghostscript
-      # spell checkers
+        # spell checkers
         hunspell
         # used with dired mode to open files
         xdg-utils;
