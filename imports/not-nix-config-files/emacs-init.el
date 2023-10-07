@@ -28,14 +28,11 @@ Intended for `after-make-frame-functions'."
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
  '(face-font-family-alternatives
-   '(("Latin Modern Mono"
-      "DejaVu Sans Mono"
-      "DejaVu Sans"
+   '(("NewComputerModernMono10"
+      "NewComputerModernMath"
+      "TeX Gyre Schola"
       "DejaVu Serif"
-      "Noto Serif"
-      "Noto Sans"
       "Noto Sans Mono CJK SC"
-      "Latin Modern Math"
       "STIX Two Math")))
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
