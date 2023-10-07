@@ -224,6 +224,10 @@ let
       dvips
       # pdf-archive
       pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
+      # checks
+      chktex lacheck
+      # book index
+      xindy
       # pictures and tikz
       collection-pictures;
   });
