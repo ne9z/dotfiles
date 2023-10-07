@@ -321,10 +321,27 @@ in {
   fonts.fontconfig = {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace =
-        [ "NewComputerModernMono10" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
-      sansSerif = [ "TeX Gyre Schola" "STIX Two Text" "STIX Two Math" "Noto Sans CJK SC" ];
-      serif = [ "TeX Gyre Schola" "STIX Two Text" "STIX Two Math" "Noto Sans CJK SC" ];
+      monospace = [
+        "NewComputerModernMono10"
+        "DejaVu Sans Mono"
+        "Noto Sans Mono CJK SC"
+      ];
+      sansSerif = [
+        "TeX Gyre Schola"
+        "NewComputerModern08"
+        "STIX Two Text"
+        "STIX Two Math"
+        "DejaVu Serif"
+        "Noto Sans CJK SC"
+      ];
+      serif = [
+        "TeX Gyre Schola"
+        "NewComputerModern08"
+        "STIX Two Text"
+        "STIX Two Math"
+        "DejaVu Serif"
+        "Noto Sans CJK SC"
+      ];
     };
   };
   fonts.packages = builtins.attrValues {

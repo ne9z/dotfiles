@@ -3,16 +3,12 @@
   "Configure font given initial non-daemon FRAME.
 Intended for `after-make-frame-functions'."
   ;; 简体中文与标点。
-  (set-fontset-font t 'unicode (font-spec :name "Latin Modern Mono") nil)
+  (set-fontset-font t 'unicode (font-spec :name "NewComputerModernMono10" :adstyle "Book") nil)
+  (set-fontset-font t 'unicode (font-spec :name "NewComputerModernMath" :adstyle "Book") nil)
   (set-fontset-font t 'unicode (font-spec :name "DejaVu Sans Mono") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "Noto Sans Mono") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "Noto Sans Mono CJK SC") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "Noto Color Emoji") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "Noto Sans") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "Noto Serif") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "DejaVu Sans") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "DejaVu Serif") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "Latin Modern Math") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "STIX Two Math") nil 'append)
   (set-fontset-font t 'unicode (font-spec :name "STIX Two Text") nil 'append)
 
