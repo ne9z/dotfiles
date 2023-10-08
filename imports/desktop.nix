@@ -431,13 +431,14 @@ in {
       };
       cursorTheme = {
         name = "Adwaita";
-        size = 16;
+        size = 48;
       };
     };
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         enable-animations = false;
         gtk-key-theme = "Emacs";
+        cursor-size = 48;
       };
     };
     services.emacs = {
@@ -908,11 +909,11 @@ in {
             natural_scroll = "enabled";
             middle_emulation = "enabled";
             scroll_method = "edge";
-            pointer_accel = "0.1";
+            pointer_accel = "0.3";
           };
           "1149:8257:Kensington_Kensington_Slimblade_Trackball" = {
             left_handed = "enabled";
-            pointer_accel = "0.5";
+            pointer_accel = "1";
           };
         };
         output = {
