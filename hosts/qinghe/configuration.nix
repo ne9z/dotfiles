@@ -5,6 +5,11 @@
     hostId = "abcd1234";
   };
   time.timeZone = "Europe/Berlin";
+  environment.sessionVariables = {
+    QT_WAYLAND_FORCE_DPI = "288";
+    GDK_DPI_SCALE = "3";
+  };
+
   home-manager.users.yc = {
     programs.foot.settings.main.font = "monospace:size=16";
     programs.mpv.config.hwdec = "no";
