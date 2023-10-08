@@ -1,22 +1,18 @@
 ;; -*- lexical-binding:t -*-
-(defun my-configure-font (frame)
-  "Configure font given initial non-daemon FRAME.
-Intended for `after-make-frame-functions'."
-  ;; 简体中文与标点。
-  (set-fontset-font t 'unicode (font-spec :name "NewComputerModernMono10" :adstyle "Book") nil)
-  (set-fontset-font t 'unicode (font-spec :name "NewComputerModernMath" :adstyle "Book") nil)
-  (set-fontset-font t 'unicode (font-spec :name "DejaVu Sans Mono") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "Noto Sans Mono CJK SC") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "Noto Color Emoji") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "DejaVu Serif") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "STIX Two Math") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :name "STIX Two Text") nil 'append)
+(create-fontset-from-fontset-spec
+ ;; derived from standard-fontset-spec
+ "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
 
-  ;; run this only once for the initial non-daemon FRAME
-  ;; remove it thereafter
-  (remove-hook 'after-make-frame-functions #'my-configure-font))
+(setq my-font-list
+      '("NewComputerModernMono10"
+        "NewComputerModernMath"
+        "Noto Sans Mono CJK SC"))
 
-(add-hook 'after-make-frame-functions #'my-configure-font)
+(dolist (font my-font-list)
+  (set-fontset-font "fontset-custom" 'unicode (font-spec :name font) nil 'append))
+
+(add-to-list 'default-frame-alist
+             '(font . "fontset-custom"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -27,13 +23,6 @@ Intended for `after-make-frame-functions'."
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
- '(face-font-family-alternatives
-   '(("NewComputerModernMono10"
-      "NewComputerModernMath"
-      "TeX Gyre Schola"
-      "DejaVu Serif"
-      "Noto Sans Mono CJK SC"
-      "STIX Two Math")))
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
