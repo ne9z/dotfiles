@@ -361,6 +361,8 @@ in {
   } ++ [ mytex.fonts ];
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
+    QT_WAYLAND_FORCE_DPI = mkDefault "192";
+    GDK_DPI_SCALE = mkDefault "2";
     W3M_DIR = "$HOME/.config/w3m";
   };
   services.dictd = {
@@ -592,7 +594,7 @@ in {
         scroll-full-overlap = "0.1";
         statusbar-home-tilde = true;
         synctex = true;
-        font = "sans-serif bold 10";
+        font = "sans-serif bold 16";
         guioptions = "";
         zoom-step = 9;
         scroll-step = 80;
@@ -636,8 +638,8 @@ in {
       settings = {
         main = {
           term = "foot-direct";
-          dpi-aware = "no";
-          font = mkDefault "monospace:size=10";
+          font = mkDefault "monospace:size=12";
+          dpi-aware = "yes";
         };
 
         url = { launch = "wl-copy \${url}"; };
@@ -701,8 +703,7 @@ in {
         "fuzzel/fuzzel.ini" = {
           text = ''
             [main]
-            font=sans-serif:size=12:weight=bold
-            dpi-aware=no'';
+            font=sans-serif:size=18:weight=bold'';
         };
         "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
         "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
@@ -886,6 +887,7 @@ in {
         fonts = {
           names = [ "sans-serif" ];
           style = "bold";
+          size = mkDefault 16.0;
         };
         modes = {
           default = { };
@@ -894,7 +896,7 @@ in {
         seat = {
           "*" = {
             hide_cursor = "when-typing enable";
-            xcursor_theme = "Adwaita 16";
+            xcursor_theme = "Adwaita 48";
           };
         };
         input = {
