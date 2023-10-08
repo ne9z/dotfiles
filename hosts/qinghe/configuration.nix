@@ -27,8 +27,9 @@
           map_to_region = "560 0 720 480";
         };
         "9580:109:GAOMON_Gaomon_Tablet_Pen" = {
+          # dimensions: 254 x 158.8mm
           # tablet:whole ratio = 9:16
-          map_to_region = "560 0 720 480";
+          map_to_region = "560 0 720 450";
         };
       };
     };
