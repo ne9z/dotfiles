@@ -27,8 +27,8 @@
           map_to_region = "560 0 720 480";
         };
         "9580:109:GAOMON_Gaomon_Tablet_Pen" = {
-          # tablet:whole ratio = 12:16
-          map_to_region = "320 0 960 540";
+          # tablet:whole ratio = 9:16
+          map_to_region = "560 0 720 480";
         };
       };
     };
