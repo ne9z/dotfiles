@@ -5,7 +5,7 @@
 
 (setq my-font-list
       '("NewComputerModernMono10"
-        "NewComputerModernMath"
+        "STIX Two Math"
         "Noto Sans Mono CJK SC"))
 
 (dolist (font my-font-list)
