@@ -20,14 +20,17 @@
           # offset from upper left
           # map_to_region = "x_offset y_offset x_map_to y_map_to"
           # tablet:whole ratio = 9:16
-          map_to_region = "560 0 720 480";
+          # active area: 20×13 cm
+          map_to_region = "560 0 720 468";
         };
         "1386:830:Wacom_Intuos_PT_M_2_Pen" = {
           # tablet:whole ratio = 9:16
-          map_to_region = "560 0 720 480";
+          # active area: 216x135mm
+          # formula: 135x720/216
+          map_to_region = "560 0 720 450";
         };
         "9580:109:GAOMON_Gaomon_Tablet_Pen" = {
-          # dimensions: 254 x 158.8mm
+          # active area: 254 x 158.8mm
           # tablet:whole ratio = 9:16
           map_to_region = "560 0 720 450";
         };
