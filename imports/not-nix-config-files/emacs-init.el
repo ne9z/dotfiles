@@ -14,12 +14,16 @@
 
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
+ '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
+ '(modus-themes-bold-constructs t)
+ '(modus-themes-inhibit-reload nil)
+ '(modus-themes-italic-constructs t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
