@@ -7,7 +7,7 @@
   time.timeZone = "Europe/Berlin";
   environment.sessionVariables = {
     QT_WAYLAND_FORCE_DPI = "288";
-    GDK_DPI_SCALE = "2";
+    GDK_DPI_SCALE = "3";
   };
 
   home-manager.users.yc = {
