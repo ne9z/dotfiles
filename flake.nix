@@ -13,7 +13,7 @@
     dwarffs.url = "github:edolstra/dwarffs";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, dwarffs }:
     let
       mkHost = hostName: system:
         (({ zfs-root, pkgs, system, ... }:
