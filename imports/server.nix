@@ -178,6 +178,7 @@
   services.yggdrasil.persistentKeys = true;
   boot.initrd.secrets = { "/oldroot/etc/zfs-key-rpool-data-file" = null; };
   services.tor = {
+    enable = true;
     relay = {
       enable = false;
       onionServices = {

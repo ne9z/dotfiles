@@ -645,7 +645,7 @@ in {
       settings = {
         main = {
           term = "foot-direct";
-          font = mkDefault "monospace:size=12";
+          font = mkDefault "monospace:size=10";
           dpi-aware = "yes";
         };
 
@@ -710,7 +710,7 @@ in {
         "fuzzel/fuzzel.ini" = {
           text = ''
             [main]
-            font=sans-serif:size=18:weight=bold'';
+            font=sans-serif:size=14:weight=bold'';
         };
         "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
         "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };

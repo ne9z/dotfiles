@@ -10,6 +10,8 @@
 (add-to-list 'default-frame-alist
              '(font . "fontset-custom"))
 
+(set-face-attribute 'default nil :height 90)
+
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
  '(default-input-method "german-postfix")

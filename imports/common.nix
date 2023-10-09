@@ -35,7 +35,7 @@ in {
   networking.networkmanager.enable = true;
   services = {
     tor = {
-      enable = true;
+      enable = mkDefault false;
       client = {
         enable = true;
         dns.enable = true;
