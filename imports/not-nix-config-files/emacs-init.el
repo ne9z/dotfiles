@@ -10,7 +10,7 @@
 (add-to-list 'default-frame-alist
              '(font . "fontset-custom"))
 
-(set-face-attribute 'default nil :height 90)
+(set-face-attribute 'default nil :height 100)
 
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
