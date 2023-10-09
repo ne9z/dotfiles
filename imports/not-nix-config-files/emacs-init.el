@@ -1,4 +1,13 @@
 ;; -*- lexical-binding:t -*-
+(create-fontset-from-fontset-spec
+ ;; derived from standard-fontset-spec
+ "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
+
+(set-fontset-font "fontset-default" 'han "Noto Sans Mono CJK SC")
+(set-fontset-font "fontset-default" 'cjk-misc "Noto Sans Mono CJK SC")
+
+(add-to-list 'default-frame-alist
+             '(font . "fontset-custom"))
 
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
