@@ -1,10 +1,14 @@
 ;; -*- lexical-binding:t -*-
-(set-fontset-font "fontset-startup" 'latin "NewComputerModernMono10")
-(set-fontset-font "fontset-startup" 'han "Noto Sans Mono CJK SC")
-(set-fontset-font "fontset-startup" 'cjk-misc "Noto Sans Mono CJK SC")
+(create-fontset-from-fontset-spec
+ ;; derived from standard-fontset-spec
+ "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
+
+(set-fontset-font "fontset-custom" 'latin "NewComputerModernMono10")
+(set-fontset-font "fontset-custom" 'han "Noto Sans Mono CJK SC")
+(set-fontset-font "fontset-custom" 'cjk-misc "Noto Sans Mono CJK SC")
 
 (add-to-list 'default-frame-alist
-             '(font . "fontset-startup"))
+             '(font . "fontset-custom"))
 
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
