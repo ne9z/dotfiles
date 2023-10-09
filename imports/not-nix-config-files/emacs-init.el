@@ -9,12 +9,12 @@
         "Noto Sans Mono CJK SC"))
 
 (dolist (font my-font-list)
-  (set-fontset-font "fontset-custom" 'unicode (font-spec :name font) nil 'append))
+  (set-fontset-font
+   "fontset-custom"
+   'unicode (font-spec :name font :size 32) nil 'append))
 
 (add-to-list 'default-frame-alist
              '(font . "fontset-custom"))
-
-(set-face-attribute 'default nil :height 160)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -37,12 +37,14 @@
  '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
+ '(ring-bell-function 'ignore)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
  '(use-package-always-defer t)
- '(user-mail-address "yguo@posteo.net"))
+ '(user-mail-address "yguo@posteo.net")
+ '(visible-bell t))
 
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
@@ -113,6 +115,7 @@
   (TeX-electric-sub-and-superscript t)
   (reftex-plug-into-AUCTeX t)
   (TeX-view-program-selection '((output-pdf "Zathura")))
+  (preview-scale-function 2)
   (LaTeX-math-list
    '(("o r" "mathbb{R}" nil nil)
      (?= "coloneq" nil nil)
