@@ -30,7 +30,6 @@
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
- '(pixel-scroll-precision-mode t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
