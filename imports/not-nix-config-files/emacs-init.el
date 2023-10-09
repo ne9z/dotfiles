@@ -3,15 +3,19 @@
  ;; derived from standard-fontset-spec
  "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
 
-(set-fontset-font "fontset-custom" 'latin "NewComputerModernMono10")
-(set-fontset-font "fontset-custom" 'han "Noto Sans Mono CJK SC")
-(set-fontset-font "fontset-custom" 'cjk-misc "Noto Sans Mono CJK SC")
+(set-fontset-font "fontset-custom" 'latin (font-spec :family "NewComputerModernMono10" :weight 'Book :height 80))
+(set-fontset-font "fontset-custom" 'han (font-spec :family "Noto Serif CJK SC" :weight 'medium))
+(set-fontset-font "fontset-custom" 'cjk-misc (font-spec :family "Noto Serif CJK SC" :weight 'medium))
 
 (add-to-list 'default-frame-alist
              '(font . "fontset-custom"))
 
 (custom-set-variables
- '(auto-fill-function 'do-auto-fill)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auto-fill-function 'do-auto-fill t)
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
@@ -22,6 +26,7 @@
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
+ '(pixel-scroll-precision-mode t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
@@ -128,3 +133,9 @@
 ;; zh-cn input engine ends here
 
 (pdf-tools-install :no-query)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
