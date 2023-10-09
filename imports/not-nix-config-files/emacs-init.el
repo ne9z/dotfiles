@@ -91,7 +91,6 @@
   ((LaTeX-mode . turn-on-reftex)
    (LaTeX-mode . TeX-source-correlate-mode)
    (LaTeX-mode . LaTeX-math-mode)
-   (LaTeX-mode . variable-pitch-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
   :custom
