@@ -22,7 +22,6 @@
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
- '(visible-bell t)
  '(user-mail-address "yguo@posteo.net")
  '(use-package-always-defer t))
 
@@ -128,10 +127,6 @@
 
 ;; zh-cn input engine
 (use-package pyim
-  :ensure pyim-basedict
   :init
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
-
-;; magit
-(use-package magit)
