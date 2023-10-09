@@ -6,8 +6,8 @@ let
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit pdf-tools;
-      inherit (epkgs.elpaPackages) auctex pyim pyim-basedict;
-      inherit (epkgs.treesit-grammars) with-all-grammars;
+      inherit (epkgs.elpaPackages) auctex pyim pyim-basedict use-package;
+      # inherit (epkgs.treesit-grammars) with-all-grammars;
     });
   firefoxPkg = (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
     nixExtensions = [
