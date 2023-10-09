@@ -83,9 +83,6 @@
   (mail-specify-envelope-from t)
   (message-sendmail-envelope-from 'header))
 
-(add-hook 'text-mode-hook 'variable-pitch-mode)
-(add-hook 'Info-mode-hook 'variable-pitch-mode)
-
 (use-package tex
   :hook
   ((LaTeX-mode . turn-on-reftex)
