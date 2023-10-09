@@ -10,10 +10,9 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixseparatedebuginfod.url = "github:symphorien/nixseparatedebuginfod";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixseparatedebuginfod }:
+  outputs = { self, nixpkgs, home-manager }:
     let
       mkHost = hostName: system:
         (({ zfs-root, pkgs, system, ... }:
@@ -38,9 +37,6 @@
                 else
                   throw "refuse to build: git tree is dirty";
                 system.stateVersion = "23.05";
-                services.nixseparatedebuginfod.enable = true;
-                services.nixseparatedebuginfod.allowUser = true;
-                nix.settings.allowed-users = [ "@user" "nixseparatedebuginfod" ];
                 imports = [
                   "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
                   "${nixpkgs}/nixos/modules/profiles/hardened.nix"
@@ -56,9 +52,6 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
               }
-
-              # Module: debug symbols
-              nixseparatedebuginfod.nixosModules.default
             ];
           })
 

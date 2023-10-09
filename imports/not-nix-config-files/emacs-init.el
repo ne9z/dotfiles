@@ -1,27 +1,19 @@
 ;; -*- lexical-binding:t -*-
-(create-fontset-from-fontset-spec
- ;; derived from standard-fontset-spec
- "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
-
-(set-fontset-font "fontset-custom" 'latin "NewComputerModernMono10")
-(set-fontset-font "fontset-custom" 'han "Noto Sans Mono CJK SC")
-(set-fontset-font "fontset-custom" 'cjk-misc "Noto Sans Mono CJK SC")
+(set-fontset-font "fontset-startup" 'latin "NewComputerModernMono10")
+(set-fontset-font "fontset-startup" 'han "Noto Sans Mono CJK SC")
+(set-fontset-font "fontset-startup" 'cjk-misc "Noto Sans Mono CJK SC")
 
 (add-to-list 'default-frame-alist
-             '(font . "fontset-custom"))
+             '(font . "fontset-startup"))
 
 (custom-set-variables
  '(auto-fill-function 'do-auto-fill)
- '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
- '(modus-themes-bold-constructs t)
- '(modus-themes-inhibit-reload nil)
- '(modus-themes-italic-constructs t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
