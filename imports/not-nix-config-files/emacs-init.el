@@ -83,6 +83,9 @@
   (mail-specify-envelope-from t)
   (message-sendmail-envelope-from 'header))
 
+(add-hook 'text-mode-hook 'variable-pitch-mode)
+(add-hook 'Info-mode-hook 'variable-pitch-mode)
+
 (use-package tex
   :hook
   ((LaTeX-mode . turn-on-reftex)
@@ -114,6 +117,8 @@
      '(("\\\\[[]" . "\\\\[]]")))
     (cadr ispell-tex-skip-alists)))
   :config
+  (set-face-attribute 'font-latex-math-face nil :family "STIX Two Math")
+  (set-face-attribute 'font-latex-sedate-face nil :family "STIX Two Math")
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
