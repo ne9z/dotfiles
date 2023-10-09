@@ -335,6 +335,7 @@ in {
         "NewComputerModernMono10"
         "DejaVu Sans Mono"
         "Noto Sans Mono CJK SC"
+        "Noto Sans Mono"
       ];
       sansSerif = [
         "TeX Gyre Schola"
@@ -343,6 +344,7 @@ in {
         "STIX Two Math"
         "DejaVu Serif"
         "Noto Sans CJK SC"
+        "Noto Serif"
       ];
       serif = [
         "TeX Gyre Schola"
@@ -351,6 +353,7 @@ in {
         "STIX Two Math"
         "DejaVu Serif"
         "Noto Sans CJK SC"
+        "Noto Serif"
       ];
     };
   };
