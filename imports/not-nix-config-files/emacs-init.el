@@ -93,6 +93,8 @@
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
+  :custom-face
+  (font-latex-math-face ((t (:family "STIX Two Math"))))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
@@ -117,8 +119,6 @@
      '(("\\\\[[]" . "\\\\[]]")))
     (cadr ispell-tex-skip-alists)))
   :config
-  (set-face-attribute 'font-latex-math-face nil :family "STIX Two Math")
-  (set-face-attribute 'font-latex-sedate-face nil :family "STIX Two Math")
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))

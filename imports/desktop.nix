@@ -645,7 +645,7 @@ in {
       settings = {
         main = {
           term = "foot-direct";
-          font = mkDefault "monospace:size=10";
+          font = mkDefault "monospace:size=11";
           dpi-aware = "yes";
         };
 
