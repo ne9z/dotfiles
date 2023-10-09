@@ -2,12 +2,12 @@
 let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
-  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29).emacsWithPackages;
+  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages;
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit pdf-tools;
       inherit (epkgs.elpaPackages) auctex pyim pyim-basedict;
-      # inherit (epkgs.treesit-grammars) with-all-grammars;
+      inherit (epkgs.treesit-grammars) with-all-grammars;
     });
   firefoxPkg = (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
     nixExtensions = [
@@ -312,9 +312,6 @@ in {
       export MOZ_ENABLE_WAYLAND=1
       export XCURSOR_THEME=Adwaita
       export _JAVA_AWT_WM_NONREPARENTING=1
-      export SDL_VIDEODRIVER=wayland
-      export CLUTTER_BACKEND=wayland
-      export QT_QPA_PLATFORM=wayland
     '';
     enable = true;
     extraPackages = builtins.attrValues {
@@ -819,7 +816,7 @@ in {
       # this package is installed by NixOS
       # not home-manager
       package = null;
-      xwayland = true;
+      xwayland = false;
       systemd.enable = true;
       extraConfig = ''
         mode "default" {
@@ -861,7 +858,6 @@ in {
         }
         titlebar_padding 1
         titlebar_border_thickness 0
-        exec ${pkgs.coreutils-full}/bin/printf 'Xft.dpi: 288\nXcursor.size: 48\nXcursor.theme: Adwaita\n' | ${pkgs.xorg.xrdb}/bin/xrdb -merge
       '';
       config = {
         colors = {

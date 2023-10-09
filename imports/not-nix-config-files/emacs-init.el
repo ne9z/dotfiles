@@ -9,9 +9,7 @@
         "Noto Sans Mono CJK SC"))
 
 (dolist (font my-font-list)
-  (set-fontset-font
-   "fontset-custom"
-   'unicode (font-spec :name font :size 32) nil 'append))
+  (set-fontset-font "fontset-custom" 'unicode (font-spec :name font) nil 'append))
 
 (add-to-list 'default-frame-alist
              '(font . "fontset-custom"))
@@ -115,7 +113,6 @@
   (TeX-electric-sub-and-superscript t)
   (reftex-plug-into-AUCTeX t)
   (TeX-view-program-selection '((output-pdf "Zathura")))
-  (preview-scale-function 2)
   (LaTeX-math-list
    '(("o r" "mathbb{R}" nil nil)
      (?= "coloneq" nil nil)
