@@ -10,6 +10,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dwarffs.url = "github:edolstra/dwarffs";
   };
 
   outputs = { self, nixpkgs, home-manager }:
@@ -52,6 +53,9 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
               }
+
+              # Module: debug symbols
+              dwarffs.nixosModules.dwarffs
             ];
           })
 
