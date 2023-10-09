@@ -10,10 +10,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dwarffs.url = "github:edolstra/dwarffs";
+    nixseparatedebuginfod.url = "github:symphorien/nixseparatedebuginfod";
   };
 
-  outputs = { self, nixpkgs, home-manager, dwarffs }:
+  outputs = { self, nixpkgs, home-manager, nixseparatedebuginfod }:
     let
       mkHost = hostName: system:
         (({ zfs-root, pkgs, system, ... }:
@@ -38,6 +38,9 @@
                 else
                   throw "refuse to build: git tree is dirty";
                 system.stateVersion = "23.05";
+                services.nixseparatedebuginfod.enable = true;
+                services.nixseparatedebuginfod.allowUser = true;
+                nix.settings.allowed-users = [ "@user" "nixseparatedebuginfod" ];
                 imports = [
                   "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
                   "${nixpkgs}/nixos/modules/profiles/hardened.nix"
@@ -55,7 +58,7 @@
               }
 
               # Module: debug symbols
-              dwarffs.nixosModules.dwarffs
+              nixseparatedebuginfod.nixosModules.default
             ];
           })
 

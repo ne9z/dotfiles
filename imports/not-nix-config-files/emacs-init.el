@@ -3,8 +3,9 @@
  ;; derived from standard-fontset-spec
  "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
 
-(set-fontset-font "fontset-default" 'han "Noto Sans Mono CJK SC")
-(set-fontset-font "fontset-default" 'cjk-misc "Noto Sans Mono CJK SC")
+(set-fontset-font "fontset-custom" 'latin "NewComputerModernMono10")
+(set-fontset-font "fontset-custom" 'han "Noto Sans Mono CJK SC")
+(set-fontset-font "fontset-custom" 'cjk-misc "Noto Sans Mono CJK SC")
 
 (add-to-list 'default-frame-alist
              '(font . "fontset-custom"))

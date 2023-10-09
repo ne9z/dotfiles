@@ -386,6 +386,8 @@ in {
         ghostscript
         # spell checkers
         hunspell
+        # debug
+        gdb
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
