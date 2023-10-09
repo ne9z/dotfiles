@@ -2,11 +2,11 @@
 let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
-  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages;
+  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29).emacsWithPackages;
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit pdf-tools;
-      inherit (epkgs.elpaPackages) auctex pyim pyim-basedict use-package;
+      inherit (epkgs.elpaPackages) auctex pyim pyim-basedict;
       # inherit (epkgs.treesit-grammars) with-all-grammars;
     });
   firefoxPkg = (pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
@@ -861,6 +861,7 @@ in {
         }
         titlebar_padding 1
         titlebar_border_thickness 0
+        exec ${pkgs.coreutils-full}/bin/printf 'Xft.dpi: 288\nXcursor.size: 48\nXcursor.theme: Adwaita\n' | ${pkgs.xorg.xrdb}/bin/xrdb -merge
       '';
       config = {
         colors = {
