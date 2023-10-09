@@ -1,31 +1,15 @@
 ;; -*- lexical-binding:t -*-
-(create-fontset-from-fontset-spec
- ;; derived from standard-fontset-spec
- "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
-
-(setq my-font-list
-      '("NewComputerModernMono10"
-        "STIX Two Math"
-        "Noto Sans Mono CJK SC"))
-
-(dolist (font my-font-list)
-  (set-fontset-font "fontset-custom" 'unicode (font-spec :name font) nil 'append))
-
-(add-to-list 'default-frame-alist
-             '(font . "fontset-custom"))
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(auto-fill-function 'do-auto-fill t)
+ '(auto-fill-function 'do-auto-fill)
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(electric-pair-mode t)
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(interprogram-cut-function 'wl-copy t)
+ '(interprogram-paste-function 'wl-paste t)
  '(menu-bar-mode nil)
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
@@ -34,14 +18,12 @@
  '(preview-auto-cache-preamble t)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
- '(ring-bell-function 'ignore)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
- '(use-package-always-defer t)
  '(user-mail-address "yguo@posteo.net")
- '(visible-bell t))
+ '(use-package-always-defer t))
 
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
@@ -49,6 +31,25 @@
 (define-key key-translation-map [?\M-h] [?\M-\d])
 (define-key key-translation-map [?\M-\d] [?\M-h])
 ;; swap backspace and C-h ends here
+
+;; wayland paste
+;; credit: yorickvP on Github
+(setq wl-copy-process nil)
+(defun wl-copy (text)
+  (setq wl-copy-process
+        (make-process
+         :name "wl-copy"
+         :buffer nil
+         :command '("wl-copy" "-f" "-n")
+         :connection-type 'pipe))
+  (process-send-string wl-copy-process text)
+  (process-send-eof wl-copy-process))
+(defun wl-paste ()
+  (if (and wl-copy-process (process-live-p wl-copy-process))
+      nil ; should return nil if we're the current paste owner
+    (shell-command-to-string "wl-paste -n | tr -d \r")))
+;; wayland paste ends here
+
 
 ;; ispell, multilingual spellchecking
 ;; https://www.monotux.tech/posts/2021/02/hunspell-multi-lang/
@@ -89,15 +90,11 @@
   (mail-specify-envelope-from t)
   (message-sendmail-envelope-from 'header))
 
-(add-hook 'text-mode-hook 'variable-pitch-mode)
-(add-hook 'Info-mode-hook 'variable-pitch-mode)
-
 (use-package tex
   :hook
   ((LaTeX-mode . turn-on-reftex)
    (LaTeX-mode . TeX-source-correlate-mode)
    (LaTeX-mode . LaTeX-math-mode)
-   (LaTeX-mode . variable-pitch-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
   :custom
@@ -130,8 +127,10 @@
 
 ;; zh-cn input engine
 (use-package pyim
+  :ensure pyim-basedict
   :init
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
 
-(pdf-tools-install :no-query)
+;; magit
+(use-package magit)
