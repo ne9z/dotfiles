@@ -22,6 +22,7 @@
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
+ '(visible-bell t)
  '(user-mail-address "yguo@posteo.net")
  '(use-package-always-defer t))
 
