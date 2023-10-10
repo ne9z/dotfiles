@@ -33,7 +33,7 @@ Intended for `after-make-frame-functions'."
  '(pixel-scroll-precision-mode t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
- '(preview-image-type 'dvipng)
+ '(preview-fast-conversion nil)
  '(preview-scale-function 1.2)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
