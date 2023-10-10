@@ -1,4 +1,15 @@
 ;; -*- lexical-binding:t -*-
+
+(defun my-configure-font (frame)
+  "Configure font given initial non-daemon FRAME.
+Intended for `after-make-frame-functions'."
+  ;; 简体中文与标点。
+  (set-fontset-font t 'han (font-spec :family "Noto Serif CJK SC" :weight 'medium))
+  (set-fontset-font t 'cjk-misc (font-spec :family "Noto Serif CJK SC" :weight 'medium))
+  (remove-hook 'after-make-frame-functions #'my-configure-font))
+
+(add-hook 'after-make-frame-functions #'my-configure-font)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
