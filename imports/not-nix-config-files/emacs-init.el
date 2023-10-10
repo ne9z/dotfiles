@@ -25,12 +25,16 @@ Intended for `after-make-frame-functions'."
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
+ '(mode-line-compact 'long)
  '(modus-themes-bold-constructs t)
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
+ '(modus-themes-variable-pitch-ui t)
  '(pixel-scroll-precision-mode t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
+ '(preview-image-type 'dvipng)
+ '(preview-scale-function 1.2)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(ring-bell-function 'ignore)
@@ -135,3 +139,9 @@ Intended for `after-make-frame-functions'."
 ;; zh-cn input engine ends here
 
 (pdf-tools-install :no-query)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

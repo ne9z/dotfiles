@@ -232,7 +232,7 @@ let
       # koma-script for a4 paper
       koma-script xpatch
       # emacs preview-latex
-      dvips
+      dvips dvipng
       # pdf-archive
       pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
       # checks
