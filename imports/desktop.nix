@@ -2,7 +2,15 @@
 let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
-  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages;
+  buildEmacs = (pkgs.emacsPackagesFor (pkgs.emacs29-pgtk.overrideAttrs (old: {
+    src = builtins.fetchTarball {
+      url =
+        "https://git.savannah.gnu.org/cgit/emacs.git/snapshot/emacs-eedd9db6190a7f69403aefe8098a554ef2b51371.tar.gz";
+      sha256 = "sha256:0afj9dqyqqls120xs72lxa71xhg7grpw39c543x3ykz4jha0nrwq";
+    };
+    NIX_CFLAGS_COMPILE = "-Og -g3";
+    separateDebugInfo = true;
+  }))).emacsWithPackages;
   emacsPkg = buildEmacs (epkgs:
     builtins.attrValues {
       inherit (epkgs.melpaPackages) nix-mode magit pdf-tools;
@@ -49,8 +57,7 @@ let
       CaptivePortal = false;
       Cookies = {
         Behavior = "reject-tracker-and-partition-foreign";
-        BehaviorPrivateBrowsing =
-          "reject-tracker-and-partition-foreign";
+        BehaviorPrivateBrowsing = "reject-tracker-and-partition-foreign";
         ExpireAtSessionEnd = true;
       };
       DisableBuiltinPDFViewer = true;

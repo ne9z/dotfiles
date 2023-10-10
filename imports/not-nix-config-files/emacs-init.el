@@ -3,24 +3,9 @@
  ;; derived from standard-fontset-spec
  "-*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-custom")
 
-(set-fontset-font
- "fontset-custom"
- 'latin
- (font-spec
-  :family "NewComputerModernMono10"
-  :weight 'Book))
-(set-fontset-font
- "fontset-custom"
- 'han
- (font-spec
-  :family "Noto Serif CJK SC"
-  :weight 'medium))
-(set-fontset-font
- "fontset-custom"
- 'cjk-misc
- (font-spec
-  :family "Noto Serif CJK SC"
-  :weight 'medium))
+(set-fontset-font "fontset-custom" 'latin (font-spec :family "NewComputerModernMono10" :weight 'Book))
+(set-fontset-font "fontset-custom" 'han (font-spec :family "Noto Serif CJK SC" :weight 'medium))
+(set-fontset-font "fontset-custom" 'cjk-misc (font-spec  :family "Noto Serif CJK SC":weight 'medium))
 
 (add-to-list
  'default-frame-alist
@@ -32,7 +17,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit default :height 100)))))
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
