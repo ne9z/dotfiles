@@ -102,10 +102,10 @@ let
     };
     extraPrefs = ''
       lockPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
-      // fix not following fontconfig rules
-      // https://gist.github.com/akiirui/b3f36e8bdf9a9f5636a98113960bc7f4
-      pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 10);
       pref("font.name-list.emoji", "Noto Color Emoji");
+      pref("font.name.monospace.zh-CN", "Noto Sans Mono CJK SC");
+      pref("font.name.sans-serif.zh-CN", "Noto Sans CJK SC");
+      pref("font.name.serif.zh-CN", "Noto Sans CJK SC");
       pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
       pref("apz.allow_double_tap_zooming", false);
       pref("apz.allow_zooming", false);
@@ -336,49 +336,13 @@ in {
     wlr.enable = true;
   };
   fonts.fontconfig = {
-    allowBitmaps = false;
-    localConf = ''
-      <fontconfig>
-      <match target="font">
-          <test name="family" qual="any">
-              <string>Noto Serif CJK SC</string>
-          </test>
-          <edit name="style" mode="assign">
-              <string>Medium</string>
-          </edit>
-      </match>
-      <match>
-        <test compare="contains" name="lang">
-          <string>zh</string>
-        </test>
-        <edit mode="prepend" name="family">
-          <string>Noto Serif CJK SC</string>
-        </edit>
-      </match>
-      <match target="font">
-          <test name="family" qual="any">
-              <string>NewComputerModernMono10</string>
-          </test>
-          <edit name="style" mode="assign">
-              <string>Book</string>
-          </edit>
-      </match>
-      <match target="font">
-          <test name="family" qual="any">
-              <string>NewComputerModern10</string>
-          </test>
-          <edit name="style" mode="assign">
-              <string>Book</string>
-          </edit>
-      </match>
-      </fontconfig>
-    '';
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
         "NewComputerModernMono10"
-        "Noto Sans Mono CJK SC"
         "DejaVu Sans Mono"
+        "Noto Sans Mono CJK SC"
+        "Noto Sans Mono"
       ];
       sansSerif = [
         "TeX Gyre Schola"
@@ -386,7 +350,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Serif CJK SC"
+        "Noto Sans CJK SC"
         "Noto Serif"
       ];
       serif = [
@@ -395,7 +359,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Serif CJK SC"
+        "Noto Sans CJK SC"
         "Noto Serif"
       ];
     };
