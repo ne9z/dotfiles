@@ -102,9 +102,6 @@ let
     };
     extraPrefs = ''
       lockPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
-      pref("font.name.monospace.zh-CN", "Noto Sans Mono CJK SC");
-      pref("font.name.sans-serif.zh-CN", "Noto Sans CJK SC");
-      pref("font.name.serif.zh-CN", "Noto Sans CJK SC");
       pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
       pref("apz.allow_double_tap_zooming", false);
       pref("apz.allow_zooming", false);
@@ -335,13 +332,40 @@ in {
     wlr.enable = true;
   };
   fonts.fontconfig = {
+    localConf = ''
+      <fontconfig>
+      <match target="font">
+          <test name="family" qual="any">
+              <string>Noto Serif CJK SC</string>
+          </test>
+          <edit name="style" mode="assign">
+              <string>Medium</string>
+          </edit>
+      </match>
+      <match target="font">
+          <test name="family" qual="any">
+              <string>NewComputerModernMono10</string>
+          </test>
+          <edit name="style" mode="assign">
+              <string>Book</string>
+          </edit>
+      </match>
+      <match target="font">
+          <test name="family" qual="any">
+              <string>NewComputerModern10</string>
+          </test>
+          <edit name="style" mode="assign">
+              <string>Book</string>
+          </edit>
+      </match>
+      </fontconfig>
+    '';
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
         "NewComputerModernMono10"
-        "DejaVu Sans Mono"
         "Noto Sans Mono CJK SC"
-        "Noto Sans Mono"
+        "DejaVu Sans Mono"
       ];
       sansSerif = [
         "TeX Gyre Schola"
@@ -349,7 +373,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Sans CJK SC"
+        "Noto Serif CJK SC"
         "Noto Serif"
       ];
       serif = [
@@ -358,7 +382,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Sans CJK SC"
+        "Noto Serif CJK SC"
         "Noto Serif"
       ];
     };
