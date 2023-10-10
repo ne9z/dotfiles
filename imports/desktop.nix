@@ -102,8 +102,8 @@ let
     };
     extraPrefs = ''
       lockPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
-      # fix not following fontconfig rules
-      # https://gist.github.com/akiirui/b3f36e8bdf9a9f5636a98113960bc7f4
+      // fix not following fontconfig rules
+      // https://gist.github.com/akiirui/b3f36e8bdf9a9f5636a98113960bc7f4
       pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 10);
       pref("font.name-list.emoji", "Noto Color Emoji");
       pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
