@@ -26,6 +26,8 @@
  '(auto-fill-function 'do-auto-fill t)
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
+ '(display-battery-mode t)
+ '(display-time-mode t)
  '(electric-pair-mode t)
  '(global-prettify-symbols-mode t)
  '(indent-tabs-mode nil)
