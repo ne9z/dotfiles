@@ -339,14 +339,6 @@ in {
     allowBitmaps = false;
     localConf = ''
       <fontconfig>
-      <match>
-        <test compare="contains" name="lang">
-          <string>zh</string>
-        </test>
-        <edit mode="prepend" name="family">
-          <string>Noto Serif CJK SC</string>
-        </edit>
-      </match>
       <match target="font">
           <test name="family" qual="any">
               <string>Noto Serif CJK SC</string>
@@ -354,6 +346,14 @@ in {
           <edit name="style" mode="assign">
               <string>Medium</string>
           </edit>
+      </match>
+      <match>
+        <test compare="contains" name="lang">
+          <string>zh</string>
+        </test>
+        <edit mode="prepend" name="family">
+          <string>Noto Serif CJK SC</string>
+        </edit>
       </match>
       <match target="font">
           <test name="family" qual="any">
