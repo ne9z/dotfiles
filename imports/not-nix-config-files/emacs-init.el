@@ -30,6 +30,7 @@ Intended for `after-make-frame-functions'."
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
  '(modus-themes-variable-pitch-ui t)
+ '(mouse-wheel-mode nil)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
  '(preview-scale-function 1.2)
@@ -143,3 +144,9 @@ Intended for `after-make-frame-functions'."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(keymap-global-set "<triple-wheel-down>" 'next-line)
+(keymap-global-set "<double-wheel-down>" 'next-line)
+(keymap-global-set "<wheel-down>" 'next-line)
+(keymap-global-set "<triple-wheel-up>" 'previous-line)
+(keymap-global-set "<double-wheel-up>" 'previous-line)
+(keymap-global-set "<wheel-up>" 'previous-line)
