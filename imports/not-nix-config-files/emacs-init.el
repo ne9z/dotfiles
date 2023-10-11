@@ -6,6 +6,8 @@ Intended for `after-make-frame-functions'."
   ;; 简体中文与标点。
   (set-fontset-font t 'han (font-spec :family "Noto Serif CJK SC" :weight 'medium))
   (set-fontset-font t 'cjk-misc (font-spec :family "Noto Serif CJK SC" :weight 'medium))
+  (set-fontset-font t 'symbol (font-spec :family "STIX Two Math"))
+  (set-fontset-font t 'greek (font-spec :family "NewComputerModern08" :weight 'Book))
   (remove-hook 'after-make-frame-functions #'my-configure-font))
 
 (add-hook 'after-make-frame-functions #'my-configure-font)
@@ -36,6 +38,7 @@ Intended for `after-make-frame-functions'."
  '(preview-scale-function 1.2)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
+ '(require-final-newline t)
  '(ring-bell-function 'ignore)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
