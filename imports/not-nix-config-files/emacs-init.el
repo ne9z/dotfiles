@@ -144,9 +144,3 @@ Intended for `after-make-frame-functions'."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(keymap-global-set "<triple-wheel-down>" 'next-line)
-(keymap-global-set "<double-wheel-down>" 'next-line)
-(keymap-global-set "<wheel-down>" 'next-line)
-(keymap-global-set "<triple-wheel-up>" 'previous-line)
-(keymap-global-set "<double-wheel-up>" 'previous-line)
-(keymap-global-set "<wheel-up>" 'previous-line)
