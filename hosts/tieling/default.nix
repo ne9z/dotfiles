@@ -1,5 +1,5 @@
-{ system, pkgs, ... }: {
-  inherit pkgs system;
+{
+  imports = [ ./configuration.nix ];
   zfs-root = {
     boot = {
       bootDevices = [
