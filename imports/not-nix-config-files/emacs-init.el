@@ -1,13 +1,14 @@
 ;; -*- lexical-binding:t -*-
 
+(add-to-list 'face-ignored-fonts "Fixed")
+(add-to-list 'face-ignored-fonts "Unifont")
+
 (defun my-configure-font (frame)
   "Configure font given initial non-daemon FRAME.
 Intended for `after-make-frame-functions'."
   ;; 简体中文与标点。
   (set-fontset-font t 'han (font-spec :family "Noto Serif CJK SC" :weight 'medium))
   (set-fontset-font t 'cjk-misc (font-spec :family "Noto Serif CJK SC" :weight 'medium))
-  (set-fontset-font t 'symbol (font-spec :family "STIX Two Math"))
-  (set-fontset-font t 'greek (font-spec :family "NewComputerModern08" :weight 'Book))
   (remove-hook 'after-make-frame-functions #'my-configure-font))
 
 (add-hook 'after-make-frame-functions #'my-configure-font)
