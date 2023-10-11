@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pmacs, ... }:
 let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as input
-  buildEmacs = (pkgs.emacsPackagesFor (pkgs.enableDebugging
-    (pkgs.emacs29-pgtk.overrideAttrs (old: {
+  buildEmacs = (pmacs.emacsPackagesFor (pmacs.enableDebugging
+    (pmacs.emacs29-pgtk.overrideAttrs (old: {
       src = builtins.fetchTarball {
         url =
           "https://git.savannah.gnu.org/cgit/emacs.git/snapshot/emacs-eedd9db6190a7f69403aefe8098a554ef2b51371.tar.gz";

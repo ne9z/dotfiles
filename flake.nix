@@ -10,56 +10,46 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pmacs.url =
+      "github:nixos/nixpkgs/349bdd9653c42f1793d338b43aefe08883c5ebee";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, pmacs }:
     let
       mkHost = hostName: system:
-        (({ zfs-root, pkgs, system, ... }:
-          nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              # Module 0: zfs-root and my-config
-              ./modules
+        nixpkgs.lib.nixosSystem {
+          system = system;
+          pkgs = nixpkgs.legacyPackages.${system};
 
-              # Module 1: host-specific config, if exist
-              (if (builtins.pathExists
-                ./hosts/${hostName}/configuration.nix) then
-                (import ./hosts/${hostName}/configuration.nix { inherit pkgs; })
+          specialArgs = {
+            pmacs = pmacs.legacyPackages.${system};
+          };
+
+          modules = [
+            ./modules
+
+            (import ./hosts/${hostName})
+
+            ({
+              system.configurationRevision = if (self ? rev) then
+                self.rev
               else
-                { })
+                throw "refuse to build: git tree is dirty";
+              system.stateVersion = "23.05";
+              imports = [
+                "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
+                "${nixpkgs}/nixos/modules/profiles/hardened.nix"
+              ];
+            })
 
-              # Module 2: entry point
-              (({ zfs-root, pkgs, lib, ... }: {
-                inherit zfs-root;
-                system.configurationRevision = if (self ? rev) then
-                  self.rev
-                else
-                  throw "refuse to build: git tree is dirty";
-                system.stateVersion = "23.05";
-                imports = [
-                  "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
-                  "${nixpkgs}/nixos/modules/profiles/hardened.nix"
-                ];
-              }) {
-                inherit zfs-root pkgs;
-                lib = nixpkgs.lib;
-              })
-
-              # Module 3: home-manager
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-              }
-            ];
-          })
-
-        # configuration input
-          (import ./hosts/${hostName} {
-            system = system;
-            pkgs = nixpkgs.legacyPackages.${system};
-          }));
+            # Module 3: home-manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+          ];
+        };
     in {
       nixosConfigurations = {
         exampleHost = mkHost "exampleHost" "x86_64-linux";
