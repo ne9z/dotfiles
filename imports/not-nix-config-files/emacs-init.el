@@ -25,6 +25,7 @@ Intended for `after-make-frame-functions'."
  '(display-time-mode t)
  '(electric-pair-mode t)
  '(global-prettify-symbols-mode t)
+ '(gnus-treat-display-smileys nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
