@@ -30,7 +30,6 @@ Intended for `after-make-frame-functions'."
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
  '(modus-themes-variable-pitch-ui t)
- '(pixel-scroll-precision-mode t)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
  '(preview-scale-function 1.2)
