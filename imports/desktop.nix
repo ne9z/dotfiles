@@ -1,9 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pmacs, ... }:
 let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as
   # input
-  pmacs = pkgs;
   buildEmacs = (pmacs.emacsPackagesFor (pmacs.enableDebugging
     ((pmacs.emacs29-pgtk.override {
       withNativeCompilation = false;

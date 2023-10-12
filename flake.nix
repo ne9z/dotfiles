@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pmacs.url = "nixpkgs/349bdd9653c42f1793d338b43aefe08883c5ebee";
+    pmacs.url = "nixpkgs/52f7404b62181b4ef439bb644b3dfa58e9eb2ce7";
   };
 
   outputs = { self, nixpkgs, home-manager, pmacs }@inputs:
