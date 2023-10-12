@@ -5,7 +5,7 @@ let
   # input
   pmacs = pkgs;
   buildEmacs = (pmacs.emacsPackagesFor (pmacs.enableDebugging
-    (pmacs.emacs29-pgtk.override {
+    ((pmacs.emacs29-pgtk.override {
       withNativeCompilation = false;
     }).overrideAttrs (attrs: {
       src = builtins.fetchTarball {
