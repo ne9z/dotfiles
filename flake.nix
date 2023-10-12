@@ -28,7 +28,7 @@
           modules = [
             ./modules
 
-            (import ./hosts/${hostName})
+            ./hosts/${hostName}
 
             # Module 3: home-manager
             home-manager.nixosModules.home-manager
