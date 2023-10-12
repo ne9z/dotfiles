@@ -10,11 +10,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pmacs.url =
-      "github:nixos/nixpkgs/349bdd9653c42f1793d338b43aefe08883c5ebee";
+    pmacs.url = "github:nixos/nixpkgs/349bdd9653c42f1793d338b43aefe08883c5ebee";
   };
 
-  outputs = { self, nixpkgs, home-manager, pmacs }:
+  outputs = { self, nixpkgs, home-manager, pmacs }@inputs:
     let
       mkHost = hostName: system:
         nixpkgs.lib.nixosSystem {
@@ -23,24 +22,13 @@
 
           specialArgs = {
             pmacs = pmacs.legacyPackages.${system};
+            inherit inputs;
           };
 
           modules = [
             ./modules
 
             (import ./hosts/${hostName})
-
-            ({
-              system.configurationRevision = if (self ? rev) then
-                self.rev
-              else
-                throw "refuse to build: git tree is dirty";
-              system.stateVersion = "23.05";
-              imports = [
-                "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
-                "${nixpkgs}/nixos/modules/profiles/hardened.nix"
-              ];
-            })
 
             # Module 3: home-manager
             home-manager.nixosModules.home-manager

@@ -1,8 +1,18 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   inherit (lib) mkMerge mapAttrsToList mkDefault;
+  inherit (inputs) self nixpkgs;
   wirelessNetworks = { "TP-Link_48C2" = "77017543"; };
 in {
+  system.configurationRevision = if (self ? rev) then
+    self.rev
+  else
+    throw "refuse to build: git tree is dirty";
+  system.stateVersion = "23.05";
+  imports = [
+    "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
+    "${nixpkgs}/nixos/modules/profiles/hardened.nix"
+  ];
   services.zfs = {
     autoSnapshot = {
       enable = true;
