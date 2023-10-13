@@ -46,11 +46,9 @@
         };
     in {
       nixosConfigurations = {
-        exampleHost = mkHost "exampleHost" "x86_64-linux";
         qinghe = mkHost "qinghe" "x86_64-linux";
         tieling = mkHost "tieling" "x86_64-linux";
         yinzhou = mkHost "yinzhou" "x86_64-linux";
-        shuiku = mkHost "shuiku" "x86_64-linux";
       };
     };
 }
