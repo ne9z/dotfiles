@@ -9,7 +9,10 @@
       mode = "0600";
     };
   };
-  zfs-root.fileSystems.datasets = { "rpool/data/file" = "/home"; };
+  zfs-root.fileSystems.datasets = {
+    "rpool/data/file" = "/home";
+    "rpool/nixos/var/lib" = "/var/lib";
+  };
   fileSystems = {
     "/tmp/BitTorrent" = {
       device = "rpool/data/bt";
