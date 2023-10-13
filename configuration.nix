@@ -9,7 +9,7 @@ in {
   # zfs set com.sun:auto-snapshot=true rpool/nixos/home
   services.zfs = {
     autoSnapshot = {
-      enable = false;
+      enable = true;
       flags = "-k -p --utc";
       monthly = 48;
     };

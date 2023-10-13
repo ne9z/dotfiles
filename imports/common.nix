@@ -13,13 +13,6 @@ in {
     "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
     "${nixpkgs}/nixos/modules/profiles/hardened.nix"
   ];
-  services.zfs = {
-    autoSnapshot = {
-      enable = true;
-      flags = "-k -p --utc";
-      monthly = 48;
-    };
-  };
   environment.etc = (mkMerge (mapAttrsToList (name: pwd: {
     "NetworkManager/system-connections/${name}.nmconnection" = {
       # networkmanager demands secure permission
