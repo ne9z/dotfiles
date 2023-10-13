@@ -1,4 +1,6 @@
 {
+  description = "Barebones NixOS on ZFS config";
+
   inputs = {
     # https://channels.nixos.org/nixpkgs-unstable/git-revision
     # https://channels.nixos.org/nixos-unstable/git-revision
@@ -16,7 +18,7 @@
     let
       mkHost = hostName: system:
         nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           pkgs = nixpkgs.legacyPackages.${system};
 
           specialArgs = {
@@ -25,11 +27,16 @@
           };
 
           modules = [
+            # Root on ZFS related configuration
             ./modules
 
+            # Configuration shared by all hosts
+            ./configuration.nix
+
+            # Configuration per host
             ./hosts/${hostName}
 
-            # Module 3: home-manager
+            # home-manager
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
