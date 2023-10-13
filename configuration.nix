@@ -3,26 +3,6 @@
 { pkgs, pkgs-unstable, inputs, ... }:
 let inherit (inputs) self;
 in {
-  # Enable NetworkManager for wireless networking,
-  # You can configure networking with "nmtui" command.
-  networking.useDHCP = true;
-  networking.networkmanager.enable = false;
-
-  users.users = {
-    root = {
-      initialHashedPassword = "rootHash_placeholder";
-      openssh.authorizedKeys.keys = [ "sshKey_placeholder" ];
-    };
-  };
-
-  ## enable GNOME desktop.
-  ## You need to configure a normal, non-root user.
-  # services.xserver = {
-  #  enable = true;
-  #  desktopManager.gnome.enable = true;
-  #  displayManager.gdm.enable = true;
-  # };
-
   ## enable ZFS auto snapshot on datasets
   ## You need to set the auto snapshot property to "true"
   ## on datasets for this to work, such as
@@ -33,17 +13,6 @@ in {
       flags = "-k -p --utc";
       monthly = 48;
     };
-  };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = { PasswordAuthentication = false; };
   };
 
   boot.zfs.forceImportRoot = false;
@@ -80,4 +49,8 @@ in {
     throw "refuse to build: git tree is dirty";
 
   system.stateVersion = "23.05";
+
+  # outside template
+  zfs-root.boot.devNodes = "/dev/disk/by-id/";
+  zfs-root.boot.immutable = true;
 }

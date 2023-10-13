@@ -10,7 +10,6 @@
     };
   };
   zfs-root.fileSystems.datasets = {
-    "rpool/nixos/home" = "/oldroot/home";
     "rpool/data/file" = "/home";
   };
   fileSystems = {
@@ -164,7 +163,6 @@
   };
   zfs-root = {
     boot = {
-      devNodes = "/dev/disk/by-id/";
       immutable = true;
     };
   };
@@ -173,8 +171,6 @@
     allowSFTP = true;
     openFirewall = true;
   };
-  nix.settings.substituters =
-    [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
   services.yggdrasil.persistentKeys = true;
   boot.initrd.secrets = { "/oldroot/etc/zfs-key-rpool-data-file" = null; };
   services.tor = {
