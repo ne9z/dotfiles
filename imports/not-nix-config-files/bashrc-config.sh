@@ -13,8 +13,6 @@
 # file names, the list of names is only guaranteed to
 # be distinguished from one another when null-character is used to separate them
 
-nix-shell () { nix shell $(for i in ${@}; do printf 'nixpkgs/%s#%s ' $(nixos-version --revision) $i; done;); }
-
 y () {
     mpv "${@}"
 }
