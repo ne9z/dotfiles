@@ -77,7 +77,7 @@ in {
         };
         bindmounts = {
           "/oldroot/nix" = "/nix";
-          "/oldroot/etc/nixos" = "/etc/nixos";
+          # "/oldroot/etc/nixos" = "/etc/nixos";
         };
       };
       boot.initrd.postDeviceCommands = ''
