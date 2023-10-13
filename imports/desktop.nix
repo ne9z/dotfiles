@@ -245,7 +245,42 @@ let
       # pictures and tikz
       collection-pictures;
   });
+  homeBindOpts =
+    [ "bind" "X-mount.mkdir" "noatime" "uid=yc" "gid=users" "mode=1700" ];
 in {
+  zfs-root.fileSystems.datasets."rpool/nixos/home" = "/oldroot/home";
+  fileSystems = {
+    "/home/yc" = {
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "rw" "size=1G" "uid=yc" "gid=users" "mode=1700" ];
+    };
+    "/home/yc/Downloads" = {
+      device = "/oldroot/home/Downloads";
+      fsType = "none";
+      options = homeBindOpts;
+    };
+    "/home/yc/Documents" = {
+      device = "/oldroot/home/Documents";
+      fsType = "none";
+      options = homeBindOpts;
+    };
+    "/home/yc/nixos-config" = {
+      device = "/oldroot/home/nixos-config";
+      fsType = "none";
+      options = homeBindOpts;
+    };
+    "/home/yc/.gnupg" = {
+      device = "/oldroot/home/.gnupg";
+      fsType = "none";
+      options = homeBindOpts;
+    };
+    "/home/yc/.password-store" = {
+      device = "/oldroot/home/.password-store";
+      fsType = "none";
+      options = homeBindOpts;
+    };
+  };
   services.xserver.enable = true; # for sddm
   services.xserver.displayManager.sddm = {
     enable = true;

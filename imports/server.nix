@@ -9,9 +9,7 @@
       mode = "0600";
     };
   };
-  zfs-root.fileSystems.datasets = {
-    "rpool/data/file" = "/home";
-  };
+  zfs-root.fileSystems.datasets = { "rpool/data/file" = "/home"; };
   fileSystems = {
     "/tmp/BitTorrent" = {
       device = "rpool/data/bt";
@@ -161,11 +159,7 @@
       ];
     };
   };
-  zfs-root = {
-    boot = {
-      immutable = true;
-    };
-  };
+  zfs-root = { boot = { immutable = true; }; };
   services.openssh = {
     ports = [ 22 65222 ];
     allowSFTP = true;

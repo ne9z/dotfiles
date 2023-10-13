@@ -13,6 +13,7 @@ Intended for `after-make-frame-functions'."
 
 (add-hook 'after-make-frame-functions #'my-configure-font)
 
+(add-to-list 'auth-sources "~/.password-store/authinfo.gpg")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
