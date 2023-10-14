@@ -6,8 +6,8 @@ let
   buildEmacs = (pmacs.emacsPackagesFor (pmacs.enableDebugging
     ((pmacs.emacs29-pgtk.override {
       withNativeCompilation = false;
-    }).overrideAttrs (attrs: {
-      NIX_CFLAGS_COMPILE = "-fsanitize=address ${attrs.NIX_CFLAGS_COMPILE}";
+    }).overrideAttrs (oldAttrs: {
+      NIX_CFLAGS_COMPILE = oldAttrs.NIX_CFLAGS_COMPILE + " -fsanitize=address"";
       src = builtins.fetchTarball {
         url =
           "https://git.savannah.gnu.org/cgit/emacs.git/snapshot/emacs-eedd9db6190a7f69403aefe8098a554ef2b51371.tar.gz";
