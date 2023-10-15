@@ -250,6 +250,7 @@ let
   homeBindOpts =
     [ "bind" "X-mount.mkdir" "noatime" "uid=yc" "gid=users" "mode=1700" ];
 in {
+  security.chromiumSuidSandbox.enable = true;
   zfs-root.fileSystems.datasets."rpool/nixos/home" = "/oldroot/home";
   fileSystems = {
     "/home/yc" = {
@@ -436,6 +437,7 @@ in {
         hunspell
         # debug
         gdb
+        chromium
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
