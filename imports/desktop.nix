@@ -463,7 +463,7 @@ in {
   };
   home-manager.users.yc = {
     programs.firefox = {
-      enable = false;
+      enable = true;
       package = firefoxPkg;
       profiles.default = {
         id = 0;
