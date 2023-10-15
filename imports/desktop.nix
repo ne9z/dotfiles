@@ -311,7 +311,7 @@ in {
       # "!" means login disabled
       initialHashedPassword =
         "$6$UxT9KYGGV6ik$BhH3Q.2F8x1llZQLUS1Gm4AxU7bmgZUP7pNX6Qt3qrdXUy7ZYByl5RVyKKMp/DuHZgk.RiiEXK8YVH.b2nuOO/";
-      description = "Yǔchēn Guō";
+      description = "Yǔchēn Guō 郭宇琛";
       # a default group must be set
       extraGroups = [
         # use doas
@@ -525,7 +525,7 @@ in {
       git = {
         enable = true;
         userEmail = "yguo@posteo.net";
-        userName = "Yǔchēn Guō";
+        userName = "Yǔchēn Guō 郭宇琛";
       };
       # use gnus instead
       mbsync.enable = false;

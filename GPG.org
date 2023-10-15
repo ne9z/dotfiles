@@ -45,7 +45,7 @@ I should rotate GPG keys on a biannual basis.
     sec   ed25519 2023-04-04 [SC] [expires: 2025-04-03]
           742FB9A3903E8AE7D88CF89EE4B9611E05059668            <-- keyid used for password store
           Keygrip = C26CFDE329D09917F0BE251D03B278A1CBED6380  <-- master key
-    uid           [ultimate] Yǔchēn Guō <yuchen@apvc.uk>
+    uid           [ultimate] Yǔchēn Guō 郭宇琛 <yuchen@apvc.uk>
     ssb   cv25519 2023-04-04 [E] [expires: 2025-04-03]
           Keygrip = 5138474888B87FEDA227BFE8D91F8E3BEFFCA272
     ssb   ed25519 2023-04-04 [A] [expires: 2024-04-03]        <-- [A] stands for Authenticate
