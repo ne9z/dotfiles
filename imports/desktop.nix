@@ -250,6 +250,21 @@ let
   homeBindOpts =
     [ "bind" "X-mount.mkdir" "noatime" "uid=yc" "gid=users" "mode=1700" ];
 in {
+  programs.chromium = {
+    enable = true;
+    defaultSearchProviderEnabled = false;
+    extensions = [
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+    ];
+    extraOpts = {
+      "BrowserSignin" = 0;
+      "SyncDisabled" = true;
+      "PasswordManagerEnabled" = false;
+      "SpellcheckEnabled" = true;
+      "SpellcheckLanguage" = [ "de" "en-US" ];
+    };
+    homepageLocation = "https://gnu.org";
+  };
   security.chromiumSuidSandbox.enable = true;
   zfs-root.fileSystems.datasets."rpool/nixos/home" = "/oldroot/home";
   fileSystems = {
@@ -437,7 +452,6 @@ in {
         hunspell
         # debug
         gdb
-        ungoogled-chromium
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
@@ -721,6 +735,11 @@ in {
         };
       };
     };
+    programs.chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+      commandLineArgs = [ "--incognito" "--ozone-platform-hint=auto" ];
+    };
     xdg = {
       mimeApps = {
         enable = true;
@@ -742,10 +761,6 @@ in {
         "sway/yc-sticky-keymap" = {
           source = ./not-nix-config-files/sway-yc-sticky-keymap;
         };
-        "chromium-flags.conf" = { text = ''
-          --incognito
-          --ozone-platform-hint=auto
-        ''; };
         "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
         "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
         "yc.sh" = { source = ./not-nix-config-files/bashrc-config.sh; };
