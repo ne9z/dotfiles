@@ -437,7 +437,7 @@ in {
         hunspell
         # debug
         gdb
-        chromium
+        ungoogled-chromium
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
@@ -449,7 +449,7 @@ in {
   };
   home-manager.users.yc = {
     programs.firefox = {
-      enable = true;
+      enable = false;
       package = firefoxPkg;
       profiles.default = {
         id = 0;
@@ -742,6 +742,10 @@ in {
         "sway/yc-sticky-keymap" = {
           source = ./not-nix-config-files/sway-yc-sticky-keymap;
         };
+        "chromium-flags.conf" = { text = ''
+          --incognito
+          --ozone-platform-hint=auto
+        ''; };
         "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
         "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
         "yc.sh" = { source = ./not-nix-config-files/bashrc-config.sh; };
