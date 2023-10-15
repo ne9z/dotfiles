@@ -443,6 +443,7 @@ in {
     lockKernelModules = false;
     apparmor.enable = true;
   };
+  environment.memoryAllocator.provider = "libc";
 
   # disable gc which always deletes downloaded nixpkg cache
   nix = {
