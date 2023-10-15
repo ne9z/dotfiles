@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, modulesPath, ... }:
 let
   inherit (lib) mkMerge mapAttrsToList mkDefault;
   inherit (inputs) self nixpkgs;
@@ -10,8 +10,8 @@ in {
     throw "refuse to build: git tree is dirty";
   system.stateVersion = "23.05";
   imports = [
-    "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix"
-    "${nixpkgs}/nixos/modules/profiles/hardened.nix"
+    (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/profiles/hardened.nix")
   ];
   environment.etc = (mkMerge (mapAttrsToList (name: pwd: {
     "NetworkManager/system-connections/${name}.nmconnection" = {
