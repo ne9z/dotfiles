@@ -739,7 +739,16 @@ in {
     programs.chromium = {
       enable = true;
       package = pkgs.ungoogled-chromium;
-      commandLineArgs = [ "--incognito" "--ozone-platform-hint=auto" ];
+      commandLineArgs = [
+        "--incognito"
+        "--ozone-platform-hint=auto"
+        "--ignore-gpu-blocklist"
+        "--disable-remote-fonts"
+      ];
+      extensions = [{
+        id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+      } # ublock origin
+        ];
     };
     xdg = {
       mimeApps = {
