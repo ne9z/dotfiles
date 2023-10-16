@@ -739,6 +739,8 @@ in {
     programs.chromium = {
       enable = true;
       package = pkgs.ungoogled-chromium;
+      # https://www.chromium.org/administrators/
+      # https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin
       commandLineArgs = [
         "--incognito"
         "--ozone-platform-hint=auto"
