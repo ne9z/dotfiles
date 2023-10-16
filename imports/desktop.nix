@@ -255,7 +255,8 @@ in {
     enable = true;
     defaultSearchProviderEnabled = false;
     extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      # ublock origin
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx"
     ];
     extraOpts = {
       "BrowserSignin" = 0;
@@ -746,11 +747,8 @@ in {
         "--ozone-platform-hint=auto"
         "--ignore-gpu-blocklist"
         "--disable-remote-fonts"
+        "--js-flags='--jitless'"
       ];
-      extensions = [{
-        id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-      } # ublock origin
-        ];
     };
     xdg = {
       mimeApps = {
