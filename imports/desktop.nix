@@ -748,6 +748,7 @@ in {
         "--ignore-gpu-blocklist"
         "--disable-remote-fonts"
         "--js-flags='--jitless'"
+        "--enable-features=TouchpadOverscrollHistoryNavigation"
       ];
     };
     xdg = {
