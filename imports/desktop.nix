@@ -72,6 +72,7 @@ let
       DisableTelemetry = true;
       DisplayMenuBar = "never";
       DNSOverHTTPS = { Enabled = false; };
+      DontCheckDefaultBrowser = true;
       EncryptedMediaExtensions = { Enabled = false; };
       ExtensionUpdate = false;
       FirefoxHome = {
