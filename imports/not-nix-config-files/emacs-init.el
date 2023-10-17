@@ -95,8 +95,6 @@
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
-  :custom-face
-  (font-latex-math-face ((t (:family "STIX Two Math"))))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
@@ -132,9 +130,3 @@
 ;; zh-cn input engine ends here
 
 (pdf-tools-install :no-query)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
