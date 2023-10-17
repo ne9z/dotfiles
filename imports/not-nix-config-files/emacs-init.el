@@ -2,29 +2,25 @@
 
 (add-to-list 'face-ignored-fonts "Fixed")
 (add-to-list 'face-ignored-fonts "Unifont")
+(add-to-list 'face-ignored-fonts "Noto Sans CJK")
+(add-to-list 'face-ignored-fonts "Noto Serif CJK JP")
+(add-to-list 'face-ignored-fonts "Noto Serif CJK TC")
+(add-to-list 'face-ignored-fonts "Noto Serif CJK KR")
+(add-to-list 'face-ignored-fonts "Noto Serif CJK HK")
 
-(defun my-configure-font (frame)
-  "Configure font given initial non-daemon FRAME.
-Intended for `after-make-frame-functions'."
-  ;; 简体中文与标点。
-  (set-fontset-font t 'han (font-spec :family "Noto Serif CJK SC" :weight 'medium))
-  (set-fontset-font t 'cjk-misc (font-spec :family "Noto Serif CJK SC" :weight 'medium))
-  (remove-hook 'after-make-frame-functions #'my-configure-font))
-
-(add-hook 'after-make-frame-functions #'my-configure-font)
-
-(add-to-list 'auth-sources "~/.password-store/authinfo.gpg")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auth-sources "~/.password-store/authinfo.gpg")
  '(auto-fill-function 'do-auto-fill t)
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
  '(display-battery-mode t)
  '(display-time-mode t)
  '(electric-pair-mode t)
+ '(face-ignored-fonts '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Unifont" "Fixed"))
  '(global-prettify-symbols-mode t)
  '(gnus-treat-display-smileys nil)
  '(indent-tabs-mode nil)

@@ -112,8 +112,8 @@ let
       pref("javascript.options.baselinejit", false);
       pref("font.name-list.emoji", "Noto Color Emoji");
       pref("font.name.monospace.zh-CN", "Noto Sans Mono CJK SC");
-      pref("font.name.sans-serif.zh-CN", "Noto Sans CJK SC");
-      pref("font.name.serif.zh-CN", "Noto Sans CJK SC");
+      pref("font.name.sans-serif.zh-CN", "Noto Serif CJK SC");
+      pref("font.name.serif.zh-CN", "Noto Serif CJK SC");
       pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
       pref("apz.allow_double_tap_zooming", false);
       pref("apz.allow_zooming", false);
@@ -408,7 +408,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Sans CJK SC"
+        "Noto Serif CJK SC"
         "Noto Serif"
       ];
       serif = [
@@ -417,7 +417,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Sans CJK SC"
+        "Noto Serif CJK SC"
         "Noto Serif"
       ];
     };
