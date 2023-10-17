@@ -256,10 +256,6 @@ in {
   programs.chromium = {
     enable = true;
     defaultSearchProviderEnabled = false;
-    extensions = [
-      # ublock origin
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx"
-    ];
     extraOpts = {
       "DefaultJavaScriptSetting" = 2;
       "DefaultJavaScriptJitSetting" = 2;
@@ -746,6 +742,14 @@ in {
       package = pkgs.ungoogled-chromium;
       # https://www.chromium.org/administrators/
       # https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin
+      extensions = [
+        {
+          # https://ungoogled-software.github.io/ungoogled-chromium-wiki/faq#installing-the-crx-file
+          id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+          crxPath = "/home/yc/Documents/ub0-cr117.crx";
+          version = "1.0";
+        }
+      ];
       commandLineArgs = [
         "--incognito"
         "--ozone-platform-hint=auto"
