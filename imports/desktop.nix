@@ -143,7 +143,7 @@ in {
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
-      inherit emacsPkg mytex;
+      inherit emacsPkg mytex firefoxPkg;
     };
     interactiveShellInit = ''
       e () { $EDITOR --create-frame "$@"; }
