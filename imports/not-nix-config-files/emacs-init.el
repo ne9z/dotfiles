@@ -20,7 +20,7 @@
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
  '(mode-line-compact 'long)
- '(modus-themes-bold-constructs t)
+ '(modus-themes-bold-constructs nil)
  '(modus-themes-inhibit-reload nil)
  '(modus-themes-italic-constructs t)
  '(modus-themes-variable-pitch-ui t)
