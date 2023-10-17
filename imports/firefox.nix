@@ -89,9 +89,6 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
     pref("javascript.options.ion", false);
     pref("javascript.options.baselinejit", false);
     pref("font.name-list.emoji", "Noto Color Emoji");
-    pref("font.name.monospace.zh-CN", "Noto Sans Mono CJK SC");
-    pref("font.name.sans-serif.zh-CN", "Noto Serif CJK SC");
-    pref("font.name.serif.zh-CN", "Noto Serif CJK SC");
     pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
     pref("apz.allow_double_tap_zooming", false);
     pref("apz.allow_zooming", false);
