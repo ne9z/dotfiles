@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<!-- /etc/fonts/fonts.conf file to configure system font access -->
+<fontconfig>
+  <match target="pattern">
+    <test name="family" compare="contains">
+      <string>CJK</string>
+    </test>
+    <edit name="family" mode="assign">
+      <string>Noto Serif CJK SC</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <test name="family" compare="contains">
+      <string>CJK</string>
+    </test>
+    <test name="weight" compare="contains">
+      <string>regular</string>
+    </test>
+    <edit name="weight" mode="assign">
+      <string>medium</string>
+    </edit>
+  </match>
+</fontconfig>

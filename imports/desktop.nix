@@ -80,31 +80,22 @@ in {
     wlr.enable = true;
   };
   fonts.fontconfig = {
+    localConf = builtins.readFile ./fontconfig.xml;
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
         "NewComputerModernMono10"
-        "DejaVu Sans Mono"
         "Noto Sans Mono CJK SC"
-        "Noto Sans Mono"
       ];
       sansSerif = [
         "TeX Gyre Schola"
         "NewComputerModern08"
-        "STIX Two Text"
-        "STIX Two Math"
-        "DejaVu Serif"
         "Noto Sans CJK SC"
-        "Noto Serif"
       ];
       serif = [
         "TeX Gyre Schola"
         "NewComputerModern08"
-        "STIX Two Text"
-        "STIX Two Math"
-        "DejaVu Serif"
         "Noto Sans CJK SC"
-        "Noto Serif"
       ];
     };
   };
