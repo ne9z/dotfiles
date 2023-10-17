@@ -90,12 +90,12 @@ in {
       sansSerif = [
         "TeX Gyre Schola"
         "NewComputerModern08"
-        "Noto Sans CJK SC"
+        "Noto Serif CJK SC"
       ];
       serif = [
         "TeX Gyre Schola"
         "NewComputerModern08"
-        "Noto Sans CJK SC"
+        "Noto Serif CJK SC"
       ];
     };
   };
