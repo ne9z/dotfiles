@@ -51,7 +51,7 @@
   <property name="highlightPosition" value="true"/>
   <property name="cursorHighlightColor" value="2164260608"/>
   <property name="cursorHighlightBorderColor" value="2147483903"/>
-  <property name="cursorHighlightRadius" value="30"/>
+  <property name="cursorHighlightRadius" value="15"/>
   <property name="cursorHighlightBorderWidth" value="0"/>
   <property name="darkTheme" value="false"/>
   <property name="useStockIcons" value="true"/>
