@@ -1,3 +1,4 @@
+pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 10);
 lockPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 pref("javascript.options.ion", false);
 pref("javascript.options.baselinejit", false);
