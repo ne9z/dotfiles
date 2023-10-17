@@ -748,6 +748,7 @@ in {
         "--disable-remote-fonts"
         "--js-flags='--jitless'"
         "--enable-features=TouchpadOverscrollHistoryNavigation"
+        "--start-maximized"
       ];
     };
     xdg = {

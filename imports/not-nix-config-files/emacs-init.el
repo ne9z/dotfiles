@@ -20,7 +20,7 @@
  '(display-battery-mode t)
  '(display-time-mode t)
  '(electric-pair-mode t)
- '(face-ignored-fonts '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Unifont" "Fixed"))
+ '(face-ignored-fonts '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Noto Sans Mono CJK" "Unifont" "Fixed"))
  '(global-prettify-symbols-mode t)
  '(gnus-treat-display-smileys nil)
  '(indent-tabs-mode nil)
