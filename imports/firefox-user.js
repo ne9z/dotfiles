@@ -1,3 +1,6 @@
+pref("font.name.monospace.zh-CN", "Noto Sans Mono CJK SC");
+pref("font.name.sans-serif.zh-CN", "Noto Sans CJK SC");
+pref("font.name.serif.zh-CN", "Noto Sans CJK SC");
 pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 10);
 lockPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 pref("javascript.options.ion", false);
