@@ -12,7 +12,8 @@
  '(display-battery-mode t)
  '(display-time-mode t)
  '(electric-pair-mode t)
- '(face-ignored-fonts '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Noto Sans Mono CJK" "Unifont" "Fixed"))
+ '(face-ignored-fonts
+   '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Noto Sans Mono CJK" "Unifont" "Fixed") t)
  '(global-prettify-symbols-mode t)
  '(gnus-treat-display-smileys nil)
  '(indent-tabs-mode nil)
@@ -31,6 +32,7 @@
  '(read-file-name-completion-ignore-case t)
  '(require-final-newline t)
  '(ring-bell-function 'ignore)
+ '(scroll-bar-mode nil)
  '(shr-cookie-policy nil)
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
@@ -130,3 +132,9 @@
 ;; zh-cn input engine ends here
 
 (pdf-tools-install :no-query)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
