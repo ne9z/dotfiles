@@ -2,12 +2,23 @@
 <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
 <!-- /etc/fonts/fonts.conf file to configure system font access -->
 <fontconfig>
-    <match target="pattern">
-        <test name="family" compare="contains">
-            <string>Noto Serif CJK</string>
-        </test>
-        <edit name="weight">
-            <const>Black</const>
-        </edit>
-    </match>
+  <match target="pattern">
+    <test name="lang" compare="contains">
+      <string>zh</string>
+    </test>
+    <edit name="family" mode="assign" binding="strong">
+      <string>Noto Serif CJK SC</string>
+    </edit>
+    <edit name="weight">
+      <const>Black</const>
+    </edit>
+  </match>
+  <match target="pattern">
+    <test name="family" compare="contains">
+      <string>Noto Serif CJK</string>
+    </test>
+    <edit name="weight">
+      <const>Black</const>
+    </edit>
+  </match>
 </fontconfig>
