@@ -32,6 +32,11 @@ in {
           # formula: 135x720/216
           map_to_region = "560 270 720 450";
         };
+        "9580:109:GAOMON_Gaomon_Tablet_M10KPRO_Pen" = {
+          # active area: 254 x 158.8mm
+          # tablet:whole ratio = 9:16
+          map_to_region = "560 270 720 450";
+        };
         "9580:109:GAOMON_Gaomon_Tablet_Pen" = {
           # active area: 254 x 158.8mm
           # tablet:whole ratio = 9:16
