@@ -741,14 +741,6 @@ in {
       package = pkgs.ungoogled-chromium;
       # https://www.chromium.org/administrators/
       # https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin
-      extensions = [
-        {
-          # https://ungoogled-software.github.io/ungoogled-chromium-wiki/faq#installing-the-crx-file
-          id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-          crxPath = "/home/yc/Documents/ub0-cr117.crx";
-          version = "1.0";
-        }
-      ];
       commandLineArgs = [
         "--incognito"
         "--ozone-platform-hint=auto"
@@ -770,6 +762,9 @@ in {
         };
       };
       configFile = {
+        "chromium/Default/Preferences" = {
+          source = ./not-nix-config-files/chromium.json;
+        };
         "xournalpp/settings.xml" = {
           source = ./not-nix-config-files/xournalpp-settings.xml;
         };
