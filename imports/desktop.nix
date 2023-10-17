@@ -261,6 +261,10 @@ in {
       "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx"
     ];
     extraOpts = {
+      "DefaultJavaScriptSetting" = false;
+      "DefaultJavaScriptJitSetting" = false;
+      "DefaultFileSystemWriteGuardSetting" = 2;
+      "DefaultLocalFontsSetting" = 2;
       "BrowserSignin" = 0;
       "SyncDisabled" = true;
       "PasswordManagerEnabled" = false;
