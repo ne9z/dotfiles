@@ -94,7 +94,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Serif CJK SC"
+        "Noto Sans CJK SC"
         "Noto Serif"
       ];
       serif = [
@@ -103,7 +103,7 @@ in {
         "STIX Two Text"
         "STIX Two Math"
         "DejaVu Serif"
-        "Noto Serif CJK SC"
+        "Noto Sans CJK SC"
         "Noto Serif"
       ];
     };
