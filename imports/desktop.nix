@@ -257,7 +257,6 @@ in {
     enable = true;
     defaultSearchProviderEnabled = false;
     extraOpts = {
-      "DefaultJavaScriptSetting" = 2;
       "DefaultJavaScriptJitSetting" = 2;
       "DefaultFileSystemWriteGuardSetting" = 2;
       "DefaultLocalFontsSetting" = 2;
