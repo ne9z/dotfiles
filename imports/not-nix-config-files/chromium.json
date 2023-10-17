@@ -1,9 +1,0 @@
-{
-    "bookmark_bar": {
-        "show_on_all_tabs": false
-    },
-    "https_only_mode_enabled": true,
-    "default_content_setting_values": {
-        "javascript": 2
-    }
-}

@@ -257,6 +257,7 @@ in {
     enable = true;
     defaultSearchProviderEnabled = false;
     extraOpts = {
+      "DefaultJavaScriptSetting" = 2;
       "DefaultJavaScriptJitSetting" = 2;
       "DefaultFileSystemWriteGuardSetting" = 2;
       "DefaultLocalFontsSetting" = 2;
@@ -762,9 +763,6 @@ in {
         };
       };
       configFile = {
-        "chromium/Default/Preferences" = {
-          source = ./not-nix-config-files/chromium.json;
-        };
         "xournalpp/settings.xml" = {
           source = ./not-nix-config-files/xournalpp-settings.xml;
         };
