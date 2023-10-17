@@ -13,7 +13,7 @@
   <property name="edgePanMaxMult" value="5"/>
   <property name="zoomStep" value="20"/>
   <property name="zoomStepScroll" value="2"/>
-  <property name="displayDpi" value="230"/>
+  <property name="displayDpi" value="72"/>
   <property name="mainWndWidth" value="3840"/>
   <property name="mainWndHeight" value="2124"/>
   <property name="maximized" value="false"/>
