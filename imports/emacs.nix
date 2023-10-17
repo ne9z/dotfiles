@@ -1,7 +1,6 @@
 { pkgs }:
 let
-  buildEmacs = (pkgs.emacsPackagesFor
-    (pkgs.enableDebugging pkgs.emacs29-pgtk)).emacsWithPackages;
+  buildEmacs = (pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages;
 in buildEmacs (epkgs:
   builtins.attrValues {
     inherit (epkgs.melpaPackages) nix-mode magit pdf-tools;
