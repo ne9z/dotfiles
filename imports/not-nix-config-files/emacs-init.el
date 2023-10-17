@@ -1,19 +1,11 @@
 ;; -*- lexical-binding:t -*-
 
-(add-to-list 'face-ignored-fonts "Fixed")
-(add-to-list 'face-ignored-fonts "Unifont")
-(add-to-list 'face-ignored-fonts "Noto Sans CJK")
-(add-to-list 'face-ignored-fonts "Noto Serif CJK JP")
-(add-to-list 'face-ignored-fonts "Noto Serif CJK TC")
-(add-to-list 'face-ignored-fonts "Noto Serif CJK KR")
-(add-to-list 'face-ignored-fonts "Noto Serif CJK HK")
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auth-sources "~/.password-store/authinfo.gpg")
+ '(auth-sources '("~/.password-store/authinfo.gpg"))
  '(auto-fill-function 'do-auto-fill t)
  '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
