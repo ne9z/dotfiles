@@ -7,7 +7,7 @@
             <string>Noto Serif CJK</string>
         </test>
         <edit name="weight">
-            <const>medium</const>
+            <const>Black</const>
         </edit>
     </match>
 </fontconfig>
