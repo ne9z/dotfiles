@@ -430,8 +430,6 @@ in {
   } ++ [ mytex.fonts ];
   environment.sessionVariables = {
     VAAPI_DISABLE_INTERLACE = "1";
-    QT_WAYLAND_FORCE_DPI = mkDefault "192";
-    GDK_DPI_SCALE = mkDefault "2";
     W3M_DIR = "$HOME/.config/w3m";
   };
   services.dictd = {
@@ -502,14 +500,13 @@ in {
       };
       cursorTheme = {
         name = "Adwaita";
-        size = 48;
+        size = 16;
       };
     };
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         enable-animations = false;
         gtk-key-theme = "Emacs";
-        cursor-size = 48;
       };
     };
     services.emacs = {
@@ -666,7 +663,7 @@ in {
         scroll-full-overlap = "0.1";
         statusbar-home-tilde = true;
         synctex = true;
-        font = "sans-serif bold 16";
+        font = "sans-serif bold 10";
         guioptions = "";
         zoom-step = 9;
         scroll-step = 80;
@@ -710,8 +707,8 @@ in {
       settings = {
         main = {
           term = "foot-direct";
-          font = mkDefault "monospace:size=11";
-          dpi-aware = "yes";
+          dpi-aware = "no";
+          font = mkDefault "monospace:size=10";
         };
 
         url = { launch = "wl-copy \${url}"; };
@@ -789,7 +786,8 @@ in {
         "fuzzel/fuzzel.ini" = {
           text = ''
             [main]
-            font=sans-serif:size=14:weight=bold'';
+            font=sans-serif:size=12:weight=bold
+            dpi-aware=no'';
         };
         "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
         "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
@@ -973,7 +971,6 @@ in {
         fonts = {
           names = [ "sans-serif" ];
           style = "bold";
-          size = mkDefault 16.0;
         };
         modes = {
           default = { };
@@ -982,7 +979,7 @@ in {
         seat = {
           "*" = {
             hide_cursor = "when-typing enable";
-            xcursor_theme = "Adwaita 48";
+            xcursor_theme = "Adwaita 16";
           };
         };
         input = {
@@ -994,17 +991,18 @@ in {
             natural_scroll = "enabled";
             middle_emulation = "enabled";
             scroll_method = "edge";
-            pointer_accel = "0.3";
+            pointer_accel = "0.1";
           };
           "1149:8257:Kensington_Kensington_Slimblade_Trackball" = {
             left_handed = "enabled";
-            pointer_accel = "1";
+            pointer_accel = "0.5";
           };
         };
         output = {
           "*" = {
             background =
               "${pkgs.sway}/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
+            scale = mkDefault "2";
           };
         };
         modifier = "Mod4";
