@@ -261,10 +261,11 @@ in {
       "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx"
     ];
     extraOpts = {
-      "DefaultJavaScriptSetting" = false;
-      "DefaultJavaScriptJitSetting" = false;
+      "DefaultJavaScriptSetting" = 2;
+      "DefaultJavaScriptJitSetting" = 2;
       "DefaultFileSystemWriteGuardSetting" = 2;
       "DefaultLocalFontsSetting" = 2;
+      "AlwaysOpenPdfExternally" = true;
       "BrowserSignin" = 0;
       "SyncDisabled" = true;
       "PasswordManagerEnabled" = false;
