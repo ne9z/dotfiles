@@ -70,9 +70,19 @@ in {
         swaylock swayidle foot gammastep wl-gammactl brightnessctl fuzzel grim
         libva-utils w3m gsettings-desktop-schemas pavucontrol waybar
         wl-clipboard wf-recorder;
+      inherit (pkgs.xfce) mousepad ristretto;
     };
     # must be enabled, or else many programs will crash
     wrapperFeatures.gtk = true;
+  };
+  services.gvfs.enable = true;
+  services.upower.enable = true;
+  programs.xfconf.enable = true;
+  services.udisks2.enable = true;
+  programs.dconf.enable = true;
+  programs.thunar.enable = true;
+  programs.thunar.plugins = builtins.attrValues {
+    inherit (pkgs.xfce) thunar-volman thunar-archive-plugin;
   };
   xdg.portal = {
     enable = true;

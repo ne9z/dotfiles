@@ -521,7 +521,7 @@ in {
       "fuzzel/fuzzel.ini" = {
         text = ''
           [main]
-          font=sans-serif:size=14
+          font=sans-serif:size=14:weight=bold
           dpi-aware=yes'';
       };
       "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
