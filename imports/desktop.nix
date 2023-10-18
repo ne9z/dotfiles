@@ -23,12 +23,6 @@ in {
     };
     homepageLocation = "https://gnu.org";
   };
-  security.chromiumSuidSandbox.enable = false;
-  services.xserver.enable = true; # for sddm
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
   users.mutableUsers = false;
   hardware = {
     opengl = {
