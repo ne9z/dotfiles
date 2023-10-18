@@ -7,22 +7,6 @@ let
   firefoxPkg = import ./firefox.nix { inherit pkgs; };
   mytex = import ./tex.nix { inherit pkgs; };
 in {
-  programs.chromium = {
-    enable = true;
-    defaultSearchProviderEnabled = false;
-    extraOpts = {
-      "DefaultJavaScriptJitSetting" = 2;
-      "DefaultFileSystemWriteGuardSetting" = 2;
-      "DefaultLocalFontsSetting" = 2;
-      "AlwaysOpenPdfExternally" = true;
-      "BrowserSignin" = 0;
-      "SyncDisabled" = true;
-      "PasswordManagerEnabled" = false;
-      "SpellcheckEnabled" = true;
-      "SpellcheckLanguage" = [ "de" "en-US" ];
-    };
-    homepageLocation = "https://gnu.org";
-  };
   users.mutableUsers = false;
   hardware = {
     opengl = {
@@ -32,7 +16,7 @@ in {
     };
     bluetooth = {
       enable = false;
-      powerOnBoot = true;
+      powerOnBoot = false;
     };
     pulseaudio.enable = false;
   };
@@ -95,10 +79,6 @@ in {
     W3M_DIR = "$HOME/.config/w3m";
     XCURSOR_THEME = "Adwaita";
     XCURSOR_SIZE = "48";
-  };
-  services.dictd = {
-    enable = true;
-    DBs = builtins.attrValues { inherit (pkgs.dictdDBs) wordnet; };
   };
   virtualisation.libvirtd = {
     enable = true;
