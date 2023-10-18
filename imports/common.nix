@@ -15,7 +15,7 @@ in {
   ];
   systemd.network.wait-online.enable = false;
   networking = {
-    useDHCP = false;
+    useDHCP = true;
     nftables.enable = true;
     useNetworkd = true;
     wireless = {
