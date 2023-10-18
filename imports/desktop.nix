@@ -96,8 +96,6 @@ in {
         ghostscript
         # spell checkers
         hunspell
-        # connect to wifi
-        wpa_supplicant_gui
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
