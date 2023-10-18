@@ -66,7 +66,7 @@ in {
       serif = [ "TeX Gyre Schola" "NewComputerModern08" "Noto Serif CJK SC" ];
     };
   };
-  fonts.packages = builtins.attrValues {
+  fonts.fonts = builtins.attrValues {
     inherit (pkgs)
       noto-fonts dejavu_fonts
       # noto cjk
