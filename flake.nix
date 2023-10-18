@@ -6,15 +6,14 @@
     # https://channels.nixos.org/nixos-unstable/git-revision
     # using this one
     # https://channels.nixos.org/nixos-unstable-small/git-revision
-    nixpkgs.url = "nixpkgs/52f7404b62181b4ef439bb644b3dfa58e9eb2ce7";
+    nixpkgs.url = "nixpkgs/2cb9af4323c64c93e8df3cae5988a53b8687ef3f";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pmacs.url = "nixpkgs/52f7404b62181b4ef439bb644b3dfa58e9eb2ce7";
   };
 
-  outputs = { self, nixpkgs, home-manager, pmacs }@inputs:
+  outputs = { self, nixpkgs, home-manager }@inputs:
     let
       mkHost = hostName: system:
         nixpkgs.lib.nixosSystem {
@@ -22,7 +21,6 @@
           pkgs = nixpkgs.legacyPackages.${system};
 
           specialArgs = {
-            pmacs = pmacs.legacyPackages.${system};
             inherit inputs;
           };
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pmacs, ... }:
+{ config, lib, pkgs, ... }:
 let
   inherit (lib) mkDefault mkOption types mkIf;
   # buildEmacs is a function that takes a set of emacs packages as
