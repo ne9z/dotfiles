@@ -9,8 +9,8 @@ in {
       inherit (pkgs)
         mg shellcheck _7zz xournalpp
         # book scanning and pdf-tools support for emacs
-        poppler_utils libtiff scantailor-advanced ffmpeg nixfmt qrencode
-        zathura jmtpfs gpxsee
+        poppler_utils libtiff scantailor-advanced ffmpeg nixfmt qrencode zathura
+        jmtpfs gpxsee
         # pdf processor in Go
         pdfcpu
         # image editor
