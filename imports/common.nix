@@ -18,6 +18,7 @@ in {
     useDHCP = true;
     nftables.enable = true;
     wireless = {
+      enable = true;
       allowAuxiliaryImperativeNetworks = true;
       iwd = { enable = true; };
       networks = { "TP-Link_48C2".psk = "77017543"; };
