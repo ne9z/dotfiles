@@ -1,32 +1,12 @@
 { pkgs, ... }: {
-  programs.firefox = {
-    enable = true;
-    languagePacks = [ "zh-CN" ];
-  };
-
-  environment = {
-    systemPackages =
-      builtins.attrValues { inherit (pkgs) ungoogled-chromium mg; };
-  };
+  programs.firefox.languagePacks = [ "zh-CN" ];
   services.xserver.enable = true;
-  services.xserver.displayManager = {
-    autoLogin.user = "mima";
-    lightdm.enable = true;
-  };
-  security.chromiumSuidSandbox.enable = true;
+  services.xserver.displayManager.autoLogin.user = "mima";
   services.xserver.desktopManager.lxqt.enable = true;
-  hardware = {
-    opengl = {
-      extraPackages =
-        builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
-      enable = true;
-    };
-  };
   i18n.defaultLocale = "zh_CN.UTF-8";
   i18n.inputMethod.enabled = "ibus";
   i18n.inputMethod.ibus.engines =
     builtins.attrValues { inherit (pkgs.ibus-engines) libpinyin; };
-  users.mutableUsers = false;
   users.users = {
     mima = {
       # "!" means login disabled
@@ -40,28 +20,5 @@
         "networkmanager"
       ];
     };
-  };
-  fonts.fontconfig = {
-    # disable bitmap unifont
-    localConf = ''
-      <selectfont>
-        <rejectfont>
-          <pattern>
-             <patelt name="family" >
-                <string>Unifont</string>
-              </patelt>
-          </pattern>
-        </rejectfont>
-      </selectfont>
-    '';
-    defaultFonts = {
-      monospace = [ "DejaVu Sans Mono" "Source Han Mono SC" ];
-      sansSerif = [ "DejaVu Sans" "Source Han Sans SC" ];
-      serif = [ "DejaVu Serif" "Source Han Serif SC" ];
-    };
-  };
-  fonts.packages = builtins.attrValues {
-    inherit (pkgs)
-      dejavu_fonts stix-two source-han-sans source-han-mono source-han-serif;
   };
 }
