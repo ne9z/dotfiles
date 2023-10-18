@@ -13,7 +13,7 @@
   <property name="edgePanMaxMult" value="5"/>
   <property name="zoomStep" value="20"/>
   <property name="zoomStepScroll" value="2"/>
-  <property name="displayDpi" value="72"/>
+  <property name="displayDpi" value="230"/>
   <property name="mainWndWidth" value="3840"/>
   <property name="mainWndHeight" value="2124"/>
   <property name="maximized" value="false"/>
@@ -51,7 +51,7 @@
   <property name="highlightPosition" value="true"/>
   <property name="cursorHighlightColor" value="2164260608"/>
   <property name="cursorHighlightBorderColor" value="2147483903"/>
-  <property name="cursorHighlightRadius" value="15"/>
+  <property name="cursorHighlightRadius" value="30"/>
   <property name="cursorHighlightBorderWidth" value="0"/>
   <property name="darkTheme" value="false"/>
   <property name="useStockIcons" value="true"/>

@@ -34,7 +34,7 @@ in {
     };
     cursorTheme = {
       name = "Adwaita";
-      size = 16;
+      size = 48;
     };
   };
   dconf.settings = {
@@ -210,8 +210,8 @@ in {
     settings = {
       main = {
         term = "foot-direct";
-        dpi-aware = "no";
-        font = mkDefault "monospace:size=10";
+        dpi-aware = "yes";
+        font = mkDefault "monospace:size=12";
       };
 
       url = { launch = "wl-copy \${url}"; };
@@ -431,6 +431,7 @@ in {
       fonts = {
         names = [ "sans-serif" ];
         style = "bold";
+        size = mkDefault 16.0;
       };
       modes = {
         default = { };
@@ -439,7 +440,7 @@ in {
       seat = {
         "*" = {
           hide_cursor = "when-typing enable";
-          xcursor_theme = "Adwaita 16";
+          xcursor_theme = "Adwaita 48";
         };
       };
       input = {
@@ -448,18 +449,17 @@ in {
           natural_scroll = "enabled";
           middle_emulation = "enabled";
           scroll_method = "edge";
-          pointer_accel = "0.1";
+          pointer_accel = "0.3";
         };
         "1149:8257:Kensington_Kensington_Slimblade_Trackball" = {
           left_handed = "enabled";
-          pointer_accel = "0.5";
+          pointer_accel = "1";
         };
       };
       output = {
         "*" = {
           background =
             "${pkgs.sway}/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
-          scale = mkDefault "2";
         };
       };
       modifier = "Mod4";
@@ -521,7 +521,7 @@ in {
       "fuzzel/fuzzel.ini" = {
         text = ''
           [main]
-          font=sans-serif:size=12:weight=bold
+          font=sans-serif:size=14
           dpi-aware=no'';
       };
       "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
