@@ -37,13 +37,13 @@ in {
       enable = true;
     };
     bluetooth = {
-      enable = true;
+      enable = false;
       powerOnBoot = true;
     };
     pulseaudio.enable = false;
   };
   services = {
-    blueman.enable = true;
+    blueman.enable = false;
     logind = {
       extraConfig = ''
         HandlePowerKey=suspend
@@ -122,8 +122,8 @@ in {
         ghostscript
         # spell checkers
         hunspell
-        # debug
-        gdb
+        # connect to wifi
+        wpa_supplicant_gui
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;

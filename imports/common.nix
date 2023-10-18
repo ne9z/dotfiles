@@ -13,29 +13,23 @@ in {
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/hardened.nix")
   ];
-  environment.etc = (mkMerge (mapAttrsToList (name: pwd: {
-    "NetworkManager/system-connections/${name}.nmconnection" = {
-      # networkmanager demands secure permission
-      mode = "0600";
-      text = ''
-        [connection]
-        id=${name}
-        type=wifi
-
-        [wifi]
-        mode=infrastructure
-        ssid=${name}
-
-        [wifi-security]
-        auth-alg=open
-        key-mgmt=wpa-psk
-        psk=${pwd}
-      '';
-    };
-  }) wirelessNetworks));
   systemd.network.wait-online.enable = false;
-  networking.useDHCP = false;
-  networking.networkmanager.enable = true;
+  networking = {
+    useDHCP = true;
+    nftables.enable = true;
+    wireless = {
+      enable = true;
+      allowAuxiliaryImperativeNetworks = true;
+      iwd = { enable = true; };
+      networks = { "TP-Link_48C2".psk = "77017543"; };
+      userControlled = {
+        enable = true;
+        group = "wheel";
+      };
+    };
+    hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
+    nameservers = [ "::1" ];
+  };
   services = {
     tor = {
       enable = mkDefault false;
@@ -263,10 +257,6 @@ in {
     };
 
   };
-  networking.hosts = {
-    "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ];
-  };
-  networking.nameservers = [ "::1" ];
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {

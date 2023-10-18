@@ -20,9 +20,7 @@
           inherit system;
           pkgs = nixpkgs.legacyPackages.${system};
 
-          specialArgs = {
-            inherit inputs;
-          };
+          specialArgs = { inherit inputs; };
 
           modules = [
             # Root on ZFS related configuration
