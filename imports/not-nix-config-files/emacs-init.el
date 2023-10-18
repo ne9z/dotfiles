@@ -97,6 +97,8 @@
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
+  :custom-face
+  (font-latex-math-face ((t (:family "STIX Two Math"))))
   :custom
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)

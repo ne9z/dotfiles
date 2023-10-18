@@ -522,7 +522,7 @@ in {
         text = ''
           [main]
           font=sans-serif:size=14
-          dpi-aware=no'';
+          dpi-aware=yes'';
       };
       "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
       "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
