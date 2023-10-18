@@ -21,6 +21,7 @@ in {
     wireless = {
       enable = true;
       allowAuxiliaryImperativeNetworks = true;
+      extraConfig = "p2p_disabled=1";
       networks = { "TP-Link_48C2".psk = "77017543"; };
       userControlled = {
         enable = true;
