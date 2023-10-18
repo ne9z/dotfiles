@@ -105,9 +105,7 @@ in {
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
   } ++ [ mytex.fonts ];
   environment.sessionVariables = {
-    QT_AUTO_SCREEN_SCALE_FACTOR = "0";
-    QT_ENABLE_HIGHDPI_SCALING = "0";
-    QT_SCALE_FACTOR = mkDefault "2";
+    QT_WAYLAND_FORCE_DPI = mkDefault "192";
     GDK_DPI_SCALE = mkDefault "2";
     VAAPI_DISABLE_INTERLACE = "1";
     W3M_DIR = "$HOME/.config/w3m";

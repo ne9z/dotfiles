@@ -9,7 +9,7 @@ in {
   };
   time.timeZone = "Europe/Berlin";
   environment.sessionVariables = {
-    QT_SCALE_FACTOR = "3";
+    QT_WAYLAND_FORCE_DPI = "288";
     GDK_DPI_SCALE = "3";
   };
 
