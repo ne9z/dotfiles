@@ -62,6 +62,7 @@ in {
   programs.sway = {
     extraSessionCommands = ''
       export MOZ_ENABLE_WAYLAND=1
+      export XCURSOR_THEME=Adwaita
       export _JAVA_AWT_WM_NONREPARENTING=1
     '';
     enable = true;
@@ -101,8 +102,6 @@ in {
     GDK_DPI_SCALE = mkDefault "2";
     VAAPI_DISABLE_INTERLACE = "1";
     W3M_DIR = "$HOME/.config/w3m";
-    XCURSOR_THEME = "Adwaita";
-    XCURSOR_SIZE = "48";
   };
   services.dictd = {
     enable = true;
