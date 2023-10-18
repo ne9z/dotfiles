@@ -5,7 +5,6 @@ in {
     ../../imports/common.nix
     ../../imports/desktop.nix
     ../../imports/yc.nix
-    ../../imports/zh.nix
   ];
   time.timeZone = "Europe/Berlin";
   boot.initrd.availableKernelModules = [ "nvme" ];
