@@ -27,7 +27,6 @@ in {
       networks = {
         "TP-Link_48C2".psk = "77017543";
         "eduroam".auth = ''
-          key_mgmt=WPA-EAP
           eap=PEAP
           ca_cert="/etc/ssl/certs/ca-certificates.crt"
           phase2="auth=MSCHAPV2"
