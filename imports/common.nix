@@ -22,8 +22,19 @@ in {
     useNetworkd = true;
     wireless = {
       enable = true;
+      environmentFile = "/home/yc/Documents/wifipass.txt";
       allowAuxiliaryImperativeNetworks = true;
-      networks = { "TP-Link_48C2".psk = "77017543"; };
+      networks = {
+        "TP-Link_48C2".psk = "77017543";
+        "eduroam".auth = ''
+          eap=PEAP
+          phase2="auth=MSCHAPV2"
+          identity="yguo@tu-berlin.de"
+          domain_suffix_match="tu-berlin.de"
+          anonymous_identity="wlan@tu-berlin.de"
+          password="@PASS_TU_BERLIN@"
+        '';
+      };
       userControlled = {
         enable = true;
         group = "wheel";

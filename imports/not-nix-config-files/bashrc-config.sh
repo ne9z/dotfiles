@@ -172,75 +172,13 @@ gm () {
 }
 
 tubb () {
-    if ! test -f "${HOME}"/.config/tubpass; then
-	pass show de/tub | head -n1 > "${HOME}"/.config/tubpass
+    if [ -f "${HOME}"/Documents/wifipass.txt ]; then
+        source "${HOME}"/Documents/wifipass.txt
+        echo -n "${PASS_TU_BERLIN}" | wl-copy
+    else
+        echo "no pass! Put pass in "
+        echo "${HOME}"/Documents/wifipass.txt
+        echo 'with PASS_TU_BERLIN="YOUR_PASS"'
+        return 1
     fi
-    wl-copy < "${HOME}"/.config/tubpass
-}
-
-
-mbootstrapdir="
-/oldroot${HOME}
-/oldroot${HOME}/Downloads:${HOME}/Downloads
-/oldroot${HOME}/Documents:${HOME}/Documents
-/oldroot${HOME}/gnus:${HOME}/Mail
-/oldroot${HOME}/.gnupg:${HOME}/.gnupg
-/oldroot${HOME}/.ssh/
-"
-
-mbootstrap () {
-    local choice
-    echo "you need to run this in a SUBSHELL. type YES if you know"
-    echo "gpg.tar.xz must be already in /home/yc"
-    read -r choice
-    if [ "${choice}" != "YES" ]; then
-	return 1
-    fi
-
-    set -ex
-    local source=""
-    for mount in ${mbootstrapdir}; do
-	source="${mount%:*} ${source}"
-    done
-    doas /usr/bin/env source="${source}" user="$(whoami)" bash <<-'EOF'
-set -ex
-for i in ${source}; do
-    if ! test -d "${i}"; then
-     mkdir -p "${i}"
-   fi
-   chown -R  ${user}:users /oldroot/home
-set -ex
-done
-EOF
-    echo "restore gnupg"
-    tar -axC /oldroot"${HOME}" -f "${HOME}"/gpg.tar.xz
-    mv /oldroot/home/yc/oldroot/home/yc/.gnupg/ /oldroot/home/yc/
-    ln -s /oldroot"${HOME}"/.gnupg "${HOME}"/.gnupg
-    # restart gpg ssh agent
-    systemctl stop --user gpg-agent-ssh.socket
-    systemctl stop --user gpg-agent.service
-    systemctl start --user gpg-agent-ssh.socket
-    echo "clone password repo"
-    git clone tl.yc:~/githost/pass /oldroot"${HOME}"/.password-store
-    echo "clone sysconf repo"
-    git clone tl.yc:~/githost/systemConfiguration /oldroot"${HOME}"/nixos-config
-    mkdir -p "${HOME}"/Maildir/posteo
-    echo "RETURN_SUCCESS"
-    echo "zfs set com.sun:auto-snapshot=true rpool/nixos/home"
-    set +ex
-}
-
-conedu () {
-    nmcli connection add \
-	  type wifi \
-	  connection.id eduroam \
-	  wifi.mode infrastructure \
-	  wifi.ssid eduroam \
-	  wifi-sec.auth-alg open \
-	  wifi-sec.key-mgmt wpa-eap \
-	  802-1x.eap peap \
-	  802-1x.identity yguo@tu-berlin.de \
-	  802-1x.password "$(cat "${HOME}"/.config/tubpass)" \
-	  802-1x.phase2-auth mschapv2
-    nmcli connection up eduroam
 }
