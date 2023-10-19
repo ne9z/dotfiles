@@ -27,8 +27,9 @@ in {
       networks = {
         "TP-Link_48C2".psk = "77017543";
         "eduroam".auth = ''
-          key_mgmt=IEEE8021X
+          key_mgmt=WPA-EAP
           eap=PEAP
+          ca_cert="/etc/ssl/certs/ca-certificates.crt"
           phase2="auth=MSCHAPV2"
           identity="yguo@tu-berlin.de"
           domain_suffix_match="tu-berlin.de"
@@ -36,7 +37,7 @@ in {
           password="@PASS_TU_BERLIN@"
         '';
         # public network
-        "_Free_Wifi_Berlin" = {};
+        # "_Free_Wifi_Berlin" = {};
       };
       userControlled = {
         enable = true;
