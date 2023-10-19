@@ -7,8 +7,7 @@ wpa_cli usage
 > set_network 4 ssid "Berlinovo WiFi"
 
 If open network
-> set_network 4 key_mgmt NONE                                                                                                   
-
+> set_network 4 key_mgmt NONE
 
 If password
 > set_network 0 psk "passphrase"

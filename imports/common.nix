@@ -35,6 +35,8 @@ in {
           anonymous_identity="wlan@tu-berlin.de"
           password="@PASS_TU_BERLIN@"
         '';
+        # public network
+        "_Free_Wifi_Berlin" = {};
       };
       userControlled = {
         enable = true;
