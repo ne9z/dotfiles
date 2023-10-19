@@ -9,18 +9,15 @@ in {
       inherit (pkgs)
         mg shellcheck _7zz xournalpp
         # book scanning and pdf-tools support for emacs
-        ffmpeg nixfmt qrencode zathura
-        jmtpfs gpxsee
+        ffmpeg nixfmt qrencode zathura jmtpfs gpxsee
         # pdf processor in Go
         pdfcpu
         # image editor
         nomacs
-        # CoMa programs
-        python3
         # pdf manipulation suite in C++
         # https://qpdf.readthedocs.io/en/stable/
         qpdf;
-    };
+    } ++ [ (pkgs.python3.withPackages (ps: with ps; [ sympy ])) ];
   };
   gtk = {
     enable = true;
