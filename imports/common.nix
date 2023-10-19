@@ -27,6 +27,7 @@ in {
       networks = {
         "TP-Link_48C2".psk = "77017543";
         "eduroam".auth = ''
+          key_mgmt=IEEE8021X
           eap=PEAP
           phase2="auth=MSCHAPV2"
           identity="yguo@tu-berlin.de"
