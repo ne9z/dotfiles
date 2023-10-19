@@ -1,0 +1,27 @@
+wpa_cli usage
+
+> scan
+> scan_results
+> add_network
+4
+> set_network 4 ssid "Berlinovo WiFi"
+
+If open network
+> set_network 4 key_mgmt NONE                                                                                                   
+
+
+If password
+> set_network 0 psk "passphrase"
+
+> enable_network 4
+
+> disconnect
+> reconnect
+
+select one network from list
+> list_networks
+> select_network 0
+
+> save_config
+OK
+> quit
