@@ -2,6 +2,8 @@
 let
   inherit (lib) mkDefault;
   emacsPkg = import ./emacs.nix { inherit pkgs; };
+  mypython =
+    pkgs.python3.withPackages (ps: builtins.attrValues { inherit (ps) sympy; });
 in {
   programs.home-manager.enable = true;
   home = {
@@ -17,7 +19,8 @@ in {
         # pdf manipulation suite in C++
         # https://qpdf.readthedocs.io/en/stable/
         qpdf;
-    } ++ [ (pkgs.python3.withPackages (ps: with ps; [ sympy ])) ];
+      inherit mypython;
+    };
   };
   gtk = {
     enable = true;
