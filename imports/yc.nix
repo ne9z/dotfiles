@@ -86,10 +86,8 @@ in {
       };
       programs.ssh = {
         matchBlocks = {
-          "github.com" = {
-            # github.com:ne9z
-            user = "git";
-          };
+          "unixpool.math.tu-berlin.de".user = "cma-1e1";
+          "github.com".user = "git";
           "tl.yc" = {
             user = "yc";
             port = 65222;
