@@ -123,8 +123,8 @@
      '(("\\\\[[]" . "\\\\[]]")))
     (cadr ispell-tex-skip-alists)))
   :config
-  (add-to-list 'tex--prettify-symbols-alist '("\\(" . ?«))
-  (add-to-list 'tex--prettify-symbols-alist '("\\)" . ?»))
+  (add-to-list 'tex--prettify-symbols-alist '("\\(" . ?｢))
+  (add-to-list 'tex--prettify-symbols-alist '("\\)" . ?｣))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
