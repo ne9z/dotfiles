@@ -20,6 +20,10 @@ in {
     };
     pulseaudio.enable = false;
   };
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
   services = {
     blueman.enable = false;
     logind = {
