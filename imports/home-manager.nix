@@ -457,10 +457,7 @@ in {
         };
       };
       output = {
-        "*" = {
-          background =
-            "$HOME/nixos-config/wallpaper.jpg fill";
-        };
+        "*" = { background = "$HOME/nixos-config/wallpaper.jpg fill"; };
       };
       modifier = "Mod4";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
