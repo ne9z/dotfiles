@@ -3,3 +3,12 @@
 Sway, Emacs, tmux, immutable root and home.
 
 [[https://codeberg.org/m0p/ublock-origin-mirror/raw/branch/main/4k.png]]
+
+* Pro tip
+
+Use as few as ZFS features as possible, as they are a source of bugs
+and kernel panics.  Always create ZFS pools with all features
+disabled, that is, =zpool create -d= flag.
+
+Do not enable any ZFS feature unless absolutely necessary.  Prefer
+LUKS over ZFS native encryption.
