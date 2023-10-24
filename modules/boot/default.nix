@@ -2,7 +2,7 @@
 
 let
   cfg = config.zfs-root.boot;
-  inherit (lib) mkIf types mkDefault mkOption mkMerge strings mapAttrsToList;
+  inherit (lib) mkIf types mkDefault mkOption mkMerge strings;
   inherit (builtins) head toString map tail;
 in {
   options.zfs-root.boot = {
