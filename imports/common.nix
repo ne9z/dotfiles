@@ -2,7 +2,6 @@
 let
   inherit (lib) mkMerge mapAttrsToList mkDefault;
   inherit (inputs) self nixpkgs;
-  wirelessNetworks = { "TP-Link_48C2" = "77017543"; };
 in {
   system.configurationRevision = if (self ? rev) then
     self.rev
@@ -21,32 +20,6 @@ in {
     useDHCP = true;
     nftables.enable = true;
     useNetworkd = true;
-    wireless = {
-      enable = true;
-      environmentFile = "/home/yc/Documents/wifipass.txt";
-      allowAuxiliaryImperativeNetworks = true;
-      networks = {
-        "TP-Link_48C2".psk = "77017543";
-        "eduroam" = {
-          authProtocols = [ "WPA-EAP" ];
-          auth = ''
-            eap=PEAP
-            ca_cert="/etc/ssl/certs/ca-certificates.crt"
-            phase2="auth=MSCHAPV2"
-            identity="yguo@tu-berlin.de"
-            domain_suffix_match="tu-berlin.de"
-            anonymous_identity="wlan@tu-berlin.de"
-            password="@PASS_TU_BERLIN@"
-          '';
-        };
-        # public network
-        # "_Free_Wifi_Berlin" = {};
-      };
-      userControlled = {
-        enable = true;
-        group = "wheel";
-      };
-    };
     hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
     nameservers = [ "::1" ];
   };
