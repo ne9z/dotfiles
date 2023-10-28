@@ -48,9 +48,9 @@ in {
     };
     pulseaudio.enable = false;
   };
-  services.xserver.enable = true;
+  services.xserver.enable = false;
   services.xserver.displayManager.sddm = {
-    enable = true;
+    enable = false;
     wayland.enable = true;
   };
   services = {
