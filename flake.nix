@@ -17,9 +17,10 @@
     let
       mkHost = hostName: system:
         nixpkgs.lib.nixosSystem {
-          inherit system;
-          pkgs = nixpkgs.legacyPackages.${system};
-
+          pkgs = import nixpkgs {
+            inherit system;
+            nixpkgs.pkgs.zathura.useMupdf = true;
+          };
           specialArgs = { inherit inputs; };
 
           modules = [
