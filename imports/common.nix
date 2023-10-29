@@ -13,6 +13,7 @@ in {
     (modulesPath + "/profiles/hardened.nix")
   ];
   boot.initrd.systemd.enable = true;
+  boot.initrd.systemd.emergencyAccess = false;
   # placeholder; or else the service would fail
   environment.etc."wpa_supplicant.conf".text = "#";
   systemd.network.wait-online.enable = false;
