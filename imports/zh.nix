@@ -29,7 +29,7 @@ in {
       uid = 1000;
     };
   };
-  home-manager.users.yc = mkMerge [
+  home-manager.users.mz = mkMerge [
     (import ./home-manager.nix { inherit config lib pkgs; })
     {
       home = {
