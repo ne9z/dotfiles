@@ -1,6 +1,5 @@
 { config, lib, pkgs, ... }:
-let
-  inherit (lib) mkMerge;
+let inherit (lib) mkMerge;
 in {
   services.xserver = {
     layout = "ergo-keymap-qwerty";
@@ -43,30 +42,7 @@ in {
         userEmail = "user@example.com";
         userName = "Meng Zhang";
       };
-      programs.bash = {
-        enable = true;
-        initExtra =
-          "if [ -f ~/.config/yc.sh ]; then source ~/.config/yc.sh; fi";
-      };
-      xdg = {
-        configFile = {
-          "sway/yc-sticky-keymap" = {
-            source = ./ergo-keymap-qwerty.txt;
-          };
-          "yc.sh" = { source = ./not-nix-config-files/bashrc-config.sh; };
-          "w3m/bookmark.html" = {
-            source = ./not-nix-config-files/w3m-bookmark.html;
-          };
-        };
-
-      };
-      wayland.windowManager.sway = {
-        config.input = {
-          "type:keyboard" = {
-            xkb_file = "$HOME/.config/sway/yc-sticky-keymap";
-          };
-        };
-      };
+      programs.bash = { enable = true; };
     }
   ];
 }
