@@ -4,7 +4,6 @@ let
   # buildEmacs is a function that takes a set of emacs packages as
   # input
   emacsPkg = import ./emacs.nix { inherit pkgs; };
-  firefoxPkg = import ./firefox.nix { inherit pkgs; };
   mytex = import ./tex.nix { inherit pkgs; };
 in {
   networking = {
@@ -132,7 +131,7 @@ in {
         # used with dired mode to open files
         xdg-utils;
       inherit (pkgs.hunspellDicts) en_US de_DE;
-      inherit emacsPkg mytex firefoxPkg;
+      inherit emacsPkg mytex;
     };
     interactiveShellInit = ''
       e () { $EDITOR --create-frame "$@"; }
