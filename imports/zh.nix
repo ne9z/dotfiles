@@ -9,6 +9,7 @@ in {
       symbolsFile = ./ergo-keymap-qwerty.txt;
     };
   };
+  services.yggdrasil.persistentKeys = true;
   zfs-root.boot.immutable = lib.mkForce false;
   environment.variables = { XKB_DEFAULT_LAYOUT = "ergo-keymap-qwerty"; };
   users.users = {
