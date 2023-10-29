@@ -43,7 +43,6 @@
 
 ;; swap backspace and C-h
 (define-key key-translation-map [?\C-h] [?\C-?])
-(define-key key-translation-map [?\C-?] [?\C-h])
 (define-key key-translation-map [?\M-h] [?\M-\d])
 (define-key key-translation-map [?\M-\d] [?\M-h])
 ;; swap backspace and C-h ends here
