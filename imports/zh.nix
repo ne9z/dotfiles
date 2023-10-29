@@ -44,6 +44,20 @@ in {
         userName = "Meng Zhang";
       };
       programs.bash = { enable = true; };
+      xdg = {
+        configFile = {
+          "sway/yc-sticky-keymap" = {
+            source = ./not-nix-config-files/swaywm-emacs-ergo-keymap-qwerty.txt;
+          };
+        };
+      };
+      wayland.windowManager.sway = {
+        config.input = {
+          "type:keyboard" = {
+            xkb_file = "$HOME/.config/sway/yc-sticky-keymap";
+          };
+        };
+      };
     }
   ];
 }
