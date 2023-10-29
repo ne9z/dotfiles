@@ -42,7 +42,7 @@ in {
     extraLayouts."yc" = {
       description = "zfs-root layout";
       languages = [ "eng" ];
-      symbolsFile = ./symbols.txt;
+      symbolsFile = ./ergo-keymap-yc.txt;
     };
   };
   environment.variables = { XKB_DEFAULT_LAYOUT = "yc"; };
