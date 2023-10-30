@@ -3,8 +3,8 @@ let inherit (lib) mkMerge;
 in {
   networking = {
     wireless = {
+      environmentFile = "/home/mz/Documents/wifipass.txt";
       networks = {
-        environmentFile = "/home/mz/Documents/wifipass.txt";
         "TP-Link_48C2".psk = "77017543";
         "eduroam" = {
           authProtocols = [ "WPA-EAP" ];
@@ -32,7 +32,7 @@ in {
     };
   };
   services.yggdrasil.persistentKeys = true;
-  zfs-root.boot.immutable = lib.mkForce false;
+  zfs-root.boot.immutable = false;
   environment.variables = { XKB_DEFAULT_LAYOUT = "ergo-keymap-qwerty"; };
   users.users = {
     mz = {
