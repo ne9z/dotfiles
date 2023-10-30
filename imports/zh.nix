@@ -36,7 +36,7 @@ in {
   environment.variables = { XKB_DEFAULT_LAYOUT = "ergo-keymap-qwerty"; };
   users.users = {
     mz = {
-      packages = [ pkgs.firefox-esr ];
+      packages = [ pkgs.firefox-esr pkgs.libreoffice ];
       # "!" means login disabled
       initialPassword = "mz";
       description = "Meng Zhang";
