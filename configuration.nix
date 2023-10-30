@@ -1,7 +1,9 @@
 # configuration in this file is shared by all hosts
 
-{ pkgs, pkgs-unstable, inputs, ... }:
-let inherit (inputs) self;
+{ pkgs, pkgs-unstable, inputs, lib, ... }:
+let
+  inherit (inputs) self;
+  inherit (lib) mkDefault;
 in {
   ## enable ZFS auto snapshot on datasets
   ## You need to set the auto snapshot property to "true"
@@ -53,5 +55,5 @@ in {
   # outside template
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   zfs-root.boot.devNodes = "/dev/disk/by-id/";
-  zfs-root.boot.immutable = true;
+  zfs-root.boot.immutable = mkDefault true;
 }

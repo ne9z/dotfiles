@@ -1,6 +1,28 @@
 { config, lib, pkgs, ... }:
 let inherit (lib) mkMerge;
 in {
+  networking = {
+    wireless = {
+      networks = {
+        environmentFile = "/home/mz/Documents/wifipass.txt";
+        "TP-Link_48C2".psk = "77017543";
+        "eduroam" = {
+          authProtocols = [ "WPA-EAP" ];
+          auth = ''
+            eap=PEAP
+            ca_cert="/etc/ssl/certs/ca-certificates.crt"
+            phase2="auth=MSCHAPV2"
+            identity="meng.zhang@tu-berlin.de"
+            domain_suffix_match="tu-berlin.de"
+            anonymous_identity="wlan@tu-berlin.de"
+            password="@PASS_TU_BERLIN@"
+          '';
+        };
+        # public network
+        # "_Free_Wifi_Berlin" = {};
+      };
+    };
+  };
   services.xserver = {
     layout = "ergo-keymap-qwerty";
     extraLayouts."ergo-keymap-qwerty" = {

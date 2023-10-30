@@ -6,6 +6,28 @@ let
     [ "bind" "X-mount.mkdir" "noatime" "uid=yc" "gid=users" "mode=1700" ];
 in {
   zfs-root.fileSystems.datasets."rpool/nixos/home" = "/oldroot/home";
+  networking = {
+    wireless = {
+      environmentFile = "/home/yc/Documents/wifipass.txt";
+      networks = {
+        "TP-Link_48C2".psk = "77017543";
+        "eduroam" = {
+          authProtocols = [ "WPA-EAP" ];
+          auth = ''
+            eap=PEAP
+            ca_cert="/etc/ssl/certs/ca-certificates.crt"
+            phase2="auth=MSCHAPV2"
+            identity="yguo@tu-berlin.de"
+            domain_suffix_match="tu-berlin.de"
+            anonymous_identity="wlan@tu-berlin.de"
+            password="@PASS_TU_BERLIN@"
+          '';
+        };
+        # public network
+        # "_Free_Wifi_Berlin" = {};
+      };
+    };
+  };
   fileSystems = {
     "/home/yc" = {
       device = "tmpfs";
