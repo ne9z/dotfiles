@@ -465,7 +465,7 @@ in {
         command = "${pkgs.systemd}/bin/systemctl --user restart waybar";
         always = true;
       }];
-      terminal = "${pkgs.foot}/bin/foot ${pkgs.tmux}/bin/tmux attach-session";
+      terminal = "${pkgs.foot}/bin/footclient ${pkgs.tmux}/bin/tmux attach-session";
       window = {
         hideEdgeBorders = "smart";
         titlebar = true;
