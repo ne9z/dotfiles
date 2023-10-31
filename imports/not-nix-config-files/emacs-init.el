@@ -47,9 +47,6 @@
 (define-key key-translation-map [?\M-\d] [?\M-h])
 ;; swap backspace and C-h ends here
 
-;; set C-z as undo
-(define-key key-translation-map [?\C-z] [?\C-/])
-
 ;; ispell, multilingual spellchecking
 ;; https://www.monotux.tech/posts/2021/02/hunspell-multi-lang/
 (use-package ispell
