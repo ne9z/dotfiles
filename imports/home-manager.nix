@@ -15,7 +15,7 @@ in {
         # pdf processor in Go
         pdfcpu
         # image editor
-        nomacs
+        shotwell
         # pdf manipulation suite in C++
         # https://qpdf.readthedocs.io/en/stable/
         qpdf;
@@ -495,8 +495,8 @@ in {
       enable = true;
       defaultApplications = {
         "application/pdf" = "org.pwmt.zathura.desktop";
-        "image/jpeg" = "org.nomacs.ImageLounge.desktop";
-        "image/tiff" = "org.nomacs.ImageLounge.desktop";
+        "image/jpeg" = "org.gnome.Shotwell";
+        "image/tiff" = "org.gnome.Shotwell";
         "application/vnd.comicbook+zip" = "org.pwmt.zathura.desktop";
       };
     };
@@ -510,9 +510,6 @@ in {
       "gpxsee/gpxsee.conf" = { source = ./not-nix-config-files/gpxsee.conf; };
       "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
       "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
-      "nomacs/Image Lounge.conf" = {
-        source = ./not-nix-config-files/nomacs-config.conf;
-      };
       "scantailor-advanced/scantailor-advanced.ini" = {
         source = ./not-nix-config-files/scantailor-advanced.ini;
       };
