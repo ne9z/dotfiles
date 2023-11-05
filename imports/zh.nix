@@ -6,7 +6,7 @@ in {
       environmentFile = "/home/mz/Documents/wifipass.txt";
       networks = {
         "TP-Link_48C2".psk = "77017543";
-        "TUB-Guest" = {};
+        "TUB-Guest" = { };
         # public network
         # "_Free_Wifi_Berlin" = {};
       };

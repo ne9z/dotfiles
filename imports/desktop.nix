@@ -79,10 +79,20 @@ in {
     localConf = builtins.readFile ./fontconfig.xml;
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace = [ "NewComputerModernMono10" "Noto Sans Mono CJK SC" ];
-      sansSerif =
-        [ "TeX Gyre Schola" "NewComputerModern08" "Noto Serif CJK SC" ];
-      serif = [ "TeX Gyre Schola" "NewComputerModern08" "Noto Serif CJK SC" ];
+      monospace =
+        [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" "Noto Sans Mono" ];
+      sansSerif = [
+        "TeX Gyre Schola"
+        "NewComputerModern08"
+        "Noto Serif CJK SC"
+        "Noto Serif"
+      ];
+      serif = [
+        "TeX Gyre Schola"
+        "NewComputerModern08"
+        "Noto Serif CJK SC"
+        "Noto Serif"
+      ];
     };
   };
   fonts.fonts = builtins.attrValues {
