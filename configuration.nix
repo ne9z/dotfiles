@@ -55,5 +55,5 @@ in {
   # outside template
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   zfs-root.boot.devNodes = "/dev/disk/by-id/";
-  zfs-root.boot.immutable = mkDefault true;
+  zfs-root.boot.immutable.enable = mkDefault true;
 }

@@ -21,7 +21,7 @@ in {
     };
   };
   services.yggdrasil.persistentKeys = true;
-  zfs-root.boot.immutable = false;
+  zfs-root.boot.immutable.enable = false;
   environment.variables = { XKB_DEFAULT_LAYOUT = "ergo-keymap-qwerty"; };
   users.users = {
     mz = {

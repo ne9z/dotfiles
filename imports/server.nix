@@ -162,7 +162,7 @@
       ];
     };
   };
-  zfs-root = { boot = { immutable = true; }; };
+  zfs-root.boot.immutable.enable = true;
   services.openssh = {
     ports = [ 22 65222 ];
     allowSFTP = true;
