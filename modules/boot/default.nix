@@ -55,9 +55,6 @@ in {
     {
       zfs-root.fileSystems.datasets = {
         # rpool/path/to/dataset = "/path/to/mountpoint"
-        "rpool/nixos/home" = mkDefault "/home";
-        "rpool/nixos/var/lib" = mkDefault "/var/lib";
-        "rpool/nixos/var/log" = mkDefault "/var/log";
         "bpool/nixos/root" = "/boot";
       };
     }
@@ -83,7 +80,6 @@ in {
         bindmounts = {
           # /bindmount/source = /bindmount/target
           "/oldroot/nix" = "/nix";
-          "/oldroot/etc/nixos" = "/etc/nixos";
         };
       };
       boot.initrd.systemd.services.immutable-zfs-root = {
