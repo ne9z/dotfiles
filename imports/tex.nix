@@ -27,6 +27,8 @@ pkgs.texlive.combine {
     xindy
     # deal with intervals
     interval
+    # with pdflatex
+    mlmodern
     # pictures and tikz
     collection-pictures;
 }
