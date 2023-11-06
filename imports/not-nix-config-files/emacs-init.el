@@ -103,7 +103,6 @@
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
   (TeX-debug-warnings t)
-  (TeX-engine 'luatex)
   (TeX-electric-math '("\\(" . "\\)"))
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)
