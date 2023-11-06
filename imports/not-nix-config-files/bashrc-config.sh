@@ -47,7 +47,7 @@ wfrnativeres () {
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
-    # 
+    #
     # see this link for more ffmpeg video encoding options
     # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
 }
@@ -65,7 +65,7 @@ wfr1080p () {
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
-    # 
+    #
     # see this link for more ffmpeg video encoding options
     # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
 }

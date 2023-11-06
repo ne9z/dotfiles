@@ -6,7 +6,7 @@ I should rotate GPG keys on a biannual basis.
      git ls-files | xargs sed -i "s|$(gpg --export-ssh-key yuchen@posteo.net)|gpg_rotate_holder|g"
    #+end_src
 2. In password store =$HOME/.password-store=, decrypt all passwords to
-   plain text 
+   plain text
    #+begin_src sh
      cd $HOME/.password-store
      git ls-files | grep .gpg$ | xargs -I '{}' gpg --output '{}'.txt --decrypt  '{}'
