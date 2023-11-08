@@ -52,8 +52,5 @@ in {
 
   system.stateVersion = "23.05";
 
-  # outside template
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
-  zfs-root.boot.devNodes = "/dev/disk/by-id/";
-  zfs-root.boot.immutable.enable = mkDefault true;
 }

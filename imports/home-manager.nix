@@ -456,9 +456,6 @@ in {
           pointer_accel = "1";
         };
       };
-      output = {
-        "*" = { background = "$HOME/nixos-config/wallpaper.jpg fill"; };
-      };
       modifier = "Mod4";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
       startup = [{
@@ -510,9 +507,6 @@ in {
       "gpxsee/gpxsee.conf" = { source = ./not-nix-config-files/gpxsee.conf; };
       "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
       "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
-      "scantailor-advanced/scantailor-advanced.ini" = {
-        source = ./not-nix-config-files/scantailor-advanced.ini;
-      };
       "fuzzel/fuzzel.ini" = {
         text = ''
           [main]

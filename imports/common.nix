@@ -3,11 +3,6 @@ let
   inherit (lib) mkMerge mapAttrsToList mkDefault;
   inherit (inputs) self nixpkgs;
 in {
-  system.configurationRevision = if (self ? rev) then
-    self.rev
-  else
-    throw "refuse to build: git tree is dirty";
-  system.stateVersion = "23.05";
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/hardened.nix")
@@ -21,8 +16,9 @@ in {
     useDHCP = true;
     useNetworkd = true;
     hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
-    nameservers = [ "::1" ];
   };
+  zfs-root.boot.devNodes = "/dev/disk/by-id/";
+  zfs-root.boot.immutable.enable = mkDefault true;
   services = {
     tor = {
       enable = mkDefault false;
@@ -250,106 +246,6 @@ in {
     };
 
   };
-  services.dnscrypt-proxy2 = {
-    enable = true;
-    settings = {
-      listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
-      max_clients = 250;
-      # https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-      server_names = [
-        "dns0"
-        "scaleway-fr"
-        "google"
-        "google-ipv6"
-        "cloudflare"
-        "dct-de1"
-        "dns.digitalsize.net"
-        "dns.digitalsize.net-ipv6"
-        "dns.watch"
-        "dns.watch-ipv6"
-        "dnscrypt-de-blahdns-ipv4"
-        "dnscrypt-de-blahdns-ipv6"
-        "doh.ffmuc.net"
-        "doh.ffmuc.net-v6"
-        "he"
-        "dnsforge.de"
-        "bortzmeyer"
-        "bortzmeyer-ipv6"
-        "circl-doh"
-        "circl-doh-ipv6"
-        "cloudflare-ipv6"
-        "dns.digitale-gesellschaft.ch-ipv6"
-        "dns.digitale-gesellschaft.ch"
-      ];
-      ipv4_servers = true;
-      ipv6_servers = false;
-      dnscrypt_servers = true;
-      doh_servers = true;
-      odoh_servers = false;
-      require_dnssec = false;
-      require_nolog = true;
-      require_nofilter = true;
-      disabled_server_names = [ ];
-      force_tcp = false;
-      http3 = false;
-      timeout = 5000;
-      keepalive = 30;
-      cert_refresh_delay = 240;
-      bootstrap_resolvers = [ "9.9.9.11:53" "8.8.8.8:53" ];
-      ignore_system_dns = true;
-      netprobe_timeout = 60;
-      netprobe_address = "9.9.9.9:53";
-      log_files_max_size = 10;
-      log_files_max_age = 7;
-      log_files_max_backups = 1;
-      block_ipv6 = false;
-      block_unqualified = true;
-      block_undelegated = true;
-      reject_ttl = 10;
-      cache = true;
-      cache_size = 4096;
-      cache_min_ttl = 2400;
-      cache_max_ttl = 86400;
-      cache_neg_min_ttl = 60;
-      cache_neg_max_ttl = 600;
-      sources.public-resolvers = {
-        urls = [
-          "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md"
-          "https://ipv6.download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
-        ];
-        cache_file = "public-resolvers.md";
-        minisign_key =
-          "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
-        refresh_delay = 72;
-      };
-      sources.relays = {
-        urls = [
-          "https://download.dnscrypt.info/resolvers-list/v3/relays.md"
-          "https://ipv6.download.dnscrypt.info/resolvers-list/v3/relays.md"
-        ];
-        cache_file = "relays.md";
-        minisign_key =
-          "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
-        refresh_delay = 72;
-      };
-      query_log.file = "query.log";
-      query_log.format = "tsv";
-      anonymized_dns.skip_incompatible = false;
-      broken_implementations.fragments_blocked = [
-        "cisco"
-        "cisco-ipv6"
-        "cisco-familyshield"
-        "cisco-familyshield-ipv6"
-        "cleanbrowsing-adult"
-        "cleanbrowsing-adult-ipv6"
-        "cleanbrowsing-family"
-        "cleanbrowsing-family-ipv6"
-        "cleanbrowsing-security"
-        "cleanbrowsing-security-ipv6"
-      ];
-    };
-    upstreamDefaults = false;
-  };
   programs.tmux = {
     enable = true;
     keyMode = "emacs";
@@ -409,30 +305,10 @@ in {
     enable = true;
     settings = { PasswordAuthentication = false; };
   };
-
-  boot.zfs.forceImportRoot = false;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  programs.git.enable = true;
-
-  services.logrotate.checkConfig = false;
-  security = {
-    doas.enable = true;
-    sudo.enable = false;
-  };
   security = {
     allowSimultaneousMultithreading = true;
     lockKernelModules = false;
     apparmor.enable = true;
   };
   environment.memoryAllocator.provider = "libc";
-
-  # disable gc which always deletes downloaded nixpkg cache
-  nix = {
-    gc = {
-      automatic = false;
-      options = "--delete-old";
-    };
-  };
 }
