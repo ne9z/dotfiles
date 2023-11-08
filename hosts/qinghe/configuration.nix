@@ -12,7 +12,15 @@ in {
     QT_WAYLAND_FORCE_DPI = "288";
     GDK_DPI_SCALE = "3";
   };
-
+  # disable the deprecated radeon driver and force enable newer amdgpu driver
+  boot.kernelParams = [
+    "radeon.cik_support=0"
+    "radeon.si_support=0"
+    "amdgpu.cik_support=1"
+    "amdgpu.si_support=1"
+    "amdgpu.dc=1"
+  ];
+  boot.blacklistedKernelModules = [ "radeon" ];
   home-manager.users.yc = {
     programs.foot.settings.main.font = "monospace:size=16";
     programs.mpv.config.hwdec = "no";

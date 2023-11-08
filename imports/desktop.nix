@@ -6,14 +6,17 @@ let
   emacsPkg = import ./emacs.nix { inherit pkgs; };
   mytex = import ./tex.nix { inherit pkgs; };
 in {
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
+    enableSSHSupport = true;
+  };
   networking = {
     wireless = {
       enable = true;
       allowAuxiliaryImperativeNetworks = true;
       networks = {
-        # "TP-Link_48C2".psk = "77017543";
-        # public network
-        # "_Free_Wifi_Berlin" = {};
+        # configured in yc.nix
       };
       userControlled = {
         enable = true;
@@ -21,16 +24,11 @@ in {
       };
     };
   };
-  users.mutableUsers = false;
   hardware = {
     opengl = {
       extraPackages =
         builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
       enable = true;
-    };
-    bluetooth = {
-      enable = false;
-      powerOnBoot = false;
     };
     pulseaudio.enable = false;
   };
@@ -40,7 +38,6 @@ in {
     wayland.enable = true;
   };
   services = {
-    blueman.enable = false;
     logind = {
       extraConfig = ''
         HandlePowerKey=suspend

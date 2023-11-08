@@ -8,17 +8,67 @@ in {
     (modulesPath + "/profiles/hardened.nix")
   ];
   boot.initrd.systemd.enable = true;
-  boot.initrd.systemd.emergencyAccess = false;
-  # placeholder; or else the service would fail
+  # workaround for hardened profile
+  services.logrotate.checkConfig = false;
+
   environment.etc."wpa_supplicant.conf".text = "#";
-  systemd.network.wait-online.enable = false;
+
   networking = {
     useDHCP = true;
     useNetworkd = true;
     hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
+    nameservers = [ "::1" ];
   };
+  services.stubby = {
+    enable = true;
+    settings = pkgs.stubby.passthru.settingsExample;
+  };
+  services.resolved = { enable = false; };
+
   zfs-root.boot.devNodes = "/dev/disk/by-id/";
   zfs-root.boot.immutable.enable = mkDefault true;
+
+  users.mutableUsers = false;
+
+  programs.tmux = {
+    enable = true;
+    keyMode = "emacs";
+    newSession = true;
+    secureSocket = true;
+    terminal = "tmux-direct";
+    historyLimit = 4096;
+    baseIndex = 1;
+    extraConfig = ''
+      unbind C-b
+      unbind f7
+
+      set -u prefix
+      set -g prefix f7
+      bind -N "Send the prefix key through to the application" \
+        f7 send-prefix
+
+      bind-key -T prefix t new-session
+      # toggle status bar with f7+f8
+      set -g status off
+      bind-key -T prefix f8 set-option -g status
+
+      # disable cpu intensive auto-rename
+      setw -g automatic-rename off
+
+      # transparent status bar
+      set-option -g status-style bg=default
+    '';
+  };
+
+  services.tlp = { enable = true; };
+
+  services.openssh = {
+    enable = true;
+    settings = { PasswordAuthentication = false; };
+  };
+
+  environment.memoryAllocator.provider = "libc";
+
   services = {
     tor = {
       enable = mkDefault false;
@@ -246,69 +296,4 @@ in {
     };
 
   };
-  programs.tmux = {
-    enable = true;
-    keyMode = "emacs";
-    newSession = true;
-    secureSocket = true;
-    terminal = "tmux-direct";
-    historyLimit = 4096;
-    baseIndex = 1;
-    extraConfig = ''
-      unbind C-b
-      unbind f7
-
-      set -u prefix
-      set -g prefix f7
-      bind -N "Send the prefix key through to the application" \
-        f7 send-prefix
-
-      bind-key -T prefix t new-session
-      # toggle status bar with f7+f8
-      set -g status off
-      bind-key -T prefix f8 set-option -g status
-
-      # disable cpu intensive auto-rename
-      setw -g automatic-rename off
-
-      # transparent status bar
-      set-option -g status-style bg=default
-    '';
-  };
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
-    enableSSHSupport = true;
-  };
-
-  # disable the deprecated radeon driver and force enable newer amdgpu driver
-  boot.kernelParams = [
-    "radeon.cik_support=0"
-    "radeon.si_support=0"
-    "amdgpu.cik_support=1"
-    "amdgpu.si_support=1"
-    "amdgpu.dc=1"
-  ];
-  boot.blacklistedKernelModules = [ "radeon" ];
-  services.tlp = {
-    enable = true;
-    settings = {
-      BAY_POWEROFF_ON_BAT = "1";
-      STOP_CHARGE_THRESH_BAT0 = "85";
-      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
-      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
-
-    };
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = { PasswordAuthentication = false; };
-  };
-  security = {
-    allowSimultaneousMultithreading = true;
-    lockKernelModules = false;
-    apparmor.enable = true;
-  };
-  environment.memoryAllocator.provider = "libc";
 }
