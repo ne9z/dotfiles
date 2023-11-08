@@ -26,7 +26,7 @@ pkgs.texlive.combine {
     # book index
     xindy
     # deal with intervals
-    interval
+    interval mathtool
     # with pdflatex
     mlmodern
     # pictures and tikz
