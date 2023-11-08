@@ -182,6 +182,7 @@ in {
       "[normal] l" = "jumplist backward";
       "[normal] m" = "mark_add";
       "[normal] q" = "quit";
+      "[normal] R" = "rotate";
       "[normal] r" = "jumplist forward";
       "[normal] s" = "adjust_window width";
     };
@@ -505,7 +506,6 @@ in {
         source = ./not-nix-config-files/xournalpp-toolbar.ini;
       };
       "gpxsee/gpxsee.conf" = { source = ./not-nix-config-files/gpxsee.conf; };
-      "latexmk/latexmkrc" = { text = ''$pdf_previewer = "zathura"''; };
       "emacs/init.el" = { source = ./not-nix-config-files/emacs-init.el; };
       "fuzzel/fuzzel.ini" = {
         text = ''
