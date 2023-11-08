@@ -13,6 +13,8 @@ in {
 
   environment.etc."wpa_supplicant.conf".text = "#";
 
+  security.lockKernelModules = false;
+
   networking = {
     useDHCP = true;
     useNetworkd = true;
