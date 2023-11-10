@@ -370,7 +370,7 @@ in {
        bindsym --no-warn Mod4+n focus down
        bindsym --no-warn Mod4+p focus up
        bindsym --no-warn Mod4+c focus child
-       bindsym --no-warn Mod4+o focus parent
+       bindsym --no-warn Mod4+e focus parent
        bindsym --no-warn Mod4+Control+b focus output left
        bindsym --no-warn Mod4+Control+f focus output right
        bindsym --no-warn Mod4+Control+n focus output down
@@ -394,10 +394,10 @@ in {
        bindsym --no-warn Mod4+Control+Shift+p move output up
        bindsym --no-warn Mod4+Control+Backspace floating toggle
        bindsym --no-warn Mod4+Space focus right
-       bindsym --no-warn Mod4+Shift+Space focus parent; focus right
+       bindsym --no-warn Mod4+Shift+Space focus parent; focus right; focus child
        bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
        bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
-       bindsym --no-warn Mod4+e exec ${emacsPkg}/bin/emacsclient --create-frame
+       bindsym --no-warn Mod4+o exec ${emacsPkg}/bin/emacsclient --create-frame
       }
 
       mode "resize" {
