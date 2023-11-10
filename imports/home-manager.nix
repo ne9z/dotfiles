@@ -398,7 +398,7 @@ in {
        bindsym --no-warn Mod4+Space focus right
        bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
        bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
-       bindsym --no-warn Mod4+o exec ${emacsPkg}/bin/emacsclient --create-frame
+       bindsym --no-warn Mod4+e exec ${emacsPkg}/bin/emacsclient --create-frame
       }
 
       mode "resize" {
