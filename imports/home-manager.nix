@@ -379,13 +379,11 @@ in {
        bindsym --no-warn Mod4+Control+l focus floating
        bindsym --no-warn Mod4+Backspace focus mode_toggle
        bindsym --no-warn Mod4+f11 fullscreen toggle
-       bindsym --no-warn Mod4+l layout toggle splitv splith tabbed
+       bindsym --no-warn Mod4+t layout toggle splitv splith tabbed
        bindsym --no-warn Mod4+Shift+b move left
        bindsym --no-warn Mod4+Shift+f move right
        bindsym --no-warn Mod4+Shift+n move down
        bindsym --no-warn Mod4+Shift+p move up
-       bindsym --no-warn Mod4+Shift+c move child
-       bindsym --no-warn Mod4+Shift+o move parent
        bindsym --no-warn Mod4+w move scratchpad
        bindsym --no-warn Mod4+y scratchpad show
        bindsym --no-warn Mod4+x workspace back_and_forth
