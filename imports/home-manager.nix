@@ -364,33 +364,41 @@ in {
     systemdIntegration = true;
     extraConfig = ''
       mode "default" {
-       bindsym --no-warn Mod4+Backspace focus mode_toggle
-       bindsym --no-warn Mod4+Control+Shift+Space move left
-       bindsym --no-warn Mod4+Control+Space move right
-       bindsym --no-warn Mod4+Control+b move left
-       bindsym --no-warn Mod4+Control+e focus parent
-       bindsym --no-warn Mod4+Control+f move right
-       bindsym --no-warn Mod4+Control+n move down
-       bindsym --no-warn Mod4+Control+p move up
-       bindsym --no-warn Mod4+Shift+Backspace floating toggle
-       bindsym --no-warn Mod4+Shift+Space focus left
-       bindsym --no-warn Mod4+Space focus right
-       bindsym --no-warn Mod4+b focus left
-       bindsym --no-warn Mod4+g focus parent; focus left; focus child
-       bindsym --no-warn Mod4+e focus parent; focus right; focus child
-       bindsym --no-warn Mod4+f focus right
-       bindsym --no-warn Mod4+f11 fullscreen
        bindsym --no-warn Mod4+k kill
+       bindsym --no-warn Mod4+b focus left
+       bindsym --no-warn Mod4+f focus right
        bindsym --no-warn Mod4+n focus down
-       bindsym --no-warn Mod4+o workspace next
        bindsym --no-warn Mod4+p focus up
+       bindsym --no-warn Mod4+c focus child
+       bindsym --no-warn Mod4+o focus parent
+       bindsym --no-warn Mod4+Control+b focus output left
+       bindsym --no-warn Mod4+Control+f focus output right
+       bindsym --no-warn Mod4+Control+n focus output down
+       bindsym --no-warn Mod4+Control+p focus output up
+       bindsym --no-warn Mod4+Control+t focus tiling
+       bindsym --no-warn Mod4+Control+l focus floating
+       bindsym --no-warn Mod4+Backspace focus mode_toggle
+       bindsym --no-warn Mod4+f11 fullscreen toggle
+       bindsym --no-warn Mod4+l layout toggle splitv splith tabbed
+       bindsym --no-warn Mod4+Shift+b move left
+       bindsym --no-warn Mod4+Shift+f move right
+       bindsym --no-warn Mod4+Shift+n move down
+       bindsym --no-warn Mod4+Shift+p move up
+       bindsym --no-warn Mod4+Shift+c move child
+       bindsym --no-warn Mod4+Shift+o move parent
        bindsym --no-warn Mod4+w move scratchpad
-       bindsym --no-warn Mod4+x workspace back_and_forth
        bindsym --no-warn Mod4+y scratchpad show
+       bindsym --no-warn Mod4+x workspace back_and_forth
+       bindsym --no-warn Mod4+Shift+x move workspace back_and_forth
+       bindsym --no-warn Mod4+Control+Shift+b move output left
+       bindsym --no-warn Mod4+Control+Shift+f move output right
+       bindsym --no-warn Mod4+Control+Shift+n move output down
+       bindsym --no-warn Mod4+Control+Shift+p move output up
+       bindsym --no-warn Mod4+Control+Backspace floating toggle
+       bindsym --no-warn Mod4+Space focus right
        bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
        bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
        bindsym --no-warn Mod4+o exec ${emacsPkg}/bin/emacsclient --create-frame
-       bindsym --no-warn Mod4+t layout tabbed
       }
 
       mode "resize" {
