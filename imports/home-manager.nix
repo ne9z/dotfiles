@@ -394,6 +394,7 @@ in {
        bindsym --no-warn Mod4+Control+Shift+p move output up
        bindsym --no-warn Mod4+Control+Backspace floating toggle
        bindsym --no-warn Mod4+Space focus right
+       bindsym --no-warn Mod4+Shift+Space focus parent; focus right
        bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
        bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
        bindsym --no-warn Mod4+e exec ${emacsPkg}/bin/emacsclient --create-frame
