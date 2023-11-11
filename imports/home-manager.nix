@@ -367,10 +367,6 @@ in {
       titlebar_border_thickness 0
     '';
     config = {
-      down = mkForce "n";
-      left = mkForce "b";
-      right = mkForce "f";
-      up = mkForce "p";
       modes = {
         resize = {
           b = "resize shrink width 10px";
@@ -383,7 +379,7 @@ in {
       };
       keybindings =
         let modifier = config.wayland.windowManager.sway.config.modifier;
-        in lib.mkOptionDefault {
+        in {
           "${modifier}+k" = "kill";
           "${modifier}+b" = "focus left";
           "${modifier}+f" = "focus right";
