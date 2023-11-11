@@ -371,7 +371,6 @@ in {
       left = "b";
       right = "f";
       up = "p";
-      modifier = "Mod4";
       modes = {
         resize = {
           b = "resize shrink width 10px";
