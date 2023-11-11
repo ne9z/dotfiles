@@ -379,7 +379,7 @@ in {
       };
       keybindings =
         let modifier = "Mod4";
-        in {
+        in lib.mkOptionDefault {
           "${modifier}+k" = "kill";
           "${modifier}+b" = "focus left";
           "${modifier}+f" = "focus right";
