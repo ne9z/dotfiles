@@ -378,7 +378,7 @@ in {
         };
       };
       keybindings =
-        let modifier = config.wayland.windowManager.sway.config.modifier;
+        let modifier = "Mod4";
         in {
           "${modifier}+k" = "kill";
           "${modifier}+b" = "focus left";
