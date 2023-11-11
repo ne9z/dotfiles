@@ -363,54 +363,63 @@ in {
     xwayland = false;
     systemdIntegration = true;
     extraConfig = ''
-      mode "default" {
-       bindsym --no-warn Mod4+k kill
-       bindsym --no-warn Mod4+b focus left
-       bindsym --no-warn Mod4+f focus right
-       bindsym --no-warn Mod4+n focus down
-       bindsym --no-warn Mod4+p focus up
-       bindsym --no-warn Mod4+c focus child
-       bindsym --no-warn Mod4+e focus parent
-       bindsym --no-warn Mod4+Control+b focus output left
-       bindsym --no-warn Mod4+Control+f focus output right
-       bindsym --no-warn Mod4+Control+n focus output down
-       bindsym --no-warn Mod4+Control+p focus output up
-       bindsym --no-warn Mod4+Control+t focus tiling
-       bindsym --no-warn Mod4+Control+l focus floating
-       bindsym --no-warn Mod4+Backspace focus mode_toggle
-       bindsym --no-warn Mod4+f11 fullscreen toggle
-       bindsym --no-warn Mod4+t layout toggle splitv splith tabbed
-       bindsym --no-warn Mod4+Shift+b move left
-       bindsym --no-warn Mod4+Shift+f move right
-       bindsym --no-warn Mod4+Shift+n move down
-       bindsym --no-warn Mod4+Shift+p move up
-       bindsym --no-warn Mod4+w move scratchpad
-       bindsym --no-warn Mod4+y scratchpad show
-       bindsym --no-warn Mod4+x workspace back_and_forth
-       bindsym --no-warn Mod4+Shift+x move workspace back_and_forth
-       bindsym --no-warn Mod4+Control+Shift+b move output left
-       bindsym --no-warn Mod4+Control+Shift+f move output right
-       bindsym --no-warn Mod4+Control+Shift+n move output down
-       bindsym --no-warn Mod4+Control+Shift+p move output up
-       bindsym --no-warn Mod4+Control+Backspace floating toggle
-       bindsym --no-warn Mod4+Space focus right
-       bindsym --no-warn Mod4+Shift+Space focus parent; focus right; focus child
-       bindsym --no-warn Shift+Print exec ${pkgs.grim}/bin/grim
-       bindsym --no-warn Mod4+Shift+l exec ${pkgs.systemd}/bin/systemctl suspend
-       bindsym --no-warn Mod4+o exec ${emacsPkg}/bin/emacsclient --create-frame
-      }
-
-      mode "resize" {
-       bindsym --no-warn b resize shrink width 10px
-       bindsym --no-warn f resize grow width 10px
-       bindsym --no-warn n resize grow height 10px
-       bindsym --no-warn p resize shrink height 10px
-       bindsym --no-warn Space mode default
-      }
       titlebar_padding 1
       titlebar_border_thickness 0
     '';
     config = {
+      down = "n";
+      left = "b";
+      right = "f";
+      up = "p";
+      modifier = "Mod4";
+      modes = {
+        resize = {
+          b = "resize shrink width 10px";
+          f = "resize grow width 10px";
+          n = "resize grow height 10px";
+          p = "resize shrink height 10px";
+          Space = "mode default";
+          Escape = "mode default";
+        };
+      };
+      keybindings =
+        let modifier = config.wayland.windowManager.sway.config.modifier;
+        in lib.mkOptionDefault {
+          "${modifier}+k" = "kill";
+          "${modifier}+b" = "focus left";
+          "${modifier}+f" = "focus right";
+          "${modifier}+n" = "focus down";
+          "${modifier}+p" = "focus up";
+          "${modifier}+c" = "focus child";
+          "${modifier}+e" = "focus parent";
+          "${modifier}+Control+b" = "focus output left";
+          "${modifier}+Control+f" = "focus output right";
+          "${modifier}+Control+n" = "focus output down";
+          "${modifier}+Control+p" = "focus output up";
+          "${modifier}+Control+t" = "focus tiling";
+          "${modifier}+Control+l" = "focus floating";
+          "${modifier}+Backspace" = "focus mode_toggle";
+          "${modifier}+f11" = "fullscreen toggle";
+          "${modifier}+t" = "layout toggle splitv splith tabbed";
+          "${modifier}+Shift+b" = "move left";
+          "${modifier}+Shift+f" = "move right";
+          "${modifier}+Shift+n" = "move down";
+          "${modifier}+Shift+p" = "move up";
+          "${modifier}+w" = "move scratchpad";
+          "${modifier}+y" = "scratchpad show";
+          "${modifier}+x" = "workspace back_and_forth";
+          "${modifier}+Shift+x" = "move workspace back_and_forth";
+          "${modifier}+Control+Shift+b" = "move output left";
+          "${modifier}+Control+Shift+f" = "move output right";
+          "${modifier}+Control+Shift+n" = "move output down";
+          "${modifier}+Control+Shift+p" = "move output up";
+          "${modifier}+Control+Backspace" = "floating toggle";
+          "${modifier}+Space" = "focus right";
+          "${modifier}+Shift+Space" = "focus parent; focus right; focus child";
+          "Shift+Print" = "exec ${pkgs.grim}/bin/grim";
+          "${modifier}+Shift+l" = "exec ${pkgs.systemd}/bin/systemctl suspend";
+          "${modifier}+o" = "exec ${emacsPkg}/bin/emacsclient --create-frame";
+        };
       colors = {
         background = "#ffffff";
         focused = {
@@ -440,10 +449,6 @@ in {
         names = [ "sans-serif" ];
         style = "bold";
         size = mkDefault 16.0;
-      };
-      modes = {
-        default = { };
-        resize = { };
       };
       seat = {
         "*" = {
