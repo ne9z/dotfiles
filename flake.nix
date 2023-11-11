@@ -6,7 +6,7 @@
     # https://channels.nixos.org/nixos-unstable/git-revision
     # using this one
     # https://channels.nixos.org/nixos-unstable-small/git-revision
-    nixpkgs.url = "nixpkgs/81baa4d39b7cc7c790269ccccbb7e08bd6f52e7a";
+    nixpkgs.url = "nixpkgs/714e527a726c9613fca8e13586a1b19198d68d9b";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
