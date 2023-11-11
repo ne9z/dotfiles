@@ -409,8 +409,8 @@ in {
           "${modifier}+Control+Shift+n" = "move output down";
           "${modifier}+Control+Shift+p" = "move output up";
           "${modifier}+Control+Backspace" = "floating toggle";
-          "${modifier}+Space" = "focus right";
-          "${modifier}+Shift+Space" = "focus parent; focus right; focus child";
+          "${modifier}+space" = "focus right";
+          "${modifier}+Shift+space" = "focus parent; focus right; focus child";
           "Shift+Print" = "exec ${pkgs.grim}/bin/grim";
           "${modifier}+Shift+l" = "exec ${pkgs.systemd}/bin/systemctl suspend";
           "${modifier}+o" = "exec ${emacsPkg}/bin/emacsclient --create-frame";
