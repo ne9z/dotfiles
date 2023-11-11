@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  inherit (lib) mkDefault;
+  inherit (lib) mkDefault mkForce;
   emacsPkg = import ./emacs.nix { inherit pkgs; };
   mypython =
     pkgs.python3.withPackages (ps: builtins.attrValues { inherit (ps) sympy; });
@@ -367,10 +367,10 @@ in {
       titlebar_border_thickness 0
     '';
     config = {
-      down = "n";
-      left = "b";
-      right = "f";
-      up = "p";
+      down = mkForce "n";
+      left = mkForce "b";
+      right = mkForce "f";
+      up = mkForce "p";
       modes = {
         resize = {
           b = "resize shrink width 10px";
