@@ -3,8 +3,6 @@ pkgs.texlive.combine {
   inherit (pkgs.texlive)
     collection-basic
     collection-mathscience
-    collection-context
-    collection-luatex
     collection-latex
     collection-latexrecommended
     collection-pictures
@@ -34,8 +32,6 @@ pkgs.texlive.combine {
     ###### misc
     # beamer
     beamer etoolbox hyperref pgf
-    # pdf-archive
-    pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
     # checks
     chktex lacheck;
 }
