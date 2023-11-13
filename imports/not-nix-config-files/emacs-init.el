@@ -99,6 +99,7 @@
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
   :custom
+  (ConTeXt-Mark-version "IV")
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
