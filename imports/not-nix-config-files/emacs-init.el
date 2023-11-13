@@ -103,7 +103,7 @@
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
   (TeX-debug-warnings t)
-  (TeX-electric-math '("$" . "$"))
+  (TeX-electric-math '("\\(" . "\\)"))
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
@@ -113,7 +113,16 @@
    '(("o r" "mathbb{R}" nil nil)
      (?= "coloneq" nil nil)
      ("o c" "mathbb{C}" nil nil)))
+  (ispell-tex-skip-alists
+   (list
+    (append
+     (car ispell-tex-skip-alists)
+     ;; https://emacs.stackexchange.com/a/19650
+     '(("\\\\[[]" . "\\\\[]]")))
+    (cadr ispell-tex-skip-alists)))
   :config
+  (add-to-list 'tex--prettify-symbols-alist '("\\(" . ?｢))
+  (add-to-list 'tex--prettify-symbols-alist '("\\)" . ?｣))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
