@@ -10,6 +10,10 @@ pkgs.texlive.combine {
     collection-pictures
     collection-fontsrecommended
 
+    # languages
+    collection-langenglish
+    collection-langgerman
+
     # deal with intervals
     interval mathtools
 
