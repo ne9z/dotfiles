@@ -92,6 +92,7 @@
   :hook
   ((TeX-mode . turn-on-reftex)
    (TeX-mode . TeX-source-correlate-mode)
+   (TeX-mode . prettify-symbols-mode)
    (TeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
@@ -103,7 +104,7 @@
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
   (TeX-debug-warnings t)
-  (TeX-electric-math '("\\(" . "\\)"))
+  (TeX-electric-math '("$" . "$"))
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
@@ -121,8 +122,6 @@
      '(("\\\\[[]" . "\\\\[]]")))
     (cadr ispell-tex-skip-alists)))
   :config
-  (add-to-list 'tex--prettify-symbols-alist '("\\(" . ?｢))
-  (add-to-list 'tex--prettify-symbols-alist '("\\)" . ?｣))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
