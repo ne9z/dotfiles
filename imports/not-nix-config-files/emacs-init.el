@@ -94,6 +94,11 @@
    (TeX-mode . TeX-source-correlate-mode)
    (TeX-mode . prettify-symbols-mode)
    (TeX-mode . LaTeX-math-mode)
+   (TeX-mode . (lambda ()
+                 (progn
+                   (push '("\\colon" . ?:) tex--prettify-symbols-alist)
+                   (push '("\\mathbb{C}" . ?ℂ) tex--prettify-symbols-alist)
+                   (push '("\\mathbb{K}" . ?𝕂) tex--prettify-symbols-alist))))
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
   :custom-face
