@@ -14,8 +14,8 @@
  '(electric-pair-mode t)
  '(face-ignored-fonts
    '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Noto Sans Mono CJK" "Unifont" "Fixed") t)
- '(global-prettify-symbols-mode t)
  '(gnus-treat-display-smileys nil)
+ '(gnus-inhibit-images t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
@@ -37,7 +37,6 @@
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
- '(use-package-always-defer t)
  '(user-mail-address "yguo@posteo.net")
  '(visible-bell t))
 
@@ -91,9 +90,9 @@
 
 (use-package tex
   :hook
-  ((LaTeX-mode . turn-on-reftex)
-   (LaTeX-mode . TeX-source-correlate-mode)
-   (LaTeX-mode . LaTeX-math-mode)
+  ((TeX-mode . turn-on-reftex)
+   (TeX-mode . TeX-source-correlate-mode)
+   (TeX-mode . LaTeX-math-mode)
    (TeX-after-compilation-finished-functions
     . TeX-revert-document-buffer))
   :custom-face
@@ -104,7 +103,7 @@
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
   (TeX-debug-warnings t)
-  (TeX-electric-math '("\\(" . "\\)"))
+  (TeX-electric-math '("$" . "$"))
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
@@ -114,16 +113,7 @@
    '(("o r" "mathbb{R}" nil nil)
      (?= "coloneq" nil nil)
      ("o c" "mathbb{C}" nil nil)))
-  (ispell-tex-skip-alists
-   (list
-    (append
-     (car ispell-tex-skip-alists)
-     ;; https://emacs.stackexchange.com/a/19650
-     '(("\\\\[[]" . "\\\\[]]")))
-    (cadr ispell-tex-skip-alists)))
   :config
-  (add-to-list 'tex--prettify-symbols-alist '("\\(" . ?｢))
-  (add-to-list 'tex--prettify-symbols-alist '("\\)" . ?｣))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{K}" . ?𝕂))
   (add-to-list 'tex--prettify-symbols-alist '("\\mathbb{C}" . ?ℂ))
   (add-to-list 'tex--prettify-symbols-alist '("\\colon" . ?:)))
