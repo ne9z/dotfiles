@@ -33,6 +33,8 @@ pkgs.texlive.combine {
     ###### misc
     # unicode-math
     lualatex-math
+    # fonts for unicode-math
+    schola-otf
     # beamer
     beamer etoolbox hyperref pgf
     # checks
