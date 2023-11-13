@@ -1,34 +1,37 @@
 { pkgs }:
 pkgs.texlive.combine {
   inherit (pkgs.texlive)
-    collection-basic collection-mathscience
-    # languages
-    collection-langenglish collection-langgerman
-    # pdf manipulation tool
+    collection-basic
+    collection-mathscience
+    collection-context
+    collection-luatex
+    collection-latex
+    collection-latexrecommended
+    collection-pictures
+    collection-fontsrecommended
+
+    # deal with intervals
+    interval mathtools
+
+    ####### fonts
+    # with pdflatex
+    mlmodern
+    # otf fonts
+    tex-gyre tex-gyre-math libertinus-fonts stix2-otf
+    #######
+
+    ###### pdf manipulation tool
     pdfjam # depends on pdfpages, geometry
     # pdfpages and dependencies
     pdfpages eso-pic atbegshi pdflscape
-    # century schoolbook
-    schola-otf iftex xkeyval unicode-math fontspec realscripts lualatex-math
-    tex-gyre tex-gyre-math libertinus-otf libertinus-fonts stix2-otf
+    ######
+
+
+    ###### misc
     # beamer
     beamer etoolbox hyperref pgf
-    # cjk
-    #luatexja chinese-jfm
-    # bold computer modern
-    newcomputermodern fontsetup
-    # koma-script for a4 paper
-    koma-script xpatch
     # pdf-archive
     pdfx xmpincl xcolor luatex85 pdftexcmds stringenc
     # checks
-    chktex lacheck
-    # book index
-    xindy
-    # deal with intervals
-    interval mathtools
-    # with pdflatex
-    mlmodern
-    # pictures and tikz
-    collection-pictures;
+    chktex lacheck;
 }
