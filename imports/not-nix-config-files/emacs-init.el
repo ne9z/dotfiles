@@ -104,6 +104,7 @@
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
   :custom
+  (TeX-engine luatex)
   (ConTeXt-Mark-version "IV")
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)

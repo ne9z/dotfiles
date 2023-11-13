@@ -36,6 +36,7 @@ pkgs.texlive.combine {
     # fonts for unicode-math
     schola-otf libertinus-otf
     iftex xkeyval unicode-math fontspec realscripts
+    luatex85
     # beamer
     beamer etoolbox hyperref pgf
     # checks
