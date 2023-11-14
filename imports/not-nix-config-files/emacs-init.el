@@ -27,7 +27,7 @@
  '(mouse-wheel-mode nil)
  '(prettify-symbols-unprettify-at-point nil)
  '(preview-auto-cache-preamble t)
- '(preview-scale-function 1.2)
+ '(preview-scale-function 1.5)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(require-final-newline t)
