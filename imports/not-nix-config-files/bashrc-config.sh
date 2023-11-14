@@ -34,6 +34,23 @@ doa ()
     doas -s
 }
 
+gpub ()
+{
+    local input=${1}
+    local git_paths="$HOME/nixos-config $HOME/Downloads/tub $HOME/.password-store"
+    if [ "${input}" == "s" ]; then
+        for path in ${git_paths}; do
+            echo "${path}"
+            git -C "${path}" push
+        done
+    else
+        for path in ${git_paths}; do
+            echo "${path}"
+            git -C "${path}" pull --rebase
+        done
+    fi
+}
+
 wfrnativeres () {
     local filename
     filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
