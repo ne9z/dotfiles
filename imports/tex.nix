@@ -1,17 +1,11 @@
 { pkgs }:
 pkgs.texlive.combine {
   inherit (pkgs.texlive)
-    collection-basic
-    collection-mathscience
-    collection-luatex
-    collection-latex
-    collection-latexrecommended
-    collection-pictures
-    collection-fontsrecommended
+    collection-basic collection-mathscience collection-luatex collection-latex
+    collection-latexrecommended collection-pictures collection-fontsrecommended
 
     # languages
-    collection-langenglish
-    collection-langgerman
+    collection-langenglish collection-langgerman
 
     # deal with intervals
     interval mathtools
@@ -29,13 +23,11 @@ pkgs.texlive.combine {
     pdfpages eso-pic atbegshi pdflscape
     ######
 
-
     ###### misc
     # unicode-math
     lualatex-math
     # fonts for unicode-math
-    schola-otf libertinus-otf
-    iftex xkeyval unicode-math fontspec realscripts
+    schola-otf libertinus-otf iftex xkeyval unicode-math fontspec realscripts
     luatex85
     # beamer
     beamer etoolbox hyperref pgf
