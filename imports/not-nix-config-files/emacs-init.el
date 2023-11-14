@@ -96,6 +96,8 @@
    (TeX-mode . LaTeX-math-mode)
    (TeX-mode . (lambda ()
                  (progn
+                   (push '("\\(" . ?⟪) tex--prettify-symbols-alist)
+                   (push '("\\)" . ?⟫) tex--prettify-symbols-alist)
                    (push '("\\colon" . ?:) tex--prettify-symbols-alist)
                    (push '("\\mathbb{C}" . ?ℂ) tex--prettify-symbols-alist)
                    (push '("\\mathbb{K}" . ?𝕂) tex--prettify-symbols-alist))))
