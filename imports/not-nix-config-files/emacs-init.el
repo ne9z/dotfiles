@@ -112,6 +112,7 @@
   (TeX-view-program-selection '((output-pdf "Zathura")))
   (LaTeX-math-list
    '(("o r" "mathbb{R}" nil nil)
+     ("o n" "mathbb{N}" nil nil)
      (?= "coloneq" nil nil)
      ("o c" "mathbb{C}" nil nil)))
   (ispell-tex-skip-alists
