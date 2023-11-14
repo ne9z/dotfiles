@@ -111,6 +111,7 @@ in {
       programs.ssh = {
         matchBlocks = {
           "unixpool.math.tu-berlin.de".user = "cma-1e1";
+          "codeberg.org".user = "git";
           "github.com".user = "git";
           "tl.yc" = {
             user = "yc";
