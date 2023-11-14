@@ -3,7 +3,7 @@ pkgs.texlive.combine {
   inherit (pkgs.texlive)
     collection-basic
     collection-mathscience
-    collection-context
+    collection-luatex
     collection-latex
     collection-latexrecommended
     collection-pictures
