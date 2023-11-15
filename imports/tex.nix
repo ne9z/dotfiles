@@ -3,6 +3,9 @@ pkgs.texlive.combine {
   inherit (pkgs.texlive)
     collection-basic collection-mathscience
     collection-pictures
+    collection-latexrecommended
+    collection-fontsrecommended
+    collection-luatex
 
     # languages
     collection-langenglish collection-langgerman
@@ -16,6 +19,12 @@ pkgs.texlive.combine {
     # otf fonts
     tex-gyre tex-gyre-math libertinus-fonts stix2-otf
     #######
+
+    ###### cjk
+    luatexja adobemapping etoolbox chinese-jfm ctex cjk
+    ###### cjk fonts
+    fandol arphic-ttf arphic
+    collection-langcjk collection-langchinese
 
     ###### preview
     dvipng
