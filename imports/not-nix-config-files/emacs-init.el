@@ -102,7 +102,7 @@
   (preview-scale-function 1.4)
   (preview-image-type 'dvipng)
   (TeX-view-program-selection '((output-pdf "Zathura")))
-  (TeX-PDF-from-DVI "Dvipdfmx")
+  (TeX-PDF-from-DVI "Dvips")
   (TeX-PDF-mode t)
   (TeX-engine 'default)
   (LaTeX-electric-left-right-brace t)
