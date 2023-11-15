@@ -124,6 +124,9 @@
      ;; https://emacs.stackexchange.com/a/19650
      '(("\\\\[[]" . "\\\\[]]")))
     (cadr ispell-tex-skip-alists)))
+  :bind
+  (:map LaTeX-mode-map
+        ("<f8>" . preview-at-point))
   :config
   (dolist (symb
            '(("\\(" . ?⌜)
