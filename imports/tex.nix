@@ -17,6 +17,9 @@ pkgs.texlive.combine {
     tex-gyre tex-gyre-math libertinus-fonts stix2-otf
     #######
 
+    ###### preview
+    dvipng
+
     ###### pdf manipulation tool
     pdfjam # depends on pdfpages, geometry
     # pdfpages and dependencies

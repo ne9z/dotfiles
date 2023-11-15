@@ -14,8 +14,6 @@
  '(electric-pair-mode t)
  '(face-ignored-fonts
    '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Noto Sans Mono CJK" "Unifont" "Fixed") t)
- '(gnus-treat-display-smileys nil)
- '(gnus-inhibit-images t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
@@ -26,8 +24,6 @@
  '(modus-themes-variable-pitch-ui t)
  '(mouse-wheel-mode nil)
  '(prettify-symbols-unprettify-at-point nil)
- '(preview-auto-cache-preamble t)
- '(preview-scale-function 1.5)
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(require-final-newline t)
@@ -37,7 +33,6 @@
  '(shr-inhibit-images t)
  '(shr-use-colors nil)
  '(tool-bar-mode nil)
- '(user-mail-address "yguo@posteo.net")
  '(visible-bell t))
 
 ;; swap backspace and C-h
@@ -72,6 +67,9 @@
 
 (use-package gnus
   :custom
+  (user-mail-address "yguo@posteo.net")
+  (gnus-treat-display-smileys nil)
+  (gnus-inhibit-images t)
   (gnus-select-method '(nnimap "posteo.de"))
   (gnus-generate-tree-function 'gnus-generate-horizontal-tree)
   (gnus-message-replysign t)
@@ -91,25 +89,24 @@
 (use-package tex
   :hook
   ((LaTeX-mode . turn-on-reftex)
-   (LaTeX-mode . TeX-source-correlate-mode)
    (LaTeX-mode . prettify-symbols-mode)
-   (LaTeX-mode . LaTeX-math-mode)
-   (TeX-after-compilation-finished-functions
-    . TeX-revert-document-buffer))
+   (LaTeX-mode . LaTeX-math-mode))
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
   :custom
-  (TeX-engine 'luatex)
+  (preview-auto-cache-preamble t)
+  (preview-scale-function 1.4)
+  (preview-image-type 'dvipng)
+  (TeX-PDF-from-DVI "Dvipdfmx")
+  (TeX-PDF-mode t)
+  (TeX-engine 'default)
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
   (TeX-debug-warnings t)
   (TeX-electric-math '("\\(" . "\\)"))
-  (TeX-source-correlate-mode t)
-  (TeX-source-correlate-start-server t)
   (TeX-electric-sub-and-superscript t)
   (reftex-plug-into-AUCTeX t)
-  (TeX-view-program-selection '((output-pdf "Zathura")))
   (LaTeX-math-list
    '(("o r" "mathbb{R}" nil nil)
      ("o n" "mathbb{N}" nil nil)
