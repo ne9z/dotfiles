@@ -90,14 +90,19 @@
   :hook
   ((LaTeX-mode . turn-on-reftex)
    (LaTeX-mode . prettify-symbols-mode)
+   (LaTeX-mode . TeX-source-correlate-mode)
+   (TeX-after-compilation-finished-functions
+    . TeX-revert-document-buffer)
    (LaTeX-mode . LaTeX-math-mode))
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
   :custom
+  (TeX-source-correlate-start-server t)
   (preview-auto-cache-preamble t)
   (preview-scale-function 1.4)
   (preview-image-type 'dvipng)
-  (TeX-PDF-from-DVI "Dvipdfmx")
+  (TeX-view-program-selection '((output-pdf "Zathura")))
+  (TeX-PDF-from-DVI "Dvips")
   (TeX-PDF-mode t)
   (TeX-engine 'default)
   (LaTeX-electric-left-right-brace t)
