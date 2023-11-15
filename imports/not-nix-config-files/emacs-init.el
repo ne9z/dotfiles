@@ -13,7 +13,16 @@
  '(display-time-mode t)
  '(electric-pair-mode t)
  '(face-ignored-fonts
-   '("Noto Serif CJK HK" "Noto Serif CJK KR" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Sans CJK" "Noto Sans Mono CJK" "Unifont" "Fixed") t)
+   '("Noto Serif CJK HK"
+     "Noto Serif CJK KR"
+     "Noto Serif CJK TC"
+     "Noto Serif CJK JP"
+     "Noto Sans CJK"
+     "Noto Sans Mono CJK"
+     "Unifont"
+     "Fixed"
+     "ARPH"
+     "ADBE") t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)

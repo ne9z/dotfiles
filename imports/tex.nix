@@ -21,9 +21,9 @@ pkgs.texlive.combine {
     #######
 
     ###### cjk
-    luatexja adobemapping chinese-jfm ctex cjk
+    luatexja adobemapping chinese-jfm ctex cjk haranoaji
     ###### cjk fonts
-    fandol arphic-ttf arphic gsftopk
+    fandol arphic-ttf arphic
     collection-langcjk collection-langchinese
 
     ###### preview
