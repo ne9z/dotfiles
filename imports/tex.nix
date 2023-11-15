@@ -1,8 +1,8 @@
 { pkgs }:
 pkgs.texlive.combine {
   inherit (pkgs.texlive)
-    collection-basic collection-mathscience collection-luatex collection-latex
-    collection-latexrecommended collection-pictures collection-fontsrecommended
+    collection-basic collection-mathscience
+    collection-pictures
 
     # languages
     collection-langenglish collection-langgerman
@@ -28,7 +28,10 @@ pkgs.texlive.combine {
     lualatex-math
     # fonts for unicode-math
     schola-otf libertinus-otf iftex xkeyval unicode-math fontspec realscripts
-    luatex85
+    # luatex support for pdftex commands
+    luatex85 pdftexcmds
+    # pdfx for PDF/A compliance
+    pdfx xmpincl xcolor stringenc
     # beamer
     beamer etoolbox hyperref pgf
     # checks
