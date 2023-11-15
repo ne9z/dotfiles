@@ -99,7 +99,7 @@
   :custom
   (TeX-source-correlate-start-server t)
   (preview-auto-cache-preamble t)
-  (preview-scale-function 1.4)
+  (preview-scale-function 2)
   (preview-image-type 'dvipng)
   (TeX-view-program-selection '((output-pdf "Zathura")))
   (TeX-PDF-from-DVI "Dvips")
