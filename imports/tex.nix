@@ -1,11 +1,8 @@
 { pkgs }:
 pkgs.texlive.combine {
   inherit (pkgs.texlive)
-    collection-basic collection-mathscience
-    collection-pictures
-    collection-latexrecommended
-    collection-fontsrecommended
-    collection-luatex
+    collection-basic collection-mathscience collection-pictures
+    collection-latexrecommended collection-fontsrecommended collection-luatex
 
     # languages
     collection-langenglish collection-langgerman

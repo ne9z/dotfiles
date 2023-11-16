@@ -46,6 +46,7 @@
         qinghe = mkHost "qinghe" "x86_64-linux";
         tieling = mkHost "tieling" "x86_64-linux";
         yinzhou = mkHost "yinzhou" "x86_64-linux";
+        kaiyuan = mkHost "kaiyuan" "x86_64-linux";
       };
     };
 }
