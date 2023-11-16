@@ -148,7 +148,7 @@
   (preview-auto-cache-preamble t)
   (preview-scale-function 2)
   (preview-image-type 'dvipng)
-  (TeX-view-program-selection '((output-pdf "Zathura")))
+  (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-PDF-mode t)
   (TeX-PDF-from-DVI "Dvipdfmx")
   (TeX-save-query nil)

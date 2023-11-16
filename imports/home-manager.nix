@@ -83,6 +83,7 @@ in {
       default-fg = "#000000";
       index-bg = "#FFFFFF";
       index-fg = "#000000";
+      sandbox = "strict";
     };
     mappings = {
       "[index] <A-\\<>" = "navigate_index top";
