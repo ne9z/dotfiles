@@ -158,6 +158,8 @@
   (reftex-plug-into-AUCTeX t)
   (LaTeX-math-list
    '(("o r" "mathbb{R}" nil nil)
+     ("o Q" "qquad" nil nil)
+     ("o q" "quad" nil nil)
      ("o n" "mathbb{N}" nil nil)
      (?= "coloneq" nil nil)
      ("o c" "mathbb{C}" nil nil)))

@@ -43,6 +43,8 @@ pkgs.texlive.combine {
     ###### pdftex only: preview
     # luatex does not support dvi output
     dvipng
+    # preamble cache
+    mylatex
 
     ###### pdf manipulation tool
     pdfjam # depends on pdfpages, geometry
