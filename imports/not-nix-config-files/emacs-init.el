@@ -1,17 +1,13 @@
 ;; -*- lexical-binding:t -*-
 
+;;  this section contains variables defined in C source code
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auth-sources '("~/.password-store/authinfo.gpg"))
  '(auto-fill-function 'do-auto-fill t)
- '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "german-postfix")
- '(display-battery-mode t)
- '(display-time-mode t)
- '(electric-pair-mode t)
  '(face-ignored-fonts
    '("Noto Serif CJK HK"
      "Noto Serif CJK KR"
@@ -23,32 +19,70 @@
      "Fixed"
      "ARPH"
      "ADBE") t)
- '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
  '(mode-line-compact 'long)
- '(modus-themes-bold-constructs t)
- '(modus-themes-inhibit-reload nil)
- '(modus-themes-italic-constructs t)
- '(modus-themes-variable-pitch-ui t)
- '(mouse-wheel-mode nil)
- '(prettify-symbols-unprettify-at-point nil)
  '(read-buffer-completion-ignore-case t)
- '(read-file-name-completion-ignore-case t)
- '(require-final-newline t)
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
- '(shr-cookie-policy nil)
- '(shr-inhibit-images t)
- '(shr-use-colors nil)
  '(tool-bar-mode nil)
  '(visible-bell t))
 
-;; swap backspace and C-h
-(define-key key-translation-map [?\C-h] [?\C-?])
-(define-key key-translation-map [?\M-h] [?\M-\d])
-(define-key key-translation-map [?\M-\d] [?\M-h])
-;; swap backspace and C-h ends here
+(use-package shr
+  :custom
+  (shr-cookie-policy nil)
+  (shr-inhibit-images t)
+  (shr-use-colors nil))
+
+(use-package files
+  :custom
+  (require-final-newline t))
+
+(use-package minibuffer
+  :custom
+  (read-file-name-completion-ignore-case t))
+
+(use-package mwheel
+  :custom
+  (mouse-wheel-mode nil))
+
+(use-package simple
+  :custom
+  (indent-tabs-mode nil))
+
+(use-package modus-themes
+  :custom
+  (modus-themes-bold-constructs t)
+  (modus-themes-inhibit-reload nil)
+  (modus-themes-italic-constructs t)
+  (modus-themes-variable-pitch-ui t))
+
+;; must be after modus-themes
+(use-package custom
+  :config
+  ;; swap backspace and C-h
+  (define-key key-translation-map [?\C-h] [?\C-?])
+  (define-key key-translation-map [?\M-h] [?\M-\d])
+  (define-key key-translation-map [?\M-\d] [?\M-h])
+  ;; swap backspace and C-h ends here
+  :custom
+  (custom-enabled-themes '(modus-operandi)))
+
+(use-package auth-source
+  :custom
+  (auth-sources '("~/.password-store/authinfo.gpg")))
+
+(use-package elec-pair
+  :custom
+  (electric-pair-mode t))
+
+(use-package battery
+  :custom
+  (display-battery-mode t))
+
+(use-package time
+  :custom
+  (display-time-mode t))
 
 ;; ispell, multilingual spellchecking
 ;; https://www.monotux.tech/posts/2021/02/hunspell-multi-lang/
@@ -92,8 +126,10 @@
   (mail-specify-envelope-from t)
   (message-sendmail-envelope-from 'header))
 
-(add-hook 'text-mode-hook 'variable-pitch-mode)
-(add-hook 'Info-mode-hook 'variable-pitch-mode)
+(use-package face-remap
+  :hook
+  (text-mode . variable-pitch-mode)
+  (Info-mode . variable-pitch-mode))
 
 (use-package latex
   :hook
@@ -106,6 +142,7 @@
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
   :custom
+  (prettify-symbols-unprettify-at-point nil)
   (TeX-source-correlate-start-server t)
   (preview-auto-cache-preamble t)
   (preview-scale-function 2)
@@ -141,9 +178,9 @@
   (dolist (symb
            '(("\\(" . ?⌜)
              ("\\)" . ?⌟)
-            ("\\colon" . ?:)
-            ("\\mathbb{C}" . ?ℂ)
-            ("\\mathbb{K}" . ?𝕂)))
+             ("\\colon" . ?:)
+             ("\\mathbb{C}" . ?ℂ)
+             ("\\mathbb{K}" . ?𝕂)))
     (add-to-list 'tex--prettify-symbols-alist symb)))
 
 ;; zh-cn input engine
