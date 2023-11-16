@@ -135,6 +135,9 @@
   (:map TeX-mode-map
         ("<f8>" . preview-at-point))
   :config
+  ;; this is to add support for beamer in preview-latex
+  (add-to-list 'preview-default-preamble
+           "\\PreviewEnvironment*{frame}" t)
   (dolist (symb
            '(("\\(" . ?⌜)
              ("\\)" . ?⌟)
