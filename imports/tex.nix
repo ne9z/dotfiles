@@ -11,22 +11,37 @@ pkgs.texlive.combine {
     collection-langenglish collection-langgerman
 
     # deal with intervals
-    interval mathtools
+    interval
+
+    # non unicode-math: enhanced amsmath support
+    mathtools
 
     ####### fonts
-    # with pdflatex
+    # type1-font only: bold computer modern
+    # use with \usepackage[T1]{fontenc}
+    # \usepackage{mlmodern}
     mlmodern
+
     # otf fonts
     tex-gyre tex-gyre-math libertinus-fonts stix2-otf
     #######
 
     ###### cjk
-    luatexja adobemapping chinese-jfm ctex cjk haranoaji
+    # cjk for luatex; chinese included
+    luatexja
+    # luatexja deps
+    adobemapping chinese-jfm haranoaji
+    # CTEX 中文科技排版 <- use this
+    ctex
+    # only suitable for short Chinese text
+    cjk
     ###### cjk fonts
     fandol arphic-ttf arphic
+    ###### chinese language collection
     collection-langcjk collection-langchinese
 
-    ###### preview
+    ###### pdftex only: preview
+    # luatex does not support dvi output
     dvipng
 
     ###### pdf manipulation tool
@@ -36,10 +51,10 @@ pkgs.texlive.combine {
     ######
 
     ###### misc
-    # unicode-math
-    lualatex-math
+    # unicode-math and deps
+    unicode-math fontspec realscripts lualatex-math
     # fonts for unicode-math
-    schola-otf libertinus-otf iftex xkeyval unicode-math fontspec realscripts
+    schola-otf libertinus-otf iftex xkeyval
     # luatex support for pdftex commands
     luatex85 pdftexcmds
     # pdfx for PDF/A compliance
