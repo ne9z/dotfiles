@@ -145,12 +145,11 @@
   (prettify-symbols-unprettify-at-point nil)
   (TeX-source-correlate-start-server t)
   ;; disable preamble caching; fails with luatex
-  (preview-auto-cache-preamble nil)
+  (preview-auto-cache-preamble t)
   (preview-scale-function 2)
   (preview-image-type 'dvipng)
   (TeX-view-program-selection '((output-pdf "Zathura")))
   (TeX-PDF-mode t)
-  (TeX-PDF-from-DVI "Dvips")
   (TeX-engine 'default)
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
