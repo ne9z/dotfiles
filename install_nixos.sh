@@ -91,3 +91,5 @@ nixos-install \
 --root "${MNT}" \
 --no-root-passwd \
 --flake "git+file://${MNT}/home/yc/nixos-config#yinzhou"
+umount -Rl "${MNT}"
+zpool export -a
