@@ -132,7 +132,7 @@
      '(("\\\\[[]" . "\\\\[]]")))
     (cadr ispell-tex-skip-alists)))
   :bind
-  (:map LaTeX-mode-map
+  (:map TeX-mode-map
         ("<f8>" . preview-at-point))
   :config
   (dolist (symb
