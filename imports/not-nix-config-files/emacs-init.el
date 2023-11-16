@@ -8,6 +8,10 @@
  ;; If there is more than one, they won't work right.
  '(auto-fill-function 'do-auto-fill t)
  '(default-input-method "german-postfix")
+ '(modus-themes-bold-constructs t)
+ '(modus-themes-inhibit-reload nil)
+ '(modus-themes-italic-constructs t)
+ '(modus-themes-variable-pitch-ui t)
  '(face-ignored-fonts
    '("Noto Serif CJK HK"
      "Noto Serif CJK KR"
@@ -49,13 +53,6 @@
 (use-package simple
   :custom
   (indent-tabs-mode nil))
-
-(use-package modus-themes
-  :custom
-  (modus-themes-bold-constructs t)
-  (modus-themes-inhibit-reload nil)
-  (modus-themes-italic-constructs t)
-  (modus-themes-variable-pitch-ui t))
 
 ;; must be after modus-themes
 (use-package custom
@@ -195,9 +192,7 @@
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
 
-(use-package pdf-tools
-  :init
-  (pdf-tools-install))
+(pdf-tools-install)
 
 (defun yc-larger-font ()
   (interactive)
