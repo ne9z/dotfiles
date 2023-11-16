@@ -95,7 +95,7 @@
 (add-hook 'text-mode-hook 'variable-pitch-mode)
 (add-hook 'Info-mode-hook 'variable-pitch-mode)
 
-(use-package tex
+(use-package latex
   :hook
   ((LaTeX-mode . turn-on-reftex)
    (LaTeX-mode . prettify-symbols-mode)
