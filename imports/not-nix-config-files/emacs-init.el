@@ -150,7 +150,7 @@
   (preview-image-type 'dvipng)
   (TeX-view-program-selection '((output-pdf "Zathura")))
   (TeX-PDF-mode t)
-  (TeX-PDF-from-DVI "Dvipdfmx")
+  (TeX-PDF-from-DVI "Dvips")
   (TeX-engine 'default)
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
