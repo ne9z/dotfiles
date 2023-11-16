@@ -195,6 +195,10 @@
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
 
+(use-package pdf-tools
+  :init
+  (pdf-tools-install))
+
 (defun yc-larger-font ()
   (interactive)
   (custom-set-faces '(default ((t (:height 151))))))
