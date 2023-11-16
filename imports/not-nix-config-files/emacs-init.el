@@ -147,9 +147,11 @@
   ;; disable preamble caching; fails with luatex
   (preview-auto-cache-preamble nil)
   (preview-scale-function 2)
+  (preview-image-type 'dvipng)
   (TeX-view-program-selection '((output-pdf "Zathura")))
   (TeX-PDF-mode t)
-  (TeX-engine 'luatex)
+  (TeX-PDF-from-DVI "Dvipdfmx")
+  (TeX-engine 'default)
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
