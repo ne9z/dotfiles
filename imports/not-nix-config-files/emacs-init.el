@@ -144,7 +144,8 @@
   :custom
   (prettify-symbols-unprettify-at-point nil)
   (TeX-source-correlate-start-server t)
-  (preview-auto-cache-preamble t)
+  ;; disable preamble caching; fails with luatex
+  (preview-auto-cache-preamble nil)
   (preview-scale-function 2)
   (TeX-view-program-selection '((output-pdf "Zathura")))
   (TeX-PDF-mode t)
