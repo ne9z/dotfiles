@@ -20,6 +20,15 @@
           pkgs = import nixpkgs {
             inherit system;
             nixpkgs.pkgs.zathura.useMupdf = true;
+            overlays = [
+              (final: prev: rec {
+                zathura_core = prev.zathuraPkgs.zathura_core.overrideAttrs
+                  (o: { patches = [ ./zathura-restart_syscall.patch ]; });
+                zathura = prev.zathuraPkgs.zathuraWrapper.override {
+                  inherit zathura_core;
+                };
+              })
+            ];
           };
           specialArgs = { inherit inputs; };
 

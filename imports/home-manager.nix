@@ -11,7 +11,7 @@ in {
       inherit (pkgs)
         mg shellcheck _7zz xournalpp
         # book scanning and pdf-tools support for emacs
-        ffmpeg nixfmt qrencode zathura jmtpfs gpxsee
+        ffmpeg nixfmt qrencode jmtpfs gpxsee
         # pdf processor in Go
         pdfcpu
         # image editor
