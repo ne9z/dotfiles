@@ -133,8 +133,6 @@
   ((LaTeX-mode . turn-on-reftex)
    (LaTeX-mode . prettify-symbols-mode)
    (LaTeX-mode . TeX-source-correlate-mode)
-   (TeX-after-compilation-finished-functions
-    . TeX-revert-document-buffer)
    (LaTeX-mode . LaTeX-math-mode))
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
@@ -175,6 +173,8 @@
   (:map TeX-mode-map
         ("<f8>" . TeX-command-run-all))
   :config
+  (add-hook 'TeX-after-compilation-finished-functions
+            #'TeX-revert-document-buffer)
   (with-eval-after-load "preview"
     (add-to-list 'preview-default-preamble
                  "\\PreviewEnvironment*{frame}" t))
