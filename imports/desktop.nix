@@ -92,7 +92,7 @@ in {
       ];
     };
   };
-  fonts.fonts = builtins.attrValues {
+  fonts.packages = builtins.attrValues {
     inherit (pkgs)
       noto-fonts dejavu_fonts
       # noto cjk

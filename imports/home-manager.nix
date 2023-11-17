@@ -362,7 +362,7 @@ in {
     # not home-manager
     package = null;
     xwayland = false;
-    systemdIntegration = true;
+    systemd.enable = true;
     extraConfig = ''
       titlebar_padding 1
       titlebar_border_thickness 0
