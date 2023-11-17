@@ -139,15 +139,10 @@
   :custom
   (prettify-symbols-unprettify-at-point nil)
   (TeX-source-correlate-start-server t)
-  ;; disable preamble caching; fails with luatex
-  (preview-auto-cache-preamble t)
-  (preview-scale-function 2)
-  (preview-image-type 'dvipng)
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-PDF-mode t)
-  (TeX-PDF-from-DVI "Dvipdfmx")
   (TeX-save-query nil)
-  (TeX-engine 'default)
+  (TeX-engine 'luatex)
   (LaTeX-electric-left-right-brace t)
   (TeX-auto-save t)
   (TeX-debug-bad-boxes t)
@@ -175,9 +170,6 @@
   :config
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
-  (with-eval-after-load "preview"
-    (add-to-list 'preview-default-preamble
-                 "\\PreviewEnvironment*{frame}" t))
   (dolist (symb
            '(("\\(" . ?⌜)
              ("\\)" . ?⌟)
