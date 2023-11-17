@@ -41,12 +41,18 @@ gpub ()
     if [ "${input}" == "s" ]; then
         for path in ${git_paths}; do
             echo "${path}"
+            git -C "${path}" status
+            echo "================"
             git -C "${path}" push
+            echo "================"
         done
     else
         for path in ${git_paths}; do
             echo "${path}"
+            git -C "${path}" status
+            echo "================"
             git -C "${path}" pull --rebase
+            echo "================"
         done
     fi
 }
