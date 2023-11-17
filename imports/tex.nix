@@ -60,6 +60,8 @@ pkgs.texlive.combine {
     pdfx xmpincl xcolor stringenc
     # beamer
     beamer etoolbox hyperref pgf
+    # metafont for knuth
+    metafont
     # checks
     chktex lacheck;
 }
