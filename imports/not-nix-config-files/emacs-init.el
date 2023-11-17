@@ -173,7 +173,7 @@
     (cadr ispell-tex-skip-alists)))
   :bind
   (:map TeX-mode-map
-        ("<f8>" . preview-at-point))
+        ("<f8>" . TeX-command-run-all))
   :config
   (with-eval-after-load "preview"
     (add-to-list 'preview-default-preamble
