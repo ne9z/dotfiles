@@ -62,6 +62,8 @@ pkgs.texlive.combine {
     beamer etoolbox hyperref pgf
     # metafont for knuth
     metafont
+    # quotes
+    csquotes
     # checks
     chktex lacheck;
 }
