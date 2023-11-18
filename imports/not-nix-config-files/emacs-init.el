@@ -133,6 +133,7 @@
   ((LaTeX-mode . turn-on-reftex)
    (LaTeX-mode . prettify-symbols-mode)
    (LaTeX-mode . TeX-source-correlate-mode)
+   (LaTeX-mode . TeX-fold-mode)
    (LaTeX-mode . LaTeX-math-mode))
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
@@ -168,6 +169,7 @@
   (:map TeX-mode-map
         ("<f8>" . TeX-command-run-all))
   :config
+  (add-hook 'find-file-hook #'TeX-fold-buffer t)
   (add-hook 'TeX-after-compilation-finished-functions
             #'TeX-revert-document-buffer)
   (dolist (symb
