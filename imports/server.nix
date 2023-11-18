@@ -77,6 +77,8 @@
     "net.core.wmem_max" = 1048576;
     "fs.file-max" = 65536;
   };
+  # clean up watch dir after one day
+  systemd.tmpfiles.rules = [ "d '/home/our/新种子' 0755 our users 1d" ];
   systemd.services.rtorrent.serviceConfig.LimitNOFILE = 10240;
   services.rtorrent = {
     enable = true;
