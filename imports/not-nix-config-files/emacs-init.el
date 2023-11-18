@@ -137,6 +137,7 @@
    (LaTeX-mode . LaTeX-math-mode))
   :custom-face
   (font-latex-math-face ((t (:family "Monospace"))))
+  (font-latex-verbatim-face ((t (:family "Monospace"))))
   :custom
   (prettify-symbols-unprettify-at-point nil)
   (TeX-source-correlate-start-server t)
