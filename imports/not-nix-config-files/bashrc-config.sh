@@ -42,7 +42,6 @@ gpub ()
         for path in ${git_paths}; do
             echo "${path}"
             git -C "${path}" status
-            echo "================"
             git -C "${path}" push
             echo "================"
         done
@@ -50,14 +49,24 @@ gpub ()
         for path in ${git_paths}; do
             echo "${path}"
             git -C "${path}" status
-            echo "================"
             git -C "${path}" pull --rebase
             echo "================"
         done
     fi
 }
 
-wfrnativeres () {
+to720p () {
+    echo "Entering 720p efficient presentation mode"
+    unset GDK_DPI_SCALE QT_WAYLAND_FORCE_DPI
+    swaymsg -- input "9580:110:PenTablet_Pen" map_to_region 0 0 1280 720
+    swaymsg --  output '*' mode --custom 1280x720@60Hz
+    echo "Restore to native resolution by reloading Sway config"
+    echo "Super Shift c"
+}
+
+
+wfr () {
+    to720p
     local filename
     filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
     doas /usr/bin/env sh <<EOF
@@ -70,24 +79,8 @@ wfrnativeres () {
 	 -c:v h264_vaapi \
 	 -qp 24 "${filename}"
 EOF
-    #
-    # see this link for more ffmpeg video encoding options
-    # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
-}
-
-wfr1080p () {
-    local filename
-    filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
-    doas /usr/bin/env sh <<EOF
-        umask ugo=rw &&
-	 $(command -v ffmpeg) -device /dev/dri/card0 \
-         -framerate 60 \
-	 -f kmsgrab \
-	 -i - \
-         -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12:w=1920:h=1080'    \
-	 -c:v h264_vaapi \
-	 -qp 24 "${filename}"
-EOF
+    echo "Restore to native resolution by reloading Sway config"
+    echo "Super Shift c"
     #
     # see this link for more ffmpeg video encoding options
     # https://ffmpeg.org/ffmpeg-codecs.html#VAAPI-encoders
