@@ -242,7 +242,7 @@ in {
     };
   };
   programs.chromium = {
-    enable = mkDefault false;
+    enable = mkDefault true;
     package = pkgs.ungoogled-chromium;
     # https://www.chromium.org/administrators/
     # https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin
@@ -251,8 +251,10 @@ in {
       "--ozone-platform-hint=auto"
       "--ignore-gpu-blocklist"
       "--disable-remote-fonts"
+      "--disable-gpu-driver-bug-workarounds"
       "--js-flags='--jitless'"
-      "--enable-features=TouchpadOverscrollHistoryNavigation"
+      "--enable-vulkan"
+      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,TouchpadOverscrollHistoryNavigation"
       "--start-maximized"
     ];
   };
