@@ -53,6 +53,7 @@ in {
     };
   };
   sound.enable = true;
+  security.chromiumSuidSandbox.enable = true;
   programs.sway = {
     extraSessionCommands = ''
       export MOZ_ENABLE_WAYLAND=1
