@@ -258,6 +258,7 @@ in {
       "--enable-gpu-rasterization"
       "--enable-zero-copy"
       "--start-maximized"
+      "--disable-features=UseChromeOSDirectVideoDecoder"
     ];
   };
   qt = {
