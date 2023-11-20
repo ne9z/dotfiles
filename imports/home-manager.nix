@@ -254,7 +254,9 @@ in {
       "--disable-gpu-driver-bug-workarounds"
       "--js-flags='--jitless'"
       "--enable-vulkan"
-      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,TouchpadOverscrollHistoryNavigation"
+      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,TouchpadOverscrollHistoryNavigation"
+      "--enable-gpu-rasterization"
+      "--enable-zero-copy"
       "--start-maximized"
     ];
   };
