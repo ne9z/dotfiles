@@ -8,7 +8,7 @@ in {
   imports = [
     (modulesPath + "/installer/cd-dvd/installation-cd-base.nix")
   ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
   services.pipewire.enable = false;
   networking = {
