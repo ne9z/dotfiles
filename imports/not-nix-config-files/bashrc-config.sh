@@ -55,18 +55,18 @@ gpub ()
     fi
 }
 
-to720p () {
-    echo "Entering 720p efficient presentation mode"
+to540p () {
+    echo "Entering 540p efficient presentation mode"
     unset GDK_DPI_SCALE QT_WAYLAND_FORCE_DPI
-    swaymsg -- input "9580:110:PenTablet_Pen" map_to_region 0 0 1280 720
-    swaymsg --  output '*' mode --custom 1280x720@60Hz
+    swaymsg -- input "9580:110:PenTablet_Pen" map_to_region 0 0 960 540
+    swaymsg --  output '*' mode --custom 960x540@60Hz
     echo "Restore to native resolution by reloading Sway config"
     echo "Super Shift c"
 }
 
 
 wfr () {
-    to720p
+    to540p
     local filename
     filename="${HOME}/Downloads/$(date +%Y%m%d_%H%M%S).mp4"
     doas /usr/bin/env sh <<EOF
