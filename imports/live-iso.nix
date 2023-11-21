@@ -10,6 +10,7 @@ in {
     (modulesPath
       + "/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix")
   ];
+  services.pipewire.enable = false;
   networking = {
     wireless = {
       networks = {
