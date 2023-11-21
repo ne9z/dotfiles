@@ -5,7 +5,11 @@ let
 in {
   boot.initrd.availableKernelModules = [ "i915" ];
   boot.initrd.systemd.enable = false;
-  imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+  imports = [
+    (modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")
+    (modulesPath
+      + "/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix")
+  ];
   networking = {
     wireless = {
       networks = {
