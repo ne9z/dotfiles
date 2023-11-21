@@ -6,8 +6,10 @@ in {
   boot.initrd.availableKernelModules = [ "i915" ];
   boot.initrd.systemd.enable = false;
   imports = [
-    (modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")
+    (modulesPath + "/installer/cd-dvd/installation-cd-base.nix")
   ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.pipewire.enable = false;
   networking = {
     wireless = {
