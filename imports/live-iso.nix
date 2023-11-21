@@ -8,9 +8,8 @@ in {
   imports = [
     (modulesPath + "/installer/cd-dvd/installation-cd-base.nix")
   ];
+  isoImage.squashfsCompression = "lz4";
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-
-  services.pipewire.enable = false;
   networking = {
     wireless = {
       networks = {
@@ -21,7 +20,6 @@ in {
       };
     };
   };
-  isoImage.squashfsCompression = "lz4";
   users.users = {
     yc = {
       # "!" means login disabled
