@@ -7,7 +7,7 @@ in {
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/hardened.nix")
   ];
-  boot.initrd.systemd.enable = true;
+  boot.initrd.systemd.enable = mkDefault true;
   # workaround for hardened profile
   services.logrotate.checkConfig = false;
 

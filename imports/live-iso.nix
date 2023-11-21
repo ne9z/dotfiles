@@ -4,6 +4,7 @@ let
   firefoxPkg = import ./firefox.nix { inherit pkgs; };
 in {
   boot.initrd.availableKernelModules = [ "i915" ];
+  boot.initrd.systemd.enable = false;
   imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
   networking = {
     wireless = {
