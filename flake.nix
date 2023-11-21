@@ -56,6 +56,7 @@
         tieling = mkHost "tieling" "x86_64-linux";
         yinzhou = mkHost "yinzhou" "x86_64-linux";
         kaiyuan = mkHost "kaiyuan" "x86_64-linux";
+        ceshi = mkHost "ceshi" "x86_64-linux";
       };
     };
 }
