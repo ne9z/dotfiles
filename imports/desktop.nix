@@ -30,7 +30,7 @@ in {
         builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
       enable = true;
     };
-    pulseaudio.enable = false;
+    pulseaudio.enable = mkDefault false;
   };
   services.xserver.enable = true;
   services.xserver.displayManager.sddm = {
