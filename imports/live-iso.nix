@@ -7,14 +7,7 @@ in {
   boot.initrd.systemd.enable = false;
   imports = [
     (modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")
-    (modulesPath
-      + "/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix")
   ];
-  services.zfs = {
-    autoSnapshot = {
-      enable = false;
-    };
-  };
   services.pipewire.enable = false;
   networking = {
     wireless = {
