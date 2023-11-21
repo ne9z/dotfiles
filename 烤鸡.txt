@@ -1,0 +1,9 @@
+phoronix-test-suite, offline
+https://github.com/phoronix-test-suite/phoronix-test-suite/blob/master/documentation/phoronix-test-suite.md#offline-testing
+
+blender opendata, run offline section
+https://opendata.blender.org/about/
+https://opendata.blender.org/cdn/BlenderBenchmark2.0/
+
+MEMTest86 Plus, GPL
+https://www.memtest.org/
