@@ -3,6 +3,7 @@ let
   inherit (lib) mkMerge;
   firefoxPkg = import ./firefox.nix { inherit pkgs; };
 in {
+  boot.initrd.availableKernelModules = [ "i915" ];
   imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
   networking = {
     wireless = {
@@ -18,8 +19,7 @@ in {
   users.users = {
     yc = {
       # "!" means login disabled
-      initialPassword =
-        "test";
+      initialPassword = "test";
       description = "Yǔchēn Guō 郭宇琛";
       # a default group must be set
       extraGroups = [

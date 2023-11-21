@@ -15,6 +15,9 @@ in {
 
   security.lockKernelModules = false;
 
+  boot.initrd.systemd.emergencyAccess =
+    "$6$UxT9KYGGV6ik$BhH3Q.2F8x1llZQLUS1Gm4AxU7bmgZUP7pNX6Qt3qrdXUy7ZYByl5RVyKKMp/DuHZgk.RiiEXK8YVH.b2nuOO/";
+
   networking = {
     useDHCP = true;
     useNetworkd = true;
