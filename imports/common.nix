@@ -62,7 +62,17 @@ in {
     '';
   };
 
-  services.tlp = { enable = true; };
+  services.tlp = {
+    enable = true;
+    settings = {
+      # defaults for lenovo ideapads
+      # Stop charging battery BAT0 and BAT1 at 60%:
+      # https://linrunner.de/tlp/settings/bc-vendors.html
+      START_CHARGE_THRESH_BAT0 = mkDefault 0;
+      STOP_CHARGE_THRESH_BAT0 = mkDefault 1;
+    };
+  };
+  boot.loader.grub.memtest86.enable = true;
 
   services.openssh = {
     enable = true;
