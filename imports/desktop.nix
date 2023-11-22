@@ -67,7 +67,7 @@ in {
       "HighEfficiencyModeEnabled" = true;
       # set to int 2 to disable
       "ShowHomeButton" = true;
-      "NewTabPageLocation" = "https://lite.duckduckgo.com/"
+      "NewTabPageLocation" = "https://lite.duckduckgo.com/";
       "DefaultInsecureContentSetting" = 2;
       "DefaultNotificationsSetting" = 2;
       "DefaultWebUsbGuardSetting" = 2;
