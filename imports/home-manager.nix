@@ -263,6 +263,7 @@ in {
       "--hide-fullscreen-exit-ui"
       "--remove-grab-handle"
       "--force-punycode-hostnames"
+      "--popups-to-tabs"
     ];
   };
   qt = {

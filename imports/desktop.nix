@@ -54,6 +54,26 @@ in {
   };
   sound.enable = true;
   security.chromiumSuidSandbox.enable = true;
+  programs.chromium = {
+    enable = true;
+    homepageLocation = "chrome://settings/content/javascript";
+    extraOpts = {
+      "BookmarkBarEnabled" = false;
+      "DefaultFileSystemWriteGuardSetting" = 2;
+      "DefaultFileSystemReadGuardSetting" = 2;
+      "DefaultJavaScriptJitSetting" = 2;
+      "AlwaysOpenPdfExternally" = true;
+      "HttpsUpgradesEnabled" = true;
+      "HighEfficiencyModeEnabled" = true;
+      # set to int 2 to disable
+      "ShowHomeButton" = true;
+      "NewTabPageLocation" = "https://lite.duckduckgo.com/"
+      "DefaultInsecureContentSetting" = 2;
+      "DefaultNotificationsSetting" = 2;
+      "DefaultWebUsbGuardSetting" = 2;
+      "DefaultPopupsSetting" = 1;
+    };
+  };
   programs.sway = {
     extraSessionCommands = ''
       export MOZ_ENABLE_WAYLAND=1
