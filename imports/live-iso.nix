@@ -1,6 +1,7 @@
 { modulesPath, config, lib, pkgs, ... }:
 let
   inherit (lib) mkMerge;
+  firefoxPkg = import ./firefox.nix { inherit pkgs; };
 in {
   boot.initrd.availableKernelModules = [ "i915" ];
   boot.initrd.systemd.enable = false;
@@ -43,6 +44,7 @@ in {
     (import ./home-manager.nix { inherit config lib pkgs; })
     {
       home = {
+        packages = [ firefoxPkg ];
         username = "yc";
         homeDirectory = "/home/yc";
         stateVersion = config.system.stateVersion;

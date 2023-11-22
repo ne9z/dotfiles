@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   inherit (lib) mkMerge;
+  firefoxPkg = import ./firefox.nix { inherit pkgs; };
   homeBindOpts =
     [ "bind" "X-mount.mkdir" "noatime" "uid=yc" "gid=users" "mode=1700" ];
 in {
@@ -92,6 +93,7 @@ in {
     (import ./home-manager.nix { inherit config lib pkgs; })
     {
       home = {
+        packages = [ firefoxPkg ];
         username = "yc";
         homeDirectory = "/home/yc";
         stateVersion = config.system.stateVersion;
