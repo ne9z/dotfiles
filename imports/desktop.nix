@@ -126,7 +126,7 @@ in {
         "Noto Serif"
       ];
     };
-    confPackages = [ ycFontsConf ];
+    confPackages = [ confPkg ];
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
