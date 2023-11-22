@@ -1,5 +1,6 @@
 { modulesPath, config, lib, pkgs, ... }:
-let inherit (lib) mkMerge;
+let
+  inherit (lib) mkMerge;
 in {
   boot.initrd.availableKernelModules = [ "i915" ];
   boot.initrd.systemd.enable = false;
@@ -41,7 +42,6 @@ in {
   home-manager.users.yc = mkMerge [
     (import ./home-manager.nix { inherit config lib pkgs; })
     {
-      packages = builtins.attrValues { inherit (pkgs) phoronix-test-suite; };
       home = {
         username = "yc";
         homeDirectory = "/home/yc";
