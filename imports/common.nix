@@ -137,6 +137,10 @@ in {
       };
     };
 
+    nix.settings.trusted-substituters = [
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+    ];
+
     yggdrasil = {
       enable = true;
       openMulticastPort = false;
