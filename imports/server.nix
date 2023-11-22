@@ -216,16 +216,14 @@
       };
     };
   };
+  nix.settings.substituters = lib.mkBefore [
+    "https://mirror.sjtu.edu.cn/nix-channels/store"
+  ];
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
       smartmontools darkhttpd pyrosimple woeusb _7zz exfatprogs emacs-nox;
   };
   environment.loginShellInit = ''
-    Nu () {
-      source /etc/os-release
-      nix-channel --add https://mirror.sjtu.edu.cn/nix-channels/nixos-"$VERSION_ID" nixos
-      nix-channel --update
-    }
     dsrv () {
       darkhttpd . --addr ::1 --ipv6 --port 8088
     }
@@ -235,7 +233,6 @@
          return 1
       fi
       nixos-rebuild boot \
-       --option substituters https://mirror.sjtu.edu.cn/nix-channels/store \
        --flake git+file:///home/yc/githost/systemConfiguration
     }
     Ns () {
@@ -244,7 +241,6 @@
          return 1
       fi
       nixos-rebuild switch \
-       --option substituters https://mirror.sjtu.edu.cn/nix-channels/store \
        --flake git+file:///home/yc/githost/systemConfiguration
     }
     tm () {
