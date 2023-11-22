@@ -252,7 +252,7 @@ in {
       "--ignore-gpu-blocklist"
       "--js-flags='--jitless'"
       "--enable-vulkan"
-      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,TouchpadOverscrollHistoryNavigation,ClearDataOnExit,NoReferrers"
+      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,TouchpadOverscrollHistoryNavigation,ClearDataOnExit"
       "--enable-gpu-rasterization"
       "--enable-zero-copy"
       "--start-maximized"
