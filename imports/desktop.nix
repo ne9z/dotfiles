@@ -115,13 +115,11 @@ in {
         [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" "Noto Sans Mono" ];
       sansSerif = [
         "TeX Gyre Schola"
-        "NewComputerModern08"
         "Noto Serif CJK SC"
         "Noto Serif"
       ];
       serif = [
         "TeX Gyre Schola"
-        "NewComputerModern08"
         "Noto Serif CJK SC"
         "Noto Serif"
       ];
