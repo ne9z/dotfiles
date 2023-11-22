@@ -5,7 +5,8 @@ let
   # input
   emacsPkg = import ./emacs.nix { inherit pkgs; };
   mytex = import ./tex.nix { inherit pkgs; };
-  ycFontsConf = pkgs.writeText "fc-56-yc-fonts.conf" (builtins.readFile ./fontconfig.xml)
+  ycFontsConf =
+    pkgs.writeText "fc-56-yc-fonts.conf" (builtins.readFile ./fontconfig.xml);
   confPkg = pkgs.runCommand "fontconfig-conf" { preferLocalBuild = true; } ''
     dst=$out/etc/fonts/conf.d
     mkdir -p $dst
