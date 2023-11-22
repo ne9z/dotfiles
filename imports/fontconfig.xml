@@ -20,22 +20,6 @@
   </match>
   <match target="pattern">
     <test name="family" compare="contains">
-      <string>serif</string>
-    </test>
-    <edit name="family" mode="assign" binding="strong">
-      <string>TeX Gyre Schola</string>
-    </edit>
-  </match>
-  <match target="pattern">
-    <test name="family" compare="contains">
-      <string>sans-serif</string>
-    </test>
-    <edit name="family" mode="assign" binding="strong">
-      <string>TeX Gyre Schola</string>
-    </edit>
-  </match>
-  <match target="pattern">
-    <test name="family" compare="contains">
       <string>arial</string>
     </test>
     <edit name="family" mode="assign" binding="strong">
