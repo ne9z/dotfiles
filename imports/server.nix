@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   environment.etc = {
     "ssh/ssh_host_ed25519_key" = {
       source = "/oldroot/etc/ssh/ssh_host_ed25519_key";
