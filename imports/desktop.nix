@@ -56,7 +56,7 @@ in {
   security.chromiumSuidSandbox.enable = true;
   programs.chromium = {
     enable = true;
-    homepageLocation = "https://lite.duckduckgo.com/";
+    homepageLocation = "chrome://settings/content/javascript";
     extraOpts = {
       "BookmarkBarEnabled" = false;
       "DefaultFileSystemWriteGuardSetting" = 2;
@@ -67,7 +67,7 @@ in {
       "HighEfficiencyModeEnabled" = true;
       # set to int 2 to disable
       "ShowHomeButton" = true;
-      "HomepageLocation" = "https://lite.duckduckgo.com/";
+      "HomepageLocation" = "chrome://settings/content/javascript";
       "NewTabPageLocation" = "chrome://settings/content/javascript";
       "DefaultInsecureContentSetting" = 2;
       "DefaultNotificationsSetting" = 2;
