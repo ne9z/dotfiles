@@ -250,15 +250,19 @@ in {
       "--incognito"
       "--ozone-platform-hint=auto"
       "--ignore-gpu-blocklist"
-      "--disable-remote-fonts"
-      "--disable-gpu-driver-bug-workarounds"
       "--js-flags='--jitless'"
       "--enable-vulkan"
-      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,TouchpadOverscrollHistoryNavigation"
+      "--enable-features=VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,TouchpadOverscrollHistoryNavigation,ClearDataOnExit,NoReferrers"
       "--enable-gpu-rasterization"
       "--enable-zero-copy"
       "--start-maximized"
       "--disable-features=UseChromeOSDirectVideoDecoder"
+      "--disable-remote-fonts"
+      "--disable-webgl"
+      "--close-confirmation"
+      "--hide-fullscreen-exit-ui"
+      "--remove-grab-handle"
+      "--force-punycode-hostnames"
     ];
   };
   qt = {
