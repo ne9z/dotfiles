@@ -67,6 +67,7 @@ in {
       "HighEfficiencyModeEnabled" = true;
       # set to int 2 to disable
       "ShowHomeButton" = true;
+      "HomepageLocation" = "chrome://settings/content/javascript";
       "NewTabPageLocation" = "https://lite.duckduckgo.com/";
       "DefaultInsecureContentSetting" = 2;
       "DefaultNotificationsSetting" = 2;
