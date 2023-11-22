@@ -216,9 +216,8 @@
       };
     };
   };
-  nix.settings.substituters = lib.mkBefore [
-    "https://mirror.sjtu.edu.cn/nix-channels/store"
-  ];
+  nix.settings.substituters =
+    lib.mkBefore [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
       smartmontools darkhttpd pyrosimple woeusb _7zz exfatprogs emacs-nox;

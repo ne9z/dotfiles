@@ -18,9 +18,9 @@ in {
       };
     };
   };
-  nix.settings.substituters = lib.mkBefore [
-    "https://mirror.sjtu.edu.cn/nix-channels/store"
-  ];
+  systemd.services.wpa_supplicant.wantedBy = [ "multi-user.target" ];
+  nix.settings.substituters =
+    lib.mkBefore [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
   users.users = {
     yc = {
       # "!" means login disabled
