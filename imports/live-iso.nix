@@ -5,9 +5,7 @@ let
 in {
   boot.initrd.availableKernelModules = [ "i915" ];
   boot.initrd.systemd.enable = false;
-  imports = [
-    (modulesPath + "/installer/cd-dvd/installation-cd-base.nix")
-  ];
+  imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-base.nix") ];
   isoImage.squashfsCompression = "lz4";
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   networking = {
