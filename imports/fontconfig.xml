@@ -35,19 +35,8 @@
     </edit>
   </match>
   <match target="pattern">
-    <test name="lang" compare="contains">
-      <string>zh</string>
-    </test>
-    <edit name="family" mode="assign" binding="strong">
-      <string>Noto Serif CJK SC</string>
-    </edit>
-    <edit name="weight" mode="assign" binding="strong">
-      <const>medium</const>
-    </edit>
-  </match>
-  <match target="pattern">
     <test name="family" compare="contains">
-      <string>CJK</string>
+      <string>Serif CJK</string>
     </test>
     <edit name="weight" mode="assign" binding="strong">
       <const>medium</const>
