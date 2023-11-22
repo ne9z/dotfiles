@@ -4,6 +4,14 @@
 <fontconfig>
   <match target="pattern">
     <test name="family" compare="contains">
+      <string>liberation</string>
+    </test>
+    <edit name="family" mode="assign" binding="strong">
+      <string>TeX Gyre Schola</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <test name="family" compare="contains">
       <string>times</string>
     </test>
     <edit name="family" mode="assign" binding="strong">
