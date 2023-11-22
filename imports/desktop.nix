@@ -5,7 +5,19 @@ let
   # input
   emacsPkg = import ./emacs.nix { inherit pkgs; };
   mytex = import ./tex.nix { inherit pkgs; };
+  ycFontsConf = pkgs.writeText "fc-56-yc-fonts.conf" (builtins.readFile ./fontconfig.xml)
+  confPkg = pkgs.runCommand "fontconfig-conf" { preferLocalBuild = true; } ''
+    dst=$out/etc/fonts/conf.d
+    mkdir -p $dst
+
+    # 56-yc-fonts.conf
+    ln -s ${ycFontsConf} $dst/56-yc-fonts.conf
+  '';
 in {
+  security.apparmor.includes."abstractions/fonts" = ''
+    # 56-yc-fonts.conf
+     r ${ycFontsConf},
+  '';
   programs.gnupg.agent = {
     enable = true;
     pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
@@ -96,7 +108,6 @@ in {
     wlr.enable = true;
   };
   fonts.fontconfig = {
-    localConf = builtins.readFile ./fontconfig.xml;
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace =
@@ -114,6 +125,7 @@ in {
         "Noto Serif"
       ];
     };
+    confPackages = [ ycFontsConf ];
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
