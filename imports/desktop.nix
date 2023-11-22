@@ -73,6 +73,7 @@ in {
       "DefaultNotificationsSetting" = 2;
       "DefaultWebUsbGuardSetting" = 2;
       "DefaultPopupsSetting" = 1;
+      "PasswordManagerEnabled" = false;
     };
   };
   programs.sway = {
