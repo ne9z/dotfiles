@@ -53,4 +53,8 @@ in {
   system.stateVersion = "23.05";
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
+
+  zramSwap.enable = true;
+  zramSwap.algorithm = "lzo";
+
 }
