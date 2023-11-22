@@ -55,6 +55,4 @@ in {
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
   zramSwap.enable = true;
-  zramSwap.algorithm = "lzo";
-
 }
