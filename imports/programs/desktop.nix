@@ -1,5 +1,4 @@
-{config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   programs.gnupg.agent = {
     enable = true;
     pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
