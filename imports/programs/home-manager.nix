@@ -3,6 +3,36 @@ let
   inherit (lib) mkDefault;
 in{
   home-manager.users.yc.programs = {
+  bash = {
+    enable = true;
+    initExtra = "if [ -f ~/.config/yc.sh ]; then source ~/.config/yc.sh; fi";
+  };
+  git = {
+    enable = true;
+    userEmail = "yguo@posteo.net";
+    userName = "Yǔchēn Guō 郭宇琛";
+  };
+  ssh = {
+    matchBlocks = {
+      "unixpool.math.tu-berlin.de".user = "cma-1e1";
+      "codeberg.org".user = "git";
+      "github.com".user = "git";
+      "tl.yc" = {
+        user = "yc";
+        port = 65222;
+      };
+      "3ldetowqifu5ox23snmoblv7xapkd26qyvex6fwrg6zpdwklcatq.b32.i2p" = {
+        user = "yc";
+        port = 65222;
+        proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:4447 %h %p";
+      };
+      "ditgedyyvwsxspdmgpnzuzhj7p63snkiok54cphmvwcgnrjgw2lqgcad.onion" = {
+        user = "yc";
+        port = 22;
+        proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:9050 %h %p";
+      };
+    };
+  };
     home-manager.enable = true;
     git = {
       enable = true;
@@ -375,35 +405,5 @@ in{
     indicator-radius = 100;
     line-color = "ffffff";
     show-failed-attempts = true;
-  };
-  bash = {
-    enable = true;
-    initExtra = "if [ -f ~/.config/yc.sh ]; then source ~/.config/yc.sh; fi";
-  };
-  git = {
-    enable = true;
-    userEmail = "yguo@posteo.net";
-    userName = "Yǔchēn Guō 郭宇琛";
-  };
-  ssh = {
-    matchBlocks = {
-      "unixpool.math.tu-berlin.de".user = "cma-1e1";
-      "codeberg.org".user = "git";
-      "github.com".user = "git";
-      "tl.yc" = {
-        user = "yc";
-        port = 65222;
-      };
-      "3ldetowqifu5ox23snmoblv7xapkd26qyvex6fwrg6zpdwklcatq.b32.i2p" = {
-        user = "yc";
-        port = 65222;
-        proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:4447 %h %p";
-      };
-      "ditgedyyvwsxspdmgpnzuzhj7p63snkiok54cphmvwcgnrjgw2lqgcad.onion" = {
-        user = "yc";
-        port = 22;
-        proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:9050 %h %p";
-      };
-    };
   };
 }
