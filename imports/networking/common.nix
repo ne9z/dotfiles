@@ -14,13 +14,11 @@
         enable = true;
         group = "wheel";
       };
-      wireless = {
-        networks = {
-          "TP-Link_48C2".psk = "77017543";
-          "1203-5G".psk = "woxiangshuoqinaidemaizi";
-          # public network
-          # "_Free_Wifi_Berlin" = {};
-        };
+      networks = {
+        "TP-Link_48C2".psk = "77017543";
+        "1203-5G".psk = "woxiangshuoqinaidemaizi";
+        # public network
+        # "_Free_Wifi_Berlin" = {};
       };
     };
   };
