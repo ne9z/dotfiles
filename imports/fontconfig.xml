@@ -38,6 +38,9 @@
     <test name="family" compare="eq">
       <string>Noto Serif CJK SC</string>
     </test>
+    <test name="weight" compare="eq">
+      <string>regular</string>
+    </test>
     <edit name="weight" mode="assign" binding="strong">
       <const>medium</const>
     </edit>
