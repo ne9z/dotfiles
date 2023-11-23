@@ -218,7 +218,7 @@ in {
     };
     firefox = {
       enable = true;
-      package = pkgs.firefox.override {
+      package = pkgs.firefox-esr.override {
         extraPolicies = {
           "3rdparty" = {
             Extensions = {
