@@ -1,6 +1,4 @@
 {
-  console.useXkbConfig = true;
-
   boot = {
     zfs.forceImportRoot = false;
     initrd = {
@@ -15,11 +13,4 @@
     devNodes = "/dev/disk/by-id/";
     immutable.enable = true;
   };
-
-  security = {
-    doas.enable = true;
-    sudo.enable = false;
-    lockKernelModules = false;
-  };
-
 }

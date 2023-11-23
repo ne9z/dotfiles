@@ -5,7 +5,6 @@
     ../emacs
     ../environment/common.nix
     ../environment/desktop.nix
-    ../fileSystems/yc.nix
     ../networking/common.nix
     ../programs/common.nix
     ../programs/desktop.nix

@@ -24,4 +24,12 @@ in {
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
   zramSwap.enable = true;
+
+  console.useXkbConfig = true;
+
+  security = {
+    doas.enable = true;
+    sudo.enable = false;
+    lockKernelModules = false;
+  };
 }

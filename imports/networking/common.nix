@@ -1,5 +1,6 @@
 {
   networking = {
+    firewall.enable = true;
     useDHCP = true;
     useNetworkd = true;
     hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
@@ -7,9 +8,6 @@
     wireless = {
       enable = true;
       allowAuxiliaryImperativeNetworks = true;
-      networks = {
-        # configured in yc.nix
-      };
       userControlled = {
         enable = true;
         group = "wheel";
