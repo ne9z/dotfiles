@@ -1,6 +1,6 @@
 # configuration in this file is shared by all hosts
 
-{ pkgs, pkgs-unstable, inputs, lib, ... }:
+{ pkgs, modulesPath, inputs, lib, ... }:
 let
   inherit (inputs) self;
   inherit (lib) mkDefault;
@@ -11,4 +11,17 @@ in {
     self.rev
   else
     throw "refuse to build: git tree is dirty";
+
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/profiles/hardened.nix")
+  ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  system.stateVersion = "23.05";
+
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+
+  zramSwap.enable = true;
 }

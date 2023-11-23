@@ -4,6 +4,7 @@
     pinentryFlavor = (if config.programs.sway.enable then "qt" else "tty");
     enableSSHSupport = true;
   };
+  security.chromiumSuidSandbox.enable = true;
   programs.chromium = {
     enable = true;
     homepageLocation = "https://lite.duckduckgo.com/";

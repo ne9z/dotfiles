@@ -1,13 +1,5 @@
 {
   home-manager.users.yc.services = {
-    emacs = {
-      enable = true;
-      package = emacsPkg;
-      client.enable = true;
-      client.arguments = [ "--create-frame" ];
-      defaultEditor = true;
-      startWithUserSession = "graphical";
-    };
     swayidle = {
       enable = true;
       events = [

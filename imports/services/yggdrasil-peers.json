@@ -1,6 +1,4 @@
 [
-        #curl -o test.html https://publicpeers.neilalexander.dev/
-        #grep -e 'tls://' -e 'tcp://' test.html  | grep -v offline | sed 's|<td id="address">|"|' | sed 's|</td><td.*|"|g' | sort | wl-copy -n
         "tcp://0.ygg.l1qu1d.net:11100?key=0000000998b5ff8c0f1115ce9212f772d0427151f50fe858e6de1d22600f1680",
         "tcp://178.132.161.124:65533",
         "tcp://178.20.41.3:65533",
