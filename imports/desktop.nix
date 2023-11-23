@@ -117,16 +117,16 @@ in {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace =
-        [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" "Noto Sans Mono" ];
+        [ "DejaVu Sans Mono" "Noto Sans Mono" "Noto Sans Mono CJK SC" ];
       sansSerif = [
         "TeX Gyre Schola"
-        "Noto Serif CJK SC"
         "Noto Serif"
+        "Noto Sans CJK SC"
       ];
       serif = [
         "TeX Gyre Schola"
-        "Noto Serif CJK SC"
         "Noto Serif"
+        "Noto Sans CJK SC"
       ];
     };
     confPackages = [ confPkg ];

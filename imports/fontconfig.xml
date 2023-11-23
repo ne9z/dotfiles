@@ -26,18 +26,4 @@
       <family>TeX Gyre Schola</family>
     </prefer>
   </alias>
-  <match target="font">
-    <test name="family" compare="eq">
-      <string>Noto Serif CJK SC</string>
-    </test>
-    <test name="weight" compare="eq">
-      <range>
-        <int>0</int>
-        <int>100</int>
-      </range>
-    </test>
-    <edit name="weight" mode="assign" binding="strong">
-      <const>medium</const>
-    </edit>
-  </match>
 </fontconfig>
