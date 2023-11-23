@@ -15,7 +15,6 @@ pref("browser.backspace_action", 0);
 pref("browser.casting.enabled", false);
 pref("browser.chrome.site_icons", false);
 pref("browser.contentblocking.category", "strict");
-pref("browser.display.use_document_fonts", 0);
 pref("browser.fixup.alternate.enabled", false);
 pref("browser.fixup.hide_user_pass", true);
 pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
