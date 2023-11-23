@@ -3,6 +3,12 @@
 <!-- /etc/fonts/fonts.conf file to configure system font access -->
 <fontconfig>
   <alias>
+    <family>Noto Sans</family>
+    <prefer>
+      <family>TeX Gyre Schola</family>
+    </prefer>
+  </alias>
+  <alias>
     <family>serif</family>
     <prefer>
       <family>TeX Gyre Schola</family>
