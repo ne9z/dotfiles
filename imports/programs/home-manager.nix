@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }:
+let
+  inherit (lib) mkDefault;
+in{
   home-manager.users.yc.programs = {
     home-manager.enable = true;
     git = {
