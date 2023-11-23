@@ -51,7 +51,7 @@ in {
     wayland.enable = true;
     settings = {
       General = {
-        GreeterEnvironment = "QT_FONT_DPI=192";
+        GreeterEnvironment = "QT_FONT_DPI=288";
       };
     };
   };
