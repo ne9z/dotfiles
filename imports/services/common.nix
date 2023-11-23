@@ -89,7 +89,7 @@ in {
       settings.Peers =
         #curl -o test.html https://publicpeers.neilalexander.dev/
         #grep -e 'tls://' -e 'tcp://' test.html  | grep -v offline | sed 's|<td id="address">|"|' | sed 's|</td><td.*|"|g' | sort | wl-copy -n
-        (builtins.fromJSON (builtins.readFile ./yggdrasil-peers.nix));
+        (builtins.fromJSON (builtins.readFile ./yggdrasil-peers.json));
     };
   };
 
