@@ -129,7 +129,7 @@ in {
         "Noto Serif"
       ];
     };
-    # confPackages = [ confPkg ];
+    confPackages = [ confPkg ];
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)

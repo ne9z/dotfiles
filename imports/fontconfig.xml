@@ -34,12 +34,4 @@
       <string>TeX Gyre Schola</string>
     </edit>
   </match>
-  <match target="pattern">
-    <test name="family" compare="contains">
-      <string>Serif CJK</string>
-    </test>
-    <edit name="weight" mode="assign" binding="strong">
-      <const>medium</const>
-    </edit>
-  </match>
 </fontconfig>
