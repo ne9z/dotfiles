@@ -532,7 +532,6 @@ in {
           dpi-aware=no
           [colors]
           background=ffffffff
-          text=00000000
           '';
       };
       "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
