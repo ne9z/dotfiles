@@ -1,7 +1,7 @@
 {
   networking = {
-    useDHCP = mkDefault true;
-    useNetworkd = mkDefault true;
+    useDHCP = true;
+    useNetworkd = true;
     hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
     nameservers = [ "::1" ];
     wireless = {
