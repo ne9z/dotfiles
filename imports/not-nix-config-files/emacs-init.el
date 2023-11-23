@@ -13,12 +13,12 @@
  '(modus-themes-italic-constructs t)
  '(modus-themes-variable-pitch-ui t)
  '(face-ignored-fonts
-   '("Noto Serif CJK HK"
-     "Noto Serif CJK KR"
-     "Noto Serif CJK TC"
-     "Noto Serif CJK JP"
+   '("Noto Sans Mono CJK HK"
+     "Noto Sans Mono CJK KR"
+     "Noto Sans Mono CJK TC"
+     "Noto Sans Mono CJK JP"
      "Noto Sans CJK"
-     "Noto Sans Mono CJK"
+     "Noto Serif CJK"
      "Unifont"
      "Fixed"
      "ARPH"

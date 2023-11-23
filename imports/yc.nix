@@ -60,14 +60,6 @@ in {
       options = homeBindOpts;
     };
   };
-  services.xserver = {
-    layout = "yc";
-    extraLayouts."yc" = {
-      description = "zfs-root layout";
-      languages = [ "eng" ];
-      symbolsFile = ./ergo-keymap-yc.txt;
-    };
-  };
   environment.variables = { XKB_DEFAULT_LAYOUT = "yc"; };
   users.users = {
     yc = {
@@ -98,37 +90,7 @@ in {
         homeDirectory = "/home/yc";
         stateVersion = config.system.stateVersion;
       };
-      programs.bash = {
-        enable = true;
-        initExtra =
-          "if [ -f ~/.config/yc.sh ]; then source ~/.config/yc.sh; fi";
-      };
-      programs.git = {
-        enable = true;
-        userEmail = "yguo@posteo.net";
-        userName = "Yǔchēn Guō 郭宇琛";
-      };
-      programs.ssh = {
-        matchBlocks = {
-          "unixpool.math.tu-berlin.de".user = "cma-1e1";
-          "codeberg.org".user = "git";
-          "github.com".user = "git";
-          "tl.yc" = {
-            user = "yc";
-            port = 65222;
-          };
-          "3ldetowqifu5ox23snmoblv7xapkd26qyvex6fwrg6zpdwklcatq.b32.i2p" = {
-            user = "yc";
-            port = 65222;
-            proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:4447 %h %p";
-          };
-          "ditgedyyvwsxspdmgpnzuzhj7p63snkiok54cphmvwcgnrjgw2lqgcad.onion" = {
-            user = "yc";
-            port = 22;
-            proxyCommand = "${pkgs.libressl.nc}/bin/nc -x localhost:9050 %h %p";
-          };
-        };
-      };
+
       xdg = {
         configFile = {
           "sway/yc-sticky-keymap" = {
