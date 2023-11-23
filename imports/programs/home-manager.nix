@@ -329,75 +329,75 @@ in {
         "--popups-to-tabs"
       ];
     };
-  };
-  password-store = {
-    enable = true;
-    package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
-    settings = {
-      PASSWORD_STORE_GENERATED_LENGTH = "32";
-      PASSWORD_STORE_CHARACTER_SET = "[:alnum:].,";
-      PASSWORD_STORE_DIR = "$HOME/.password-store";
-    };
-  };
-  waybar = {
-    enable = true;
-    style = ./waybar-style.css;
-    systemd = {
+    password-store = {
       enable = true;
-      target = "sway-session.target";
-    };
-    settings = {
-      mainBar = {
-        id = "bar-0";
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = "NOLOCK";
-            deactivated = "LOCK";
-          };
-        };
-        ipc = true;
-        layer = "bottom";
-        modules-center = [ ];
-        modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-right =
-          [ "idle_inhibitor" "pulseaudio" "backlight" "battery" "clock" ];
-        position = "bottom";
-        pulseaudio = {
-          format = "VOL {volume}%";
-          format-muted = "MUTED";
-          on-click = "${pkgs.alsa-utils}/bin/amixer set Master toggle";
-        };
-        backlight = {
-          device = "intel_backlight";
-          format = "BRI {percent}%";
-          on-click-right = "${pkgs.brightnessctl}/bin/brightnessctl set 100%";
-          on-click = "${pkgs.brightnessctl}/bin/brightnessctl set 1%";
-          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
-          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
-        };
-        "wlr/taskbar" = {
-          active-first = true;
-          format = "{name}";
-          on-click = "activate";
-          all-outputs = false;
-        };
-        battery = { format = "BAT {capacity}%"; };
-        clock = { format-alt = "{:%a, %d. %b  %H:%M}"; };
-        "sway/workspaces" = {
-          disable-scroll-wraparound = true;
-          enable-bar-scroll = true;
-        };
-
+      package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
+      settings = {
+        PASSWORD_STORE_GENERATED_LENGTH = "32";
+        PASSWORD_STORE_CHARACTER_SET = "[:alnum:].,";
+        PASSWORD_STORE_DIR = "$HOME/.password-store";
       };
     };
-  };
+    waybar = {
+      enable = true;
+      style = ./waybar-style.css;
+      systemd = {
+        enable = true;
+        target = "sway-session.target";
+      };
+      settings = {
+        mainBar = {
+          id = "bar-0";
+          idle_inhibitor = {
+            format = "{icon}";
+            format-icons = {
+              activated = "NOLOCK";
+              deactivated = "LOCK";
+            };
+          };
+          ipc = true;
+          layer = "bottom";
+          modules-center = [ ];
+          modules-left = [ "sway/workspaces" "sway/mode" ];
+          modules-right =
+            [ "idle_inhibitor" "pulseaudio" "backlight" "battery" "clock" ];
+          position = "bottom";
+          pulseaudio = {
+            format = "VOL {volume}%";
+            format-muted = "MUTED";
+            on-click = "${pkgs.alsa-utils}/bin/amixer set Master toggle";
+          };
+          backlight = {
+            device = "intel_backlight";
+            format = "BRI {percent}%";
+            on-click-right = "${pkgs.brightnessctl}/bin/brightnessctl set 100%";
+            on-click = "${pkgs.brightnessctl}/bin/brightnessctl set 1%";
+            on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
+            on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
+          };
+          "wlr/taskbar" = {
+            active-first = true;
+            format = "{name}";
+            on-click = "activate";
+            all-outputs = false;
+          };
+          battery = { format = "BAT {capacity}%"; };
+          clock = { format-alt = "{:%a, %d. %b  %H:%M}"; };
+          "sway/workspaces" = {
+            disable-scroll-wraparound = true;
+            enable-bar-scroll = true;
+          };
 
-  swaylock.settings = {
-    color = "808080";
-    indicator-idle-visible = true;
-    indicator-radius = 100;
-    line-color = "ffffff";
-    show-failed-attempts = true;
+        };
+      };
+    };
+
+    swaylock.settings = {
+      color = "808080";
+      indicator-idle-visible = true;
+      indicator-radius = 100;
+      line-color = "ffffff";
+      show-failed-attempts = true;
+    };
   };
 }
