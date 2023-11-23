@@ -42,6 +42,10 @@ in {
       enable-animations = false;
       gtk-key-theme = "Emacs";
     };
+    "org/gnome/shotwell/preferences/ui" = {
+      use-dark-theme = false;
+      show-welcome-dialog = false;
+    };
   };
   services.emacs = {
     enable = true;
@@ -524,8 +528,12 @@ in {
       "fuzzel/fuzzel.ini" = {
         text = ''
           [main]
-          font=sans-serif:size=12
-          dpi-aware=no'';
+          font=sans-serif:size=12:weight=bold
+          dpi-aware=no
+          [colors]
+          background=ffffffff
+          text=00000000
+          '';
       };
       "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
       "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };
