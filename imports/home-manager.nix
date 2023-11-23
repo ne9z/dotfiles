@@ -267,7 +267,6 @@ in {
       "--remove-grab-handle"
       "--force-punycode-hostnames"
       "--popups-to-tabs"
-      "--gtk-version=4"
     ];
   };
   qt = {
