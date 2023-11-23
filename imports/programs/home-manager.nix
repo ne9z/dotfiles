@@ -293,7 +293,7 @@ in {
             SkipOnboarding = true;
           };
         };
-        extraPrefsFiles = [ ./firefox-user.js ];
+        extraPrefs = (builtins.readFile ./firefox-user.js);
         nixExtensions = [
           (pkgs.fetchFirefoxAddon {
             name = "ublock"; # Has to be unique!
