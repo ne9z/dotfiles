@@ -17,7 +17,7 @@
       lidSwitchExternalPower = "suspend";
     };
     pipewire = {
-      enable = mkDefault true;
+      enable = true;
       alsa.enable = true;
       pulse.enable = true;
     };
