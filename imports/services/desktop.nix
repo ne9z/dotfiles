@@ -1,3 +1,4 @@
+
 {
   services = {
     xserver = {
@@ -20,6 +21,13 @@
       enable = true;
       alsa.enable = true;
       pulse.enable = true;
+    };
+  };
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = false;
     };
   };
 }
