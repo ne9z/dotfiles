@@ -2,34 +2,36 @@
 <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
 <!-- /etc/fonts/fonts.conf file to configure system font access -->
 <fontconfig>
-  <alias>
-    <family>Noto Sans</family>
-    <prefer>
-      <family>TeX Gyre Schola</family>
-    </prefer>
-  </alias>
-  <alias>
-    <family>serif</family>
-    <prefer>
-      <family>TeX Gyre Schola</family>
-    </prefer>
-  </alias>
-  <alias>
-    <family>times</family>
-    <prefer>
-      <family>TeX Gyre Schola</family>
-    </prefer>
-  </alias>
-  <alias>
-    <family>arial</family>
-    <prefer>
-      <family>TeX Gyre Schola</family>
-    </prefer>
-  </alias>
-  <alias>
-    <family>helvetica</family>
-    <prefer>
-      <family>TeX Gyre Schola</family>
-    </prefer>
-  </alias>
+  <match target="pattern">
+    <test name="family" compare="contains">
+      <string>times</string>
+    </test>
+    <edit name="family" mode="assign" binding="strong">
+      <string>TeX Gyre Schola</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <test name="family" compare="contains">
+      <string>arial</string>
+    </test>
+    <edit name="family" mode="assign" binding="strong">
+      <string>TeX Gyre Schola</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <test name="family" compare="contains">
+      <string>segoe</string>
+    </test>
+    <edit name="family" mode="assign" binding="strong">
+      <string>TeX Gyre Schola</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <test name="family" compare="contains">
+      <string>helvetica</string>
+    </test>
+    <edit name="family" mode="assign" binding="strong">
+      <string>TeX Gyre Schola</string>
+    </edit>
+  </match>
 </fontconfig>

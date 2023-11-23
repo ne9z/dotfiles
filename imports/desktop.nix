@@ -114,7 +114,6 @@ in {
     wlr.enable = true;
   };
   fonts.fontconfig = {
-    localConf = (builtins.readFile ./fontconfig.xml);
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace =
