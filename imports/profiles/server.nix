@@ -11,5 +11,6 @@
     ../services/server.nix
     ../users/common.nix
     ../users/server.nix
+    ../cn-mirror.nix
   ];
 }
