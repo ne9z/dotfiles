@@ -58,8 +58,7 @@ gpub ()
 lowres () {
     echo "Entering 720p efficient presentation mode"
     swaymsg -- input "9580:110:PenTablet_Pen" map_to_region 0 0 1280 720
-    swaymsg -- output '*' scale 1
-    swaymsg -- output '*' res 1280x720
+    swaymsg -- 'output * scale 1; output * mode --custom 1280x720@60Hz'
     echo "Restore to native resolution by reloading Sway config"
     echo "Super Shift c"
 }
