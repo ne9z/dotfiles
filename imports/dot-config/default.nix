@@ -102,7 +102,7 @@ in {
           "${modifier}+Shift+space" = "focus parent; focus right; focus child";
           "Shift+Print" = "exec ${pkgs.grim}/bin/grim";
           "${modifier}+Shift+l" = "exec ${pkgs.systemd}/bin/systemctl suspend";
-          "${modifier}+o" = "exec ${emacsPkg}/bin/emacsclient --create-frame";
+          "${modifier}+o" = "exec emacsclient --create-frame";
         };
         colors = {
           background = "#ffffff";
