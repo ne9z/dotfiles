@@ -28,7 +28,8 @@
     };
   };
   # sway and related sound config
-  hardware.opengl.extraPackages = builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
+  hardware.opengl.extraPackages =
+    builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
   hardware.pulseaudio.enable = false;
   sound.enable = true;
   xdg.portal = {

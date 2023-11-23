@@ -1,8 +1,5 @@
-{ ... }:
-let user-name = "yc";
-in {
-  imports =
-    [ ../../imports/common.nix ../../imports/desktop.nix ../../imports/yc.nix ];
+{ ... }: {
+  imports = [ ../../imports/profiles/desktop.nix ];
   networking = {
     hostName = "qinghe";
     hostId = "abcd1234";
