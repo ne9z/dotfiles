@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   environment = {
     systemPackages = builtins.attrValues {
