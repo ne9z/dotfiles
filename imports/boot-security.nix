@@ -4,7 +4,7 @@
   boot = {
     zfs.forceImportRoot = false;
     initrd = {
-      systemd.enable = mkDefault true;
+      systemd.enable = true;
       systemd.emergencyAccess =
         "$6$UxT9KYGGV6ik$BhH3Q.2F8x1llZQLUS1Gm4AxU7bmgZUP7pNX6Qt3qrdXUy7ZYByl5RVyKKMp/DuHZgk.RiiEXK8YVH.b2nuOO/";
     };
@@ -13,7 +13,7 @@
 
   zfs-root.boot = {
     devNodes = "/dev/disk/by-id/";
-    immutable.enable = mkDefault true;
+    immutable.enable = true;
   };
 
   security = {
