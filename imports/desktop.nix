@@ -133,12 +133,9 @@ in {
       noto-fonts-cjk-serif noto-fonts-cjk-sans;
   } ++ [ mytex.fonts ];
   environment.sessionVariables = {
-    QT_WAYLAND_FORCE_DPI = mkDefault "192";
-    GDK_DPI_SCALE = mkDefault "2";
     VAAPI_DISABLE_INTERLACE = "1";
     W3M_DIR = "$HOME/.config/w3m";
     XCURSOR_THEME = "Adwaita";
-    XCURSOR_SIZE = "48";
   };
   virtualisation.libvirtd = {
     enable = true;

@@ -34,7 +34,6 @@ in {
     };
     cursorTheme = {
       name = "Adwaita";
-      size = 48;
     };
   };
   dconf.settings = {
@@ -212,8 +211,8 @@ in {
     settings = {
       main = {
         term = "foot-direct";
-        dpi-aware = "yes";
-        font = mkDefault "monospace:size=12";
+        dpi-aware = "no";
+        font = mkDefault "monospace:size=10";
       };
 
       url = { launch = "wl-copy \${url}"; };
@@ -452,12 +451,11 @@ in {
       fonts = {
         names = [ "sans-serif" ];
         style = "bold";
-        size = mkDefault 16.0;
       };
       seat = {
         "*" = {
           hide_cursor = "when-typing enable";
-          xcursor_theme = "Adwaita 48";
+          xcursor_theme = "Adwaita 16";
         };
       };
       input = {
@@ -466,12 +464,15 @@ in {
           natural_scroll = "enabled";
           middle_emulation = "enabled";
           scroll_method = "edge";
-          pointer_accel = "0.3";
+          pointer_accel = "0.05";
         };
         "1149:8257:Kensington_Kensington_Slimblade_Trackball" = {
           left_handed = "enabled";
-          pointer_accel = "1";
+          pointer_accel = "0.25";
         };
+      };
+      output = {
+        "*" = { scale = mkDefault "2"; };
       };
       modifier = "Mod4";
       menu = "${pkgs.fuzzel}/bin/fuzzel";
@@ -526,8 +527,8 @@ in {
       "fuzzel/fuzzel.ini" = {
         text = ''
           [main]
-          font=sans-serif:size=14:weight=bold
-          dpi-aware=yes'';
+          font=sans-serif:size=12
+          dpi-aware=no'';
       };
       "w3m/config" = { source = ./not-nix-config-files/w3m-config; };
       "w3m/keymap" = { source = ./not-nix-config-files/w3m-keymap; };

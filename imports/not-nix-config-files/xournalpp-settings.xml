@@ -13,7 +13,7 @@
   <property name="edgePanMaxMult" value="5"/>
   <property name="zoomStep" value="20"/>
   <property name="zoomStepScroll" value="2"/>
-  <property name="displayDpi" value="230"/>
+  <property name="displayDpi" value="72"/>
   <property name="mainWndWidth" value="3840"/>
   <property name="mainWndHeight" value="2124"/>
   <property name="maximized" value="false"/>
@@ -51,7 +51,7 @@
   <property name="highlightPosition" value="true"/>
   <property name="cursorHighlightColor" value="2164260608"/>
   <property name="cursorHighlightBorderColor" value="2147483903"/>
-  <property name="cursorHighlightRadius" value="30"/>
+  <property name="cursorHighlightRadius" value="15"/>
   <property name="cursorHighlightBorderWidth" value="0"/>
   <property name="darkTheme" value="false"/>
   <property name="useStockIcons" value="true"/>
@@ -138,7 +138,7 @@
     <data name="default">
       <attribute name="color" type="hex" value="ff000000"/>
       <attribute name="drawingType" type="string" value="default"/>
-      <attribute name="size" type="string" value="thin"/>
+      <attribute name="size" type="string" value="veryThin"/>
       <attribute name="tool" type="string" value="pen"/>
     </data>
     <data name="eraser">
@@ -205,7 +205,7 @@
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
-      <attribute name="size" type="string" value="THIN"/>
+      <attribute name="size" type="string" value="VERY_FINE"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
     <data name="playObject">
