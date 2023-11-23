@@ -34,4 +34,12 @@
       <string>TeX Gyre Schola</string>
     </edit>
   </match>
+  <match target="font">
+    <test name="family" compare="eq">
+      <string>Noto Serif CJK SC</string>
+    </test>
+    <edit name="weight" mode="assign" binding="strong">
+      <const>medium</const>
+    </edit>
+  </match>
 </fontconfig>
