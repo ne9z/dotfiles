@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   home-manager.users.yc.services = {
     swayidle = {
