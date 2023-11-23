@@ -34,6 +34,7 @@ in {
     };
     cursorTheme = {
       name = "Adwaita";
+      size = 16;
     };
   };
   dconf.settings = {
@@ -267,11 +268,6 @@ in {
   };
   qt = {
     enable = true;
-    platformTheme = "gnome";
-    style = {
-      package = pkgs.adwaita-qt;
-      name = "adwaita";
-    };
   };
   programs.password-store = {
     enable = true;

@@ -49,6 +49,11 @@ in {
   services.xserver.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    settings = {
+      General = {
+        GreeterEnvironment = "QT_FONT_DPI=192";
+      };
+    };
   };
   services = {
     logind = {
@@ -124,7 +129,7 @@ in {
         "Noto Serif"
       ];
     };
-    confPackages = [ confPkg ];
+    # confPackages = [ confPkg ];
   };
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
@@ -136,6 +141,7 @@ in {
     VAAPI_DISABLE_INTERLACE = "1";
     W3M_DIR = "$HOME/.config/w3m";
     XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "16";
   };
   virtualisation.libvirtd = {
     enable = true;
