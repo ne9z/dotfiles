@@ -27,6 +27,14 @@
       "PasswordManagerEnabled" = false;
     };
   };
+  # sway and related sound config
+  hardware.opengl.extraPackages = builtins.attrValues { inherit (pkgs) vaapiIntel intel-media-driver; };
+  hardware.pulseaudio.enable = false;
+  sound.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
   programs.sway = {
     extraSessionCommands = ''
       export MOZ_ENABLE_WAYLAND=1
