@@ -218,7 +218,7 @@ in {
     };
     firefox = {
       enable = true;
-      package = pkgs.librewolf.override {
+      package = pkgs.librewolf-unwrapped.override {
         extraPolicies = {
           "3rdparty" = {
             Extensions = {
