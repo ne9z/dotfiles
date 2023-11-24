@@ -219,6 +219,7 @@ in {
     firefox = {
       enable = true;
       package = pkgs.firefox-esr.override {
+        requireSigning = false;
         extraPolicies = {
           "3rdparty" = {
             Extensions = {
