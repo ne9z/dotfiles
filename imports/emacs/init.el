@@ -186,7 +186,3 @@
 ;; zh-cn input engine ends here
 
 (pdf-tools-install)
-
-(defun yc-larger-font ()
-  (interactive)
-  (custom-set-faces '(default ((t (:height 151))))))
