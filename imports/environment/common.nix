@@ -15,6 +15,5 @@
       # channels to pin package version.
     };
     etc."wpa_supplicant.conf".text = "#";
-    memoryAllocator.provider = "mimalloc";
   };
 }
