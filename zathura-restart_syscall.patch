@@ -16,12 +16,13 @@ diff --git a/zathura/seccomp-filters.c b/zathura/seccomp-filters.c
 index 61e1a26..598943a 100644
 --- a/zathura/seccomp-filters.c
 +++ b/zathura/seccomp-filters.c
-@@ -214,6 +214,8 @@ seccomp_enable_strict_filter(zathura_t* zathura)
+@@ -214,6 +214,9 @@ seccomp_enable_strict_filter(zathura_t* zathura)
    ALLOW_RULE(recvmsg);
    /*  ALLOW_RULE(restart_syscall); unused? */
    ALLOW_RULE(rseq);
 +  ALLOW_RULE(restart_syscall);
 +  ALLOW_RULE(clock_gettime);
++  ALLOW_RULE(gettimeofday);
    ALLOW_RULE(rt_sigaction);
    ALLOW_RULE(rt_sigprocmask);
    ALLOW_RULE(sched_setattr);
