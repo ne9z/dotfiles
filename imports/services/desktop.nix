@@ -6,7 +6,7 @@
       displayManager.sddm = {
         enable = true;
         wayland.enable = true;
-        settings = { General = { GreeterEnvironment = "QT_FONT_DPI=288,XCURSOR_SIZE=48,XCURSOR_THEME=Adwaita,XCURSOR_PATH=${pkgs.adwaita-icon-theme}/share/icons"; }; };
+        settings = { General = { GreeterEnvironment = "QT_FONT_DPI=288,XCURSOR_SIZE=48,XCURSOR_THEME=Adwaita,XCURSOR_PATH=${pkgs.gnome.adwaita-icon-theme}/share/icons"; }; };
       };
     };
     logind = {
