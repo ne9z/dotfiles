@@ -8,5 +8,7 @@ https://opendata.blender.org/about/
 https://opendata.blender.org/cdn/BlenderBenchmark2.0/
 https://mirrors.tuna.tsinghua.edu.cn/blender/blender-release/BlenderBenchmark2.0/
 
+https://github.com/DavidS95/Smokeless_UMAF
+
 MEMTest86 Plus, GPL
 https://www.memtest.org/
