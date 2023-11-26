@@ -1,3 +1,11 @@
+thinkbook amd
+https://newthink.lenovo.com.cn/driveList.html?selname=yx05phl0
+https://pcsupport.lenovo.com/de/en/products/laptops-and-netbooks/thinkbook-series/thinkbook-14-g4-plus-ara/21d0/21d0000acd/yx05phl0/downloads/driver-list
+
+hp dock g2
+https://support.hp.com/au-en/drivers/hp-thunderbolt-dock-g2-with-combo-cable/model/21816262?sku=3TR87AA&serialnumber=5CG019XBS0
+https://support.hp.com/au-en/product/setup-user-guides/hp-thunderbolt-dock/20075223
+
 https://wiki.archlinux.org/title/Lenovo_IdeaPad_5_Pro_14ACN6
 
 phoronix-test-suite, offline
