@@ -26,3 +26,8 @@ https://www.dell.com/support/home/en-us/product-support/product/latitude-13-7370
 
 chromeos adaptive charging
 https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/power_manager/docs/adaptive_charging.md
+
+chromebook
+https://docs.google.com/spreadsheets/d/1udREts28cIrCL5tnPj3WpnOPOhWk76g3--tfWbtxi6Q/edit#gid=0
+https://wiki.mrchromebox.tech/Supported_Devices
+https://chrultrabook.github.io/docs/docs/supported-devices.html
