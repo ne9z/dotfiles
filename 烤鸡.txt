@@ -20,3 +20,9 @@ https://github.com/DavidS95/Smokeless_UMAF
 
 MEMTest86 Plus, GPL
 https://www.memtest.org/
+
+latitude 7370
+https://www.dell.com/support/home/en-us/product-support/product/latitude-13-7370-laptop/drivers
+
+chromeos adaptive charging
+https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/power_manager/docs/adaptive_charging.md

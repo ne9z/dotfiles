@@ -148,7 +148,7 @@ in {
             pointer_accel = "0.25";
           };
         };
-        output = { "*" = { scale = mkDefault "2"; }; };
+        output = { "*" = { scale = mkDefault "3"; }; };
         modifier = "Mod4";
         menu = "${pkgs.fuzzel}/bin/fuzzel";
         startup = [{

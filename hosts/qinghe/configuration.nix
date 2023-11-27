@@ -17,7 +17,6 @@
   home-manager.users.yc = {
     programs.mpv.config.hwdec = "no";
     wayland.windowManager.sway.config = {
-      output."*".scale = "3";
       input = {
         "9580:110:PenTablet_Pen" = {
           # the ratio is 16:9 on the graphic tablet
