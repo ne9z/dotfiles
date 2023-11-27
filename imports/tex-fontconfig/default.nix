@@ -97,9 +97,11 @@ in {
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       noto-fonts dejavu_fonts
-      gyre-fonts
+      gyre-fonts stix-two
       noto-fonts-cjk-sans;
   };
+  # pass-thru
+  # ++ [ mytex.fonts ];
 
   environment.systemPackages = [ mytex ];
 }
