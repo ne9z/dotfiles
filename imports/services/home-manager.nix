@@ -19,10 +19,7 @@
         }
         {
           timeout = 30;
-          command = ''
-            if ${pkgs.procps}/bin/pgrep --exact swaylock; then
-                 ${pkgs.systemd}/bin/systemctl suspend;
-            fi'';
+          command = "if ${pkgs.procps}/bin/pgrep --exact swaylock; then ${pkgs.systemd}/bin/systemctl suspend; fi";
         }
         {
           timeout = 910;
