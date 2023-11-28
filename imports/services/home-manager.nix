@@ -15,7 +15,14 @@
       timeouts = [
         {
           timeout = 900;
-          command = "${pkgs.swaylock}/bin/swaylock -fF";
+          command = "${pkgs.swaylock}/bin/swaylock --show-failed-attempts --ignore-empty-password";
+        }
+        {
+          timeout = 30;
+          command = ''
+            if ${pkgs.procps}/bin/pgrep --exact swaylock; then
+                 ${pkgs.systemd}/bin/systemctl suspend;
+            fi'';
         }
         {
           timeout = 910;
