@@ -11,10 +11,6 @@
           event = "lock";
           command = "lock";
         }
-        {
-          event = "after-resume";
-          command = "sleep 10; ${pkgs.systemd}/bin/systemctl suspend";
-        }
       ];
       timeouts = [
         {
