@@ -96,14 +96,14 @@
 
 (use-package dired
   :config
-  (defun dired-open-file ()
+  (defun dired-open-pdf ()
     "In dired, open the file named on this line."
     (interactive)
     (let* ((file (dired-get-filename nil t)))
-      (call-process "xdg-open" nil 0 nil file)))
+      (call-process "zathura" nil 0 nil file)))
   :bind
   (:map dired-mode-map
-        ("C-o" . dired-open-file)))
+        ("C-o" . dired-open-pdf)))
 
 (use-package gnus
   :custom
