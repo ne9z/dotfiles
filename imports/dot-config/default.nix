@@ -205,7 +205,8 @@ in {
           [colors]
           background=ffffffff
         '';
-        "nomacs/Image Lounge.conf".source = ./xdg-configFile/nomacs-settings.conf;
+        "nomacs/Image Lounge.conf".source =
+          ./xdg-configFile/nomacs-settings.conf;
         "w3m/config".source = ./xdg-configFile/w3m-config;
         "w3m/keymap".source = ./xdg-configFile/w3m-keymap;
       };
