@@ -13,5 +13,4 @@
     devNodes = "/dev/disk/by-id/";
     immutable.enable = true;
   };
-  boot.kernel.sysctl = { "kernel.unprivileged_userns_clone" = true; };
 }
