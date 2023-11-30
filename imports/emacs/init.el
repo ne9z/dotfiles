@@ -185,4 +185,12 @@
   (pyim-basedict-enable))
 ;; zh-cn input engine ends here
 
+(use-package eglot
+  :config
+  (add-hook 'haskell-mode-hook 'eglot-ensure)
+  :custom
+  (eglot-autoshutdown t)  ;; shutdown language server after closing last file
+  (eglot-confirm-server-initiated-edits nil))  ;; allow edits without confirmation
+
+
 (pdf-tools-install)

@@ -14,7 +14,8 @@
         }
         {
           event = "after-resume";
-          command = "${pkgs.coreutils-full}/bin/sleep 30; if ${pkgs.procps}/bin/pgrep --exact swaylock; then ${pkgs.systemd}/bin/systemctl suspend; fi";
+          command =
+            "${pkgs.coreutils-full}/bin/sleep 30; if ${pkgs.procps}/bin/pgrep --exact swaylock; then ${pkgs.systemd}/bin/systemctl suspend; fi";
         }
       ];
       timeouts = [
