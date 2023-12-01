@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  myHaskellPkg = (hp: builtins.attrValue { inherit (hp) cabal-install; });
+  myHaskellPkg = (hp: builtins.attrValues { inherit (hp) cabal-install; });
   myHaskellEnv = pkgs.haskellPackages.ghcWithHoogle myHaskellPkg;
 in {
   services = {
@@ -10,7 +10,7 @@ in {
       haskellPackages = pkgs.haskellPackages;
     };
   };
-  environment.systemPackages = builtins.attrValue {
+  environment.systemPackages = builtins.attrValues {
     # https://haskell4nix.readthedocs.io/nixpkgs-users-guide.html
     inherit myHaskellEnv;
     inherit (pkgs) haskell-language-server;
