@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  mytex = pkgs.texlive.combine {
-    inherit (pkgs.texlive)
+  mytex = pkgs.texliveSmall.withPackages (ps: {
+    inherit (ps)
       collection-basic collection-mathscience collection-pictures
       collection-latexrecommended collection-fontsrecommended collection-luatex
 
@@ -67,7 +67,7 @@ let
       csquotes
       # checks
       chktex lacheck;
-  };
+  });
 
   ycFontsConf =
     pkgs.writeText "fc-56-yc-fonts.conf" (builtins.readFile ./fontconfig.xml);
