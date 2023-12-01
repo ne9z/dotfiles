@@ -14,10 +14,12 @@ in {
 
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    # (modulesPath + "/profiles/hardened.nix")
+    (modulesPath + "/profiles/hardened.nix")
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
   system.stateVersion = "23.05";
 
