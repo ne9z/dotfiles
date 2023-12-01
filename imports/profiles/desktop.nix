@@ -18,5 +18,6 @@
     ../tex-fontconfig
     ../users/common.nix
     ../users/yc.nix
+    ../haskell
   ];
 }
