@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  mytex = pkgs.texliveSmall.withPackages (ps: {
+  mytex = pkgs.texliveSmall.withPackages (ps: builtins.attrValues {
     inherit (ps)
       collection-basic collection-mathscience collection-pictures
       collection-latexrecommended collection-fontsrecommended collection-luatex
