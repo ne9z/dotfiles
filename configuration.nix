@@ -1,6 +1,6 @@
 # configuration in this file is shared by all hosts
 
-{ pkgs, modulesPath, inputs, lib, ... }:
+{ config, pkgs, modulesPath, inputs, lib, ... }:
 let
   inherit (inputs) self;
   inherit (lib) mkDefault;
