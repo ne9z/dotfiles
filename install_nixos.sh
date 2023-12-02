@@ -2,7 +2,7 @@ find /dev/disk/by-id/
 DISK=/dev/disk/by-id/ata-MK0100GCTYU_BTTV508202HV100FGN
 MY_DISK_PASS="923zqbgsa0v9z9lA?s"
 MNT=$(mktemp -d)
-SWAPSIZE=8
+SWAPSIZE=16
 RESERVE=1
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
