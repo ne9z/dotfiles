@@ -34,9 +34,4 @@ in {
     sudo.enable = false;
     lockKernelModules = false;
   };
-
-  i18n.extraLocaleSettings = {
-    LC_ALL = "en_US.UTF-8";
-    LANGUAGE = "en_US.UTF-8";
-  };
 }
