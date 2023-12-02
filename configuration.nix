@@ -19,9 +19,9 @@ in {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
