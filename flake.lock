@@ -32,7 +32,7 @@
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "1bce6a1791a513af2727e5b668b3cd9ba76cb0bf",
+        "ref": "nixos-23.11-small",
         "type": "indirect"
       }
     },
